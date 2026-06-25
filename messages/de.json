@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "brand": "LIQUODA",
+    "register": "Registrieren"
+  },
+  "hero": {
+    "brand": "LIQUODA",
+    "slogan": "Real Assets. Digital Security.",
+    "description": "LIQUODA verbindet Emittenten und Investoren auf einer sicheren, transparenten Plattform. Investiere in reale Projekte — digital, direkt, ohne Bank.",
+    "ctaList": "Projekt listen",
+    "ctaInvest": "Jetzt investieren"
+  },
+  "howItWorks": {
+    "title": "So funktioniert LIQUODA",
+    "step1Title": "Registrieren",
+    "step1Desc": "Erstelle dein Konto als Emittent oder Investor — kostenlos und in wenigen Minuten.",
+    "step2Title": "Projekt entdecken",
+    "step2Desc": "Durchsuche geprüfte Schweizer Projekte aus verschiedenen Branchen.",
+    "step3Title": "Investieren",
+    "step3Desc": "Investiere sicher in CHF. Token dienen als digitaler Besitznachweis."
+  },
+  "projects": {
+    "title": "Aktuelle Projekte",
+    "badgeActive": "Aktiv",
+    "funded": "finanziert",
+    "goal": "Ziel",
+    "learnMore": "Mehr erfahren",
+    "comingSoon": "Demnächst verfügbar",
+    "p1Name": "Pizzeria Wander — Bern",
+    "p1Category": "Gastronomie",
+    "p2Name": "Vera Immobilien — Mehrfamilienhaus",
+    "p2Category": "Immobilien",
+    "p3Name": "Startup Display Solutions",
+    "p3Category": "Technologie"
+  },
+  "register": {
+    "title": "Jetzt registrieren",
+    "subtitle": "Wähle deine Rolle und erstelle dein Konto.",
+    "firstName": "Vorname",
+    "firstNamePlaceholder": "Max",
+    "lastName": "Nachname",
+    "lastNamePlaceholder": "Mustermann",
+    "email": "E-Mail",
+    "emailPlaceholder": "max@beispiel.ch",
+    "password": "Passwort",
+    "passwordPlaceholder": "Min. 8 Zeichen",
+    "roleLabel": "Ich bin",
+    "roleIssuer": "Emittent",
+    "roleIssuerDesc": "Ich suche Kapital für mein Projekt",
+    "roleInvestor": "Investor",
+    "roleInvestorDesc": "Ich möchte in Projekte investieren",
+    "gdpr": "Ich akzeptiere die Datenschutzerklärung",
+    "submit": "Konto erstellen",
+    "successTitle": "Vielen Dank!",
+    "successMessage": "Wir melden uns bald bei dir.",
+    "errorRequired": "Dieses Feld ist erforderlich.",
+    "errorEmail": "Bitte gib eine gültige E-Mail-Adresse ein.",
+    "errorPasswordLength": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+    "errorGdpr": "Bitte akzeptiere die Datenschutzerklärung.",
+    "errorRole": "Bitte wähle eine Rolle."
+  },
+  "footer": {
+    "brand": "LIQUODA",
+    "slogan": "Real Assets. Digital Security.",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz",
+    "agb": "AGB",
+    "copyright": "© 2026 LIQUODA. Alle Rechte vorbehalten."
+  }
+}

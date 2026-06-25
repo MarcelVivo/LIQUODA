@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-900 antialiased;
+  }
+
+  /* Subtle grid background pattern for hero */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(31, 56, 100, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 56, 100, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@layer components {
+  /* Progress bar fill animation */
+  .progress-bar {
+    @apply h-2 rounded-full bg-navy transition-all duration-500;
+  }
+}
