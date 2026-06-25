@@ -1,4 +1,10 @@
 {
+  "landing": {
+    "slogan": "Real Assets. Digital Security.",
+    "comingSoon": "Coming Soon",
+    "ctaList": "List a project",
+    "ctaInvest": "Invest now"
+  },
   "nav": {
     "brand": "LIQUODA",
     "register": "Register"

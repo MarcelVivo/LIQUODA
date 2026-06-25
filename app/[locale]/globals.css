@@ -6,23 +6,61 @@
   html {
     scroll-behavior: smooth;
   }
-
   body {
-    @apply font-sans text-gray-900 antialiased;
-  }
-
-  /* Subtle grid background pattern for hero */
-  .bg-grid {
-    background-image:
-      linear-gradient(rgba(31, 56, 100, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(31, 56, 100, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
+    @apply font-sans antialiased;
   }
 }
 
 @layer components {
-  /* Progress bar fill animation */
-  .progress-bar {
-    @apply h-2 rounded-full bg-navy transition-all duration-500;
+  /* ── LIQUODA logo text ──────────────────────────────────────────
+   * Responsive clamp sizing so it looks large on all viewports.
+   * The gradient + background-clip trick turns the text into a
+   * window that reveals a water-blue shimmer below it.
+   * The background-size / animation shifts the gradient position
+   * so it appears to shimmer — like light moving over water.
+   * ─────────────────────────────────────────────────────────────*/
+  .liq-logo-text {
+    font-size: clamp(3.8rem, 14vw, 11rem);
+    background-image: linear-gradient(
+      145deg,
+      #c4e9f9 0%,
+      #7dd3f0 20%,
+      #aee0f7 40%,
+      #56c0e0 60%,
+      #9dd8f2 80%,
+      #c4e9f9 100%
+    );
+    background-size: 250% 250%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: liq-shimmer 6s ease-in-out infinite;
+  }
+
+  /* Subtle gradient shimmer drift — simulates light on water */
+  @keyframes liq-shimmer {
+    0%   { background-position: 0%   50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0%   50%; }
+  }
+
+  /* ── Decorative buttons (no function) ────────────────────────── */
+  .liq-btn-outline {
+    @apply px-8 py-3 rounded-md text-sm font-medium tracking-wide;
+    border: 1px solid rgba(79, 195, 232, 0.35);
+    color: rgba(125, 211, 240, 0.65);
+    cursor: default;
+    pointer-events: none;
+    transition: border-color 0.2s;
+  }
+
+  .liq-btn-filled {
+    @apply px-8 py-3 rounded-md text-sm font-medium tracking-wide;
+    background: rgba(31, 63, 110, 0.7);
+    border: 1px solid rgba(79, 195, 232, 0.25);
+    color: rgba(125, 211, 240, 0.75);
+    cursor: default;
+    pointer-events: none;
+    transition: background 0.2s;
   }
 }
