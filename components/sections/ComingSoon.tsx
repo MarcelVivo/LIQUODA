@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 type Role = 'Emittent' | 'Investor' | '';
@@ -24,6 +24,33 @@ export default function ComingSoon() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<FormState>({ role: '', firstName: '', lastName: '', email: '' });
   const [errors, setErrors] = useState<FormErrors>({});
+
+  const turbRef = useRef<SVGFETurbulenceElement>(null);
+  const dispRef = useRef<SVGFEDisplacementMapElement>(null);
+  const rafRef = useRef<number>(0);
+  const hoveringRef = useRef(false);
+  const currentBase = useRef(0.01);
+  const currentScale = useRef(2.5);
+
+  useEffect(() => {
+    const tick = (ts: number) => {
+      const t = ts * 0.001;
+      if (turbRef.current && dispRef.current) {
+        const targetBase = hoveringRef.current ? 0.04 : 0.01;
+        const targetScale = hoveringRef.current ? 12 : 2.5;
+        currentBase.current += (targetBase - currentBase.current) * 0.035;
+        currentScale.current += (targetScale - currentScale.current) * 0.035;
+
+        const fx = currentBase.current + Math.sin(t * 0.9) * currentBase.current * 0.4;
+        const fy = currentBase.current * 1.5 + Math.cos(t * 0.7) * currentBase.current * 0.35;
+        turbRef.current.setAttribute('baseFrequency', `${fx.toFixed(5)} ${fy.toFixed(5)}`);
+        dispRef.current.setAttribute('scale', currentScale.current.toFixed(2));
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   const validate = (): FormErrors => {
     const e: FormErrors = {};
@@ -50,31 +77,66 @@ export default function ComingSoon() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#FEFCE8] select-none">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#F5F5F3] select-none">
 
-      {/* Logo */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 440 80"
-        aria-label="Liquoda"
-        className="w-[min(80vw,440px)]"
-      >
-        <text
-          fontFamily="'Georgia', 'Times New Roman', serif"
-          fontSize="64"
-          fontWeight="400"
-          letterSpacing="2"
-          dominantBaseline="middle"
-          textAnchor="middle"
-          y="42"
-        >
-          <tspan x="220" fill="#000000">Liquoda</tspan>
-          <tspan fill="#0b1830" fontWeight="700" letterSpacing="0">.-</tspan>
-        </text>
+      {/* SVG filter — applied only to ".-" */}
+      <svg aria-hidden="true" focusable="false" className="absolute w-0 h-0 overflow-hidden">
+        <defs>
+          <filter id="dot-wave" x="-50%" y="-100%" width="200%" height="300%">
+            <feTurbulence
+              ref={turbRef}
+              type="fractalNoise"
+              baseFrequency="0.01 0.015"
+              numOctaves="2"
+              seed="7"
+              result="noise"
+            />
+            <feDisplacementMap
+              ref={dispRef}
+              in="SourceGraphic"
+              in2="noise"
+              scale="2.5"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </defs>
       </svg>
 
+      {/* Logo: Liquoda (static) + .- (animated) */}
+      <div className="flex items-baseline leading-none">
+        <span
+          style={{
+            fontFamily: "'Georgia', 'Times New Roman', serif",
+            fontSize: '96px',
+            fontWeight: 400,
+            letterSpacing: '3px',
+            color: '#000000',
+            lineHeight: 1,
+          }}
+        >
+          Liquoda
+        </span>
+        <span
+          onMouseEnter={() => { hoveringRef.current = true; }}
+          onMouseLeave={() => { hoveringRef.current = false; }}
+          style={{
+            fontFamily: "'Georgia', 'Times New Roman', serif",
+            fontSize: '96px',
+            fontWeight: 700,
+            color: '#2563EB',
+            lineHeight: 1,
+            display: 'inline-block',
+            filter: 'url(#dot-wave)',
+            cursor: 'default',
+          }}
+        >
+          .-
+        </span>
+      </div>
+
       {/* Slogan */}
-      <p className="mt-3 text-xs sm:text-sm font-medium tracking-[0.35em] uppercase text-gray-400">
+      <p className="mt-5 text-xs sm:text-sm font-medium tracking-[0.35em] uppercase text-gray-400">
         Real Assets . Digital Security
       </p>
 
@@ -86,15 +148,13 @@ export default function ComingSoon() {
         Pre-Register
       </button>
 
-      {/* Modal overlay */}
+      {/* Modal */}
       {modalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4"
           onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         >
           <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
-
-            {/* Close */}
             <button
               onClick={closeModal}
               aria-label="Schließen"
@@ -111,7 +171,6 @@ export default function ComingSoon() {
             ) : (
               <>
                 <h2 className="text-xl font-semibold text-[#0b1830] mb-6">Pre-Registrierung</h2>
-
                 <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
 
                   {/* Role */}
@@ -136,7 +195,7 @@ export default function ComingSoon() {
                     {errors.role && <p className="mt-1 text-xs text-red-500">{errors.role}</p>}
                   </div>
 
-                  {/* First / Last name */}
+                  {/* Name */}
                   <div className="flex gap-3">
                     <div className="flex-1">
                       <input
@@ -172,7 +231,6 @@ export default function ComingSoon() {
                     {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                   </div>
 
-                  {/* Submit */}
                   <button
                     type="submit"
                     className="mt-2 w-full py-3 bg-[#0b1830] text-white text-sm font-medium tracking-[0.15em] uppercase rounded-lg hover:opacity-90 transition-opacity"
