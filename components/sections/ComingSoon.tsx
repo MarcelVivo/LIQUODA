@@ -22,7 +22,7 @@ interface FormErrors {
 
 const copy = {
   de: {
-    banner: 'LIQUODA startet bald. Sei unter den Ersten, die reale Assets tokenisieren oder investieren.',
+    banner: 'LIQUODA launches soon. Be among the first to tokenize or invest in real assets.',
     preRegister: 'Pre-Register',
     forIssuers: 'Für Emittenten',
     issuersP1:
