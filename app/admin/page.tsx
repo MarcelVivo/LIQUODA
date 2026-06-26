@@ -18,13 +18,17 @@ export default async function AdminDashboard() {
     .select('*')
     .order('created_at', { ascending: false });
 
-  if (supabaseError) {
+  if (supabaseError || !rows || rows.length === 0) {
+    const supabase2 = getSupabaseAdmin();
+    const countResult = await supabase2.from('registrations').select('count');
     return (
-      <div style={{ padding: 32, fontFamily: 'monospace' }}>
-        <strong>Supabase error:</strong>
-        <pre style={{ marginTop: 8, whiteSpace: 'pre-wrap', color: 'red' }}>
-          {JSON.stringify(supabaseError, null, 2)}
-        </pre>
+      <div style={{ padding: 32, fontFamily: 'monospace', fontSize: 13 }}>
+        <p><strong>rows:</strong> {JSON.stringify(rows)}</p>
+        <p><strong>error:</strong> {JSON.stringify(supabaseError)}</p>
+        <p><strong>count query:</strong> {JSON.stringify(countResult)}</p>
+        <p><strong>url:</strong> {process.env.NEXT_PUBLIC_SUPABASE_URL}</p>
+        <p><strong>key prefix:</strong> {(process.env.SUPABASE_SERVICE_ROLE_KEY ?? '').slice(0, 15)}</p>
+        <p><strong>time:</strong> {new Date().toISOString()}</p>
       </div>
     );
   }
