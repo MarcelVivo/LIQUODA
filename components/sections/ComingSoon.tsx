@@ -22,6 +22,7 @@ interface FormErrors {
 
 const copy = {
   de: {
+    banner: 'LIQUODA startet bald. Sei unter den Ersten, die reale Assets tokenisieren oder investieren.',
     preRegister: 'Pre-Register',
     forIssuers: 'Für Emittenten',
     issuersP1:
@@ -62,6 +63,7 @@ const copy = {
       'LIQUODA, betrieben von Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, erhebt bei der Pre-Registrierung folgende Daten: Vorname, Nachname und E-Mail-Adresse. Diese Daten werden ausschliesslich verwendet, um dich über den Launch der Plattform zu informieren und dich bei Bedarf zu kontaktieren. Deine Daten werden nicht an Dritte weitergegeben und nicht für Werbezwecke genutzt. Du hast jederzeit das Recht auf Auskunft, Berichtigung oder Löschung deiner Daten. Kontakt: info@liquoda.com.',
   },
   en: {
+    banner: 'LIQUODA launches soon. Be among the first to tokenize or invest in real assets.',
     preRegister: 'Pre-Register',
     forIssuers: 'For Issuers',
     issuersP1:
@@ -167,7 +169,14 @@ export default function ComingSoon() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-start md:justify-center bg-[#F5F5F3] select-none pt-20 md:pt-0">
+      {/* Top announcement banner */}
+      <div className="fixed top-0 left-0 right-0 z-40 bg-[#0b1830] py-3 px-4 text-center">
+        <p className="text-white text-[11px] font-medium tracking-[0.2em]">
+          {c.banner}
+        </p>
+      </div>
+
+      <main className="flex min-h-screen flex-col items-center justify-start md:justify-center bg-[#F5F5F3] select-none pt-32 md:pt-16">
 
         {/* SVG filter — applied only to ".-" */}
         <svg aria-hidden="true" focusable="false" className="absolute w-0 h-0 overflow-hidden">
