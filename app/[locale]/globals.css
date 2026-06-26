@@ -13,31 +13,32 @@
 
 @layer components {
   /* ── LIQUODA logo text ──────────────────────────────────────────
-   * Responsive clamp sizing so it looks large on all viewports.
-   * The gradient + background-clip trick turns the text into a
-   * window that reveals a water-blue shimmer below it.
-   * The background-size / animation shifts the gradient position
-   * so it appears to shimmer — like light moving over water.
+   * Space Grotesk at 700 weight: geometric, technical, fintech-grade.
+   * Wide letter-spacing reads like financial terminal data.
+   * Gradient shimmer simulates light refracting through water.
    * ─────────────────────────────────────────────────────────────*/
   .liq-logo-text {
-    font-size: clamp(3.8rem, 14vw, 11rem);
+    font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3.2rem, 12vw, 9.5rem);
+    letter-spacing: 0.18em;
     background-image: linear-gradient(
-      145deg,
-      #c4e9f9 0%,
-      #7dd3f0 20%,
-      #aee0f7 40%,
-      #56c0e0 60%,
-      #9dd8f2 80%,
-      #c4e9f9 100%
+      140deg,
+      #d4eefb 0%,
+      #7dd3f0 18%,
+      #b8e5f8 38%,
+      #4fb8da 58%,
+      #a2dcf5 78%,
+      #d4eefb 100%
     );
-    background-size: 250% 250%;
+    background-size: 280% 280%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: liq-shimmer 6s ease-in-out infinite;
+    animation: liq-shimmer 16s ease-in-out infinite;
   }
 
-  /* Subtle gradient shimmer drift — simulates light on water */
+  /* Slow, calm light-on-water shimmer */
   @keyframes liq-shimmer {
     0%   { background-position: 0%   50%; }
     50%  { background-position: 100% 50%; }
