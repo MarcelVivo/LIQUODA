@@ -7,8 +7,11 @@ export function getSupabaseAdmin() {
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
     {
       auth: { autoRefreshToken: false, persistSession: false },
-      // ws is required as WebSocket transport on Node.js < 22
       realtime: { transport: WebSocket as unknown as typeof globalThis.WebSocket },
+      global: {
+        fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+          fetch(input, { ...init, cache: 'no-store' }),
+      },
     }
   );
 }
