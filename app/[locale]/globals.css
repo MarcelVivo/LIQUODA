@@ -55,6 +55,35 @@
     transition: border-color 0.2s;
   }
 
+  /* ── ".-" liquid blue hover effect ─────────────────────────────── */
+  .liq-dot {
+    color: #0b1830;
+  }
+
+  .liq-dot-hover {
+    background-image: linear-gradient(
+      90deg,
+      #0b1830 0%,
+      #00C9A7 18%,
+      #48CAE4 36%,
+      #0085FF 52%,
+      #1D4ED8 68%,
+      #00B4D8 82%,
+      #0b1830 100%
+    );
+    background-size: 280% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: liq-blue-flow 2.4s ease-in-out infinite;
+  }
+
+  @keyframes liq-blue-flow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
   .liq-btn-filled {
     @apply px-8 py-3 rounded-md text-sm font-medium tracking-wide;
     background: rgba(31, 63, 110, 0.7);

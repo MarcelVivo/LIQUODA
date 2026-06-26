@@ -25,6 +25,8 @@ export default function ComingSoon() {
   const [form, setForm] = useState<FormState>({ role: '', firstName: '', lastName: '', email: '' });
   const [errors, setErrors] = useState<FormErrors>({});
 
+  const [dotHover, setDotHover] = useState(false);
+
   const turbRef = useRef<SVGFETurbulenceElement>(null);
   const dispRef = useRef<SVGFEDisplacementMapElement>(null);
   const rafRef = useRef<number>(0);
@@ -118,13 +120,13 @@ export default function ComingSoon() {
           Liquoda
         </span>
         <span
-          onMouseEnter={() => { hoveringRef.current = true; }}
-          onMouseLeave={() => { hoveringRef.current = false; }}
+          onMouseEnter={() => { hoveringRef.current = true; setDotHover(true); }}
+          onMouseLeave={() => { hoveringRef.current = false; setDotHover(false); }}
+          className={dotHover ? 'liq-dot-hover' : 'liq-dot'}
           style={{
             fontFamily: "'Georgia', 'Times New Roman', serif",
             fontSize: '96px',
             fontWeight: 700,
-            color: '#2563EB',
             lineHeight: 1,
             display: 'inline-block',
             filter: 'url(#dot-wave)',
