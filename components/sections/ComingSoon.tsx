@@ -239,11 +239,30 @@ export default function ComingSoon() {
         onMouseMove={onMove}
       >
         <div style={{ filter: `url(#${FILTER_ID})` }}>
-          <img
-            src="/liquoda-logo-v2.svg"
-            alt="Liquoda – Real Assets . Digital Security"
-            className="w-[min(90vw,520px)]"
-          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 440 80"
+            aria-label="Liquoda"
+            className="w-[min(80vw,440px)]"
+          >
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: '#00C9A7', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: '#0085FF', stopOpacity: 1 }} />
+              </linearGradient>
+            </defs>
+            <text
+              fontFamily="'Georgia', 'Times New Roman', serif"
+              fontSize="64"
+              fontWeight="400"
+              letterSpacing="2"
+              dominantBaseline="middle"
+              y="42"
+            >
+              <tspan x="0" fill="white">Liquoda</tspan>
+              <tspan fill="url(#logoGrad)" fontWeight="700" letterSpacing="0">.-</tspan>
+            </text>
+          </svg>
         </div>
 
         {/* Light caustic overlay — follows mouse */}
@@ -255,8 +274,13 @@ export default function ComingSoon() {
         />
       </div>
 
+      {/* Slogan */}
+      <p className="relative z-20 mt-4 text-center text-xs sm:text-sm font-medium tracking-[0.35em] uppercase text-white/40">
+        Real Assets · Digital Security
+      </p>
+
       {/* Coming soon */}
-      <p className="relative z-20 mt-6 text-[10px] sm:text-xs tracking-[0.5em] uppercase text-white/20 font-light">
+      <p className="relative z-20 mt-2 text-[10px] sm:text-xs tracking-[0.5em] uppercase text-white/20 font-light">
         {t('comingSoon')}
       </p>
 
