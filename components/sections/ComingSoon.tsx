@@ -164,9 +164,6 @@ export default function ComingSoon() {
           <p className="mt-4 text-[13px] leading-[1.85] text-gray-500">
             Ob du einen Gastrobetrieb finanzieren, eine Immobilie entwickeln oder ein Startup auf die Beine stellen willst: LIQUODA tokenisiert dein Projekt auf der Blockchain und macht deine Investoren zu verifizierten Teilhabern. Transparent, nachvollziehbar, ohne Umwege.
           </p>
-          <p className="mt-4 text-[13px] leading-[1.85] text-gray-500">
-            Einmalige Setup-Gebühr. Klare Konditionen. Wir verdienen an der Vermittlung, nicht an deinem Ergebnis.
-          </p>
         </div>
 
         {/* Vertical divider */}
