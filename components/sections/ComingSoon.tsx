@@ -1,298 +1,190 @@
 'use client';
 
-import { useRef, useEffect, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import { X } from 'lucide-react';
 
-const FILTER_ID = 'liq-water';
+type Role = 'Emittent' | 'Investor' | '';
 
-// Tech + finance symbols flowing through the liquid
-const SYMBOLS = [
-  // Technical / code
-  '0x', '{}', '[]', '<>', '//', '::', '&&', '||', '→', '≡',
-  'λ', '∂', '∇', '⊕', '01', '10', 'A3', 'F7', '2D', '#4F',
-  '0xFF', '0x1A', 'B7E', 'C9D', '≠', '=>',
-  // Finance / markets
-  '$', '€', '£', '¥', '%', '±', '≈', '▲', '▼', '∞',
-  'CHF', 'ETH', '₿', 'APY', 'TVL', 'NAV',
-  '+3.2', '1.4%', '4.8%', '-0.7', 'Σ', 'Δ',
-];
-
-const COLORS = ['#c4e9f9', '#9dd8f2', '#7dd3f0', '#aee0f7', '#6dcde8'];
-
-interface Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  symbol: string;
-  opacity: number;
-  size: number;
-  phase: number;
-  color: string;
+interface FormState {
+  role: Role;
+  firstName: string;
+  lastName: string;
+  email: string;
 }
 
-function spawnParticles(count: number, W: number, H: number): Particle[] {
-  return Array.from({ length: count }, () => ({
-    x: Math.random() * W,
-    y: Math.random() * H,
-    vx: (Math.random() - 0.5) * 0.14,
-    vy: (Math.random() - 0.5) * 0.07,
-    symbol: SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)],
-    opacity: Math.random() * 0.09 + 0.025,
-    size: Math.floor(Math.random() * 5) + 9,
-    phase: Math.random() * Math.PI * 2,
-    color: COLORS[Math.floor(Math.random() * COLORS.length)],
-  }));
+interface FormErrors {
+  role?: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
 }
 
 export default function ComingSoon() {
-  const t = useTranslations('landing');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState<FormState>({ role: '', firstName: '', lastName: '', email: '' });
+  const [errors, setErrors] = useState<FormErrors>({});
 
-  const turbRef = useRef<SVGFETurbulenceElement>(null);
-  const dispRef = useRef<SVGFEDisplacementMapElement>(null);
+  const validate = (): FormErrors => {
+    const e: FormErrors = {};
+    if (!form.role) e.role = 'Bitte wähle eine Rolle.';
+    if (!form.firstName.trim()) e.firstName = 'Pflichtfeld';
+    if (!form.lastName.trim()) e.lastName = 'Pflichtfeld';
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+      e.email = 'Ungültige E-Mail-Adresse';
+    return e;
+  };
 
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
-  const dimsRef = useRef({ W: 0, H: 0 });
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    setSubmitted(true);
+  };
 
-  const logoWrapRef = useRef<HTMLDivElement>(null);
-  const highlightRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
-
-  const state = useRef({
-    hovering: false,
-    scale: 3,
-    targetScale: 3,
-    mx: 0.5,
-    my: 0.5,
-  });
-
-  // Set up canvas size and initial particles
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const init = () => {
-      const W = window.innerWidth;
-      const H = window.innerHeight;
-      canvas.width = W;
-      canvas.height = H;
-      dimsRef.current = { W, H };
-      const count = Math.max(45, Math.min(90, Math.floor((W * H) / 14000)));
-      particlesRef.current = spawnParticles(count, W, H);
-    };
-
-    init();
-    window.addEventListener('resize', init);
-    return () => window.removeEventListener('resize', init);
-  }, []);
-
-  /* ─── Unified animation loop ────────────────────────────────── */
-  useEffect(() => {
-    const tick = (ts: number) => {
-      const s = state.current;
-      const time = ts * 0.001;
-
-      // Very slow lerp toward target scale
-      s.scale += (s.targetScale - s.scale) * (s.hovering ? 0.05 : 0.022);
-
-      // Update SVG water distortion
-      if (turbRef.current && dispRef.current) {
-        let fx: number, fy: number;
-
-        if (s.hovering) {
-          // Gently responds to mouse — still calm, not violent
-          fx = 0.006 + Math.sin(time * 0.9 + s.mx * Math.PI * 2) * 0.0025;
-          fy = 0.009 + Math.cos(time * 0.7 + s.my * Math.PI * 2) * 0.0025;
-        } else {
-          // Ultra-slow drift — barely perceptible, like deep water
-          fx = 0.003 + Math.sin(time * 0.12) * 0.0008;
-          fy = 0.005 + Math.cos(time * 0.09) * 0.001;
-        }
-
-        turbRef.current.setAttribute('baseFrequency', `${fx.toFixed(6)} ${fy.toFixed(6)}`);
-        dispRef.current.setAttribute('scale', s.scale.toFixed(2));
-      }
-
-      // Draw particles
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext('2d');
-      if (ctx && canvas) {
-        const { W, H } = dimsRef.current;
-        ctx.clearRect(0, 0, W, H);
-
-        particlesRef.current.forEach(p => {
-          // Gentle sinusoidal drift — simulates liquid current
-          const wx = Math.sin(time * 0.16 + p.phase) * 0.09;
-          const wy = Math.cos(time * 0.12 + p.phase * 1.3) * 0.06;
-
-          p.x += p.vx + wx;
-          p.y += p.vy + wy;
-
-          if (p.x < -70) p.x = W + 70;
-          if (p.x > W + 70) p.x = -70;
-          if (p.y < -40) p.y = H + 40;
-          if (p.y > H + 40) p.y = -40;
-
-          ctx.save();
-          ctx.globalAlpha = p.opacity;
-          ctx.font = `${p.size}px "Courier New", "Lucida Console", monospace`;
-          ctx.fillStyle = p.color;
-          ctx.fillText(p.symbol, p.x, p.y);
-          ctx.restore();
-        });
-      }
-
-      rafRef.current = requestAnimationFrame(tick);
-    };
-
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  /* ─── Mouse handlers ─────────────────────────────────────────── */
-  const onEnter = useCallback(() => {
-    state.current.hovering = true;
-    state.current.targetScale = 13;
-    if (highlightRef.current) highlightRef.current.style.opacity = '1';
-  }, []);
-
-  const onLeave = useCallback(() => {
-    state.current.hovering = false;
-    state.current.targetScale = 3;
-    if (highlightRef.current) highlightRef.current.style.opacity = '0';
-  }, []);
-
-  const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = logoWrapRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const mx = (e.clientX - rect.left) / rect.width;
-    const my = (e.clientY - rect.top) / rect.height;
-    state.current.mx = mx;
-    state.current.my = my;
-
-    if (highlightRef.current) {
-      highlightRef.current.style.background = `radial-gradient(ellipse 55% 45% at ${mx * 100}% ${my * 100}%, rgba(110, 210, 240, 0.16) 0%, transparent 70%)`;
-    }
-  }, []);
+  const closeModal = () => {
+    setModalOpen(false);
+    setSubmitted(false);
+    setForm({ role: '', firstName: '', lastName: '', email: '' });
+    setErrors({});
+  };
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#0b1830] select-none">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#FEFCE8] select-none">
 
-      {/* Particle canvas — full screen, behind everything */}
-      <canvas
-        ref={canvasRef}
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
-      />
-
-      {/* Ambient background glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[60vh] w-[80vw] rounded-full z-10"
-        style={{
-          background: 'radial-gradient(ellipse, rgba(79, 195, 232, 0.06) 0%, transparent 65%)',
-        }}
-      />
-
-      {/* SVG water filter definition */}
+      {/* Logo */}
       <svg
-        aria-hidden="true"
-        focusable="false"
-        width="0"
-        height="0"
-        className="absolute overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 440 80"
+        aria-label="Liquoda"
+        className="w-[min(80vw,440px)]"
       >
-        <defs>
-          {/*
-           * fractalNoise gives smoother, more organic undulations than turbulence.
-           * 3 octaves keeps it broad and calm — no harsh high-frequency jitter.
-           * Low baseFrequency and small scale = barely-there, glassy-water look.
-           */}
-          <filter id={FILTER_ID} x="-15%" y="-40%" width="130%" height="180%" colorInterpolationFilters="sRGB">
-            <feTurbulence
-              ref={turbRef}
-              type="fractalNoise"
-              baseFrequency="0.003 0.005"
-              numOctaves="3"
-              seed="8"
-              result="noise"
-            />
-            <feDisplacementMap
-              ref={dispRef}
-              in="SourceGraphic"
-              in2="noise"
-              scale="3"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-        </defs>
+        <text
+          fontFamily="'Georgia', 'Times New Roman', serif"
+          fontSize="64"
+          fontWeight="400"
+          letterSpacing="2"
+          dominantBaseline="middle"
+          textAnchor="middle"
+          y="42"
+        >
+          <tspan x="220" fill="#000000">Liquoda</tspan>
+          <tspan fill="#0b1830" fontWeight="700" letterSpacing="0">.-</tspan>
+        </text>
       </svg>
 
-      {/* Logo block */}
-      <div
-        ref={logoWrapRef}
-        className="relative z-20 cursor-default"
-        onMouseEnter={onEnter}
-        onMouseLeave={onLeave}
-        onMouseMove={onMove}
-      >
-        <div style={{ filter: `url(#${FILTER_ID})` }}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 440 80"
-            aria-label="Liquoda"
-            className="w-[min(80vw,440px)]"
-          >
-            <defs>
-              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style={{ stopColor: '#00C9A7', stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: '#0085FF', stopOpacity: 1 }} />
-              </linearGradient>
-            </defs>
-            <text
-              fontFamily="'Georgia', 'Times New Roman', serif"
-              fontSize="64"
-              fontWeight="400"
-              letterSpacing="2"
-              dominantBaseline="middle"
-              y="42"
-            >
-              <tspan x="0" fill="white">Liquoda</tspan>
-              <tspan fill="url(#logoGrad)" fontWeight="700" letterSpacing="0">.-</tspan>
-            </text>
-          </svg>
-        </div>
-
-        {/* Light caustic overlay — follows mouse */}
-        <div
-          ref={highlightRef}
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-[-12%] opacity-0 rounded-2xl"
-          style={{ transition: 'opacity 0.7s ease' }}
-        />
-      </div>
-
       {/* Slogan */}
-      <p className="relative z-20 mt-4 text-center text-xs sm:text-sm font-medium tracking-[0.35em] uppercase text-white/40">
-        Real Assets · Digital Security
+      <p className="mt-3 text-xs sm:text-sm font-medium tracking-[0.35em] uppercase text-gray-400">
+        Real Assets . Digital Security
       </p>
 
-      {/* Coming soon */}
-      <p className="relative z-20 mt-2 text-[10px] sm:text-xs tracking-[0.5em] uppercase text-white/20 font-light">
-        {t('comingSoon')}
-      </p>
+      {/* Pre-Register button */}
+      <button
+        onClick={() => setModalOpen(true)}
+        className="mt-10 px-10 py-3 bg-[#0b1830] text-white text-xs font-medium tracking-[0.2em] uppercase rounded-full hover:opacity-90 transition-opacity"
+      >
+        Pre-Register
+      </button>
 
-      {/* Decorative buttons */}
-      <div className="relative z-20 mt-10 flex flex-col sm:flex-row items-center gap-3">
-        <button tabIndex={-1} aria-disabled="true" className="liq-btn-outline">
-          {t('ctaList')}
-        </button>
-        <button tabIndex={-1} aria-disabled="true" className="liq-btn-filled">
-          {t('ctaInvest')}
-        </button>
-      </div>
+      {/* Modal overlay */}
+      {modalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4"
+          onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
+        >
+          <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+
+            {/* Close */}
+            <button
+              onClick={closeModal}
+              aria-label="Schließen"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-10 gap-3">
+                <p className="text-lg font-semibold text-[#0b1830] tracking-wide">More Details coming soon</p>
+                <p className="text-sm text-gray-400">Wir melden uns bei dir.</p>
+              </div>
+            ) : (
+              <>
+                <h2 className="text-xl font-semibold text-[#0b1830] mb-6">Pre-Registrierung</h2>
+
+                <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
+
+                  {/* Role */}
+                  <div>
+                    <div className="flex gap-3">
+                      {(['Emittent', 'Investor'] as Role[]).map((r) => (
+                        <button
+                          key={r}
+                          type="button"
+                          onClick={() => setForm((f) => ({ ...f, role: r }))}
+                          className={[
+                            'flex-1 py-2.5 rounded-lg border text-sm font-medium transition-colors',
+                            form.role === r
+                              ? 'border-[#0b1830] bg-[#0b1830] text-white'
+                              : 'border-gray-200 text-gray-600 hover:border-gray-400',
+                          ].join(' ')}
+                        >
+                          {r}
+                        </button>
+                      ))}
+                    </div>
+                    {errors.role && <p className="mt-1 text-xs text-red-500">{errors.role}</p>}
+                  </div>
+
+                  {/* First / Last name */}
+                  <div className="flex gap-3">
+                    <div className="flex-1">
+                      <input
+                        type="text"
+                        placeholder="Vorname"
+                        value={form.firstName}
+                        onChange={(e) => setForm((f) => ({ ...f, firstName: e.target.value }))}
+                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0b1830] transition-colors"
+                      />
+                      {errors.firstName && <p className="mt-1 text-xs text-red-500">{errors.firstName}</p>}
+                    </div>
+                    <div className="flex-1">
+                      <input
+                        type="text"
+                        placeholder="Nachname"
+                        value={form.lastName}
+                        onChange={(e) => setForm((f) => ({ ...f, lastName: e.target.value }))}
+                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0b1830] transition-colors"
+                      />
+                      {errors.lastName && <p className="mt-1 text-xs text-red-500">{errors.lastName}</p>}
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="E-Mail"
+                      value={form.email}
+                      onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                      className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0b1830] transition-colors"
+                    />
+                    {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+                  </div>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    className="mt-2 w-full py-3 bg-[#0b1830] text-white text-sm font-medium tracking-[0.15em] uppercase rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    Registrieren
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </main>
   );
 }
