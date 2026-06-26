@@ -239,12 +239,11 @@ export default function ComingSoon() {
         onMouseMove={onMove}
       >
         <div style={{ filter: `url(#${FILTER_ID})` }}>
-          <h1
-            aria-label="LIQUODA"
-            className="leading-none liq-logo-text"
-          >
-            LIQUODA
-          </h1>
+          <img
+            src="/liquoda-logo-v2.svg"
+            alt="Liquoda – Real Assets . Digital Security"
+            className="w-[min(90vw,520px)]"
+          />
         </div>
 
         {/* Light caustic overlay — follows mouse */}
@@ -256,13 +255,8 @@ export default function ComingSoon() {
         />
       </div>
 
-      {/* Slogan */}
-      <p className="relative z-20 mt-8 text-xs sm:text-sm font-medium tracking-[0.35em] uppercase text-white/40">
-        {t('slogan')}
-      </p>
-
       {/* Coming soon */}
-      <p className="relative z-20 mt-2 text-[10px] sm:text-xs tracking-[0.5em] uppercase text-white/20 font-light">
+      <p className="relative z-20 mt-6 text-[10px] sm:text-xs tracking-[0.5em] uppercase text-white/20 font-light">
         {t('comingSoon')}
       </p>
 
