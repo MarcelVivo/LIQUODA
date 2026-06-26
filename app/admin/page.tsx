@@ -13,10 +13,21 @@ type Registration = {
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
-  const { data: rows } = await getSupabaseAdmin()
+  const { data: rows, error: supabaseError } = await getSupabaseAdmin()
     .from('registrations')
     .select('*')
     .order('created_at', { ascending: false });
+
+  if (supabaseError) {
+    return (
+      <div style={{ padding: 32, fontFamily: 'monospace' }}>
+        <strong>Supabase error:</strong>
+        <pre style={{ marginTop: 8, whiteSpace: 'pre-wrap', color: 'red' }}>
+          {JSON.stringify(supabaseError, null, 2)}
+        </pre>
+      </div>
+    );
+  }
 
   const registrations: Registration[] = rows ?? [];
   const total = registrations.length;
