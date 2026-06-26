@@ -150,6 +150,44 @@ export default function ComingSoon() {
         Pre-Register
       </button>
 
+      {/* Two-column info section */}
+      <div className="mt-16 w-full max-w-4xl px-6 sm:px-10 pb-20 flex flex-col md:flex-row gap-10 md:gap-0">
+
+        {/* Für Emittenten */}
+        <div className="flex-1 md:pr-10 text-justify">
+          <p className="mb-4 text-[10px] font-semibold tracking-[0.3em] uppercase text-gray-400">
+            Für Emittenten
+          </p>
+          <p className="text-[13px] leading-[1.85] text-gray-500">
+            Du hast ein konkretes Projekt und brauchst Kapital. Kein Bankenmarathon, kein Pitch vor einem Gremium. Auf LIQUODA stellst du dein Vorhaben digital vor und erreichst direkt Investoren, die in reale Projekte investieren wollen.
+          </p>
+          <p className="mt-4 text-[13px] leading-[1.85] text-gray-500">
+            Ob du einen Gastrobetrieb finanzieren, eine Immobilie entwickeln oder ein Startup auf die Beine stellen willst: LIQUODA tokenisiert dein Projekt auf der Blockchain und macht deine Investoren zu verifizierten Teilhabern. Transparent, nachvollziehbar, ohne Umwege.
+          </p>
+          <p className="mt-4 text-[13px] leading-[1.85] text-gray-500">
+            Einmalige Setup-Gebühr. Klare Konditionen. Wir verdienen an der Vermittlung, nicht an deinem Ergebnis.
+          </p>
+        </div>
+
+        {/* Vertical divider */}
+        <div className="hidden md:block w-px bg-gray-200 self-stretch mx-0" />
+        {/* Mobile horizontal divider */}
+        <div className="block md:hidden h-px w-full bg-gray-200" />
+
+        {/* Für Investoren */}
+        <div className="flex-1 md:pl-10 text-justify">
+          <p className="mb-4 text-[10px] font-semibold tracking-[0.3em] uppercase text-gray-400">
+            Für Investoren
+          </p>
+          <p className="text-[13px] leading-[1.85] text-gray-500">
+            Du willst dein Geld in etwas Echtes stecken. Nicht in abstrakte Finanzprodukte, sondern in Projekte, die du verstehst und die du siehst.
+          </p>
+          <p className="mt-4 text-[13px] leading-[1.85] text-gray-500">
+            LIQUODA gibt dir Zugang zu tokenisierten Realwerten. Ab CHF 100 investierst du direkt in Schweizer Projekte, erhältst einen digitalen Token als Besitznachweis auf der Polygon-Blockchain und weisst jederzeit, wo dein Geld steckt. Keine Plattform, die dein Kapital verwahrt. Keine Anlageempfehlungen. Nur ein direkter, technisch gesicherter Kanal zwischen dir und dem Emittenten.
+          </p>
+        </div>
+      </div>
+
       {/* Modal */}
       {modalOpen && (
         <div
