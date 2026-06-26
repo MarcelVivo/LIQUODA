@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 export async function POST(req: NextRequest) {
   const { role, firstName, lastName, email } = await req.json();
@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
   }
 
-  const { error } = await supabaseAdmin.from('registrations').insert({
+  const { error } = await getSupabaseAdmin().from('registrations').insert({
     role,
     first_name: firstName.trim(),
     last_name: lastName.trim(),

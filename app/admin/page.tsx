@@ -1,4 +1,4 @@
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 import LogoutButton from './_components/LogoutButton';
 
 type Registration = {
@@ -13,7 +13,7 @@ type Registration = {
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
-  const { data: rows } = await supabaseAdmin
+  const { data: rows } = await getSupabaseAdmin()
     .from('registrations')
     .select('*')
     .order('created_at', { ascending: false });
