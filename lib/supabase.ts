@@ -1,6 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const ws = require('ws') as typeof WebSocket;
+import WebSocket from 'ws';
 
 export function getSupabaseAdmin() {
   return createClient(
@@ -8,9 +7,8 @@ export function getSupabaseAdmin() {
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
     {
       auth: { autoRefreshToken: false, persistSession: false },
-      // Pass ws as WebSocket transport — required for Node.js < 22
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      realtime: { transport: ws as any },
+      // ws is required as WebSocket transport on Node.js < 22
+      realtime: { transport: WebSocket as unknown as typeof globalThis.WebSocket },
     }
   );
 }
