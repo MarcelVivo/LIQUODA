@@ -79,7 +79,7 @@ export default function ComingSoon() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#F5F5F3] select-none">
+    <main className="flex min-h-screen flex-col items-center justify-start md:justify-center bg-[#F5F5F3] select-none pt-20 md:pt-0">
 
       {/* SVG filter — applied only to ".-" */}
       <svg aria-hidden="true" focusable="false" className="absolute w-0 h-0 overflow-hidden">
