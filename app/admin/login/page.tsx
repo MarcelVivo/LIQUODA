@@ -24,7 +24,12 @@ export default function AdminLogin() {
     if (res.ok) {
       router.push('/admin');
     } else {
-      setError('E-Mail oder Passwort ungültig.');
+      const data = await res.json().catch(() => ({}));
+      setError(
+        res.status === 500
+          ? `Server-Fehler (${data.error ?? 'unbekannt'})`
+          : 'E-Mail oder Passwort ungültig.'
+      );
       setLoading(false);
     }
   };
