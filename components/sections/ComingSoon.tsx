@@ -106,13 +106,13 @@ export default function ComingSoon() {
       </svg>
 
       {/* Logo: Liquoda (static) + .- (animated) */}
-      <div className="flex items-baseline leading-none">
+      <div className="flex items-baseline leading-none px-4">
         <span
           style={{
             fontFamily: "'Georgia', 'Times New Roman', serif",
-            fontSize: '96px',
+            fontSize: 'clamp(2rem, 13vw, 6rem)',
             fontWeight: 400,
-            letterSpacing: '3px',
+            letterSpacing: '0.03em',
             color: '#000000',
             lineHeight: 1,
           }}
@@ -125,7 +125,7 @@ export default function ComingSoon() {
           className={dotHover ? 'liq-dot-hover' : 'liq-dot'}
           style={{
             fontFamily: "'Georgia', 'Times New Roman', serif",
-            fontSize: '96px',
+            fontSize: 'clamp(2rem, 13vw, 6rem)',
             fontWeight: 700,
             lineHeight: 1,
             display: 'inline-block',
