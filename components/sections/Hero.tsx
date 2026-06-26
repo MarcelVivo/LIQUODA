@@ -28,14 +28,14 @@ export default function Hero() {
     >
       <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 lg:px-8">
         {/* Brand mark */}
-        <h1 className="text-6xl font-bold tracking-tight text-navy sm:text-7xl lg:text-8xl">
-          {t('brand')}
-        </h1>
-
-        {/* Slogan */}
-        <p className="mt-4 text-xl font-medium text-gray-400 sm:text-2xl">
-          {t('slogan')}
-        </p>
+        <h1 className="sr-only">Liquoda – Real Assets . Digital Security</h1>
+        <div className="flex justify-center">
+          <img
+            src="/liquoda-logo-v2.svg"
+            alt="Liquoda – Real Assets . Digital Security"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-lg"
+          />
+        </div>
 
         {/* Description */}
         <p className="mt-6 text-lg leading-relaxed text-gray-600 sm:text-xl">

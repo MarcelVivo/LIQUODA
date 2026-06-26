@@ -35,9 +35,14 @@ export default function Navbar() {
           {/* Brand */}
           <a
             href="#"
-            className="text-xl font-bold tracking-tight text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy rounded"
+            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy rounded"
+            aria-label="Liquoda – Startseite"
           >
-            {t('brand')}
+            <img
+              src="/liquoda-logo-v2.svg"
+              alt="Liquoda"
+              className="h-10 w-auto"
+            />
           </a>
 
           {/* Desktop nav */}
