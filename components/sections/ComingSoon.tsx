@@ -153,10 +153,25 @@ export default function ComingSoon() {
     return e;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+
+    try {
+      await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          role: form.role,
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+        }),
+      });
+    } catch {
+      // show success regardless — don't block UX on network error
+    }
     setSubmitted(true);
   };
 
