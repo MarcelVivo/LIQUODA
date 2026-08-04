@@ -8,6 +8,7 @@
   }
   body {
     @apply font-sans antialiased;
+    background: #071925;
   }
 }
 
@@ -55,33 +56,26 @@
     transition: border-color 0.2s;
   }
 
-  /* ── ".-" liquid blue hover effect ─────────────────────────────── */
-  .liq-dot {
-    color: #0b1830;
+  /* Reference-video logo accent and ambient background lighting */
+  .liq-logo-accent {
+    color: #1fc3a6;
+    text-shadow: 0 0 22px rgba(31, 195, 166, 0.14);
   }
 
-  .liq-dot-hover {
-    background-image: linear-gradient(
-      90deg,
-      #0b1830 0%,
-      #00C9A7 18%,
-      #48CAE4 36%,
-      #0085FF 52%,
-      #1D4ED8 68%,
-      #00B4D8 82%,
-      #0b1830 100%
+  .liquoda-ambient-glow {
+    background:
+      radial-gradient(circle at 84% 13%, rgba(15, 111, 109, 0.14), transparent 27%),
+      radial-gradient(circle at 12% 78%, rgba(7, 74, 83, 0.12), transparent 30%);
+  }
+
+  .liquoda-wave-fade {
+    background: linear-gradient(
+      to bottom,
+      rgba(7, 25, 37, 0.92) 0%,
+      rgba(7, 25, 37, 0.12) 42%,
+      rgba(7, 25, 37, 0) 64%,
+      rgba(7, 25, 37, 0.22) 100%
     );
-    background-size: 280% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: liq-blue-flow 2.4s ease-in-out infinite;
-  }
-
-  @keyframes liq-blue-flow {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
   }
 
   .liq-btn-filled {

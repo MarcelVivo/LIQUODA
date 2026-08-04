@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { X } from 'lucide-react';
+import WaveBackground from '@/components/ui/WaveBackground';
 
 type Role = 'Emittent' | 'Investor' | '';
 type Lang = 'de' | 'en';
@@ -112,35 +113,6 @@ export default function ComingSoon() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<FormState>({ role: '', firstName: '', lastName: '', email: '' });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [dotHover, setDotHover] = useState(false);
-
-  const turbRef = useRef<SVGFETurbulenceElement>(null);
-  const dispRef = useRef<SVGFEDisplacementMapElement>(null);
-  const rafRef = useRef<number>(0);
-  const hoveringRef = useRef(false);
-  const currentBase = useRef(0.01);
-  const currentScale = useRef(2.5);
-
-  useEffect(() => {
-    const tick = (ts: number) => {
-      const t = ts * 0.001;
-      if (turbRef.current && dispRef.current) {
-        const targetBase = hoveringRef.current ? 0.04 : 0.01;
-        const targetScale = hoveringRef.current ? 12 : 2.5;
-        currentBase.current += (targetBase - currentBase.current) * 0.035;
-        currentScale.current += (targetScale - currentScale.current) * 0.035;
-
-        const fx = currentBase.current + Math.sin(t * 0.9) * currentBase.current * 0.4;
-        const fy = currentBase.current * 1.5 + Math.cos(t * 0.7) * currentBase.current * 0.35;
-        turbRef.current.setAttribute('baseFrequency', `${fx.toFixed(5)} ${fy.toFixed(5)}`);
-        dispRef.current.setAttribute('scale', currentScale.current.toFixed(2));
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
-
   const c = copy[lang];
 
   const validate = (): FormErrors => {
@@ -185,64 +157,37 @@ export default function ComingSoon() {
   return (
     <>
       {/* Top announcement banner */}
-      <div className="fixed top-0 left-0 right-0 z-40 bg-[#0b1830] py-3 px-4 text-center">
-        <p className="text-white text-[11px] font-medium tracking-[0.2em]">
+      <div className="fixed left-0 right-0 top-0 z-40 border-b border-[#1fc3a6]/20 bg-[#071925]/90 px-4 py-3 backdrop-blur-md">
+        <p className="text-center text-[11px] font-medium tracking-[0.2em] text-[#dbe7ea]">
           {c.banner}
         </p>
       </div>
 
-      <main className="flex min-h-screen flex-col items-center justify-start md:justify-center bg-[#F5F5F3] select-none pt-32 md:pt-16">
-
-        {/* SVG filter — applied only to ".-" */}
-        <svg aria-hidden="true" focusable="false" className="absolute w-0 h-0 overflow-hidden">
-          <defs>
-            <filter id="dot-wave" x="-50%" y="-100%" width="200%" height="300%">
-              <feTurbulence
-                ref={turbRef}
-                type="fractalNoise"
-                baseFrequency="0.01 0.015"
-                numOctaves="2"
-                seed="7"
-                result="noise"
-              />
-              <feDisplacementMap
-                ref={dispRef}
-                in="SourceGraphic"
-                in2="noise"
-                scale="2.5"
-                xChannelSelector="R"
-                yChannelSelector="G"
-              />
-            </filter>
-          </defs>
-        </svg>
+      <main className="relative isolate flex min-h-screen select-none flex-col items-center justify-start overflow-hidden bg-[#071925] pt-32 md:justify-center md:pt-20">
+        <WaveBackground />
 
         {/* Logo */}
-        <div className="flex items-baseline leading-none px-4">
+        <div className="relative z-10 flex items-baseline px-4 leading-none" aria-label="Liquoda">
           <span
             style={{
               fontFamily: "'Georgia', 'Times New Roman', serif",
               fontSize: 'clamp(2rem, 13vw, 6rem)',
               fontWeight: 400,
               letterSpacing: '0.03em',
-              color: '#000000',
+              color: '#f2f7f7',
               lineHeight: 1,
             }}
           >
             Liquoda
           </span>
           <span
-            onMouseEnter={() => { hoveringRef.current = true; setDotHover(true); }}
-            onMouseLeave={() => { hoveringRef.current = false; setDotHover(false); }}
-            className={dotHover ? 'liq-dot-hover' : 'liq-dot'}
+            className="liq-logo-accent"
             style={{
               fontFamily: "'Georgia', 'Times New Roman', serif",
               fontSize: 'clamp(2rem, 13vw, 6rem)',
               fontWeight: 700,
               lineHeight: 1,
               display: 'inline-block',
-              filter: 'url(#dot-wave)',
-              cursor: 'default',
             }}
           >
             .-
@@ -250,20 +195,20 @@ export default function ComingSoon() {
         </div>
 
         {/* Slogan */}
-        <p className="mt-5 text-xs sm:text-sm font-medium tracking-[0.35em] uppercase text-gray-400">
+        <p className="relative z-10 mt-5 text-[10px] font-medium uppercase tracking-[0.38em] text-[#7895a3] sm:text-xs">
           Real Assets . Digital Security
         </p>
 
         {/* Pre-Register button */}
         <button
           onClick={() => setModalOpen(true)}
-          className="mt-10 px-10 py-3 bg-[#0b1830] text-white text-xs font-medium tracking-[0.2em] uppercase rounded-full hover:opacity-90 transition-opacity"
+          className="relative z-10 mt-10 rounded-full border border-[#22c6a9]/75 bg-[#16b99c]/10 px-10 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#65dcc7] shadow-[0_0_28px_rgba(25,196,163,0.08)] transition-all hover:bg-[#16b99c]/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1fc3a6]"
         >
           {c.preRegister}
         </button>
 
         {/* DE / EN toggle — centered above the two text columns */}
-        <div className="mt-14 flex items-center rounded-full border border-gray-200 p-0.5">
+        <div className="relative z-10 mt-14 flex items-center rounded-full border border-[#5a8995]/25 bg-[#071925]/45 p-0.5 backdrop-blur-sm">
           {(['de', 'en'] as Lang[]).map((l) => (
             <button
               key={l}
@@ -271,8 +216,8 @@ export default function ComingSoon() {
               className={[
                 'px-5 py-1.5 rounded-full text-[10px] font-semibold tracking-[0.25em] uppercase transition-colors',
                 lang === l
-                  ? 'bg-[#0b1830] text-white'
-                  : 'text-gray-400 hover:text-gray-600',
+                  ? 'bg-[#1ab99d] text-[#061721] shadow-[0_0_18px_rgba(26,185,157,0.2)]'
+                  : 'text-[#7895a3] hover:text-[#dbe7ea]',
               ].join(' ')}
             >
               {l.toUpperCase()}
@@ -281,55 +226,55 @@ export default function ComingSoon() {
         </div>
 
         {/* Two-column info section */}
-        <div className="mt-8 w-full max-w-4xl px-6 sm:px-10 pb-20 flex flex-col md:flex-row gap-10 md:gap-0">
+        <div className="relative z-10 mt-8 flex w-full max-w-4xl flex-col gap-10 px-6 pb-20 sm:px-10 md:flex-row md:gap-0">
 
           {/* For Issuers */}
           <div className="flex-1 md:pr-10 text-justify">
-            <p className="mb-4 text-[10px] font-semibold tracking-[0.3em] uppercase text-gray-400">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#1fc3a6]">
               {c.forIssuers}
             </p>
-            <p className="text-[13px] leading-[1.85] text-gray-500">{c.issuersP1}</p>
-            <p className="mt-4 text-[13px] leading-[1.85] text-gray-500">{c.issuersP2}</p>
+            <p className="text-[13px] leading-[1.85] text-[#9bb0b8]">{c.issuersP1}</p>
+            <p className="mt-4 text-[13px] leading-[1.85] text-[#9bb0b8]">{c.issuersP2}</p>
           </div>
 
           {/* Vertical divider */}
-          <div className="hidden md:block w-px bg-gray-200 self-stretch mx-0" />
+          <div className="mx-0 hidden w-px self-stretch bg-[#5a8995]/25 md:block" />
           {/* Mobile horizontal divider */}
-          <div className="block md:hidden h-px w-full bg-gray-200" />
+          <div className="block h-px w-full bg-[#5a8995]/25 md:hidden" />
 
           {/* For Investors */}
           <div className="flex-1 md:pl-10 text-justify">
-            <p className="mb-4 text-[10px] font-semibold tracking-[0.3em] uppercase text-gray-400">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#1fc3a6]">
               {c.forInvestors}
             </p>
-            <p className="text-[13px] leading-[1.85] text-gray-500">{c.investorsP1}</p>
-            <p className="mt-4 text-[13px] leading-[1.85] text-gray-500">{c.investorsP2}</p>
+            <p className="text-[13px] leading-[1.85] text-[#9bb0b8]">{c.investorsP1}</p>
+            <p className="mt-4 text-[13px] leading-[1.85] text-[#9bb0b8]">{c.investorsP2}</p>
           </div>
         </div>
 
         {/* Pre-register modal */}
         {modalOpen && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-[#020b11]/70 px-4 backdrop-blur-md"
             onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
           >
-            <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+            <div className="relative w-full max-w-md rounded-2xl border border-[#2d6670]/35 bg-[#0a202e]/95 p-8 shadow-2xl shadow-black/40">
               <button
                 onClick={closeModal}
                 aria-label="Close"
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+                className="absolute right-4 top-4 text-[#7895a3] transition-colors hover:text-white"
               >
                 <X size={20} />
               </button>
 
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-10 gap-3">
-                  <p className="text-lg font-semibold text-[#0b1830] tracking-wide">{c.successTitle}</p>
-                  <p className="text-sm text-gray-400">{c.successMessage}</p>
+                  <p className="text-lg font-semibold tracking-wide text-[#1fc3a6]">{c.successTitle}</p>
+                  <p className="text-sm text-[#9bb0b8]">{c.successMessage}</p>
                 </div>
               ) : (
                 <>
-                  <h2 className="text-xl font-semibold text-[#0b1830] mb-6">{c.modalTitle}</h2>
+                  <h2 className="mb-6 text-xl font-semibold text-[#f2f7f7]">{c.modalTitle}</h2>
                   <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
 
                     <div>
@@ -342,8 +287,8 @@ export default function ComingSoon() {
                             className={[
                               'flex-1 py-2.5 rounded-lg border text-sm font-medium transition-colors',
                               form.role === r
-                                ? 'border-[#0b1830] bg-[#0b1830] text-white'
-                                : 'border-gray-200 text-gray-600 hover:border-gray-400',
+                                ? 'border-[#1fc3a6] bg-[#1fc3a6] text-[#061721]'
+                                : 'border-[#5a8995]/35 text-[#9bb0b8] hover:border-[#1fc3a6]/70',
                             ].join(' ')}
                           >
                             {r === 'Emittent' ? c.issuerLabel : c.investorLabel}
@@ -360,7 +305,7 @@ export default function ComingSoon() {
                           placeholder={c.firstNamePlaceholder}
                           value={form.firstName}
                           onChange={(e) => setForm((f) => ({ ...f, firstName: e.target.value }))}
-                          className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0b1830] transition-colors"
+                          className="w-full rounded-lg border border-[#5a8995]/35 bg-[#071925]/65 px-3 py-2.5 text-sm text-[#e7eff0] placeholder-[#66828c] transition-colors focus:border-[#1fc3a6] focus:outline-none"
                         />
                         {errors.firstName && <p className="mt-1 text-xs text-red-500">{errors.firstName}</p>}
                       </div>
@@ -370,7 +315,7 @@ export default function ComingSoon() {
                           placeholder={c.lastNamePlaceholder}
                           value={form.lastName}
                           onChange={(e) => setForm((f) => ({ ...f, lastName: e.target.value }))}
-                          className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0b1830] transition-colors"
+                          className="w-full rounded-lg border border-[#5a8995]/35 bg-[#071925]/65 px-3 py-2.5 text-sm text-[#e7eff0] placeholder-[#66828c] transition-colors focus:border-[#1fc3a6] focus:outline-none"
                         />
                         {errors.lastName && <p className="mt-1 text-xs text-red-500">{errors.lastName}</p>}
                       </div>
@@ -382,14 +327,14 @@ export default function ComingSoon() {
                         placeholder={c.emailPlaceholder}
                         value={form.email}
                         onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0b1830] transition-colors"
+                        className="w-full rounded-lg border border-[#5a8995]/35 bg-[#071925]/65 px-3 py-2.5 text-sm text-[#e7eff0] placeholder-[#66828c] transition-colors focus:border-[#1fc3a6] focus:outline-none"
                       />
                       {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                     </div>
 
                     <button
                       type="submit"
-                      className="mt-2 w-full py-3 bg-[#0b1830] text-white text-sm font-medium tracking-[0.15em] uppercase rounded-lg hover:opacity-90 transition-opacity"
+                      className="mt-2 w-full rounded-lg bg-[#1ab99d] py-3 text-sm font-semibold uppercase tracking-[0.15em] text-[#061721] transition-colors hover:bg-[#38cdb3]"
                     >
                       {c.submitButton}
                     </button>
@@ -402,45 +347,45 @@ export default function ComingSoon() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#F5F5F3] border-t border-gray-100 py-6">
+      <footer className="border-t border-[#1fc3a6]/15 bg-[#061620] py-6">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
           <button
             onClick={() => setLegalModal('impressum')}
-            className="text-[11px] font-medium tracking-[0.2em] uppercase text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7895a3] transition-colors hover:text-[#1fc3a6]"
           >
             {c.impressumLink}
           </button>
-          <span className="hidden sm:block w-px h-3 bg-gray-300" />
+          <span className="hidden h-3 w-px bg-[#5a8995]/35 sm:block" />
           <button
             onClick={() => setLegalModal('datenschutz')}
-            className="text-[11px] font-medium tracking-[0.2em] uppercase text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7895a3] transition-colors hover:text-[#1fc3a6]"
           >
             {c.datenschutzLink}
           </button>
-          <span className="hidden sm:block w-px h-3 bg-gray-300" />
-          <p className="text-[11px] text-gray-300">{c.copyright}</p>
+          <span className="hidden h-3 w-px bg-[#5a8995]/35 sm:block" />
+          <p className="text-[11px] text-[#506d78]">{c.copyright}</p>
         </div>
       </footer>
 
       {/* Legal modals */}
       {legalModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#020b11]/70 px-4 backdrop-blur-md"
           onClick={(e) => { if (e.target === e.currentTarget) setLegalModal(null); }}
         >
-          <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+          <div className="relative w-full max-w-md rounded-2xl border border-[#2d6670]/35 bg-[#0a202e]/95 p-8 shadow-2xl shadow-black/40">
             <button
               onClick={() => setLegalModal(null)}
               aria-label="Close"
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              className="absolute right-4 top-4 text-[#7895a3] transition-colors hover:text-white"
             >
               <X size={20} />
             </button>
 
             {legalModal === 'impressum' ? (
               <>
-                <h2 className="text-xl font-semibold text-[#0b1830] mb-6">{c.impressumTitle}</h2>
-                <div className="flex flex-col gap-1.5 text-sm text-gray-600">
+                <h2 className="mb-6 text-xl font-semibold text-[#f2f7f7]">{c.impressumTitle}</h2>
+                <div className="flex flex-col gap-1.5 text-sm text-[#9bb0b8]">
                   {c.impressumContent.map((line, i) => (
                     <p key={i}>{line}</p>
                   ))}
@@ -448,8 +393,8 @@ export default function ComingSoon() {
               </>
             ) : (
               <>
-                <h2 className="text-xl font-semibold text-[#0b1830] mb-6">{c.datenschutzTitle}</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">{c.datenschutzContent}</p>
+                <h2 className="mb-6 text-xl font-semibold text-[#f2f7f7]">{c.datenschutzTitle}</h2>
+                <p className="text-sm leading-relaxed text-[#9bb0b8]">{c.datenschutzContent}</p>
               </>
             )}
           </div>
