@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { routing, type Locale } from '@/i18n/routing';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { getAccount } from '@/lib/supabase/server';
 import './globals.css';
 
 const inter = Inter({
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  const account = await getAccount();
 
   return (
     <html lang={locale} className={inter.variable}>
@@ -64,7 +66,7 @@ export default async function LocaleLayout({
           <div className="liq-wavelines" />
         </div>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
+          <Navbar account={account ? { role: account.role } : null} />
           <main className="relative z-10 flex-1">{children}</main>
           <Footer />
         </NextIntlClientProvider>

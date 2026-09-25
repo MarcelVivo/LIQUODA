@@ -7,6 +7,7 @@ import { Link, usePathname } from '@/i18n/routing';
 import { ButtonLink } from '@/components/ui/Button';
 import LanguageToggle from '@/components/ui/LanguageToggle';
 import Wordmark from '@/components/ui/Wordmark';
+import type { AccountRole } from '@/lib/supabase/server';
 
 const navItems = [
   { href: '/projekte', key: 'projects' },
@@ -14,7 +15,7 @@ const navItems = [
   { href: '/fuer-emittenten', key: 'issuers' },
 ] as const;
 
-export default function Navbar() {
+export default function Navbar({ account }: { account: { role: AccountRole } | null }) {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,6 +35,7 @@ export default function Navbar() {
 
   // Auf der Startseite liegt die Leiste oben transparent über der dunklen Titelfläche
   const inverse = pathname === '/' && !scrolled && !menuOpen;
+  const accountHome = account?.role === 'emittent' ? '/emittent' : '/portfolio';
 
   const linkClass = (href: string) =>
     [
@@ -75,9 +77,20 @@ export default function Navbar() {
           </nav>
           <div className="hidden items-center gap-4 md:flex">
             <LanguageToggle inverse={inverse} />
-            <ButtonLink href="/#warteliste" size="sm">
-              {t('waitlist')}
-            </ButtonLink>
+            {account ? (
+              <ButtonLink href={accountHome} size="sm">
+                {t('account')}
+              </ButtonLink>
+            ) : (
+              <>
+                <Link href="/login" className={linkClass('/login')}>
+                  {t('login')}
+                </Link>
+                <ButtonLink href="/registrieren" size="sm">
+                  {t('register')}
+                </ButtonLink>
+              </>
+            )}
           </div>
 
           {/* Mobile */}
@@ -107,9 +120,20 @@ export default function Navbar() {
           </nav>
           <div className="mt-4 flex flex-col gap-3">
             <LanguageToggle />
-            <ButtonLink href="/#warteliste" size="sm" fullWidth onClick={() => setMenuOpen(false)}>
-              {t('waitlist')}
-            </ButtonLink>
+            {account ? (
+              <ButtonLink href={accountHome} size="sm" fullWidth onClick={() => setMenuOpen(false)}>
+                {t('account')}
+              </ButtonLink>
+            ) : (
+              <>
+                <ButtonLink href="/login" variant="outline" size="sm" fullWidth onClick={() => setMenuOpen(false)}>
+                  {t('login')}
+                </ButtonLink>
+                <ButtonLink href="/registrieren" size="sm" fullWidth onClick={() => setMenuOpen(false)}>
+                  {t('register')}
+                </ButtonLink>
+              </>
+            )}
           </div>
         </div>
       )}

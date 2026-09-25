@@ -14,7 +14,10 @@
     "waitlist": "Warteliste",
     "menuOpen": "Menü öffnen",
     "menuClose": "Menü schliessen",
-    "logoLabel": "LIQUODA – zur Startseite"
+    "logoLabel": "LIQUODA – zur Startseite",
+    "login": "Login",
+    "register": "Registrieren",
+    "account": "Konto"
   },
   "footer": {
     "roleTitle": "Was LIQUODA ist",
@@ -466,6 +469,108 @@
         "closed": "Das Projekt ist geschlossen. Neue Beteiligungen sind nicht möglich.",
         "failed": "Finanzierung nicht erfolgreich: Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Token ausgegeben, alle Zahlungen wurden rückabgewickelt."
       }
+    }
+  },
+  "auth": {
+    "register": {
+      "metaTitle": "Registrieren",
+      "title": "Konto erstellen",
+      "lead": "Wählen Sie Ihre Rolle und erstellen Sie ein Konto. Sie erhalten eine E-Mail mit einem Bestätigungslink. Beteiligungen und Projekte sind erst nach Identitätsprüfung und Start der Plattform möglich.",
+      "name": "Name",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "passwordHint": "Mindestens 8 Zeichen",
+      "roleLabel": "Ich registriere mich als",
+      "roleInvestor": "Investor",
+      "roleInvestorDesc": "Ich möchte mich an Projekten beteiligen.",
+      "roleIssuer": "Emittent",
+      "roleIssuerDesc": "Ich möchte ein Projekt zur Finanzierung vorstellen.",
+      "consent": "Ich habe die AGB, die Datenschutzerklärung und die Risikoaufklärung gelesen und verstanden.",
+      "submit": "Konto erstellen",
+      "submitting": "Wird erstellt …",
+      "successTitle": "Bitte E-Mail bestätigen",
+      "successMessage": "Wir haben Ihnen einen Bestätigungslink gesendet. Nach dem Klick auf den Link können Sie sich anmelden. Prüfen Sie auch den Spam-Ordner.",
+      "haveAccount": "Sie haben bereits ein Konto?",
+      "loginLink": "Zum Login",
+      "errors": {
+        "required": "Bitte füllen Sie dieses Feld aus.",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "password": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+        "role": "Bitte wählen Sie eine Rolle.",
+        "consent": "Bitte bestätigen Sie, dass Sie die Dokumente gelesen haben.",
+        "weak_password": "Das Passwort ist zu einfach. Bitte wählen Sie ein längeres Passwort mit Buchstaben und Zahlen.",
+        "signup_failed": "Das Konto konnte nicht erstellt werden. Falls Sie bereits ein Konto haben, melden Sie sich an oder nutzen Sie den Magic Link.",
+        "not_configured": "Die Kontoerstellung ist auf dieser Umgebung noch nicht eingerichtet.",
+        "server": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+      }
+    },
+    "login": {
+      "metaTitle": "Login",
+      "title": "Anmelden",
+      "lead": "Mit E-Mail und Passwort oder mit einem Link, den wir Ihnen per E-Mail senden.",
+      "tabPassword": "Passwort",
+      "tabMagic": "Magic Link",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Anmelden",
+      "submitting": "Wird angemeldet …",
+      "magicLead": "Sie erhalten einen Link per E-Mail. Der Link ist kurze Zeit gültig und meldet Sie ohne Passwort an.",
+      "magicSubmit": "Link senden",
+      "magicSending": "Wird gesendet …",
+      "magicSentTitle": "Link gesendet",
+      "magicSentText": "Falls ein Konto mit dieser Adresse besteht, erhalten Sie in Kürze eine E-Mail mit dem Anmeldelink.",
+      "noAccount": "Noch kein Konto?",
+      "registerLink": "Konto erstellen",
+      "notices": {
+        "link_invalid": "Der Link ist ungültig oder abgelaufen. Bitte melden Sie sich erneut an oder fordern Sie einen neuen Link an.",
+        "not_configured": "Die Anmeldung ist auf dieser Umgebung noch nicht eingerichtet."
+      },
+      "errors": {
+        "required": "Bitte füllen Sie dieses Feld aus.",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "invalid_credentials": "E-Mail-Adresse oder Passwort stimmen nicht. Bitte prüfen Sie Ihre Eingaben.",
+        "email_not_confirmed": "Ihre E-Mail-Adresse ist noch nicht bestätigt. Bitte klicken Sie auf den Link in der Bestätigungs-E-Mail.",
+        "not_configured": "Die Anmeldung ist auf dieser Umgebung noch nicht eingerichtet.",
+        "server": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+      }
+    },
+    "account": {
+      "portfolioTitle": "Portfolio",
+      "portfolioLead": "Ihr Investoren-Bereich. Beteiligungen, Dokumente und Token-Referenzen erscheinen hier, sobald die Plattform gestartet ist.",
+      "issuerTitle": "Emittenten-Dashboard",
+      "issuerLead": "Ihr Bereich als Emittent. Projekte, Dokumente und der Projekt-Wizard folgen in einem nächsten Schritt.",
+      "profile": "Konto",
+      "name": "Name",
+      "email": "E-Mail-Adresse",
+      "role": "Rolle",
+      "roles": {
+        "investor": "Investor",
+        "emittent": "Emittent",
+        "admin": "Admin"
+      },
+      "kyc": "Identitätsprüfung",
+      "kycStatus": {
+        "pending": "Ausstehend",
+        "approved": "Bestätigt",
+        "rejected": "Nicht bestanden"
+      },
+      "kycHint": "Die Prüfung wird von LIQUODA manuell durchgeführt. Sie werden per E-Mail informiert, sobald sie abgeschlossen ist.",
+      "wallet": "Wallet",
+      "walletNone": "Noch keine Wallet verknüpft. Die Verknüpfung folgt vor der ersten Beteiligung.",
+      "nextTitle": "Was als Nächstes passiert",
+      "nextInvestor": [
+        "Ihre Identität wird geprüft (KYC).",
+        "Sie verknüpfen eine Wallet.",
+        "Sobald die Plattform startet, können Sie Projekte prüfen und sich beteiligen."
+      ],
+      "nextIssuer": [
+        "Ihr Unternehmen wird geprüft (KYB).",
+        "Sie erfassen Ihr Projekt mit Dokumenten, Zielbetrag und Laufzeit.",
+        "LIQUODA prüft das Projekt und gibt es manuell frei."
+      ],
+      "logout": "Abmelden",
+      "loggingOut": "Wird abgemeldet …",
+      "profileMissing": "Ihr Profil konnte nicht geladen werden. Bitte melden Sie sich erneut an."
     }
   },
   "legal": {

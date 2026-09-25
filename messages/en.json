@@ -14,7 +14,10 @@
     "waitlist": "Waiting list",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
-    "logoLabel": "LIQUODA – go to home page"
+    "logoLabel": "LIQUODA – go to home page",
+    "login": "Log in",
+    "register": "Register",
+    "account": "Account"
   },
   "footer": {
     "roleTitle": "What LIQUODA is",
@@ -466,6 +469,108 @@
         "closed": "The project is closed. New participations are not possible.",
         "failed": "Funding not successful: the target amount was not reached within the term. No tokens were issued and all payments were reversed."
       }
+    }
+  },
+  "auth": {
+    "register": {
+      "metaTitle": "Register",
+      "title": "Create an account",
+      "lead": "Choose your role and create an account. You will receive an email with a confirmation link. Participations and projects are only possible after identity verification and the platform launch.",
+      "name": "Name",
+      "email": "Email address",
+      "password": "Password",
+      "passwordHint": "At least 8 characters",
+      "roleLabel": "I am registering as",
+      "roleInvestor": "Investor",
+      "roleInvestorDesc": "I would like to participate in projects.",
+      "roleIssuer": "Issuer",
+      "roleIssuerDesc": "I would like to present a project for funding.",
+      "consent": "I have read and understood the terms, the privacy policy and the risk disclosure.",
+      "submit": "Create account",
+      "submitting": "Creating …",
+      "successTitle": "Please confirm your email",
+      "successMessage": "We have sent you a confirmation link. After clicking the link you can log in. Please also check your spam folder.",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Go to login",
+      "errors": {
+        "required": "Please fill in this field.",
+        "email": "Please enter a valid email address.",
+        "password": "The password must be at least 8 characters long.",
+        "role": "Please select a role.",
+        "consent": "Please confirm that you have read the documents.",
+        "weak_password": "The password is too simple. Please choose a longer password with letters and numbers.",
+        "signup_failed": "The account could not be created. If you already have an account, log in or use the magic link.",
+        "not_configured": "Account creation is not yet set up in this environment.",
+        "server": "An error occurred. Please try again later."
+      }
+    },
+    "login": {
+      "metaTitle": "Log in",
+      "title": "Log in",
+      "lead": "With email and password, or with a link we send you by email.",
+      "tabPassword": "Password",
+      "tabMagic": "Magic link",
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Log in",
+      "submitting": "Logging in …",
+      "magicLead": "You will receive a link by email. The link is valid for a short time and logs you in without a password.",
+      "magicSubmit": "Send link",
+      "magicSending": "Sending …",
+      "magicSentTitle": "Link sent",
+      "magicSentText": "If an account exists for this address, you will shortly receive an email with the login link.",
+      "noAccount": "No account yet?",
+      "registerLink": "Create an account",
+      "notices": {
+        "link_invalid": "The link is invalid or has expired. Please log in again or request a new link.",
+        "not_configured": "Login is not yet set up in this environment."
+      },
+      "errors": {
+        "required": "Please fill in this field.",
+        "email": "Please enter a valid email address.",
+        "invalid_credentials": "Email address or password do not match. Please check your entries.",
+        "email_not_confirmed": "Your email address is not yet confirmed. Please click the link in the confirmation email.",
+        "not_configured": "Login is not yet set up in this environment.",
+        "server": "An error occurred. Please try again later."
+      }
+    },
+    "account": {
+      "portfolioTitle": "Portfolio",
+      "portfolioLead": "Your investor area. Participations, documents and token references will appear here once the platform has launched.",
+      "issuerTitle": "Issuer dashboard",
+      "issuerLead": "Your area as an issuer. Projects, documents and the project wizard follow in a next step.",
+      "profile": "Account",
+      "name": "Name",
+      "email": "Email address",
+      "role": "Role",
+      "roles": {
+        "investor": "Investor",
+        "emittent": "Issuer",
+        "admin": "Admin"
+      },
+      "kyc": "Identity verification",
+      "kycStatus": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Not passed"
+      },
+      "kycHint": "The verification is carried out manually by LIQUODA. You will be informed by email once it is complete.",
+      "wallet": "Wallet",
+      "walletNone": "No wallet connected yet. Connecting follows before the first participation.",
+      "nextTitle": "What happens next",
+      "nextInvestor": [
+        "Your identity is verified (KYC).",
+        "You connect a wallet.",
+        "Once the platform launches, you can review projects and participate."
+      ],
+      "nextIssuer": [
+        "Your company is verified (KYB).",
+        "You enter your project with documents, target amount and term.",
+        "LIQUODA reviews the project and approves it manually."
+      ],
+      "logout": "Log out",
+      "loggingOut": "Logging out …",
+      "profileMissing": "Your profile could not be loaded. Please log in again."
     }
   },
   "legal": {

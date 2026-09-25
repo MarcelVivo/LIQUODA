@@ -6,6 +6,7 @@ import { CheckCircle } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import Button from '@/components/ui/Button';
 import { InputField, CheckboxField } from '@/components/ui/Field';
+import RoleCard from '@/components/ui/RoleCard';
 import Section, { SectionHeading } from '@/components/ui/Section';
 
 /**
@@ -144,6 +145,7 @@ export default function RegisterForm() {
               <div className="grid gap-3 sm:grid-cols-2">
                 <RoleCard
                   id="wl-role-issuer"
+                  name="wl-role"
                   selected={form.role === 'Emittent'}
                   title={t('roleIssuer')}
                   desc={t('roleIssuerDesc')}
@@ -151,6 +153,7 @@ export default function RegisterForm() {
                 />
                 <RoleCard
                   id="wl-role-investor"
+                  name="wl-role"
                   selected={form.role === 'Investor'}
                   title={t('roleInvestor')}
                   desc={t('roleInvestorDesc')}
@@ -194,42 +197,5 @@ export default function RegisterForm() {
         )}
       </div>
     </Section>
-  );
-}
-
-function RoleCard({
-  id,
-  selected,
-  title,
-  desc,
-  onSelect,
-}: {
-  id: string;
-  selected: boolean;
-  title: string;
-  desc: string;
-  onSelect: () => void;
-}) {
-  return (
-    <label
-      htmlFor={id}
-      className={[
-        'flex cursor-pointer flex-col rounded-lg border-2 bg-white p-4 transition-colors duration-150',
-        selected ? 'border-accent' : 'border-navy/10 hover:border-accent/50',
-      ].join(' ')}
-    >
-      <div className="flex items-center gap-2">
-        <input
-          type="radio"
-          id={id}
-          name="wl-role"
-          checked={selected}
-          onChange={onSelect}
-          className="h-4 w-4 accent-accent"
-        />
-        <span className="text-sm font-semibold text-navy">{title}</span>
-      </div>
-      <p className="mt-1 pl-6 text-xs text-muted">{desc}</p>
-    </label>
   );
 }
