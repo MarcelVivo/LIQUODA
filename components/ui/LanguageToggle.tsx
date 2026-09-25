@@ -1,8 +1,8 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
 import { useTransition } from 'react';
+import { routing, usePathname, useRouter, type Locale } from '@/i18n/routing';
 
 export default function LanguageToggle() {
   const locale = useLocale();
@@ -10,61 +10,34 @@ export default function LanguageToggle() {
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
-  const switchLocale = (nextLocale: string) => {
+  const switchLocale = (nextLocale: Locale) => {
     if (nextLocale === locale) return;
-
     startTransition(() => {
-      // Strip the current locale prefix and rebuild with new one
-      let newPath = pathname;
-
-      if (pathname.startsWith('/en')) {
-        newPath = pathname.replace(/^\/en/, '') || '/';
-      } else if (pathname.startsWith('/de')) {
-        newPath = pathname.replace(/^\/de/, '') || '/';
-      }
-
-      if (nextLocale === 'en') {
-        router.push(`/en${newPath === '/' ? '' : newPath}`);
-      } else {
-        // 'de' is the default locale — no prefix needed
-        router.push(newPath || '/');
-      }
+      router.replace(pathname, { locale: nextLocale });
     });
   };
 
   return (
     <div
-      className="flex items-center gap-1 rounded-md border border-gray-200 p-0.5"
-      aria-label="Language selection"
+      className="flex items-center gap-1 rounded-md border border-navy/20 p-0.5"
+      role="group"
+      aria-label="Sprache / Language"
     >
-      <button
-        onClick={() => switchLocale('de')}
-        disabled={isPending}
-        aria-pressed={locale === 'de'}
-        className={[
-          'rounded px-2.5 py-1 text-sm font-medium transition-colors duration-150',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-1',
-          locale === 'de'
-            ? 'bg-navy text-white'
-            : 'text-gray-500 hover:text-navy',
-        ].join(' ')}
-      >
-        DE
-      </button>
-      <button
-        onClick={() => switchLocale('en')}
-        disabled={isPending}
-        aria-pressed={locale === 'en'}
-        className={[
-          'rounded px-2.5 py-1 text-sm font-medium transition-colors duration-150',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-1',
-          locale === 'en'
-            ? 'bg-navy text-white'
-            : 'text-gray-500 hover:text-navy',
-        ].join(' ')}
-      >
-        EN
-      </button>
+      {routing.locales.map((l) => (
+        <button
+          key={l}
+          onClick={() => switchLocale(l)}
+          disabled={isPending}
+          aria-pressed={locale === l}
+          className={[
+            'rounded px-2.5 py-1 text-sm font-medium transition-colors duration-150',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-1',
+            locale === l ? 'bg-navy text-white' : 'text-navy/60 hover:text-navy',
+          ].join(' ')}
+        >
+          {l.toUpperCase()}
+        </button>
+      ))}
     </div>
   );
 }

@@ -1,43 +1,74 @@
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
+import Wordmark from '@/components/ui/Wordmark';
+
+const navLinks = [
+  { href: '/', key: 'home' },
+  { href: '/so-funktioniert-es', key: 'howItWorks' },
+  { href: '/fuer-emittenten', key: 'issuers' },
+] as const;
+
+const legalLinks = [
+  { href: '/impressum', key: 'impressum' },
+  { href: '/datenschutz', key: 'datenschutz' },
+  { href: '/agb', key: 'agb' },
+  { href: '/risiken', key: 'risiken' },
+  { href: '/haftung', key: 'haftung' },
+] as const;
+
+const linkClass =
+  'text-sm text-cream/70 transition-colors duration-150 hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream rounded';
 
 export default function Footer() {
   const t = useTranslations('footer');
+  const tNav = useTranslations('nav');
 
   return (
-    <footer className="bg-navy text-white">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          {/* Brand */}
+    <footer className="bg-navy text-cream">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
+          {/* Rolle und Risikohinweis (Pflichtinhalte, Spec Abschnitt 2) */}
           <div>
-            <p className="text-xl font-bold tracking-tight">{t('brand')}</p>
-            <p className="mt-1 text-sm text-white/60">{t('slogan')}</p>
+            <Wordmark size="md" />
+            <h2 className="mt-6 text-sm font-semibold uppercase tracking-wider text-cream/60">
+              {t('roleTitle')}
+            </h2>
+            <p className="mt-2 max-w-prose text-sm leading-relaxed text-cream/80">{t('roleText')}</p>
+            <p className="mt-3 max-w-prose text-sm leading-relaxed text-cream/80">{t('riskText')}</p>
           </div>
 
-          {/* Links */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer navigation">
-            <a
-              href="#"
-              className="text-sm text-white/70 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
-            >
-              {t('impressum')}
-            </a>
-            <a
-              href="#"
-              className="text-sm text-white/70 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
-            >
-              {t('datenschutz')}
-            </a>
-            <a
-              href="#"
-              className="text-sm text-white/70 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
-            >
-              {t('agb')}
-            </a>
+          <nav aria-label={t('navTitle')}>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-cream/60">
+              {t('navTitle')}
+            </h2>
+            <ul className="mt-3 space-y-2">
+              {navLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={linkClass}>
+                    {tNav(l.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          {/* Copyright */}
-          <p className="text-sm text-white/50">{t('copyright')}</p>
+          <nav aria-label={t('legalTitle')}>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-cream/60">
+              {t('legalTitle')}
+            </h2>
+            <ul className="mt-3 space-y-2">
+              {legalLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={linkClass}>
+                    {t(l.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
+
+        <p className="mt-12 border-t border-cream/10 pt-6 text-xs text-cream/50">{t('copyright')}</p>
       </div>
     </footer>
   );

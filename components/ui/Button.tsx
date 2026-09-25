@@ -1,15 +1,16 @@
-import { forwardRef, ButtonHTMLAttributes } from 'react';
+import { forwardRef, ButtonHTMLAttributes, ComponentProps } from 'react';
+import { Link } from '@/i18n/routing';
 
-type Variant = 'primary' | 'outline' | 'ghost';
-type Size = 'sm' | 'md' | 'lg';
+export type ButtonVariant = 'primary' | 'outline' | 'ghost';
+export type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: Variant;
-  size?: Size;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
   fullWidth?: boolean;
 }
 
-const variantClasses: Record<Variant, string> = {
+const variantClasses: Record<ButtonVariant, string> = {
   primary:
     'bg-navy text-white hover:bg-navy-light active:bg-navy-dark border border-navy',
   outline:
@@ -18,11 +19,37 @@ const variantClasses: Record<Variant, string> = {
     'bg-transparent text-navy hover:bg-navy/5 border border-transparent',
 };
 
-const sizeClasses: Record<Size, string> = {
+const sizeClasses: Record<ButtonSize, string> = {
   sm: 'px-4 py-2 text-sm',
   md: 'px-6 py-2.5 text-base',
   lg: 'px-8 py-3 text-base',
 };
+
+/** Gemeinsame Klassen für Button und ButtonLink, damit beide gleich aussehen. */
+export function buttonClasses({
+  variant = 'primary',
+  size = 'md',
+  fullWidth = false,
+  className = '',
+}: {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  fullWidth?: boolean;
+  className?: string;
+}) {
+  return [
+    'inline-flex items-center justify-center gap-2 rounded-md font-medium',
+    'transition-colors duration-150 focus-visible:outline-none',
+    'focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 focus-visible:ring-offset-cream',
+    'disabled:opacity-50 disabled:cursor-not-allowed',
+    variantClasses[variant],
+    sizeClasses[size],
+    fullWidth ? 'w-full' : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
+}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -41,18 +68,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         disabled={disabled}
-        className={[
-          'inline-flex items-center justify-center rounded-md font-medium',
-          'transition-colors duration-150 focus-visible:outline-none',
-          'focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2',
-          'disabled:opacity-50 disabled:cursor-not-allowed',
-          variantClasses[variant],
-          sizeClasses[size],
-          fullWidth ? 'w-full' : '',
-          className,
-        ]
-          .filter(Boolean)
-          .join(' ')}
+        className={buttonClasses({ variant, size, fullWidth, className })}
         {...props}
       >
         {children}
@@ -64,3 +80,25 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = 'Button';
 
 export default Button;
+
+type LinkProps = ComponentProps<typeof Link>;
+
+/** Locale-sicherer Link im Erscheinungsbild eines Buttons. */
+export function ButtonLink({
+  variant = 'primary',
+  size = 'md',
+  fullWidth = false,
+  className = '',
+  children,
+  ...props
+}: LinkProps & {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  fullWidth?: boolean;
+}) {
+  return (
+    <Link className={buttonClasses({ variant, size, fullWidth, className })} {...props}>
+      {children}
+    </Link>
+  );
+}
