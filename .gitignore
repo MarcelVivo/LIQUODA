@@ -36,3 +36,5 @@ next-env.d.ts
 
 # iCloud-Workaround
 node_modules.nosync/
+.env*
+!.env.example
