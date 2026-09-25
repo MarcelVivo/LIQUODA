@@ -57,9 +57,15 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={inter.variable}>
       <body className="flex min-h-screen flex-col">
+        {/* Seitenhintergrund wie in der Präsentation: Verlauf, Blobs, Wellenlinien */}
+        <div className="liq-page-bg" aria-hidden="true">
+          <div className="liq-blob liq-blob-1" />
+          <div className="liq-blob liq-blob-2" />
+          <div className="liq-wavelines" />
+        </div>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="relative z-10 flex-1">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

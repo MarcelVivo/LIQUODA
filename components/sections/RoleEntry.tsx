@@ -28,10 +28,10 @@ export default function RoleEntry() {
       <SectionHeading title={t('title')} />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {roles.map((role) => (
-          <article key={role.href} className="flex flex-col rounded-xl bg-white p-6 ring-1 ring-navy/10 sm:p-8">
+          <article key={role.href} className="flex flex-col liq-card liq-card-hover p-6 sm:p-8">
             <role.Icon size={28} className="text-navy" strokeWidth={1.5} aria-hidden="true" />
             <h3 className="mt-4 text-xl font-semibold text-navy">{role.title}</h3>
-            <p className="mt-3 flex-1 text-sm leading-relaxed text-navy/80">{role.text}</p>
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{role.text}</p>
             <Link
               href={role.href}
               className="liq-link mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-navy"

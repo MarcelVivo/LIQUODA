@@ -34,9 +34,9 @@ export default function IssuersPage() {
         <SectionHeading title={t('benefitsTitle')} />
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {benefits.map((b) => (
-            <article key={b.title} className="rounded-xl bg-cream p-6 ring-1 ring-navy/10">
+            <article key={b.title} className="liq-card liq-card-hover p-6">
               <h3 className="text-base font-semibold text-navy">{b.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy/80">{b.text}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{b.text}</p>
             </article>
           ))}
         </div>
@@ -46,7 +46,7 @@ export default function IssuersPage() {
         <SectionHeading title={t('requirementsTitle')} />
         <ul className="mt-8 max-w-2xl space-y-3">
           {requirements.map((r) => (
-            <li key={r} className="flex gap-3 text-sm leading-relaxed text-navy/80">
+            <li key={r} className="flex gap-3 text-sm leading-relaxed text-muted">
               <Check size={18} className="mt-0.5 shrink-0 text-accent-start" aria-hidden="true" />
               <span>{r}</span>
             </li>

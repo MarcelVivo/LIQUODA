@@ -1,7 +1,7 @@
 import { forwardRef, ButtonHTMLAttributes, ComponentProps } from 'react';
 import { Link } from '@/i18n/routing';
 
-export type ButtonVariant = 'primary' | 'outline' | 'ghost';
+export type ButtonVariant = 'primary' | 'outline' | 'ghost' | 'inverse';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -10,17 +10,21 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
 }
 
+// Pill-Buttons wie in der Präsentation: Akzentverlauf für die Hauptaktion,
+// feiner Rand für Nebenaktionen, «inverse» für dunkle Flächen.
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-navy text-white hover:bg-navy-light active:bg-navy-dark border border-navy',
+    'bg-accent text-white shadow-cta hover:shadow-cta-hover hover:brightness-105 border border-transparent',
   outline:
-    'bg-transparent text-navy border border-navy hover:bg-navy hover:text-white',
+    'bg-transparent text-navy border border-navy/70 hover:bg-navy hover:text-white',
   ghost:
     'bg-transparent text-navy hover:bg-navy/5 border border-transparent',
+  inverse:
+    'bg-transparent text-onink border border-onink-muted/50 hover:bg-white/10 hover:border-onink',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'px-4 py-2 text-sm',
+  sm: 'px-5 py-2 text-sm',
   md: 'px-6 py-2.5 text-base',
   lg: 'px-8 py-3 text-base',
 };
@@ -38,10 +42,10 @@ export function buttonClasses({
   className?: string;
 }) {
   return [
-    'inline-flex items-center justify-center gap-2 rounded-md font-medium',
-    'transition-colors duration-150 focus-visible:outline-none',
-    'focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 focus-visible:ring-offset-cream',
-    'disabled:opacity-50 disabled:cursor-not-allowed',
+    'inline-flex items-center justify-center gap-2 rounded-full font-semibold',
+    'transition-all duration-200 focus-visible:outline-none',
+    'focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-cream',
+    'disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none',
     variantClasses[variant],
     sizeClasses[size],
     fullWidth ? 'w-full' : '',

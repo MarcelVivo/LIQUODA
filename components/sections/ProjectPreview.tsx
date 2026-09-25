@@ -21,17 +21,17 @@ function ProjectCard({ project }: { project: Project }) {
   const t = useTranslations('home.examples');
 
   return (
-    <article className="flex flex-col rounded-xl bg-white p-6 ring-1 ring-navy/10">
+    <article className="flex flex-col liq-card liq-card-hover p-6">
       <div className="flex items-center justify-between gap-2">
         <Badge label={t(project.categoryKey)} variant="neutral" />
         <Badge label={t('badgeExample')} variant="info" />
       </div>
 
       <h3 className="mt-4 text-base font-semibold text-navy">{t(project.nameKey)}</h3>
-      <p className="mt-1 text-xs text-navy/60">{t('statusOpen')}</p>
+      <p className="mt-1 text-xs text-muted">{t('statusOpen')}</p>
 
       <div className="mt-5 flex-1">
-        <div className="mb-1.5 flex items-center justify-between text-xs text-navy/70">
+        <div className="mb-1.5 flex items-center justify-between text-xs text-muted">
           <span>
             {project.fundedPercent} % {t('funded')}
           </span>
@@ -39,7 +39,7 @@ function ProjectCard({ project }: { project: Project }) {
             {t('goal')}: CHF {project.goalCHF}
           </span>
         </div>
-        <div className="h-2 w-full rounded-full bg-navy/10">
+        <div className="h-2 w-full rounded-full bg-cream-dark">
           <div
             className="h-2 rounded-full bg-accent"
             style={{ width: `${project.fundedPercent}%` }}

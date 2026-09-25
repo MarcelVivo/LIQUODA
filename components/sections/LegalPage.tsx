@@ -19,7 +19,7 @@ export default function LegalPage({ legalKey }: { legalKey: LegalKey }) {
     <Section className="pt-28 sm:pt-32" ariaLabel={t('title')}>
       <SectionHeading as="h1" title={t('title')} lead={t('lead')} />
 
-      <div className="mt-8 flex max-w-3xl gap-3 rounded-lg border border-navy/15 bg-white px-4 py-3 text-sm text-navy/80">
+      <div className="mt-8 flex max-w-3xl gap-3 rounded-lg border border-navy/15 bg-white px-4 py-3 text-sm text-muted">
         <Info size={18} className="mt-0.5 shrink-0 text-navy" aria-hidden="true" />
         <p>
           <span className="font-semibold text-navy">{tCommon('placeholderTitle')}: </span>
@@ -31,7 +31,7 @@ export default function LegalPage({ legalKey }: { legalKey: LegalKey }) {
         {sections.map((section) => (
           <div key={section.title}>
             <h2 className="text-lg font-semibold text-navy">{section.title}</h2>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-navy/80">
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted">
               {section.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}

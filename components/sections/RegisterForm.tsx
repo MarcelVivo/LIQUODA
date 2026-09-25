@@ -93,13 +93,13 @@ export default function RegisterForm() {
 
       <div className="mt-10 max-w-lg">
         {submitted ? (
-          <div className="rounded-xl bg-cream p-8 ring-1 ring-navy/10" role="status">
+          <div className="liq-card p-8" role="status">
             <CheckCircle size={40} className="text-accent-start" strokeWidth={1.5} aria-hidden="true" />
             <h3 className="mt-4 text-xl font-semibold text-navy">{t('successTitle')}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-navy/80">{t('successMessage')}</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{t('successMessage')}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} noValidate className="rounded-xl bg-cream p-6 ring-1 ring-navy/10 sm:p-8">
+          <form onSubmit={handleSubmit} noValidate className="liq-card p-6 sm:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
               <InputField
                 label={t('firstName')}
@@ -172,7 +172,7 @@ export default function RegisterForm() {
                 checked={form.consent}
                 onChange={(v) => updateField('consent', v)}
               />
-              <p className="mt-2 pl-7 text-xs text-navy/60">
+              <p className="mt-2 pl-7 text-xs text-muted">
                 <Link href="/datenschutz" className="liq-link">
                   Datenschutz / Privacy
                 </Link>
@@ -215,7 +215,7 @@ function RoleCard({
       htmlFor={id}
       className={[
         'flex cursor-pointer flex-col rounded-lg border-2 bg-white p-4 transition-colors duration-150',
-        selected ? 'border-navy' : 'border-navy/15 hover:border-navy/40',
+        selected ? 'border-accent' : 'border-navy/10 hover:border-accent/50',
       ].join(' ')}
     >
       <div className="flex items-center gap-2">
@@ -225,11 +225,11 @@ function RoleCard({
           name="wl-role"
           checked={selected}
           onChange={onSelect}
-          className="h-4 w-4 accent-navy"
+          className="h-4 w-4 accent-accent"
         />
         <span className="text-sm font-semibold text-navy">{title}</span>
       </div>
-      <p className="mt-1 pl-6 text-xs text-navy/60">{desc}</p>
+      <p className="mt-1 pl-6 text-xs text-muted">{desc}</p>
     </label>
   );
 }

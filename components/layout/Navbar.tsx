@@ -21,6 +21,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -30,29 +31,37 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [pathname]);
 
+  // Auf der Startseite liegt die Leiste oben transparent über der dunklen Titelfläche
+  const inverse = pathname === '/' && !scrolled && !menuOpen;
+
   const linkClass = (href: string) =>
     [
-      'rounded px-2 py-1 text-sm font-medium transition-colors duration-150',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy',
-      pathname === href ? 'text-navy underline underline-offset-8 decoration-2' : 'text-navy/70 hover:text-navy',
+      'rounded px-2 py-1 text-sm font-semibold transition-colors duration-150',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
+      pathname === href
+        ? 'text-accent'
+        : inverse
+          ? 'text-onink-muted hover:text-onink'
+          : 'text-muted hover:text-navy',
     ].join(' ');
 
   return (
     <header
       className={[
-        'fixed left-0 right-0 top-0 z-50 border-b transition-shadow duration-200',
-        'bg-cream/95 backdrop-blur',
-        scrolled ? 'border-navy/10 shadow-sm' : 'border-transparent',
+        'fixed left-0 right-0 top-0 z-50 border-b transition-all duration-300',
+        inverse
+          ? 'border-transparent bg-transparent text-onink'
+          : 'border-navy/10 bg-cream/90 text-navy shadow-sm backdrop-blur',
       ].join(' ')}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy"
+            className="rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             aria-label={t('logoLabel')}
           >
-            <Wordmark size="md" />
+            <Wordmark size="sm" />
           </Link>
 
           {/* Desktop */}
@@ -64,7 +73,7 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="hidden items-center gap-4 md:flex">
-            <LanguageToggle />
+            <LanguageToggle inverse={inverse} />
             <ButtonLink href="/#warteliste" size="sm">
               {t('waitlist')}
             </ButtonLink>
@@ -72,7 +81,10 @@ export default function Navbar() {
 
           {/* Mobile */}
           <button
-            className="rounded p-2 text-navy hover:bg-navy/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy md:hidden"
+            className={[
+              'rounded-full p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:hidden',
+              inverse ? 'text-onink hover:bg-white/10' : 'text-navy hover:bg-navy/5',
+            ].join(' ')}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? t('menuClose') : t('menuOpen')}
             aria-expanded={menuOpen}

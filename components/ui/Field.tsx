@@ -7,10 +7,10 @@ import type {
 
 const controlClasses = (error?: string) =>
   [
-    'mt-1.5 block w-full rounded-md border bg-white px-3 py-2.5 text-sm text-navy',
-    'placeholder:text-navy/40 outline-none transition-colors duration-150',
-    'focus:border-navy focus:ring-2 focus:ring-navy/20',
-    error ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-navy/20',
+    'mt-1.5 block w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-body',
+    'placeholder:text-muted/70 outline-none transition-colors duration-150',
+    'focus:border-accent focus:ring-2 focus:ring-accent/20',
+    error ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-navy/15',
   ].join(' ');
 
 function Wrapper({
@@ -30,7 +30,7 @@ function Wrapper({
     <div>
       <label htmlFor={id} className="block text-sm font-medium text-navy">
         {label}
-        {hint && <span className="ml-2 font-normal text-navy/50">{hint}</span>}
+        {hint && <span className="ml-2 font-normal text-muted">{hint}</span>}
       </label>
       {children}
       {error && (
@@ -130,10 +130,10 @@ export function CheckboxField({
           id={id}
           checked={checked}
           onChange={(e) => onChange(e.target.checked)}
-          className="mt-0.5 h-4 w-4 rounded border-navy/30 accent-navy"
+          className="mt-0.5 h-4 w-4 rounded border-navy/30 accent-accent"
           {...aria(id, error)}
         />
-        <span className="text-sm text-navy/80">{label}</span>
+        <span className="text-sm text-body/80">{label}</span>
       </label>
       {error && (
         <p id={`${id}-error`} className="mt-1.5 text-xs text-red-700" role="alert">

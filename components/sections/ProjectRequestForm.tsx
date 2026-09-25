@@ -96,13 +96,13 @@ export default function ProjectRequestForm() {
 
       <div className="mt-10 max-w-2xl">
         {submitted ? (
-          <div className="rounded-xl bg-white p-8 ring-1 ring-navy/10" role="status">
+          <div className="liq-card p-8" role="status">
             <CheckCircle size={40} className="text-accent-start" strokeWidth={1.5} aria-hidden="true" />
             <h3 className="mt-4 text-xl font-semibold text-navy">{t('successTitle')}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-navy/80">{t('successMessage')}</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{t('successMessage')}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} noValidate className="rounded-xl bg-white p-6 ring-1 ring-navy/10 sm:p-8">
+          <form onSubmit={handleSubmit} noValidate className="liq-card p-6 sm:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
               <InputField
                 label={t('name')}
@@ -196,7 +196,7 @@ export default function ProjectRequestForm() {
                 checked={form.consent}
                 onChange={(v) => updateField('consent', v)}
               />
-              <p className="mt-2 pl-7 text-xs text-navy/60">
+              <p className="mt-2 pl-7 text-xs text-muted">
                 <Link href="/datenschutz" className="liq-link">
                   Datenschutz / Privacy
                 </Link>

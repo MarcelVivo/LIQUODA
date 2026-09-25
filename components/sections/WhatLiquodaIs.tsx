@@ -12,11 +12,11 @@ export default function WhatLiquodaIs() {
       <SectionHeading title={t('title')} lead={t('lead')} />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
-        <div className="rounded-xl border border-navy/10 bg-cream p-6 sm:p-8">
+        <div className="liq-card p-6 sm:p-8">
           <h3 className="text-lg font-semibold text-navy">{t('isTitle')}</h3>
           <ul className="mt-4 space-y-3">
             {isItems.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-relaxed text-navy/80">
+              <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted">
                 <Check size={18} className="mt-0.5 shrink-0 text-accent-start" aria-hidden="true" />
                 <span>{item}</span>
               </li>
@@ -24,12 +24,12 @@ export default function WhatLiquodaIs() {
           </ul>
         </div>
 
-        <div className="rounded-xl border border-navy/10 bg-cream p-6 sm:p-8">
+        <div className="liq-card p-6 sm:p-8">
           <h3 className="text-lg font-semibold text-navy">{t('isNotTitle')}</h3>
           <ul className="mt-4 space-y-3">
             {isNotItems.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-relaxed text-navy/80">
-                <Minus size={18} className="mt-0.5 shrink-0 text-navy/40" aria-hidden="true" />
+              <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted">
+                <Minus size={18} className="mt-0.5 shrink-0 text-muted/70" aria-hidden="true" />
                 <span>{item}</span>
               </li>
             ))}

@@ -19,15 +19,15 @@ export default function HowItWorks() {
         {steps.map((step, index) => {
           const Icon = stepIcons[index] ?? CheckCircle2;
           return (
-            <li key={step.title} className="flex flex-col rounded-xl bg-cream p-6 ring-1 ring-navy/10">
+            <li key={step.title} className="flex flex-col liq-card liq-card-hover p-6">
               <div className="flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-navy text-sm font-semibold text-white">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">
                   {index + 1}
                 </span>
                 <Icon size={22} className="text-navy" strokeWidth={1.5} aria-hidden="true" />
               </div>
               <h3 className="mt-4 text-base font-semibold text-navy">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy/80">{step.text}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{step.text}</p>
             </li>
           );
         })}

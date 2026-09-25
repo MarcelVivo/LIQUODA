@@ -10,13 +10,13 @@ export default function ProcessSteps({ steps }: { steps: ProcessStep[] }) {
       {steps.map((step, index) => (
         <li key={step.title} className="relative">
           <span
-            className="absolute -left-[2.55rem] flex h-8 w-8 items-center justify-center rounded-full bg-navy text-sm font-semibold text-white ring-4 ring-cream"
+            className="absolute -left-[2.55rem] flex h-8 w-8 items-center justify-center rounded-full bg-ink text-sm font-bold text-white ring-4 ring-cream shadow-card"
             aria-hidden="true"
           >
             {index + 1}
           </span>
           <h3 className="text-base font-semibold text-navy sm:text-lg">{step.title}</h3>
-          <p className="mt-1.5 max-w-prose text-sm leading-relaxed text-navy/80">{step.text}</p>
+          <p className="mt-1.5 max-w-prose text-sm leading-relaxed text-muted">{step.text}</p>
         </li>
       ))}
     </ol>

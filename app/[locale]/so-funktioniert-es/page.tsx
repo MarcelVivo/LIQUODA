@@ -42,9 +42,9 @@ export default function HowItWorksPage() {
         <SectionHeading title={t('failureTitle')} lead={t('failureLead')} />
         <dl className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
           {failureItems.map((item) => (
-            <div key={item.title} className="border-t border-cream/15 pt-5">
-              <dt className="text-base font-semibold text-cream">{item.title}</dt>
-              <dd className="mt-2 text-sm leading-relaxed text-cream/75">{item.text}</dd>
+            <div key={item.title} className="border-t border-white/10 pt-5">
+              <dt className="text-base font-semibold text-onink">{item.title}</dt>
+              <dd className="mt-2 text-sm leading-relaxed text-onink-muted">{item.text}</dd>
             </div>
           ))}
         </dl>

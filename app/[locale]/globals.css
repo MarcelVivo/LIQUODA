@@ -8,56 +8,141 @@
     scroll-padding-top: 5rem;
   }
   body {
-    @apply bg-cream font-sans text-navy antialiased;
+    @apply bg-cream font-sans text-body antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply text-navy;
   }
   ::selection {
-    @apply bg-navy text-cream;
+    @apply bg-accent text-white;
   }
 }
 
 @layer components {
-  /* ── Schriftzug «Liquoda.-» ────────────────────────────────────
-   * Einzige Stelle, an der eine Serifenschrift verwendet wird
-   * (Spec, Abschnitt 2). Der Akzentverlauf liegt nur auf «.-».
+  /* ── Seitenhintergrund wie in der Präsentation ────────────────
+   * Warmer Verlauf mit zwei weichen Lichtflecken, darüber driftende
+   * Blobs (Liquiditäts-Thema) und statische Wellenlinien am unteren Rand.
+   * Fix im Viewport, Inhalt liegt darüber (z-10).
    * ─────────────────────────────────────────────────────────────*/
-  .liq-wordmark {
-    @apply font-wordmark font-normal leading-none tracking-[0.03em];
+  .liq-page-bg {
+    @apply pointer-events-none fixed inset-0 z-0 overflow-hidden;
+    background:
+      radial-gradient(110% 85% at 78% 6%, rgba(31, 168, 140, 0.07), transparent 55%),
+      radial-gradient(90% 80% at 8% 96%, rgba(14, 34, 51, 0.06), transparent 50%),
+      linear-gradient(150deg, #faf8f4, #f5f2ec 55%, #f0eee6);
   }
-  .liq-wordmark-accent {
-    @apply bg-accent bg-clip-text font-bold text-transparent;
+  .liq-wavelines {
+    @apply absolute inset-x-0 bottom-0 h-[24vh];
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath d='M0,150 C240,110 480,195 720,165 C960,135 1200,185 1440,145' fill='none' stroke='%231FA88C' stroke-width='2.5' opacity='.5'/%3E%3Cpath d='M0,215 C240,185 480,248 720,222 C960,196 1200,242 1440,205' fill='none' stroke='%231FA88C' stroke-width='2.5' opacity='.35'/%3E%3Cpath d='M0,272 C240,252 480,298 720,276 C960,254 1200,290 1440,264' fill='none' stroke='%230E2233' stroke-width='2.5' opacity='.28'/%3E%3C/svg%3E")
+      bottom / 100% 100% no-repeat;
+    opacity: 0.16;
   }
 
-  /* Dünne Akzentlinie, sparsam als Orientierung eingesetzt */
+  /* Driftende, weichgezeichnete Blobs */
+  .liq-blob {
+    @apply pointer-events-none absolute rounded-full;
+    filter: blur(70px);
+  }
+  .liq-blob-1 {
+    width: 44vw;
+    height: 44vw;
+    top: -12vw;
+    right: -10vw;
+    background: radial-gradient(circle, rgba(31, 168, 140, 0.16), transparent 65%);
+    @apply animate-drift1;
+  }
+  .liq-blob-2 {
+    width: 38vw;
+    height: 38vw;
+    bottom: -14vw;
+    left: -8vw;
+    background: radial-gradient(circle, rgba(14, 34, 51, 0.1), transparent 65%);
+    @apply animate-drift2;
+  }
+  .liq-dark .liq-blob-1 {
+    background: radial-gradient(circle, rgba(31, 168, 140, 0.2), transparent 65%);
+  }
+  .liq-dark .liq-blob-2 {
+    background: radial-gradient(circle, rgba(62, 209, 176, 0.08), transparent 65%);
+  }
+
+  /* ── Schriftzug «Liquoda.-» ────────────────────────────────────
+   * Serifenschrift nur hier. «Liquoda» in currentColor, «.-» in Petrol
+   * mit Schimmer (Liquiditäts-Thema). */
+  .liq-ld {
+    fill: #1fa88c;
+    @apply animate-shimmer;
+  }
+
+  /* Gestaffelte Einblendung (Titelfolie) */
+  .liq-rise {
+    @apply animate-rise;
+    animation-delay: var(--d, 0s);
+  }
+
+  /* Kicker: Akzent-Text mit Verlaufslinien links und rechts */
+  .liq-kicker {
+    @apply inline-flex items-center gap-[0.8em] text-xs font-bold uppercase tracking-[0.16em] text-accent sm:text-sm;
+  }
+  .liq-kicker::before,
+  .liq-kicker::after {
+    content: '';
+    display: block;
+    width: 2.2em;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #1fa88c);
+  }
+  .liq-kicker::after {
+    background: linear-gradient(90deg, #1fa88c, transparent);
+  }
+
+  /* Karten */
+  .liq-card {
+    @apply rounded-2xl bg-white shadow-card transition duration-300;
+  }
+  .liq-card-hover {
+    @apply hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  /* Dunkle Fläche (Ink-Verlauf mit Akzentkante) */
+  .liq-ink {
+    @apply bg-ink text-onink;
+    border-bottom: 4px solid #1fa88c;
+  }
+
+  /* Chip (Pill mit feinem Rand) */
+  .liq-chip {
+    @apply inline-flex items-center rounded-full border px-4 py-2 text-xs sm:text-sm;
+  }
+
+  /* Dünne Akzentlinie als Orientierung */
   .liq-accent-line {
-    @apply h-1 w-12 rounded-full bg-accent;
+    @apply h-0.5 w-12 rounded-full;
+    background: linear-gradient(90deg, #1fa88c, #3ed1b0);
   }
 
-  /* Fokus-Stil für Links im Fliesstext */
+  /* Links im Fliesstext */
   .liq-link {
-    @apply underline decoration-navy/30 underline-offset-4 transition-colors hover:decoration-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy rounded-sm;
+    @apply rounded-sm underline decoration-accent/50 underline-offset-4 transition-colors hover:decoration-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent;
   }
 
-  /* ── Bestehend, wird von WaveBackground.tsx / ComingSoon.tsx genutzt ──
-   * Beide Komponenten sind in Etappe 1 nicht eingebunden, bleiben aber
-   * im Repo (keine Löschung ohne Rückfrage). */
+  /* Bestehend, wird von ComingSoon.tsx genutzt (nicht eingebunden, nicht gelöscht) */
   .liq-logo-accent {
     color: #1fc3a6;
     text-shadow: 0 0 22px rgba(31, 195, 166, 0.14);
   }
 
-  .liquoda-ambient-glow {
-    background:
-      radial-gradient(circle at 84% 13%, rgba(15, 111, 109, 0.14), transparent 27%),
-      radial-gradient(circle at 12% 78%, rgba(7, 74, 83, 0.12), transparent 30%);
-  }
-
-  .liquoda-wave-fade {
-    background: linear-gradient(
-      to bottom,
-      rgba(7, 25, 37, 0.92) 0%,
-      rgba(7, 25, 37, 0.12) 42%,
-      rgba(7, 25, 37, 0) 64%,
-      rgba(7, 25, 37, 0.22) 100%
-    );
+  @media (prefers-reduced-motion: reduce) {
+    .liq-rise,
+    .liq-blob,
+    .liq-ld {
+      animation: none !important;
+    }
+    .liq-rise {
+      opacity: 1;
+      transform: none;
+    }
   }
 }

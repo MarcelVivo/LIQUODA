@@ -7,16 +7,16 @@ interface BadgeProps {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  active: 'bg-emerald-100 text-emerald-700',
-  info: 'bg-blue-100 text-blue-700',
-  neutral: 'bg-gray-100 text-gray-600',
+  active: 'bg-accent/10 text-accent',
+  info: 'bg-navy/8 text-navy',
+  neutral: 'bg-cream-dark text-muted',
 };
 
 export default function Badge({ label, variant = 'neutral', className = '' }: BadgeProps) {
   return (
     <span
       className={[
-        'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium',
+        'inline-flex items-center rounded-full px-2.5 py-1 text-xs font-bold',
         variantClasses[variant],
         className,
       ]
