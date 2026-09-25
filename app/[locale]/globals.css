@@ -5,58 +5,41 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
   body {
-    @apply font-sans antialiased;
-    background: #071925;
+    @apply bg-cream font-sans text-navy antialiased;
+  }
+  ::selection {
+    @apply bg-navy text-cream;
   }
 }
 
 @layer components {
-  /* ── LIQUODA logo text ──────────────────────────────────────────
-   * Space Grotesk at 700 weight: geometric, technical, fintech-grade.
-   * Wide letter-spacing reads like financial terminal data.
-   * Gradient shimmer simulates light refracting through water.
+  /* ── Schriftzug «Liquoda.-» ────────────────────────────────────
+   * Einzige Stelle, an der eine Serifenschrift verwendet wird
+   * (Spec, Abschnitt 2). Der Akzentverlauf liegt nur auf «.-».
    * ─────────────────────────────────────────────────────────────*/
-  .liq-logo-text {
-    font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: clamp(3.2rem, 12vw, 9.5rem);
-    letter-spacing: 0.18em;
-    background-image: linear-gradient(
-      140deg,
-      #d4eefb 0%,
-      #7dd3f0 18%,
-      #b8e5f8 38%,
-      #4fb8da 58%,
-      #a2dcf5 78%,
-      #d4eefb 100%
-    );
-    background-size: 280% 280%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: liq-shimmer 16s ease-in-out infinite;
+  .liq-wordmark {
+    @apply font-wordmark font-normal leading-none tracking-[0.03em];
+  }
+  .liq-wordmark-accent {
+    @apply bg-accent bg-clip-text font-bold text-transparent;
   }
 
-  /* Slow, calm light-on-water shimmer */
-  @keyframes liq-shimmer {
-    0%   { background-position: 0%   50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0%   50%; }
+  /* Dünne Akzentlinie, sparsam als Orientierung eingesetzt */
+  .liq-accent-line {
+    @apply h-1 w-12 rounded-full bg-accent;
   }
 
-  /* ── Decorative buttons (no function) ────────────────────────── */
-  .liq-btn-outline {
-    @apply px-8 py-3 rounded-md text-sm font-medium tracking-wide;
-    border: 1px solid rgba(79, 195, 232, 0.35);
-    color: rgba(125, 211, 240, 0.65);
-    cursor: default;
-    pointer-events: none;
-    transition: border-color 0.2s;
+  /* Fokus-Stil für Links im Fliesstext */
+  .liq-link {
+    @apply underline decoration-navy/30 underline-offset-4 transition-colors hover:decoration-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy rounded-sm;
   }
 
-  /* Reference-video logo accent and ambient background lighting */
+  /* ── Bestehend, wird von WaveBackground.tsx / ComingSoon.tsx genutzt ──
+   * Beide Komponenten sind in Etappe 1 nicht eingebunden, bleiben aber
+   * im Repo (keine Löschung ohne Rückfrage). */
   .liq-logo-accent {
     color: #1fc3a6;
     text-shadow: 0 0 22px rgba(31, 195, 166, 0.14);
@@ -76,15 +59,5 @@
       rgba(7, 25, 37, 0) 64%,
       rgba(7, 25, 37, 0.22) 100%
     );
-  }
-
-  .liq-btn-filled {
-    @apply px-8 py-3 rounded-md text-sm font-medium tracking-wide;
-    background: rgba(31, 63, 110, 0.7);
-    border: 1px solid rgba(79, 195, 232, 0.25);
-    color: rgba(125, 211, 240, 0.75);
-    cursor: default;
-    pointer-events: none;
-    transition: background 0.2s;
   }
 }

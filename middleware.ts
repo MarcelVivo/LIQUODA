@@ -1,11 +1,8 @@
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
+import { routing } from './i18n/routing';
 
-const intlMiddleware = createIntlMiddleware({
-  locales: ['de', 'en'],
-  defaultLocale: 'de',
-  localePrefix: 'as-needed',
-});
+const intlMiddleware = createIntlMiddleware(routing);
 
 // Verify a jose-issued HS256 JWT using Web Crypto (no external library needed)
 async function verifyAdminToken(token: string): Promise<boolean> {
