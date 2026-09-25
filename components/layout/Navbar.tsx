@@ -9,6 +9,7 @@ import LanguageToggle from '@/components/ui/LanguageToggle';
 import Wordmark from '@/components/ui/Wordmark';
 
 const navItems = [
+  { href: '/projekte', key: 'projects' },
   { href: '/so-funktioniert-es', key: 'howItWorks' },
   { href: '/fuer-emittenten', key: 'issuers' },
 ] as const;
@@ -38,7 +39,7 @@ export default function Navbar() {
     [
       'rounded px-2 py-1 text-sm font-semibold transition-colors duration-150',
       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
-      pathname === href
+      pathname === href || pathname.startsWith(`${href}/`)
         ? 'text-accent'
         : inverse
           ? 'text-onink-muted hover:text-onink'

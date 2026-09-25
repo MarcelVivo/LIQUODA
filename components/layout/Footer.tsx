@@ -4,6 +4,7 @@ import Wordmark from '@/components/ui/Wordmark';
 
 const navLinks = [
   { href: '/', key: 'home' },
+  { href: '/projekte', key: 'projects' },
   { href: '/so-funktioniert-es', key: 'howItWorks' },
   { href: '/fuer-emittenten', key: 'issuers' },
 ] as const;
