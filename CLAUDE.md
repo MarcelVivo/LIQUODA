@@ -8,7 +8,9 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 
 - Next.js App Router mit `app/[locale]`, TypeScript, Tailwind
 - `next-intl` mit `messages/de.json` (Standard, Schweizer Schreibweise: «ss» statt «ß») und `messages/en.json`
-- Supabase (`lib/supabase.ts`), bestehender Admin-Bereich unter `app/admin` mit eigenem Login (`jose`-JWT)
+- Supabase: Schema und RLS in `supabase/migrations/`, Beispieldaten in `supabase/seed.sql` (erzeugt aus `lib/projects/example-data.ts`); Clients in `lib/supabase/` (`server.ts` mit Anon-Key und Session-Cookies, `client.ts`, `middleware.ts`); `lib/supabase.ts` (Service-Role) nur für den Admin-Bereich
+- Auth: Supabase Auth mit E-Mail-Bestätigung, Rolle in `app_metadata` (per Trigger), Route Handler unter `app/api/konto/`, Rollen-Routing in `middleware.ts`
+- Bestehender Admin-Bereich unter `app/admin` mit eigenem Login (`jose`-JWT)
 - Bestehende Komponenten: `components/layout/{Navbar,Footer}`, `components/ui/{Button,Badge,LanguageToggle,WaveBackground}`, `components/sections/{Hero,HowItWorks,ProjectPreview,RegisterForm,ComingSoon}`
 - Design: verbindlich nach `../LIQUODA_Praesentation.html` (siehe Spec, Abschnitt 2 «Design»); Tokens in `tailwind.config.ts`, Bausteine in `components/ui/`
 - Logo: SVG-Schriftzug in `components/ui/Wordmark.tsx` (das alte `public/liquoda-logo-v2.svg` wird nicht mehr verwendet)
@@ -39,7 +41,7 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 | 5 | Portfolio und Emittenten-Dashboard | `/portfolio`, `/emittent` mit Projekt-Wizard und Dokument-Upload (Supabase Storage), Admin: Projektprüfung, Freigabe, KYC-Status manuell setzen, Audit-Log | ja |
 | 6 | Smart Contracts und Wallet | OpenZeppelin ERC-20-Template mit Cap, Allowlist, Pausable; Deployment auf Polygon-Testnet; Wallet-Verbindung (MetaMask/WalletConnect); Mint nach Backend-Freigabe; Token-Referenz speichern | ja |
 
-Aktuelle Etappe: **2**, umgesetzt auf Branch `etappe-2-marktplatz` (baut auf `etappe-1-oeffentliche-seiten` auf), Abnahme offen. Etappe 1 ist abgenommen, Merge nach `main` steht noch aus. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
+Aktuelle Etappe: **3**, umgesetzt auf Branch `etappe-3-auth-datenmodell`, Abnahme offen. Etappen 1 und 2 sind abgenommen und auf `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
 
 ## Befehle
 
