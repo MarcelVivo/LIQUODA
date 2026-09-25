@@ -1,8 +1,30 @@
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
 import { routing } from './i18n/routing';
+import { refreshSession } from './lib/supabase/middleware';
 
 const intlMiddleware = createIntlMiddleware(routing);
+
+// Rollen-Routing (Spec, Abschnitt 3): Investoren-Bereich und Emittenten-Dashboard
+const PROTECTED: Record<string, 'investor' | 'emittent'> = {
+  '/portfolio': 'investor',
+  '/emittent': 'emittent',
+};
+const AUTH_PAGES = ['/login', '/registrieren'];
+
+/** Locale-Präfix abtrennen: "/en/portfolio" -> { locale: "en", path: "/portfolio" } */
+function splitLocale(pathname: string) {
+  const match = pathname.match(/^\/(de|en)(?=\/|$)/);
+  const locale = match ? match[1] : routing.defaultLocale;
+  const path = match ? pathname.slice(match[0].length) || '/' : pathname;
+  return { locale, path, prefix: locale === routing.defaultLocale ? '' : `/${locale}` };
+}
+
+function homeFor(role: string | null, prefix: string) {
+  if (role === 'emittent') return `${prefix}/emittent`;
+  if (role === 'admin') return '/admin';
+  return `${prefix}/portfolio`;
+}
 
 // Verify a jose-issued HS256 JWT using Web Crypto (no external library needed)
 async function verifyAdminToken(token: string): Promise<boolean> {
@@ -46,6 +68,7 @@ async function verifyAdminToken(token: string): Promise<boolean> {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Bestehender Admin-Bereich mit eigenem Login (unverändert)
   if (pathname.startsWith('/admin')) {
     if (pathname === '/admin/login') return NextResponse.next();
 
@@ -56,7 +79,38 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  return intlMiddleware(request);
+  const response = intlMiddleware(request);
+  const { path, prefix } = splitLocale(pathname);
+  const protectedRole = Object.entries(PROTECTED).find(([base]) => path === base || path.startsWith(`${base}/`))?.[1];
+  const isAuthPage = AUTH_PAGES.includes(path);
+
+  // Session nur dort prüfen, wo sie eine Rolle spielt
+  if (!protectedRole && !isAuthPage) return response;
+
+  const { user, role } = await refreshSession(request, response);
+
+  const redirect = (to: string) => {
+    const res = NextResponse.redirect(new URL(to, request.url));
+    response.cookies.getAll().forEach((c) => res.cookies.set(c));
+    return res;
+  };
+
+  if (protectedRole) {
+    if (!user) {
+      const next = encodeURIComponent(pathname + request.nextUrl.search);
+      return redirect(`${prefix}/login?next=${next}`);
+    }
+    if (role !== protectedRole && role !== 'admin') {
+      return redirect(homeFor(role, prefix));
+    }
+  }
+
+  // Eingeloggte Nutzer sehen Login/Registrierung nicht mehr
+  if (isAuthPage && user) {
+    return redirect(homeFor(role, prefix));
+  }
+
+  return response;
 }
 
 export const config = {
