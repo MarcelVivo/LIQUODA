@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 import { Info } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import Section, { SectionHeading } from '@/components/ui/Section';
@@ -19,15 +18,15 @@ export async function generateMetadata({
 
 // Marktplatz (Spec, Abschnitt 3): alle aktiven Projekte, Filter nach
 // Asset-Typ und Status. Daten in Etappe 2 aus lib/projects.ts.
-export default function ProjectsPage({
+export default async function ProjectsPage({
   searchParams,
 }: {
   searchParams: { asset?: string; status?: string };
 }) {
-  const t = useTranslations('projects');
+  const t = await getTranslations('projects');
   const assetType = isAssetType(searchParams.asset) ? searchParams.asset : undefined;
   const status = isPublicStatus(searchParams.status) ? searchParams.status : undefined;
-  const projects = getProjects({ assetType, status });
+  const projects = await getProjects({ assetType, status });
   const filtered = !!(assetType || status);
 
   return (

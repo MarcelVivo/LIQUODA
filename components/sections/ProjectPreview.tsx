@@ -1,13 +1,13 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import Section, { SectionHeading } from '@/components/ui/Section';
 import ProjectCard from '@/components/projects/ProjectCard';
 import { getFeaturedProjects } from '@/lib/projects';
 
-export default function ProjectPreview() {
-  const t = useTranslations('home.examples');
-  const projects = getFeaturedProjects();
+export default async function ProjectPreview() {
+  const t = await getTranslations('home.examples');
+  const projects = await getFeaturedProjects();
 
   return (
     <Section id="beispielprojekte" ariaLabel={t('title')}>

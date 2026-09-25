@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import Section from '@/components/ui/Section';
@@ -16,7 +16,7 @@ import { getProjectBySlug, progressPercent, publicStatus, type Locale } from '@/
 type Params = { locale: string; slug: string };
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const project = getProjectBySlug(params.slug);
+  const project = await getProjectBySlug(params.slug);
   if (!project) return {};
   const locale = (params.locale === 'en' ? 'en' : 'de') as Locale;
   return { title: project.title[locale], description: project.summary[locale] };
@@ -24,12 +24,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 // Projektseite (Spec, Abschnitt 3): Beschreibung, Asset, Zielbetrag, Fortschritt,
 // Laufzeit, Dokumente, «Risiken & Hinweise», CTA «Investition prüfen».
-export default function ProjectPage({ params }: { params: Params }) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectPage({ params }: { params: Params }) {
+  const project = await getProjectBySlug(params.slug);
   if (!project) notFound();
 
-  const locale = useLocale() as Locale;
-  const t = useTranslations('projects');
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations('projects');
   const status = publicStatus(project)!;
   const percent = progressPercent(project);
   const days = daysUntil(project.deadline);
