@@ -8,6 +8,7 @@
   },
   "nav": {
     "home": "Home",
+    "projects": "Projects",
     "howItWorks": "How it works",
     "issuers": "For issuers",
     "waitlist": "Waiting list",
@@ -96,18 +97,8 @@
     },
     "examples": {
       "title": "Example projects",
-      "lead": "The following projects are examples and show how a project is presented on LIQUODA. They are not open for investment.",
-      "badgeExample": "Example",
-      "statusOpen": "Funding open",
-      "funded": "of target reached",
-      "goal": "Target amount",
-      "detailsSoon": "Project page to follow",
-      "p1Name": "Pizzeria Wander, Bern",
-      "p1Category": "Gastronomy",
-      "p2Name": "Apartment building Vera, Thun",
-      "p2Category": "Real estate",
-      "p3Name": "Display Solutions AG",
-      "p3Category": "Technology"
+      "lead": "Three projects from the marketplace. All projects are examples and show how a project is presented on LIQUODA. Participations are not yet possible.",
+      "all": "See all projects"
     },
     "trust": {
       "title": "What you should know",
@@ -394,6 +385,88 @@
     "errorAssetType": "Please select an asset type.",
     "errorConsent": "Please confirm the privacy notice.",
     "errorServer": "The enquiry could not be sent. Please try again later or write to info@liquoda.com."
+  },
+  "projects": {
+    "metaTitle": "Projects",
+    "metaDescription": "All projects on LIQUODA with asset type, status, target amount and term.",
+    "title": "Projects",
+    "lead": "All projects at a glance. Filter by asset type and status. Each project page shows the description, target amount, term, documents and the risks.",
+    "exampleNote": "The projects shown are examples. Participations are not yet possible.",
+    "filterAsset": "Asset type",
+    "filterStatus": "Status",
+    "all": "All",
+    "assetTypes": {
+      "company": "Company",
+      "real_estate": "Real estate",
+      "energy": "Energy",
+      "collectible": "Tangible asset"
+    },
+    "statuses": {
+      "open": "Open",
+      "funded": "Funded",
+      "closed": "Closed"
+    },
+    "count": "{count, plural, =0 {No projects} one {# project} other {# projects}}",
+    "empty": "There are no projects for this selection.",
+    "reset": "Reset filters",
+    "card": {
+      "example": "Example",
+      "target": "Target amount",
+      "raised": "reached",
+      "minInvestment": "Minimum",
+      "deadline": "Term until",
+      "details": "View project"
+    },
+    "detail": {
+      "back": "Back to overview",
+      "issuer": "Issuer",
+      "keyFigures": "Key figures",
+      "target": "Target amount",
+      "raised": "Reached so far",
+      "ofTarget": "{percent} % of target",
+      "minInvestment": "Minimum",
+      "deadline": "Term until",
+      "daysLeft": "{days, plural, =0 {ends today} one {# day left} other {# days left}}",
+      "ended": "Term ended",
+      "tokenModel": "Token model",
+      "tokenModels": {
+        "erc20": "Fungible shares (ERC-20)",
+        "erc721": "Single asset (ERC-721)",
+        "erc1155": "Series or edition (ERC-1155)"
+      },
+      "description": "Description",
+      "purpose": "Use of capital",
+      "documents": "Documents",
+      "documentsNote": "Documents are stored with versioning. In this view they are not yet available for download.",
+      "docTypes": {
+        "contract": "Contract",
+        "prospectus": "Project description",
+        "valuation": "Appraisal",
+        "financials": "Financials",
+        "other": "Other"
+      },
+      "version": "Version {version}",
+      "risks": "Risks and notes",
+      "risksLead": "Please read this section in full before considering a participation.",
+      "generalRisksTitle": "General notes",
+      "generalRisks": [
+        "Every participation is an entrepreneurial investment. The invested capital can be lost in full or in part.",
+        "LIQUODA makes no commitments regarding income, repayment or value development. Information provided by the issuer is checked for completeness but not guaranteed.",
+        "There is no secondary market. Tokens are not freely transferable. Expect your participation to be locked until the end of the term.",
+        "If the funding target is not reached, no tokens are issued and payments are reversed."
+      ],
+      "projectRisksTitle": "Project-specific risks",
+      "roleNote": "LIQUODA intermediates and provides the technology. LIQUODA is not a party to the participation and holds neither money nor tokens.",
+      "ctaCheck": "Review investment",
+      "ctaHint": "Participations will be possible once the platform launches. Join the waiting list if you would like to be informed.",
+      "ctaWaitlist": "Go to waiting list",
+      "statusNotes": {
+        "open": "The funding phase is running. The target amount has not yet been reached.",
+        "funded": "The target amount has been reached. The round is complete; new participations are no longer possible.",
+        "closed": "The project is closed. New participations are not possible.",
+        "failed": "Funding not successful: the target amount was not reached within the term. No tokens were issued and all payments were reversed."
+      }
+    }
   },
   "legal": {
     "impressum": {

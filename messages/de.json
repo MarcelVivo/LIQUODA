@@ -8,6 +8,7 @@
   },
   "nav": {
     "home": "Startseite",
+    "projects": "Projekte",
     "howItWorks": "So funktioniert es",
     "issuers": "Für Emittenten",
     "waitlist": "Warteliste",
@@ -96,18 +97,8 @@
     },
     "examples": {
       "title": "Beispielprojekte",
-      "lead": "Die folgenden Projekte sind Beispiele und zeigen, wie ein Projekt auf LIQUODA dargestellt wird. Sie sind nicht investierbar.",
-      "badgeExample": "Beispiel",
-      "statusOpen": "Finanzierung offen",
-      "funded": "des Ziels erreicht",
-      "goal": "Zielbetrag",
-      "detailsSoon": "Projektseite folgt",
-      "p1Name": "Pizzeria Wander, Bern",
-      "p1Category": "Gastronomie",
-      "p2Name": "Mehrfamilienhaus Vera, Thun",
-      "p2Category": "Immobilien",
-      "p3Name": "Display Solutions AG",
-      "p3Category": "Technologie"
+      "lead": "Drei Projekte aus dem Marktplatz. Alle Projekte sind Beispiele und zeigen, wie ein Projekt auf LIQUODA dargestellt wird. Beteiligungen sind noch nicht möglich.",
+      "all": "Alle Projekte ansehen"
     },
     "trust": {
       "title": "Was Sie wissen sollten",
@@ -394,6 +385,88 @@
     "errorAssetType": "Bitte wählen Sie eine Art des Assets.",
     "errorConsent": "Bitte bestätigen Sie den Hinweis zum Datenschutz.",
     "errorServer": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie an info@liquoda.com."
+  },
+  "projects": {
+    "metaTitle": "Projekte",
+    "metaDescription": "Alle Projekte auf LIQUODA mit Art des Assets, Status, Zielbetrag und Laufzeit.",
+    "title": "Projekte",
+    "lead": "Alle Projekte im Überblick. Filtern Sie nach Art des Assets und Status. Jede Projektseite zeigt Beschreibung, Zielbetrag, Laufzeit, Dokumente und die Risiken.",
+    "exampleNote": "Die gezeigten Projekte sind Beispiele. Beteiligungen sind noch nicht möglich.",
+    "filterAsset": "Art des Assets",
+    "filterStatus": "Status",
+    "all": "Alle",
+    "assetTypes": {
+      "company": "Unternehmen",
+      "real_estate": "Immobilie",
+      "energy": "Energie",
+      "collectible": "Sachwert"
+    },
+    "statuses": {
+      "open": "Offen",
+      "funded": "Finanziert",
+      "closed": "Geschlossen"
+    },
+    "count": "{count, plural, =0 {Keine Projekte} one {# Projekt} other {# Projekte}}",
+    "empty": "Mit dieser Auswahl gibt es keine Projekte.",
+    "reset": "Filter zurücksetzen",
+    "card": {
+      "example": "Beispiel",
+      "target": "Zielbetrag",
+      "raised": "erreicht",
+      "minInvestment": "Mindestbetrag",
+      "deadline": "Laufzeit bis",
+      "details": "Projekt ansehen"
+    },
+    "detail": {
+      "back": "Zurück zur Übersicht",
+      "issuer": "Emittent",
+      "keyFigures": "Eckdaten",
+      "target": "Zielbetrag",
+      "raised": "Bisher erreicht",
+      "ofTarget": "{percent} % des Ziels",
+      "minInvestment": "Mindestbetrag",
+      "deadline": "Laufzeit bis",
+      "daysLeft": "{days, plural, =0 {läuft heute ab} one {noch # Tag} other {noch # Tage}}",
+      "ended": "Laufzeit beendet",
+      "tokenModel": "Token-Modell",
+      "tokenModels": {
+        "erc20": "Fungible Anteile (ERC-20)",
+        "erc721": "Einzelnes Asset (ERC-721)",
+        "erc1155": "Serie oder Edition (ERC-1155)"
+      },
+      "description": "Beschreibung",
+      "purpose": "Verwendung des Kapitals",
+      "documents": "Dokumente",
+      "documentsNote": "Dokumente werden versioniert abgelegt. In dieser Ansicht werden sie noch nicht zum Download bereitgestellt.",
+      "docTypes": {
+        "contract": "Vertrag",
+        "prospectus": "Projektbeschrieb",
+        "valuation": "Gutachten",
+        "financials": "Finanzen",
+        "other": "Sonstiges"
+      },
+      "version": "Version {version}",
+      "risks": "Risiken und Hinweise",
+      "risksLead": "Bitte lesen Sie diesen Abschnitt vollständig, bevor Sie eine Beteiligung prüfen.",
+      "generalRisksTitle": "Allgemeine Hinweise",
+      "generalRisks": [
+        "Jede Beteiligung ist eine unternehmerische Beteiligung. Das eingesetzte Kapital kann ganz oder teilweise verloren gehen.",
+        "LIQUODA gibt keine Zusagen zu Erträgen, Rückzahlungen oder Wertentwicklung. Angaben des Emittenten werden auf Vollständigkeit geprüft, aber nicht garantiert.",
+        "Es gibt keinen Sekundärmarkt. Token sind nicht frei übertragbar. Rechnen Sie damit, dass Ihre Beteiligung bis zum Ende der Laufzeit gebunden ist.",
+        "Wird das Finanzierungsziel nicht erreicht, werden keine Token ausgegeben und die Zahlungen rückabgewickelt."
+      ],
+      "projectRisksTitle": "Projektspezifische Risiken",
+      "roleNote": "LIQUODA vermittelt und stellt die Technik bereit. LIQUODA ist nicht Vertragspartei der Beteiligung und verwahrt weder Geld noch Token.",
+      "ctaCheck": "Investition prüfen",
+      "ctaHint": "Beteiligungen sind ab dem Start der Plattform möglich. Tragen Sie sich in die Warteliste ein, wenn Sie informiert werden möchten.",
+      "ctaWaitlist": "Zur Warteliste",
+      "statusNotes": {
+        "open": "Die Finanzierungsphase läuft. Der Zielbetrag ist noch nicht erreicht.",
+        "funded": "Der Zielbetrag wurde erreicht. Die Runde ist abgeschlossen; neue Beteiligungen sind nicht mehr möglich.",
+        "closed": "Das Projekt ist geschlossen. Neue Beteiligungen sind nicht möglich.",
+        "failed": "Finanzierung nicht erfolgreich: Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Token ausgegeben, alle Zahlungen wurden rückabgewickelt."
+      }
+    }
   },
   "legal": {
     "impressum": {
