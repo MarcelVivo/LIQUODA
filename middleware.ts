@@ -8,6 +8,7 @@ const intlMiddleware = createIntlMiddleware(routing);
 // Rollen-Routing (Spec, Abschnitt 3): Investoren-Bereich und Emittenten-Dashboard
 const PROTECTED: Record<string, 'investor' | 'emittent'> = {
   '/portfolio': 'investor',
+  '/investieren': 'investor',
   '/emittent': 'emittent',
 };
 const AUTH_PAGES = ['/login', '/registrieren'];

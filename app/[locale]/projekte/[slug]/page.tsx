@@ -11,6 +11,7 @@ import ProgressBar from '@/components/projects/ProgressBar';
 import DocumentList from '@/components/projects/DocumentList';
 import RiskNotes from '@/components/projects/RiskNotes';
 import { daysUntil, formatChf, formatDate } from '@/lib/format';
+import { getAccount } from '@/lib/supabase/server';
 import { getProjectBySlug, progressPercent, publicStatus, type Locale } from '@/lib/projects';
 
 type Params = { locale: string; slug: string };
@@ -34,6 +35,8 @@ export default async function ProjectPage({ params }: { params: Params }) {
   const percent = progressPercent(project);
   const days = daysUntil(project.deadline);
   const statusNoteKey = project.status === 'failed' ? 'failed' : status;
+  const investable = status === 'open' && days >= 0;
+  const account = await getAccount();
 
   return (
     <>
@@ -58,7 +61,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-body sm:text-lg">{project.summary[locale]}</p>
       </Section>
 
-      <Section tone="white" className="pt-0 sm:pt-0" ariaLabel={t('detail.keyFigures')}>
+      <Section id="risiken" tone="white" className="pt-0 sm:pt-0" ariaLabel={t('detail.keyFigures')}>
         <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
           {/* Inhalt */}
           <div className="space-y-10">
@@ -130,15 +133,27 @@ export default async function ProjectPage({ params }: { params: Params }) {
               </p>
 
               <div className="mt-5">
-                <Button size="lg" fullWidth disabled aria-describedby="cta-hint">
-                  {t('detail.ctaCheck')}
-                </Button>
-                <p id="cta-hint" className="mt-3 text-xs leading-relaxed text-muted">
-                  {t('detail.ctaHint')}
-                </p>
-                <ButtonLink href="/#warteliste" variant="outline" size="sm" fullWidth className="mt-3">
-                  {t('detail.ctaWaitlist')}
-                </ButtonLink>
+                {investable ? (
+                  <>
+                    <ButtonLink href={`/investieren/${project.slug}`} size="lg" fullWidth aria-describedby="cta-hint">
+                      {t('detail.ctaCheck')}
+                    </ButtonLink>
+                    {!account && (
+                      <p id="cta-hint" className="mt-3 text-xs leading-relaxed text-muted">
+                        {t('detail.ctaHintLogin')}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <Button size="lg" fullWidth disabled aria-describedby="cta-hint">
+                      {t('detail.ctaCheck')}
+                    </Button>
+                    <p id="cta-hint" className="mt-3 text-xs leading-relaxed text-muted">
+                      {t('detail.ctaHintClosed')}
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </aside>

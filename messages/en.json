@@ -468,7 +468,9 @@
         "funded": "The target amount has been reached. The round is complete; new participations are no longer possible.",
         "closed": "The project is closed. New participations are not possible.",
         "failed": "Funding not successful: the target amount was not reached within the term. No tokens were issued and all payments were reversed."
-      }
+      },
+      "ctaHintLogin": "To participate you need an investor account with verified identity.",
+      "ctaHintClosed": "This project does not accept new participations."
     }
   },
   "auth": {
@@ -570,7 +572,110 @@
       ],
       "logout": "Log out",
       "loggingOut": "Logging out …",
-      "profileMissing": "Your profile could not be loaded. Please log in again."
+      "profileMissing": "Your profile could not be loaded. Please log in again.",
+      "investmentsTitle": "Participations",
+      "investmentsEmpty": "No participations yet. Review a project in the marketplace.",
+      "investmentsProjects": "Go to marketplace",
+      "investmentStatus": {
+        "reserved": "Reserved",
+        "paid": "Paid",
+        "confirmed": "Confirmed",
+        "cancelled": "Cancelled",
+        "refunded": "Refunded"
+      },
+      "investmentDate": "Date"
+    }
+  },
+  "invest": {
+    "metaTitle": "Review investment",
+    "title": "Review investment",
+    "project": "Project",
+    "steps": {
+      "amount": "Amount",
+      "summary": "Summary",
+      "consent": "Consent",
+      "payment": "Payment"
+    },
+    "stepOf": "Step {step} of {total}",
+    "amount": {
+      "title": "Set the amount",
+      "lead": "Enter the amount in whole francs. Minimum {min}, maximum {max}. Still open: {open}.",
+      "label": "Amount in CHF",
+      "next": "Continue to summary",
+      "errors": {
+        "required": "Please enter an amount.",
+        "integer": "Please enter whole francs, without centimes.",
+        "min": "The minimum for this project is {min}.",
+        "max": "The maximum per participation is {max}.",
+        "open": "Only {open} is still open for this project. Please choose a smaller amount."
+      }
+    },
+    "summary": {
+      "title": "Summary",
+      "lead": "Please check the details. The fee is charged in addition to the participation amount.",
+      "amount": "Participation amount",
+      "fee": "LIQUODA transaction fee (1 %)",
+      "total": "Amount to pay",
+      "deadline": "Term until",
+      "tokenModel": "Token model",
+      "issuer": "Issuer",
+      "back": "Change amount",
+      "next": "Continue to consent"
+    },
+    "consent": {
+      "title": "Consent to the risks",
+      "lead": "A participation is only possible if you actively confirm every point.",
+      "items": {
+        "risks": "I have read and understood the section “Risks and notes” of this project.",
+        "loss": "I understand that this is an entrepreneurial investment and that the invested capital can be lost in full or in part.",
+        "lock": "I understand that there is no secondary market and that my participation is locked until the end of the term.",
+        "role": "I understand that LIQUODA intermediates and provides the technology, is not a party to the contract, holds no money or tokens and does not provide investment advice.",
+        "refund": "I understand that if the funding target is not reached, no tokens are issued and my payment is reversed."
+      },
+      "error": "Please confirm all points.",
+      "back": "Back",
+      "next": "Continue to payment in CHF",
+      "paying": "Preparing payment …",
+      "paymentNote": "You will be redirected to Stripe. LIQUODA does not receive card details. The amount is only recorded as a participation after successful payment.",
+      "risksLink": "Open the project’s section “Risks and notes”"
+    },
+    "errors": {
+      "not_configured": "Payments are not yet set up in this environment.",
+      "project_not_open": "This project is currently not accepting participations.",
+      "kyc_not_approved": "Your identity verification is not yet complete.",
+      "amount_invalid": "The amount is not permitted. Please check the minimum, maximum and remaining amount.",
+      "consent_missing": "Please confirm all points.",
+      "server": "The payment could not be prepared. No obligation has arisen. Please try again later."
+    },
+    "blocked": {
+      "kycTitle": "Identity verification pending",
+      "kycPending": "Your identity has not yet been verified. LIQUODA carries out the verification manually and informs you by email. After that you can review participations.",
+      "kycRejected": "Your identity verification was not passed. Information or documents are missing. Please contact info@liquoda.com to submit them.",
+      "projectTitle": "Participation not possible",
+      "projectClosed": "This project does not accept new participations. The status is described on the project page.",
+      "toAccount": "Go to account",
+      "toProject": "Go to project page"
+    },
+    "success": {
+      "metaTitle": "Payment received",
+      "paidTitle": "Payment received",
+      "paidText": "Your payment has been received. The participation has the status “paid”. Tokens are allocated after review by LIQUODA; you will be informed by email.",
+      "pendingTitle": "Confirming payment",
+      "pendingText": "Confirmation from Stripe is still pending. This usually takes a few seconds. This page refreshes automatically.",
+      "failedTitle": "Payment not completed",
+      "failedText": "The payment was not completed. No obligation has arisen. You can start the process again.",
+      "amount": "Participation amount",
+      "total": "Amount paid",
+      "reference": "Reference",
+      "toPortfolio": "Go to portfolio",
+      "retry": "Try again"
+    },
+    "cancelled": {
+      "metaTitle": "Process cancelled",
+      "title": "Process cancelled",
+      "text": "You cancelled the payment. No obligation has arisen and nothing was charged.",
+      "retry": "Start again",
+      "toProject": "Go to project page"
     }
   },
   "legal": {

@@ -2,7 +2,10 @@ import { getTranslations } from 'next-intl/server';
 import Badge from '@/components/ui/Badge';
 import Section, { SectionHeading } from '@/components/ui/Section';
 import LogoutButton from '@/components/auth/LogoutButton';
+import { Link } from '@/i18n/routing';
 import { createSupabaseServerClient, type Account } from '@/lib/supabase/server';
+import { listOwnInvestments } from '@/lib/investments';
+import { formatChf, formatDate } from '@/lib/format';
 
 type Profile = {
   name: string;
@@ -13,6 +16,7 @@ type Profile = {
 };
 
 const kycVariant = { pending: 'neutral', approved: 'active', rejected: 'info' } as const;
+const investmentVariant = { reserved: 'neutral', paid: 'active', confirmed: 'active', cancelled: 'neutral', refunded: 'info' } as const;
 
 /**
  * Schlanke Konto-Seite für Investoren und Emittenten (Etappe 3).
@@ -34,6 +38,8 @@ export default async function AccountOverview({
     .maybeSingle();
   const profile = data as Profile | null;
   const nextSteps = t.raw(variant === 'emittent' ? 'nextIssuer' : 'nextInvestor') as string[];
+  const investments = variant === 'investor' ? await listOwnInvestments() : [];
+  const locale = account.locale;
 
   return (
     <Section className="pt-28 sm:pt-32">
@@ -46,7 +52,44 @@ export default async function AccountOverview({
         <LogoutButton />
       </div>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
+      {variant === 'investor' && (
+        <div className="liq-card mt-10 p-6 sm:p-8">
+          <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{t('investmentsTitle')}</h2>
+          {investments.length === 0 ? (
+            <p className="mt-4 text-sm text-muted">
+              {t('investmentsEmpty')}{' '}
+              <Link href="/projekte" className="liq-link font-semibold text-navy">
+                {t('investmentsProjects')}
+              </Link>
+            </p>
+          ) : (
+            <ul className="mt-4 divide-y divide-navy/10">
+              {investments.map((inv) => (
+                <li key={inv.id} className="flex flex-wrap items-center justify-between gap-3 py-3 text-sm">
+                  <div>
+                    {inv.project ? (
+                      <Link href={`/projekte/${inv.project.slug}`} className="liq-link font-semibold text-navy">
+                        {locale === 'en' ? inv.project.title.en ?? inv.project.title.de : inv.project.title.de}
+                      </Link>
+                    ) : (
+                      <span className="font-semibold text-navy">–</span>
+                    )}
+                    <p className="text-xs text-muted">
+                      {t('investmentDate')}: {formatDate(inv.created_at.slice(0, 10), locale)}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-semibold text-navy">{formatChf(Number(inv.amount_chf))}</span>
+                    <Badge label={t(`investmentStatus.${inv.status}`)} variant={investmentVariant[inv.status]} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+      <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr]">
         <div className="liq-card p-6 sm:p-8">
           <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{t('profile')}</h2>
           {profile ? (

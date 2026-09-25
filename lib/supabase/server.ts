@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
+import { getLocale } from 'next-intl/server';
 
 /** True, sobald URL und Anon-Key gesetzt sind. */
 export function hasSupabaseEnv(): boolean {
@@ -45,6 +46,7 @@ export interface Account {
   authId: string;
   email: string;
   role: AccountRole;
+  locale: string;
 }
 
 /** Eingeloggtes Konto (Rolle aus app_metadata, gesetzt per Datenbank-Trigger) oder null. */
@@ -56,5 +58,6 @@ export async function getAccount(): Promise<Account | null> {
   } = await supabase.auth.getUser();
   if (!user) return null;
   const role = (user.app_metadata?.role as AccountRole | undefined) ?? 'investor';
-  return { authId: user.id, email: user.email ?? '', role };
+  const locale = await getLocale().catch(() => 'de');
+  return { authId: user.id, email: user.email ?? '', role, locale };
 }

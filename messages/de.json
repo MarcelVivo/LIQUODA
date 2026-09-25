@@ -468,7 +468,9 @@
         "funded": "Der Zielbetrag wurde erreicht. Die Runde ist abgeschlossen; neue Beteiligungen sind nicht mehr möglich.",
         "closed": "Das Projekt ist geschlossen. Neue Beteiligungen sind nicht möglich.",
         "failed": "Finanzierung nicht erfolgreich: Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Token ausgegeben, alle Zahlungen wurden rückabgewickelt."
-      }
+      },
+      "ctaHintLogin": "Für eine Beteiligung benötigen Sie ein Investoren-Konto mit bestätigter Identität.",
+      "ctaHintClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an."
     }
   },
   "auth": {
@@ -570,7 +572,110 @@
       ],
       "logout": "Abmelden",
       "loggingOut": "Wird abgemeldet …",
-      "profileMissing": "Ihr Profil konnte nicht geladen werden. Bitte melden Sie sich erneut an."
+      "profileMissing": "Ihr Profil konnte nicht geladen werden. Bitte melden Sie sich erneut an.",
+      "investmentsTitle": "Beteiligungen",
+      "investmentsEmpty": "Noch keine Beteiligungen. Prüfen Sie ein Projekt im Marktplatz.",
+      "investmentsProjects": "Zum Marktplatz",
+      "investmentStatus": {
+        "reserved": "Reserviert",
+        "paid": "Bezahlt",
+        "confirmed": "Bestätigt",
+        "cancelled": "Abgebrochen",
+        "refunded": "Rückerstattet"
+      },
+      "investmentDate": "Datum"
+    }
+  },
+  "invest": {
+    "metaTitle": "Investition prüfen",
+    "title": "Investition prüfen",
+    "project": "Projekt",
+    "steps": {
+      "amount": "Betrag",
+      "summary": "Zusammenfassung",
+      "consent": "Zustimmung",
+      "payment": "Zahlung"
+    },
+    "stepOf": "Schritt {step} von {total}",
+    "amount": {
+      "title": "Betrag festlegen",
+      "lead": "Geben Sie den Betrag in ganzen Franken ein. Mindestbetrag {min}, Höchstbetrag {max}. Noch offen: {open}.",
+      "label": "Betrag in CHF",
+      "next": "Weiter zur Zusammenfassung",
+      "errors": {
+        "required": "Bitte geben Sie einen Betrag ein.",
+        "integer": "Bitte geben Sie ganze Franken ein, ohne Rappen.",
+        "min": "Der Mindestbetrag für dieses Projekt ist {min}.",
+        "max": "Der Höchstbetrag pro Beteiligung ist {max}.",
+        "open": "Für dieses Projekt sind noch {open} offen. Bitte wählen Sie einen kleineren Betrag."
+      }
+    },
+    "summary": {
+      "title": "Zusammenfassung",
+      "lead": "Bitte prüfen Sie die Angaben. Die Gebühr wird zusätzlich zum Beteiligungsbetrag belastet.",
+      "amount": "Beteiligungsbetrag",
+      "fee": "Transaktionsgebühr LIQUODA (1 %)",
+      "total": "Zu zahlender Betrag",
+      "deadline": "Laufzeit bis",
+      "tokenModel": "Token-Modell",
+      "issuer": "Emittent",
+      "back": "Betrag ändern",
+      "next": "Weiter zur Zustimmung"
+    },
+    "consent": {
+      "title": "Zustimmung zu den Risiken",
+      "lead": "Eine Beteiligung ist nur möglich, wenn Sie jeden Punkt aktiv bestätigen.",
+      "items": {
+        "risks": "Ich habe den Abschnitt «Risiken und Hinweise» dieses Projekts gelesen und verstanden.",
+        "loss": "Ich verstehe, dass es sich um eine unternehmerische Beteiligung handelt und das eingesetzte Kapital ganz oder teilweise verloren gehen kann.",
+        "lock": "Ich verstehe, dass es keinen Sekundärmarkt gibt und meine Beteiligung bis zum Ende der Laufzeit gebunden ist.",
+        "role": "Ich verstehe, dass LIQUODA vermittelt und die Technik bereitstellt, nicht Vertragspartei ist, kein Geld und keine Token verwahrt und keine Anlageberatung erbringt.",
+        "refund": "Ich verstehe, dass bei Nichterreichen des Finanzierungsziels keine Token ausgegeben werden und meine Zahlung rückabgewickelt wird."
+      },
+      "error": "Bitte bestätigen Sie alle Punkte.",
+      "back": "Zurück",
+      "next": "Zur Zahlung in CHF",
+      "paying": "Zahlung wird vorbereitet …",
+      "paymentNote": "Sie werden zu Stripe weitergeleitet. LIQUODA erhält keine Kartendaten. Der Betrag wird erst nach erfolgreicher Zahlung als Beteiligung geführt.",
+      "risksLink": "Abschnitt «Risiken und Hinweise» des Projekts öffnen"
+    },
+    "errors": {
+      "not_configured": "Zahlungen sind auf dieser Umgebung noch nicht eingerichtet.",
+      "project_not_open": "Dieses Projekt nimmt aktuell keine Beteiligungen an.",
+      "kyc_not_approved": "Ihre Identitätsprüfung ist noch nicht abgeschlossen.",
+      "amount_invalid": "Der Betrag ist nicht zulässig. Bitte prüfen Sie Mindest-, Höchst- und Restbetrag.",
+      "consent_missing": "Bitte bestätigen Sie alle Punkte.",
+      "server": "Die Zahlung konnte nicht vorbereitet werden. Es ist keine Verpflichtung entstanden. Bitte versuchen Sie es später erneut."
+    },
+    "blocked": {
+      "kycTitle": "Identitätsprüfung ausstehend",
+      "kycPending": "Ihre Identität wurde noch nicht bestätigt. LIQUODA führt die Prüfung manuell durch und informiert Sie per E-Mail. Danach können Sie Beteiligungen prüfen.",
+      "kycRejected": "Ihre Identitätsprüfung wurde nicht bestanden. Es fehlen Angaben oder Unterlagen. Bitte nehmen Sie Kontakt mit info@liquoda.com auf, um diese nachzureichen.",
+      "projectTitle": "Keine Beteiligung möglich",
+      "projectClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an. Der Status ist auf der Projektseite beschrieben.",
+      "toAccount": "Zum Konto",
+      "toProject": "Zur Projektseite"
+    },
+    "success": {
+      "metaTitle": "Zahlung erhalten",
+      "paidTitle": "Zahlung erhalten",
+      "paidText": "Ihre Zahlung ist eingegangen. Die Beteiligung hat den Status «bezahlt». Die Zuweisung der Token erfolgt nach Prüfung durch LIQUODA; Sie werden per E-Mail informiert.",
+      "pendingTitle": "Zahlung wird bestätigt",
+      "pendingText": "Die Bestätigung von Stripe steht noch aus. Das dauert in der Regel wenige Sekunden. Diese Seite aktualisiert sich automatisch.",
+      "failedTitle": "Zahlung nicht abgeschlossen",
+      "failedText": "Die Zahlung wurde nicht abgeschlossen. Es ist keine Verpflichtung entstanden. Sie können den Vorgang erneut starten.",
+      "amount": "Beteiligungsbetrag",
+      "total": "Bezahlter Betrag",
+      "reference": "Referenz",
+      "toPortfolio": "Zum Portfolio",
+      "retry": "Erneut versuchen"
+    },
+    "cancelled": {
+      "metaTitle": "Vorgang abgebrochen",
+      "title": "Vorgang abgebrochen",
+      "text": "Sie haben die Zahlung abgebrochen. Es ist keine Verpflichtung entstanden und es wurde nichts belastet.",
+      "retry": "Erneut starten",
+      "toProject": "Zur Projektseite"
     }
   },
   "legal": {
