@@ -1,76 +1,528 @@
 {
-  "landing": {
-    "slogan": "Real Assets. Digital Security.",
-    "comingSoon": "Coming Soon",
-    "ctaList": "List a project",
-    "ctaInvest": "Invest now"
+  "common": {
+    "brand": "LIQUODA",
+    "role": "Swiss intermediation and technology platform for tokenised real assets",
+    "placeholderTitle": "Placeholder",
+    "placeholderText": "This content will be legally reviewed and completed before the platform launches. The points below show what will be covered here."
   },
   "nav": {
-    "brand": "LIQUODA",
-    "register": "Register"
-  },
-  "hero": {
-    "brand": "LIQUODA",
-    "slogan": "Real Assets. Digital Security.",
-    "description": "LIQUODA connects issuers and investors on a secure, transparent platform. Invest in real projects — digital, direct, without a bank.",
-    "ctaList": "List a project",
-    "ctaInvest": "Invest now"
-  },
-  "howItWorks": {
-    "title": "How LIQUODA works",
-    "step1Title": "Register",
-    "step1Desc": "Create your account as an issuer or investor — free and in just a few minutes.",
-    "step2Title": "Discover projects",
-    "step2Desc": "Browse verified Swiss projects across various industries.",
-    "step3Title": "Invest",
-    "step3Desc": "Invest securely in CHF. Tokens serve as your digital proof of ownership."
-  },
-  "projects": {
-    "title": "Current Projects",
-    "badgeActive": "Active",
-    "funded": "funded",
-    "goal": "Goal",
-    "learnMore": "Learn more",
-    "comingSoon": "Coming soon",
-    "p1Name": "Pizzeria Wander — Bern",
-    "p1Category": "Gastronomy",
-    "p2Name": "Vera Immobilien — Apartment Building",
-    "p2Category": "Real Estate",
-    "p3Name": "Startup Display Solutions",
-    "p3Category": "Technology"
-  },
-  "register": {
-    "title": "Register now",
-    "subtitle": "Choose your role and create your account.",
-    "firstName": "First name",
-    "firstNamePlaceholder": "John",
-    "lastName": "Last name",
-    "lastNamePlaceholder": "Doe",
-    "email": "E-mail",
-    "emailPlaceholder": "john@example.com",
-    "password": "Password",
-    "passwordPlaceholder": "Min. 8 characters",
-    "roleLabel": "I am",
-    "roleIssuer": "Issuer",
-    "roleIssuerDesc": "I am looking for capital for my project",
-    "roleInvestor": "Investor",
-    "roleInvestorDesc": "I want to invest in projects",
-    "gdpr": "I accept the privacy policy",
-    "submit": "Create account",
-    "successTitle": "Thank you!",
-    "successMessage": "We will be in touch soon.",
-    "errorRequired": "This field is required.",
-    "errorEmail": "Please enter a valid email address.",
-    "errorPasswordLength": "Password must be at least 8 characters.",
-    "errorGdpr": "Please accept the privacy policy.",
-    "errorRole": "Please select a role."
+    "home": "Home",
+    "howItWorks": "How it works",
+    "issuers": "For issuers",
+    "waitlist": "Waiting list",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "logoLabel": "LIQUODA – go to home page"
   },
   "footer": {
-    "brand": "LIQUODA",
-    "slogan": "Real Assets. Digital Security.",
-    "impressum": "Legal Notice",
-    "datenschutz": "Privacy Policy",
+    "roleTitle": "What LIQUODA is",
+    "roleText": "LIQUODA is an intermediation and technology platform based in Switzerland. LIQUODA is not a bank, not a financial institution, not an asset manager and not a custodian. LIQUODA never holds money, tokens or wallet keys and does not provide investment advice.",
+    "riskText": "Participations in projects on LIQUODA are entrepreneurial investments. Loss of the invested capital is possible. There is no guarantee and no statement about returns.",
+    "navTitle": "Navigation",
+    "legalTitle": "Legal",
+    "impressum": "Legal notice",
+    "datenschutz": "Privacy",
     "agb": "Terms",
+    "risiken": "Risk disclosure",
+    "haftung": "Disclaimer",
     "copyright": "© 2026 LIQUODA. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Swiss intermediation and technology platform",
+      "title": "Participations in real assets, structured and traceable.",
+      "lead": "LIQUODA brings issuers and investors together. Owners of companies, real estate, energy projects or tangible assets present a project. Private individuals can participate from CHF 1'000. Shares are represented as tokens on the Polygon blockchain.",
+      "ctaInvestors": "Process for investors",
+      "ctaIssuers": "For issuers",
+      "note": "LIQUODA is not a bank, not an asset manager and does not provide investment advice. Every participation carries entrepreneurial risk."
+    },
+    "whatIs": {
+      "title": "What LIQUODA is and what it is not",
+      "lead": "So you can place the role of the platform.",
+      "isTitle": "LIQUODA is",
+      "isItems": [
+        "an intermediation platform: it brings issuers and investors together.",
+        "a technology platform: it represents shares as tokens and documents the process.",
+        "non-custodial: money, tokens and wallet keys stay with the parties involved.",
+        "structured: every project goes through the same, traceable process.",
+        "transparent: risks are named, not hidden."
+      ],
+      "isNotTitle": "LIQUODA is not",
+      "isNotItems": [
+        "a bank, a financial institution, an asset manager or a custodian.",
+        "an investor, a guarantor or an investment adviser.",
+        "a trading or speculation platform. There is no secondary market.",
+        "a place that holds money, tokens or wallet keys.",
+        "a source of profit or return promises."
+      ],
+      "principle": "LIQUODA does not replace risk. LIQUODA makes risk visible, structured and traceable."
+    },
+    "roles": {
+      "title": "Who LIQUODA is for",
+      "issuersTitle": "Issuers",
+      "issuersText": "SMEs, entrepreneurs and owners of real estate, energy projects or tangible assets such as watches, art or vehicles who want to release capital without selling the asset entirely.",
+      "issuersLink": "See process and packages",
+      "investorsTitle": "Investors",
+      "investorsText": "Private individuals who want to participate in real assets with CHF 1'000 to 20'000 and understand where their money goes and which risks exist.",
+      "investorsLink": "See the process for investors"
+    },
+    "steps": {
+      "title": "How a participation works",
+      "lead": "Five steps, from an investor's perspective. The process for issuers is described on the page “How it works”.",
+      "items": [
+        {
+          "title": "Understand",
+          "text": "You read what LIQUODA is, what it is not and which risks a participation carries."
+        },
+        {
+          "title": "Review the project",
+          "text": "You see the description, purpose, target amount, term, documents and the section “Risks and notes”."
+        },
+        {
+          "title": "Account and identity",
+          "text": "You create an account, verify your identity and connect a wallet."
+        },
+        {
+          "title": "Amount and consent",
+          "text": "You enter an amount, read the summary and actively agree to the risks. Payment is made in CHF."
+        },
+        {
+          "title": "Confirmation",
+          "text": "After successful payment and checks, tokens are transferred to your wallet. Your portfolio shows the participation, documents and project status."
+        }
+      ],
+      "link": "Read the full process"
+    },
+    "examples": {
+      "title": "Example projects",
+      "lead": "The following projects are examples and show how a project is presented on LIQUODA. They are not open for investment.",
+      "badgeExample": "Example",
+      "statusOpen": "Funding open",
+      "funded": "of target reached",
+      "goal": "Target amount",
+      "detailsSoon": "Project page to follow",
+      "p1Name": "Pizzeria Wander, Bern",
+      "p1Category": "Gastronomy",
+      "p2Name": "Apartment building Vera, Thun",
+      "p2Category": "Real estate",
+      "p3Name": "Display Solutions AG",
+      "p3Category": "Technology"
+    },
+    "trust": {
+      "title": "What you should know",
+      "items": [
+        {
+          "title": "The role of LIQUODA",
+          "text": "LIQUODA intermediates and provides the technology. LIQUODA is not a party to the participation and holds neither money nor tokens."
+        },
+        {
+          "title": "Entrepreneurial risk",
+          "text": "Every participation is an entrepreneurial investment. The invested capital can be lost in full or in part."
+        },
+        {
+          "title": "No guarantee, no statement about returns",
+          "text": "LIQUODA makes no commitments regarding income, repayment or value development. Information provided by issuers is reviewed but not guaranteed."
+        },
+        {
+          "title": "Transparent process",
+          "text": "Every step shows where you are, what happens next and what consequence your action has."
+        },
+        {
+          "title": "Cancellation and failure",
+          "text": "If the funding target is not reached, no tokens are issued and payments are reversed. A cancelled process creates no obligation."
+        }
+      ]
+    }
+  },
+  "waitlist": {
+    "title": "Waiting list",
+    "lead": "Accounts and participations are not yet possible. If you would like to be informed when the platform launches, register here.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email address",
+    "roleLabel": "I am interested as",
+    "roleIssuer": "Issuer",
+    "roleIssuerDesc": "I would like to present a project.",
+    "roleInvestor": "Investor",
+    "roleInvestorDesc": "I would like to participate in projects.",
+    "consent": "I have read the privacy policy. My details will only be used to inform me about the launch.",
+    "submit": "Register",
+    "submitting": "Sending …",
+    "successTitle": "Entry saved",
+    "successMessage": "We will contact you when the platform launches. No obligation arises.",
+    "errorRequired": "Please fill in this field.",
+    "errorEmail": "Please enter a valid email address.",
+    "errorRole": "Please select a role.",
+    "errorConsent": "Please confirm the privacy notice.",
+    "errorServer": "The entry could not be saved. Please try again later."
+  },
+  "howItWorks": {
+    "metaTitle": "How it works",
+    "metaDescription": "The process on LIQUODA, step by step, for investors and issuers.",
+    "title": "How it works",
+    "lead": "LIQUODA guides both sides through the same process. Here you see what happens in which order, without technical detail.",
+    "investorsTitle": "Process for investors",
+    "investorsIntro": "From first orientation to the participation in your portfolio.",
+    "investorSteps": [
+      {
+        "title": "Understand what LIQUODA is",
+        "text": "The home page explains the role of the platform, the risks and the process. Only then should you continue."
+      },
+      {
+        "title": "Discover projects",
+        "text": "You see all active projects, filter by asset type and recognise the status: open, funded or closed."
+      },
+      {
+        "title": "Review a project",
+        "text": "The project page shows the description, purpose, target amount, term, documents and the section “Risks and notes”."
+      },
+      {
+        "title": "Create an account, verify identity, connect a wallet",
+        "text": "You register as an investor and verify your identity (KYC). Then you connect a wallet to which tokens can be transferred."
+      },
+      {
+        "title": "Enter an amount and confirm the conditions",
+        "text": "You enter an amount between the minimum and CHF 20'000, read the summary and actively agree to the risks. Payment is made in CHF."
+      },
+      {
+        "title": "Confirmation and tokens",
+        "text": "After successful payment LIQUODA checks project status, term and identity. Only if everything is fulfilled are tokens transferred to your wallet. You confirm the transfer in your wallet."
+      },
+      {
+        "title": "Portfolio",
+        "text": "Your portfolio shows participations, documents, project status and the reference to your tokens."
+      }
+    ],
+    "issuersTitle": "Process for issuers",
+    "issuersIntro": "From the enquiry to the close of the funding round.",
+    "issuerSteps": [
+      {
+        "title": "Get informed",
+        "text": "The page “For issuers” describes benefits, process, requirements and costs."
+      },
+      {
+        "title": "Project enquiry",
+        "text": "You send an enquiry with key data: asset type, purpose, estimated amount. LIQUODA responds with a first assessment."
+      },
+      {
+        "title": "Create an account and verify the company",
+        "text": "You register as an issuer and go through the company verification (KYB)."
+      },
+      {
+        "title": "Enter the project",
+        "text": "In the project wizard you enter information, documents, target amount and term."
+      },
+      {
+        "title": "Review",
+        "text": "The project receives the status “under review”. LIQUODA asks questions, you adjust. Approval is always manual."
+      },
+      {
+        "title": "Approval and launch",
+        "text": "After approval the project becomes visible and the funding phase begins."
+      },
+      {
+        "title": "Funding phase and close",
+        "text": "You follow the state of the round. If the target is reached, the round is closed. If it is not reached, the round is reversed."
+      }
+    ],
+    "failureTitle": "What happens on cancellation or failure",
+    "failureLead": "These cases are part of the process and are shown just as clearly on the platform.",
+    "failureItems": [
+      {
+        "title": "Funding target not reached",
+        "text": "The project is marked as “funding not successful”. No tokens are issued. Payments already made are reversed and investors are informed."
+      },
+      {
+        "title": "Payment failed",
+        "text": "You receive a neutral message with possible causes. A new payment is possible."
+      },
+      {
+        "title": "Identity verification not passed",
+        "text": "You receive factual information about which details are missing and can submit them or get in touch."
+      },
+      {
+        "title": "Participation cancelled",
+        "text": "You receive confirmation that no obligation has arisen."
+      },
+      {
+        "title": "Project not approved",
+        "text": "The issuer sees the status with a factual reason and notes on how to adjust."
+      },
+      {
+        "title": "Project ended early",
+        "text": "All parties see the reason, the consequences and the next steps."
+      }
+    ],
+    "ctaTitle": "Next step",
+    "ctaText": "Accounts and participations are not yet possible. You can join the waiting list or, as an issuer, send a project enquiry.",
+    "ctaWaitlist": "Go to waiting list",
+    "ctaIssuers": "Send a project enquiry"
+  },
+  "issuers": {
+    "metaTitle": "For issuers",
+    "metaDescription": "Benefits, process, requirements and packages for issuers on LIQUODA.",
+    "title": "For issuers",
+    "lead": "You own a company, a property, an energy project or a tangible asset and want to release capital without selling the asset entirely. LIQUODA provides a structured process and the technology for this.",
+    "benefitsTitle": "What LIQUODA does for issuers",
+    "benefits": [
+      {
+        "title": "A clear process",
+        "text": "From the enquiry to the close of the round, every project follows the same steps. You always know where your project stands."
+      },
+      {
+        "title": "Standardised project page",
+        "text": "Your project is presented uniformly with description, target amount, term, documents and risk notes."
+      },
+      {
+        "title": "Shares as tokens",
+        "text": "Shares are represented on the Polygon blockchain using audited standard contracts. There is no custom contract logic."
+      },
+      {
+        "title": "Documents in one place",
+        "text": "Contracts and documents are stored with versioning and made accessible to investors."
+      }
+    ],
+    "requirementsTitle": "Requirements",
+    "requirements": [
+      "Registered office or asset in Switzerland.",
+      "A concrete project with a clear purpose, target amount and term.",
+      "Willingness to disclose documents and answer questions.",
+      "Successful company verification (KYB) before approval."
+    ],
+    "processTitle": "How a project is onboarded",
+    "processSteps": [
+      {
+        "title": "Enquiry",
+        "text": "You send the form below with the key data. LIQUODA responds with a first assessment."
+      },
+      {
+        "title": "Account and verification",
+        "text": "You create an issuer account and go through the company verification."
+      },
+      {
+        "title": "Enter the project",
+        "text": "You enter information, documents, target amount and term."
+      },
+      {
+        "title": "Review by LIQUODA",
+        "text": "The project is “under review”. Questions and adjustments are part of this step."
+      },
+      {
+        "title": "Approval",
+        "text": "After manual approval the project is visible and the funding phase begins."
+      }
+    ],
+    "packagesTitle": "Packages",
+    "packagesLead": "Three packages with different levels of support. All prices are planning assumptions and may be adjusted.",
+    "setupFee": "Setup fee",
+    "monthlyFee": "Platform fee per month",
+    "includes": "Services",
+    "includesPrevious": "Everything in {name}, plus:",
+    "packages": {
+      "basic": {
+        "name": "Basic",
+        "setup": "CHF 1'500",
+        "monthly": "CHF 150",
+        "features": [
+          "Project listing",
+          "Standardised project page",
+          "Basic review",
+          "Standard tokenisation",
+          "Document storage",
+          "Email support"
+        ]
+      },
+      "standard": {
+        "name": "Standard",
+        "setup": "CHF 3'500",
+        "monthly": "CHF 250",
+        "features": [
+          "Extended review",
+          "Support with the structure",
+          "Smart contract parameters",
+          "Investor dashboard",
+          "Prioritised support"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "setup": "CHF 7'500",
+        "monthly": "CHF 400",
+        "features": [
+          "Intensive support",
+          "Help with documentation",
+          "Structuring advice (not investment advice)",
+          "Extended reporting"
+        ]
+      }
+    },
+    "feesTitle": "Transaction fees",
+    "feesIssuer": "Issuer: 3 % of the successfully invested volume. Only charged if the funding is completed.",
+    "feesInvestor": "Investor: 1 %, shown transparently in the investment process.",
+    "feesNone": "There are no performance fees and no fees on returns.",
+    "requestTitle": "Project enquiry",
+    "requestLead": "Describe your project in a few details. The enquiry is non-binding. LIQUODA will respond with a first assessment and the next steps."
+  },
+  "projectRequest": {
+    "name": "Name",
+    "company": "Company or owner",
+    "companyHint": "Optional",
+    "email": "Email address",
+    "assetType": "Asset type",
+    "assetTypePlaceholder": "Please select",
+    "assetTypes": {
+      "company": "Company / SME",
+      "real_estate": "Real estate",
+      "energy": "Energy project",
+      "collectible": "Tangible asset (watch, art, vehicle)",
+      "other": "Other"
+    },
+    "amount": "Estimated target amount in CHF",
+    "amountHint": "Optional, whole number",
+    "description": "Short description of the project",
+    "descriptionHint": "Purpose, use of capital, planned term. 20 to 2000 characters.",
+    "consent": "I have read the privacy policy. My details will only be used to process this enquiry.",
+    "submit": "Send enquiry",
+    "submitting": "Sending …",
+    "successTitle": "Enquiry received",
+    "successMessage": "LIQUODA will review your details and reply by email. The enquiry creates no obligation.",
+    "errorRequired": "Please fill in this field.",
+    "errorEmail": "Please enter a valid email address.",
+    "errorAmount": "Please enter a whole number greater than 0.",
+    "errorDescription": "Please describe the project in 20 to 2000 characters.",
+    "errorAssetType": "Please select an asset type.",
+    "errorConsent": "Please confirm the privacy notice.",
+    "errorServer": "The enquiry could not be sent. Please try again later or write to info@liquoda.com."
+  },
+  "legal": {
+    "impressum": {
+      "metaTitle": "Legal notice",
+      "title": "Legal notice",
+      "lead": "Responsible for this website.",
+      "sections": [
+        {
+          "title": "Operator",
+          "items": [
+            "LIQUODA, operated by Marcel Spahr",
+            "Schwarzenburgstrasse 65",
+            "3008 Bern, Switzerland",
+            "info@liquoda.com",
+            "+41 79 511 09 11"
+          ]
+        },
+        {
+          "title": "Role",
+          "items": [
+            "LIQUODA is an intermediation and technology platform. LIQUODA is not a bank, not a financial institution, not an asset manager and not a custodian.",
+            "Details on legal form, commercial register and supervision will be added before the platform launches."
+          ]
+        }
+      ]
+    },
+    "datenschutz": {
+      "metaTitle": "Privacy",
+      "title": "Privacy policy",
+      "lead": "How LIQUODA handles personal data under the Swiss Data Protection Act (DSG).",
+      "sections": [
+        {
+          "title": "Responsible party",
+          "items": [
+            "LIQUODA, operated by Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern. Contact: info@liquoda.com."
+          ]
+        },
+        {
+          "title": "Which data is collected",
+          "items": [
+            "Waiting list: first name, last name, email address and selected role.",
+            "Project enquiry: name, company, email address, asset type, estimated amount and description.",
+            "After the platform launches, additionally: identity verification data (KYC/KYB), wallet address and payment references. These points will be added before launch."
+          ]
+        },
+        {
+          "title": "What the data is used for",
+          "items": [
+            "Exclusively to inform you about the launch and to process your enquiry.",
+            "No transfer to third parties, no advertising, no profiling, no sale.",
+            "No personal data is stored on the blockchain."
+          ]
+        },
+        {
+          "title": "Your rights",
+          "items": [
+            "You have the right to access, correct and delete your data at any time. Write to info@liquoda.com."
+          ]
+        }
+      ]
+    },
+    "agb": {
+      "metaTitle": "Terms",
+      "title": "Terms and conditions",
+      "lead": "The conditions for using the platform.",
+      "sections": [
+        {
+          "title": "Planned content",
+          "items": [
+            "Scope and the role of LIQUODA as an intermediation and technology platform.",
+            "Obligations of issuers and investors.",
+            "Process of registration, identity verification, project onboarding and participation.",
+            "Fees as shown on the page “For issuers”.",
+            "Consequences of cancellation, failure to reach the funding target and early termination.",
+            "Applicable law and place of jurisdiction in Switzerland."
+          ]
+        }
+      ]
+    },
+    "risiken": {
+      "metaTitle": "Risk disclosure",
+      "title": "Risk disclosure",
+      "lead": "What you should know before participating in a project.",
+      "sections": [
+        {
+          "title": "Entrepreneurial risk",
+          "items": [
+            "Every participation is an entrepreneurial investment. Success depends on the project and the issuer.",
+            "The invested capital can be lost in full or in part."
+          ]
+        },
+        {
+          "title": "No guarantee, no statement about returns",
+          "items": [
+            "LIQUODA makes no commitments regarding income, repayment or value development.",
+            "Information provided by issuers is reviewed but not guaranteed."
+          ]
+        },
+        {
+          "title": "No tradability",
+          "items": [
+            "There is no secondary market. Tokens are not freely transferable and cannot be sold on LIQUODA.",
+            "Expect your participation to be locked until the end of the term."
+          ]
+        },
+        {
+          "title": "Technical risks",
+          "items": [
+            "Tokens are transferred to your own wallet. Access to this wallet is solely your responsibility.",
+            "LIQUODA holds no keys and cannot restore lost access."
+          ]
+        }
+      ]
+    },
+    "haftung": {
+      "metaTitle": "Disclaimer",
+      "title": "Disclaimer",
+      "lead": "Limits of LIQUODA's responsibility.",
+      "sections": [
+        {
+          "title": "Planned content",
+          "items": [
+            "LIQUODA is not a party to the participation between issuer and investor.",
+            "LIQUODA does not provide investment advice and makes no recommendations on individual projects.",
+            "Content on project pages comes from the issuers. LIQUODA checks completeness but gives no warranty for accuracy or success.",
+            "Liability for availability of the platform, outages and maintenance.",
+            "Liability for third-party blockchain networks and wallets."
+          ]
+        }
+      ]
+    }
   }
 }
