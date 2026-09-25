@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { routing, type Locale } from '@/i18n/routing';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import './globals.css';
 
 const inter = Inter({
@@ -11,30 +14,30 @@ const inter = Inter({
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
-
-export const metadata: Metadata = {
-  title: 'LIQUODA — Real Assets. Digital Security.',
-  description:
-    'LIQUODA ist die Schweizer Plattform für tokenisierte Investitionen. Verbindet Emittenten und Investoren sicher und transparent.',
-  metadataBase: new URL('https://www.liquoda.com'),
-  openGraph: {
-    title: 'LIQUODA — Real Assets. Digital Security.',
-    description:
-      'Die Schweizer Plattform für tokenisierte Investitionen in reale Projekte.',
-    url: 'https://www.liquoda.com',
-    siteName: 'LIQUODA',
-    locale: 'de_CH',
-    type: 'website',
-  },
-};
-
-const locales = ['de', 'en'];
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: 'common' });
+  const description = t('role');
+  return {
+    title: {
+      default: 'LIQUODA',
+      template: '%s – LIQUODA',
+    },
+    description,
+    metadataBase: new URL('https://www.liquoda.com'),
+    openGraph: {
+      title: 'LIQUODA',
+      description,
+      url: 'https://www.liquoda.com',
+      siteName: 'LIQUODA',
+      locale: params.locale === 'en' ? 'en_GB' : 'de_CH',
+      type: 'website',
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,
@@ -45,17 +48,19 @@ export default async function LocaleLayout({
 }) {
   const { locale } = params;
 
-  if (!locales.includes(locale)) {
+  if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
 
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body>
+    <html lang={locale} className={inter.variable}>
+      <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
