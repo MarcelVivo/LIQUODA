@@ -10,7 +10,8 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 - `next-intl` mit `messages/de.json` (Standard, Schweizer Schreibweise: «ss» statt «ß») und `messages/en.json`
 - Supabase (`lib/supabase.ts`), bestehender Admin-Bereich unter `app/admin` mit eigenem Login (`jose`-JWT)
 - Bestehende Komponenten: `components/layout/{Navbar,Footer}`, `components/ui/{Button,Badge,LanguageToggle,WaveBackground}`, `components/sections/{Hero,HowItWorks,ProjectPreview,RegisterForm,ComingSoon}`
-- Logo: `public/liquoda-logo-v2.svg`
+- Design: verbindlich nach `../LIQUODA_Praesentation.html` (siehe Spec, Abschnitt 2 «Design»); Tokens in `tailwind.config.ts`, Bausteine in `components/ui/`
+- Logo: SVG-Schriftzug in `components/ui/Wordmark.tsx` (das alte `public/liquoda-logo-v2.svg` wird nicht mehr verwendet)
 - Hosting: Vercel, Deployment aus GitHub `main`
 
 ## Regeln
@@ -18,13 +19,14 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 1. **Etappenweise bauen.** Es gibt sechs Etappen (siehe unten). Arbeite immer nur an der aktuell beauftragten Etappe. Beginne keine spätere Etappe, auch nicht «vorbereitend».
 2. **Vor jeder Etappe einen kurzen Plan zeigen** (Dateien, die entstehen oder geändert werden) und auf Freigabe warten. Danach umsetzen.
 3. **Nach jeder Etappe:** `npm run build` muss fehlerfrei durchlaufen. Dann eine kurze Zusammenfassung: was gebaut wurde, wie man es testet, was offen ist. Keine Romane.
-4. **Kein Marketing-Sprech.** Alle UI-Texte folgen Abschnitt 2 der Spec (sachlich, keine Renditeversprechen, keine Dringlichkeit). Texte immer in `messages/de.json` und `messages/en.json`, nie hartkodiert.
-5. **Bestehendes wiederverwenden.** Vorhandene Komponenten erweitern statt neue Parallelversionen bauen. Den Admin-Bereich nicht umbauen, nur ergänzen.
-6. **Keine Secrets im Code.** Alles über `.env.local` / Vercel-Env. Neue Variablen in `.env.example` dokumentieren (ohne Werte).
-7. **Geschäftslogik ins Backend** (Route Handlers unter `app/api` oder Supabase-Funktionen), nicht ins Frontend. Supabase mit Row Level Security.
-8. **Nichts aus Abschnitt 12 der Spec bauen** (kein Sekundärmarkt, keine Prognosen, keine Auszahlungsautomatik usw.).
-9. **Nicht löschen ohne Rückfrage.** Bestehende Dateien, Migrationen oder Daten nur nach Bestätigung entfernen.
-10. **Git:** Pro Etappe ein eigener Branch `etappe-N-kurzname`, kleine, sprechende Commits auf Deutsch. Kein Push auf `main` ohne Freigabe.
+4. **Design nur aus der Präsentation.** Neue Seiten und Komponenten verwenden ausschliesslich die Tokens und Bausteine aus der Präsentationsgestaltung (Ink, Petrol, Creme-Verlauf, Karten, Pill-Buttons, Kicker). Keine neuen Farben oder Stile erfinden.
+5. **Kein Marketing-Sprech.** Alle UI-Texte folgen Abschnitt 2 der Spec (sachlich, keine Renditeversprechen, keine Dringlichkeit). Texte immer in `messages/de.json` und `messages/en.json`, nie hartkodiert.
+6. **Bestehendes wiederverwenden.** Vorhandene Komponenten erweitern statt neue Parallelversionen bauen. Den Admin-Bereich nicht umbauen, nur ergänzen.
+7. **Keine Secrets im Code.** Alles über `.env.local` / Vercel-Env. Neue Variablen in `.env.example` dokumentieren (ohne Werte).
+8. **Geschäftslogik ins Backend** (Route Handlers unter `app/api` oder Supabase-Funktionen), nicht ins Frontend. Supabase mit Row Level Security.
+9. **Nichts aus Abschnitt 12 der Spec bauen** (kein Sekundärmarkt, keine Prognosen, keine Auszahlungsautomatik usw.).
+10. **Nicht löschen ohne Rückfrage.** Bestehende Dateien, Migrationen oder Daten nur nach Bestätigung entfernen.
+11. **Git:** Pro Etappe ein eigener Branch `etappe-N-kurzname`, kleine, sprechende Commits auf Deutsch. Kein Push auf `main` ohne Freigabe.
 
 ## Etappen
 

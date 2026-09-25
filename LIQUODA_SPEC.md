@@ -56,12 +56,18 @@ Wenn ein Nutzer eine Funktion nicht sofort versteht, ist die Funktion falsch ges
 
 ### Design
 
+**Verbindliche Quelle ist die Gestaltung von `../LIQUODA_Praesentation.html` (Diplompräsentation).** Sie gilt für die gesamte Website; die Werte sind in `tailwind.config.ts` und `app/[locale]/globals.css` hinterlegt.
+
 - Ruhig, seriös, modern, vertrauensbildend, keine Krypto-Hype-Optik
-- Farben: Creme `#FAF7F0` (Hintergrund), Navy `#0B2545` (Text, Flächen), Akzentverlauf `#00C9A7 → #0085FF` (nur für Aktionen und Status, sparsam)
-- Schriften: serifenlose Schrift für Text; Serifenschrift (Georgia-Stil) nur für den Schriftzug «LIQUODA.-»
+- Farben: Ink `#0E2233` / `#142F45` (dunkle Flächen als Verlauf, Titel), Petrol-Akzent `#1FA88C → #3ED1B0` (nur für Aktionen, Status und den Punkt im Logo), Seitenhintergrund warmer Creme-Verlauf `#FAF8F4 → #F5F2EC → #F0EEE6` mit zwei weichen Lichtflecken, Fliesstext `#14181C`, Sekundärtext `#5C6B77`, Karten Weiss
+- Schriften: Inter für Text (Titel 800, negativ gesperrt); Serifenschrift (Georgia) nur für den Schriftzug «Liquoda.-»
+- Logo: SVG-Schriftzug «Liquoda» in Textfarbe, «.-» in Petrol mit Schimmer; im Titelbereich der Startseite verflüssigt sich das «.-» zufällig kurz (`components/ui/Wordmark.tsx`)
+- Titelbereich Startseite: dunkle Ink-Fläche, driftende Blobs, 3D-Netzwelle mit wandernden Impulsen (`components/ui/WaveBackground.tsx`), Elemente blenden gestaffelt ein (Titelfolie der Präsentation)
+- Bausteine: Karten mit Radius 16 px, Schatten `0 2px 16px rgba(14,34,51,.07)` und Hover-Lift; Pill-Buttons mit Akzentverlauf; Kicker in Petrol, Versalien, gesperrt, mit Verlaufslinien; dunkle Flächen mit Petrol-Kante; driftende Blobs und Wellenlinien im Seitenhintergrund
+- Bewegung: ruhig und langsam, nie ablenkend; `prefers-reduced-motion` wird respektiert
 - Bilder: reale Motive (Menschen, Assets, Orte), keine Stockfoto-Übertreibung
 - Icons: reduziert, einheitlich (lucide-react), Orientierung statt Dekoration
-- Bestehendes: `WaveBackground.tsx`, Logo `public/liquoda-logo-v2.svg`, Komponenten `Button`, `Badge`, `LanguageToggle`, `Navbar`, `Footer`
+- Bestehendes: Komponenten `Wordmark`, `WaveBackground`, `Button`, `Badge`, `Section`, `Field`, `LanguageToggle`, `Navbar`, `Footer`. Das alte weisse Logo `public/liquoda-logo-v2.svg` wird nicht mehr verwendet
 
 ---
 
