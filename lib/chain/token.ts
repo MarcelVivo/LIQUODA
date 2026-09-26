@@ -104,6 +104,16 @@ export async function registerDocumentHash(contract: Address, sha256Hex: string,
   return hash;
 }
 
+/** Register pausieren (keine Mints, keine Transfers), z. B. nach Rückabwicklung. Idempotent. */
+export async function pauseToken(contract: Address): Promise<Hex | null> {
+  const { publicClient, walletClient } = clients();
+  const paused = (await publicClient.readContract({ address: contract, abi: TOKEN_ABI, functionName: 'paused' })) as boolean;
+  if (paused) return null;
+  const hash = await walletClient.writeContract({ address: contract, abi: TOKEN_ABI, functionName: 'pause' });
+  await publicClient.waitForTransactionReceipt({ hash });
+  return hash;
+}
+
 export async function tokenBalance(contract: Address, wallet: Address): Promise<bigint> {
   const { publicClient } = clients();
   return publicClient.readContract({ address: contract, abi: TOKEN_ABI, functionName: 'balanceOf', args: [wallet] }) as Promise<bigint>;
