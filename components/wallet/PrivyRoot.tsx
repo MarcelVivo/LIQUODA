@@ -38,7 +38,6 @@ export default function PrivyRoot({ children }: { children: ReactNode }) {
     <PrivyProvider
       appId={PRIVY_APP_ID}
       config={{
-        loginMethods: [],
         embeddedWallets: { ethereum: { createOnLogin: 'all-users' } },
         defaultChain: chain,
         supportedChains: [chain],
