@@ -11,7 +11,8 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 - Supabase: Schema und RLS in `supabase/migrations/`, Beispieldaten in `supabase/seed.sql` (erzeugt aus `lib/projects/example-data.ts`); Clients in `lib/supabase/` (`server.ts` mit Anon-Key und Session-Cookies, `client.ts`, `middleware.ts`); `lib/supabase.ts` (Service-Role) nur für den Admin-Bereich
 - Auth: Supabase Auth mit E-Mail-Bestätigung, Rolle in `app_metadata` (per Trigger), Route Handler unter `app/api/konto/`, Rollen-Routing in `middleware.ts`
 - Zahlungen: Stripe Checkout im Testmodus (`lib/stripe.ts`, Gebühren in `lib/fees.ts`), Route Handler `app/api/investieren/{checkout,webhook}`, Datenzugriff `lib/investments.ts`; Kapazität, KYC und Statuswechsel zusätzlich per Trigger in `supabase/migrations/…_investments.sql`
-- Bestehender Admin-Bereich unter `app/admin` mit eigenem Login (`jose`-JWT)
+- Dokumente: privater Storage-Bucket `project-documents`, Zugriff nur über Route Handler (`lib/documents.ts`, `app/api/dokumente/[id]` mit signierten Links); Emittenten-Dashboard und Wizard in `components/emittent/`, Daten in `lib/emittent.ts`
+- Admin-Bereich unter `app/admin` mit eigenem Login (`jose`-JWT), Aktionen über `app/api/admin/*` und Datenbank-Funktionen `admin_set_kyc` / `admin_set_project_status` (Audit-Log mit `actor_label`); täglicher Job `expire_projects` per pg_cron
 - Bestehende Komponenten: `components/layout/{Navbar,Footer}`, `components/ui/{Button,Badge,LanguageToggle,WaveBackground}`, `components/sections/{Hero,HowItWorks,ProjectPreview,RegisterForm,ComingSoon}`
 - Design: verbindlich nach `../LIQUODA_Praesentation.html` (siehe Spec, Abschnitt 2 «Design»); Tokens in `tailwind.config.ts`, Bausteine in `components/ui/`
 - Logo: SVG-Schriftzug in `components/ui/Wordmark.tsx` (das alte `public/liquoda-logo-v2.svg` wird nicht mehr verwendet)
@@ -42,7 +43,7 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 | 5 | Portfolio und Emittenten-Dashboard | `/portfolio`, `/emittent` mit Projekt-Wizard und Dokument-Upload (Supabase Storage), Admin: Projektprüfung, Freigabe, KYC-Status manuell setzen, Audit-Log | ja |
 | 6 | Smart Contracts und Wallet | OpenZeppelin ERC-20-Template mit Cap, Allowlist, Pausable; Deployment auf Polygon-Testnet; Wallet-Verbindung (MetaMask/WalletConnect); Mint nach Backend-Freigabe; Token-Referenz speichern | ja |
 
-Aktuelle Etappe: **5** (Plan offen). Etappen 1 bis 4 sind abgenommen und auf `main`. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
+Aktuelle Etappe: **5**, umgesetzt auf Branch `etappe-5-portfolio-dashboard-admin`, Abnahme offen. Etappen 1 bis 4 sind abgenommen und auf `main`. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
 
 ## Befehle
 
