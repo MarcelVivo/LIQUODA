@@ -1,5 +1,5 @@
 import { getSupabaseAdmin } from '@/lib/supabase';
-import LogoutButton from './_components/LogoutButton';
+import AdminNav from './_components/AdminNav';
 
 type Registration = {
   id: string;
@@ -27,18 +27,7 @@ export default async function AdminDashboard() {
     <div className="min-h-screen bg-[#F5F5F3] p-6 md:p-10">
       <div className="max-w-5xl mx-auto">
 
-        {/* Header */}
-        <div className="flex items-center justify-between mb-10">
-          <div>
-            <p className="text-[10px] font-semibold tracking-[0.35em] uppercase text-gray-400">
-              LIQUODA Admin
-            </p>
-            <h1 className="mt-1 text-2xl font-semibold text-[#0b1830]">
-              Pre-Registrierungen
-            </h1>
-          </div>
-          <LogoutButton />
-        </div>
+        <AdminNav title="Pre-Registrierungen (Warteliste)" />
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
