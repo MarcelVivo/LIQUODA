@@ -25,7 +25,7 @@ Für Nutzer muss alles so einfach wie möglich sein und vollständig auf liquoda
 ## Regeln
 
 1. **Etappenweise bauen.** Es gibt sechs Etappen (siehe unten). Arbeite immer nur an der aktuell beauftragten Etappe. Beginne keine spätere Etappe, auch nicht «vorbereitend».
-2. **Vor jeder Etappe einen kurzen Plan zeigen** (Dateien, die entstehen oder geändert werden) und auf Freigabe warten. Danach umsetzen.
+2. **Vor jeder Etappe einen kurzen Plan zeigen** (Dateien, die entstehen oder geändert werden). Seit 26.09.2026 (Entscheid Marcel): nicht auf Freigabe warten, sondern umsetzen, testen und die fertige Etappe direkt nach `main` bringen; Marcel probiert aus, wenn alles läuft. Rückfragen nur bei echten Entscheidungen.
 3. **Nach jeder Etappe:** `npm run build` muss fehlerfrei durchlaufen. Dann eine kurze Zusammenfassung: was gebaut wurde, wie man es testet, was offen ist. Keine Romane.
 4. **Design nur aus der Präsentation.** Neue Seiten und Komponenten verwenden ausschliesslich die Tokens und Bausteine aus der Präsentationsgestaltung (Ink, Petrol, Creme-Verlauf, Karten, Pill-Buttons, Kicker). Keine neuen Farben oder Stile erfinden.
 5. **Kein Marketing-Sprech.** Alle UI-Texte folgen Abschnitt 2 der Spec (sachlich, keine Renditeversprechen, keine Dringlichkeit). Texte immer in `messages/de.json` und `messages/en.json`, nie hartkodiert.
@@ -48,7 +48,7 @@ Für Nutzer muss alles so einfach wie möglich sein und vollständig auf liquoda
 | 6 | Smart Contracts und Wallet | OpenZeppelin ERC-20-Template mit Cap, Allowlist, Pausable; Deployment auf Polygon-Testnet; Wallet-Verbindung (MetaMask/WalletConnect); Mint nach Backend-Freigabe; Token-Referenz speichern | ja |
 | 7 | Eingebettete Wallet | Wallet-Anbieter (z. B. Privy/Dynamic/Web3Auth) anbinden: jeder Investor erhält beim Registrieren automatisch eine Wallet, kein MetaMask nötig; MetaMask bleibt optional. Vertrag, Allowlist und Mint unverändert | ja |
 
-Aktuelle Etappe: **9** Rückerstattungen, umgesetzt auf Branch `etappe-9-rueckerstattungen`, Abnahme offen. Etappen 1 bis 8 sind abgenommen und auf `main`. Offen vor dem Echtbetrieb: Schlüsselschutz, rechtliche Texte, Umstellung Stripe/Polygon auf Echtbetrieb. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
+Aktuelle Etappe: **10** Schlüsselschutz. Etappen 1 bis 9 sind auf `main`. Danach: Aufräumen, rechtliche Texte (Fachperson), Umstellung Stripe/Polygon auf Echtbetrieb. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
 
 ## Befehle
 
