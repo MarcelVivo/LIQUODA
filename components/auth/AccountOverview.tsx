@@ -6,8 +6,7 @@ import { Link } from '@/i18n/routing';
 import { createSupabaseServerClient, type Account } from '@/lib/supabase/server';
 import { listOwnInvestments } from '@/lib/investments';
 import { formatChf, formatDate } from '@/lib/format';
-import PrivyRoot from '@/components/wallet/PrivyRoot';
-import AnteileKonto from '@/components/wallet/AnteileKonto';
+import AnteileKontoLazy from '@/components/wallet/AnteileKontoLazy';
 import { EXPLORER_URL } from '@/lib/chain/config';
 
 type Profile = {
@@ -178,9 +177,7 @@ export default async function AccountOverview({
                 <dt className="text-muted">{t('wallet')}</dt>
                 <dd className="max-w-[60%] text-right text-xs text-muted">
                   {variant === 'investor' ? (
-                    <PrivyRoot>
-                      <AnteileKonto linkedAddress={profile.wallet_address} />
-                    </PrivyRoot>
+                    <AnteileKontoLazy linkedAddress={profile.wallet_address} />
                   ) : (
                     profile.wallet_address ?? t('walletNone')
                   )}
