@@ -19,7 +19,9 @@
     "next-intl": "^3.17.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "server-only": "^0.0.1",
     "stripe": "^22.6.2",
+    "viem": "^2.56.9",
     "ws": "^8.21.0"
   },
   "devDependencies": {
