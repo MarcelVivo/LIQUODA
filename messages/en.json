@@ -440,7 +440,7 @@
       "description": "Description",
       "purpose": "Use of capital",
       "documents": "Documents",
-      "documentsNote": "Documents are stored with versioning. In this view they are not yet available for download.",
+      "documentsNote": "Documents are stored with versioning. Log in to open them.",
       "docTypes": {
         "contract": "Contract",
         "prospectus": "Project description",
@@ -470,7 +470,8 @@
         "failed": "Funding not successful: the target amount was not reached within the term. No tokens were issued and all payments were reversed."
       },
       "ctaHintLogin": "To participate you need an investor account with verified identity.",
-      "ctaHintClosed": "This project does not accept new participations."
+      "ctaHintClosed": "This project does not accept new participations.",
+      "documentsLogin": "Documents are stored with versioning and open via a short-lived link."
     }
   },
   "auth": {
@@ -540,7 +541,7 @@
       "portfolioTitle": "Portfolio",
       "portfolioLead": "Your investor area. Participations, documents and token references will appear here once the platform has launched.",
       "issuerTitle": "Issuer dashboard",
-      "issuerLead": "Your area as an issuer. Projects, documents and the project wizard follow in a next step.",
+      "issuerLead": "Your area as an issuer. Enter projects, upload documents, follow the status.",
       "profile": "Account",
       "name": "Name",
       "email": "Email address",
@@ -583,7 +584,16 @@
         "cancelled": "Cancelled",
         "refunded": "Refunded"
       },
-      "investmentDate": "Date"
+      "investmentDate": "Date",
+      "toDashboard": "Go to projects",
+      "projectStatus": "Project status",
+      "payment": "Payment",
+      "paymentRef": "Stripe reference",
+      "documents": "Documents",
+      "download": "Open",
+      "noDocuments": "No documents.",
+      "tokens": "Token reference",
+      "tokensNone": "No tokens allocated yet. Allocation follows after review by LIQUODA."
     }
   },
   "invest": {
@@ -676,6 +686,141 @@
       "text": "You cancelled the payment. No obligation has arisen and nothing was charged.",
       "retry": "Start again",
       "toProject": "Go to project page"
+    }
+  },
+  "emittent": {
+    "dashboard": {
+      "title": "Issuer dashboard",
+      "lead": "Your projects and their status. A new project starts as a draft and is reviewed by LIQUODA after submission.",
+      "newProject": "Create a new project",
+      "creating": "Creating …",
+      "empty": "No project yet. Create a project and enter it step by step.",
+      "projects": "Projects",
+      "reviewNote": "Feedback from LIQUODA",
+      "edit": "Edit",
+      "open": "Open",
+      "view": "Project page",
+      "target": "Target amount",
+      "raised": "Reached",
+      "deadline": "Term until",
+      "updated": "Last changed",
+      "statuses": {
+        "draft": "Draft",
+        "in_review": "Under review",
+        "approved": "Approved",
+        "active": "Open",
+        "funded": "Funded",
+        "failed": "Not successful",
+        "cancelled": "Ended",
+        "closed": "Closed"
+      },
+      "statusHints": {
+        "draft": "You can edit the project and submit it once all details are complete.",
+        "in_review": "LIQUODA is reviewing the project. Changes are only possible after feedback.",
+        "approved": "The project is approved.",
+        "active": "The project is visible in the marketplace and the funding phase is running.",
+        "funded": "The target amount has been reached. The round is complete.",
+        "failed": "The target amount was not reached within the term. No tokens were issued; payments are reversed.",
+        "cancelled": "The project was ended early. The reason is in the feedback.",
+        "closed": "The project is closed."
+      }
+    },
+    "wizard": {
+      "title": "Enter project",
+      "back": "Back to dashboard",
+      "steps": {
+        "basics": "Key data",
+        "texts": "Texts",
+        "amounts": "Amounts and term",
+        "documents": "Documents",
+        "submit": "Submit"
+      },
+      "save": "Save",
+      "saving": "Saving …",
+      "saved": "Saved",
+      "next": "Next",
+      "prev": "Back",
+      "locked": "This project is under review or completed and cannot be edited.",
+      "deHint": "German is required. English is optional; if missing, the German text is shown.",
+      "basics": {
+        "titleDe": "Project title (DE)",
+        "titleEn": "Project title (EN)",
+        "locationDe": "Location (DE)",
+        "locationEn": "Location (EN)",
+        "locationHint": "e.g. “Thun BE”",
+        "assetType": "Asset type",
+        "tokenModel": "Token model",
+        "tokenModelHint": "ERC-20 for shares in companies, real estate and energy projects. ERC-721 for a single asset such as a watch or a vehicle."
+      },
+      "texts": {
+        "summaryDe": "Short description (DE)",
+        "summaryEn": "Short description (EN)",
+        "summaryHint": "One or two sentences, at most 300 characters.",
+        "descriptionDe": "Description (DE)",
+        "descriptionEn": "Description (EN)",
+        "descriptionHint": "Separate paragraphs with a blank line. Factual, without statements about returns.",
+        "purposeDe": "Use of capital (DE)",
+        "purposeEn": "Use of capital (EN)",
+        "risksDe": "Project-specific risks (DE)",
+        "risksEn": "Project-specific risks (EN)",
+        "risksHint": "One risk per line. General risks are added by LIQUODA automatically."
+      },
+      "amounts": {
+        "target": "Target amount in CHF",
+        "targetHint": "Whole francs, at least CHF 10'000.",
+        "min": "Minimum per participation in CHF",
+        "minHint": "Whole francs, between CHF 100 and CHF 20'000.",
+        "deadline": "Term until",
+        "deadlineHint": "Last day of the funding phase. If the target is not reached by then, the round is reversed."
+      },
+      "documents": {
+        "lead": "At least one document is required, for example a project description or participation agreement. PDF, JPG and PNG up to 20 MB are allowed.",
+        "type": "Type",
+        "titleDe": "Title (DE)",
+        "titleEn": "Title (EN)",
+        "file": "File",
+        "upload": "Upload",
+        "uploading": "Uploading …",
+        "delete": "Delete",
+        "deleting": "Deleting …",
+        "empty": "No documents yet.",
+        "hash": "Checksum (SHA-256)",
+        "errors": {
+          "file_type": "Only PDF, JPG or PNG.",
+          "file_size": "The file is larger than 20 MB.",
+          "upload": "The upload failed. Please try again.",
+          "server": "An error occurred.",
+          "required": "Please fill in this field."
+        }
+      },
+      "submit": {
+        "lead": "Before submission LIQUODA only checks completeness. After submission the project is frozen until LIQUODA gives feedback.",
+        "checklist": "Completeness",
+        "problems": {
+          "title": "Project title missing",
+          "summary": "Short description missing",
+          "description": "Description missing",
+          "purpose": "Use of capital missing",
+          "location": "Location missing",
+          "target": "Target amount invalid",
+          "min": "Minimum invalid or larger than the target amount",
+          "deadline": "Term is not in the future",
+          "documents": "No document uploaded"
+        },
+        "ready": "All details are complete.",
+        "consent": "I confirm that the details are true and complete and that I am entitled to offer this project.",
+        "action": "Submit for review",
+        "submitting": "Submitting …",
+        "doneTitle": "Submitted",
+        "doneText": "LIQUODA reviews the project and responds with an approval or questions. The status is visible in the dashboard."
+      },
+      "errors": {
+        "required": "Please fill in this field.",
+        "number": "Please enter a whole number.",
+        "date": "Please enter a date in the future.",
+        "locked": "The project can no longer be edited.",
+        "server": "Saving failed. Please try again."
+      }
     }
   },
   "legal": {

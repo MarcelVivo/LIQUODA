@@ -3,7 +3,7 @@ import { FileText } from 'lucide-react';
 import { formatDate } from '@/lib/format';
 import type { Locale, ProjectDocument } from '@/lib/projects';
 
-export default function DocumentList({ documents }: { documents: ProjectDocument[] }) {
+export default function DocumentList({ documents, canDownload = false }: { documents: ProjectDocument[]; canDownload?: boolean }) {
   const locale = useLocale() as Locale;
   const t = useTranslations('projects.detail');
 
@@ -14,7 +14,13 @@ export default function DocumentList({ documents }: { documents: ProjectDocument
           <li key={doc.id} className="flex items-start gap-4 px-5 py-4">
             <FileText size={20} className="mt-0.5 shrink-0 text-accent" strokeWidth={1.5} aria-hidden="true" />
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-navy">{doc.title[locale]}</p>
+              {canDownload ? (
+                <a href={`/api/dokumente/${doc.id}`} target="_blank" rel="noopener" className="liq-link text-sm font-semibold text-navy">
+                  {doc.title[locale]}
+                </a>
+              ) : (
+                <p className="text-sm font-semibold text-navy">{doc.title[locale]}</p>
+              )}
               <p className="mt-0.5 text-xs text-muted">
                 {t(`docTypes.${doc.type}`)} · {t('version', { version: doc.version })} ·{' '}
                 {formatDate(doc.date, locale)}
@@ -23,7 +29,7 @@ export default function DocumentList({ documents }: { documents: ProjectDocument
           </li>
         ))}
       </ul>
-      <p className="mt-3 text-xs text-muted">{t('documentsNote')}</p>
+      <p className="mt-3 text-xs text-muted">{canDownload ? t('documentsLogin') : t('documentsNote')}</p>
     </div>
   );
 }

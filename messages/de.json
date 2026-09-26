@@ -440,7 +440,7 @@
       "description": "Beschreibung",
       "purpose": "Verwendung des Kapitals",
       "documents": "Dokumente",
-      "documentsNote": "Dokumente werden versioniert abgelegt. In dieser Ansicht werden sie noch nicht zum Download bereitgestellt.",
+      "documentsNote": "Dokumente werden versioniert abgelegt. Zum Öffnen melden Sie sich an.",
       "docTypes": {
         "contract": "Vertrag",
         "prospectus": "Projektbeschrieb",
@@ -470,7 +470,8 @@
         "failed": "Finanzierung nicht erfolgreich: Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Token ausgegeben, alle Zahlungen wurden rückabgewickelt."
       },
       "ctaHintLogin": "Für eine Beteiligung benötigen Sie ein Investoren-Konto mit bestätigter Identität.",
-      "ctaHintClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an."
+      "ctaHintClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an.",
+      "documentsLogin": "Dokumente werden versioniert abgelegt und öffnen sich über einen kurz gültigen Link."
     }
   },
   "auth": {
@@ -540,7 +541,7 @@
       "portfolioTitle": "Portfolio",
       "portfolioLead": "Ihr Investoren-Bereich. Beteiligungen, Dokumente und Token-Referenzen erscheinen hier, sobald die Plattform gestartet ist.",
       "issuerTitle": "Emittenten-Dashboard",
-      "issuerLead": "Ihr Bereich als Emittent. Projekte, Dokumente und der Projekt-Wizard folgen in einem nächsten Schritt.",
+      "issuerLead": "Ihr Bereich als Emittent. Projekte erfassen, Dokumente hochladen, Status verfolgen.",
       "profile": "Konto",
       "name": "Name",
       "email": "E-Mail-Adresse",
@@ -583,7 +584,16 @@
         "cancelled": "Abgebrochen",
         "refunded": "Rückerstattet"
       },
-      "investmentDate": "Datum"
+      "investmentDate": "Datum",
+      "toDashboard": "Zu den Projekten",
+      "projectStatus": "Projektstatus",
+      "payment": "Zahlung",
+      "paymentRef": "Stripe-Referenz",
+      "documents": "Dokumente",
+      "download": "Öffnen",
+      "noDocuments": "Keine Dokumente.",
+      "tokens": "Token-Referenz",
+      "tokensNone": "Noch keine Token zugewiesen. Die Zuweisung erfolgt nach Prüfung durch LIQUODA."
     }
   },
   "invest": {
@@ -676,6 +686,141 @@
       "text": "Sie haben die Zahlung abgebrochen. Es ist keine Verpflichtung entstanden und es wurde nichts belastet.",
       "retry": "Erneut starten",
       "toProject": "Zur Projektseite"
+    }
+  },
+  "emittent": {
+    "dashboard": {
+      "title": "Emittenten-Dashboard",
+      "lead": "Ihre Projekte und deren Status. Ein neues Projekt beginnt als Entwurf und wird nach dem Einreichen von LIQUODA geprüft.",
+      "newProject": "Neues Projekt anlegen",
+      "creating": "Wird angelegt …",
+      "empty": "Noch kein Projekt. Legen Sie ein Projekt an und erfassen Sie es Schritt für Schritt.",
+      "projects": "Projekte",
+      "reviewNote": "Rückfrage von LIQUODA",
+      "edit": "Bearbeiten",
+      "open": "Öffnen",
+      "view": "Projektseite",
+      "target": "Zielbetrag",
+      "raised": "Erreicht",
+      "deadline": "Laufzeit bis",
+      "updated": "Zuletzt geändert",
+      "statuses": {
+        "draft": "Entwurf",
+        "in_review": "In Prüfung",
+        "approved": "Freigegeben",
+        "active": "Offen",
+        "funded": "Finanziert",
+        "failed": "Nicht erfolgreich",
+        "cancelled": "Beendet",
+        "closed": "Geschlossen"
+      },
+      "statusHints": {
+        "draft": "Sie können das Projekt bearbeiten und einreichen, sobald alle Angaben vollständig sind.",
+        "in_review": "LIQUODA prüft das Projekt. Änderungen sind erst nach einer Rückmeldung wieder möglich.",
+        "approved": "Das Projekt ist freigegeben.",
+        "active": "Das Projekt ist im Marktplatz sichtbar, die Finanzierungsphase läuft.",
+        "funded": "Der Zielbetrag wurde erreicht. Die Runde ist abgeschlossen.",
+        "failed": "Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Token ausgegeben; Zahlungen werden rückabgewickelt.",
+        "cancelled": "Das Projekt wurde vorzeitig beendet. Die Begründung steht in der Rückmeldung.",
+        "closed": "Das Projekt ist abgeschlossen."
+      }
+    },
+    "wizard": {
+      "title": "Projekt erfassen",
+      "back": "Zum Dashboard",
+      "steps": {
+        "basics": "Eckdaten",
+        "texts": "Texte",
+        "amounts": "Beträge und Laufzeit",
+        "documents": "Dokumente",
+        "submit": "Einreichen"
+      },
+      "save": "Speichern",
+      "saving": "Wird gespeichert …",
+      "saved": "Gespeichert",
+      "next": "Weiter",
+      "prev": "Zurück",
+      "locked": "Dieses Projekt ist in Prüfung oder abgeschlossen und kann nicht bearbeitet werden.",
+      "deHint": "Deutsch ist Pflicht. Englisch ist optional; fehlt es, wird der deutsche Text angezeigt.",
+      "basics": {
+        "titleDe": "Projekttitel (DE)",
+        "titleEn": "Projekttitel (EN)",
+        "locationDe": "Ort (DE)",
+        "locationEn": "Ort (EN)",
+        "locationHint": "z. B. «Thun BE»",
+        "assetType": "Art des Assets",
+        "tokenModel": "Token-Modell",
+        "tokenModelHint": "ERC-20 für Anteile an Unternehmen, Immobilien und Energieprojekten. ERC-721 für ein einzelnes Asset wie eine Uhr oder ein Fahrzeug."
+      },
+      "texts": {
+        "summaryDe": "Kurzbeschreibung (DE)",
+        "summaryEn": "Kurzbeschreibung (EN)",
+        "summaryHint": "Ein bis zwei Sätze, maximal 300 Zeichen.",
+        "descriptionDe": "Beschreibung (DE)",
+        "descriptionEn": "Beschreibung (EN)",
+        "descriptionHint": "Absätze durch eine Leerzeile trennen. Sachlich, ohne Renditeaussagen.",
+        "purposeDe": "Verwendung des Kapitals (DE)",
+        "purposeEn": "Verwendung des Kapitals (EN)",
+        "risksDe": "Projektspezifische Risiken (DE)",
+        "risksEn": "Projektspezifische Risiken (EN)",
+        "risksHint": "Ein Risiko pro Zeile. Allgemeine Risiken ergänzt LIQUODA automatisch."
+      },
+      "amounts": {
+        "target": "Zielbetrag in CHF",
+        "targetHint": "Ganze Franken, mindestens CHF 10'000.",
+        "min": "Mindestbetrag pro Beteiligung in CHF",
+        "minHint": "Ganze Franken, zwischen CHF 100 und CHF 20'000.",
+        "deadline": "Laufzeit bis",
+        "deadlineHint": "Letzter Tag der Finanzierungsphase. Wird das Ziel bis dahin nicht erreicht, wird die Runde rückabgewickelt."
+      },
+      "documents": {
+        "lead": "Mindestens ein Dokument ist Pflicht, zum Beispiel ein Projektbeschrieb oder Beteiligungsvertrag. Zulässig sind PDF, JPG und PNG bis 20 MB.",
+        "type": "Art",
+        "titleDe": "Titel (DE)",
+        "titleEn": "Titel (EN)",
+        "file": "Datei",
+        "upload": "Hochladen",
+        "uploading": "Wird hochgeladen …",
+        "delete": "Löschen",
+        "deleting": "Wird gelöscht …",
+        "empty": "Noch keine Dokumente.",
+        "hash": "Prüfsumme (SHA-256)",
+        "errors": {
+          "file_type": "Nur PDF, JPG oder PNG.",
+          "file_size": "Die Datei ist grösser als 20 MB.",
+          "upload": "Der Upload ist fehlgeschlagen. Bitte versuchen Sie es erneut.",
+          "server": "Es ist ein Fehler aufgetreten.",
+          "required": "Bitte füllen Sie dieses Feld aus."
+        }
+      },
+      "submit": {
+        "lead": "Vor dem Einreichen prüft LIQUODA nur die Vollständigkeit. Nach dem Einreichen ist das Projekt eingefroren, bis LIQUODA eine Rückmeldung gibt.",
+        "checklist": "Vollständigkeit",
+        "problems": {
+          "title": "Projekttitel fehlt",
+          "summary": "Kurzbeschreibung fehlt",
+          "description": "Beschreibung fehlt",
+          "purpose": "Verwendung des Kapitals fehlt",
+          "location": "Ort fehlt",
+          "target": "Zielbetrag ungültig",
+          "min": "Mindestbetrag ungültig oder grösser als der Zielbetrag",
+          "deadline": "Laufzeit liegt nicht in der Zukunft",
+          "documents": "Kein Dokument hochgeladen"
+        },
+        "ready": "Alle Angaben sind vollständig.",
+        "consent": "Ich bestätige, dass die Angaben wahr und vollständig sind und dass ich berechtigt bin, dieses Projekt anzubieten.",
+        "action": "Zur Prüfung einreichen",
+        "submitting": "Wird eingereicht …",
+        "doneTitle": "Eingereicht",
+        "doneText": "LIQUODA prüft das Projekt und meldet sich mit einer Freigabe oder Rückfragen. Der Status ist im Dashboard sichtbar."
+      },
+      "errors": {
+        "required": "Bitte füllen Sie dieses Feld aus.",
+        "number": "Bitte geben Sie eine ganze Zahl ein.",
+        "date": "Bitte geben Sie ein Datum in der Zukunft ein.",
+        "locked": "Das Projekt kann nicht mehr bearbeitet werden.",
+        "server": "Speichern fehlgeschlagen. Bitte versuchen Sie es erneut."
+      }
     }
   },
   "legal": {

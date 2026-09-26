@@ -82,7 +82,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
             <div>
               <h2 className="text-xl font-extrabold tracking-tight text-navy">{t('detail.documents')}</h2>
               <div className="mt-3">
-                <DocumentList documents={project.documents} />
+                <DocumentList documents={project.documents} canDownload={!!account} />
               </div>
             </div>
 

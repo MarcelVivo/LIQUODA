@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { redirect } from '@/i18n/routing';
-import AccountOverview from '@/components/auth/AccountOverview';
+import EmittentDashboard from '@/components/emittent/EmittentDashboard';
 import { getAccount } from '@/lib/supabase/server';
 
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
@@ -16,5 +16,5 @@ export default async function Page({ params }: { params: { locale: string } }) {
   if (account!.role !== 'emittent' && account!.role !== 'admin') {
     redirect({ href: '/portfolio', locale: params.locale });
   }
-  return <AccountOverview account={account!} variant="emittent" />;
+  return <EmittentDashboard account={account!} />;
 }

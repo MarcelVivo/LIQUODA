@@ -95,7 +95,14 @@ export interface PortfolioInvestment {
   amount_chf: number | string;
   status: InvestmentStatus;
   created_at: string;
-  project: { slug: string; title: { de: string; en?: string } } | null;
+  project: {
+    slug: string;
+    title: { de: string; en?: string };
+    status: string;
+    documents: { id: string; title: { de: string; en?: string }; type: string; version: number; investment_id: string | null }[];
+  } | null;
+  payment_references: { provider: string; provider_ref: string; status: string; amount_chf: number | string }[];
+  token_references: { contract_address: string; token_id: string | null; token_amount: number | string; tx_hash: string }[];
 }
 
 /** Eigene Beteiligungen für das Portfolio (RLS: nur eigene). */
@@ -103,7 +110,9 @@ export async function listOwnInvestments(): Promise<PortfolioInvestment[]> {
   const supabase = createSupabaseServerClient();
   const { data, error } = await supabase
     .from('investments')
-    .select('id, amount_chf, status, created_at, project:projects(slug, title)')
+    .select(
+      'id, amount_chf, status, created_at, project:projects(slug, title, status, documents(id, title, type, version, investment_id)), payment_references(provider, provider_ref, status, amount_chf), token_references(contract_address, token_id, token_amount, tx_hash)'
+    )
     .order('created_at', { ascending: false });
   if (error) {
     console.error('[investments] list:', error.message);
