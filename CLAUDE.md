@@ -42,7 +42,7 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 | 5 | Portfolio und Emittenten-Dashboard | `/portfolio`, `/emittent` mit Projekt-Wizard und Dokument-Upload (Supabase Storage), Admin: Projektprüfung, Freigabe, KYC-Status manuell setzen, Audit-Log | ja |
 | 6 | Smart Contracts und Wallet | OpenZeppelin ERC-20-Template mit Cap, Allowlist, Pausable; Deployment auf Polygon-Testnet; Wallet-Verbindung (MetaMask/WalletConnect); Mint nach Backend-Freigabe; Token-Referenz speichern | ja |
 
-Aktuelle Etappe: **4**, umgesetzt auf Branch `etappe-4-investitionsprozess`, Abnahme offen. Etappen 1 bis 3 sind abgenommen und auf `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
+Aktuelle Etappe: **5** (Plan offen). Etappen 1 bis 4 sind abgenommen und auf `main`. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
 
 ## Befehle
 
