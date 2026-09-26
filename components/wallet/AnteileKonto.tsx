@@ -26,26 +26,37 @@ function PrivyKonto({ linkedAddress }: { linkedAddress: string | null }) {
   const [showDetails, setShowDetails] = useState(false);
   const linking = useRef(false);
 
-  const walletAddress = user?.wallet?.address ?? null;
-  const needsLink = !!walletAddress && walletAddress.toLowerCase() !== (linkedAddress ?? '').toLowerCase();
+  // Wallet-Adresse aus dem Privy-Zustand (Embedded Wallet kann unter «wallet» oder in linkedAccounts liegen)
+  const embedded = user?.linkedAccounts.find(
+    (a) => a.type === 'wallet' && a.walletClientType === 'privy' && a.chainType === 'ethereum'
+  );
+  const walletAddress = (embedded && 'address' in embedded ? embedded.address : user?.wallet?.address) ?? null;
+  const needsLink = !linkedAddress || (!!walletAddress && walletAddress.toLowerCase() !== linkedAddress.toLowerCase());
+  const [attempt, setAttempt] = useState(0);
 
+  // Sobald Privy die Anmeldung kennt, die Adresse serverseitig nachschlagen und verknüpfen.
+  // Der Server fragt Privy direkt; der Browser liefert keine Adresse. Bei «noch keine Wallet» wird kurz erneut versucht.
   useEffect(() => {
     if (!ready || !authenticated || !needsLink || linking.current) return;
     linking.current = true;
     fetch('/api/wallet/privy', { method: 'POST' })
       .then(async (res) => {
-        if (!res.ok) {
-          const data = await res.json().catch(() => ({}));
-          setError(t(data.error === 'not_configured' ? 'errors.not_configured' : 'errors.server'));
+        if (res.ok) {
+          router.refresh();
           return;
         }
-        router.refresh();
+        const data = await res.json().catch(() => ({}));
+        if ((data.error === 'no_wallet' || data.error === 'no_privy_user') && attempt < 10) {
+          window.setTimeout(() => setAttempt((n) => n + 1), 2000);
+          return;
+        }
+        setError(t(data.error === 'not_configured' ? 'errors.not_configured' : 'errors.server'));
       })
       .catch(() => setError(t('errors.server')))
       .finally(() => {
         linking.current = false;
       });
-  }, [ready, authenticated, needsLink, router, t]);
+  }, [ready, authenticated, needsLink, attempt, router, t]);
 
   if (linkedAddress && !needsLink) {
     return (

@@ -42,8 +42,7 @@ export async function POST() {
   const { error } = await admin
     .from('users')
     .update({ wallet_address: address, wallet_nonce: null, wallet_linked_at: new Date().toISOString() })
-    .eq('id', profile.id)
-    .neq('wallet_address', address);
+    .eq('id', profile.id);
   if (error) {
     console.error('[wallet/privy] save:', error.message);
     return NextResponse.json({ error: 'server' }, { status: 500 });
