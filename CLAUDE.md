@@ -18,6 +18,10 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 - Logo: SVG-Schriftzug in `components/ui/Wordmark.tsx` (das alte `public/liquoda-logo-v2.svg` wird nicht mehr verwendet)
 - Hosting: Vercel, Deployment aus GitHub `main`
 
+## Leitsatz (Entscheid Marcel, 26.09.2026)
+
+Für Nutzer muss alles so einfach wie möglich sein und vollständig auf liquoda.com funktionieren. Kein Schritt darf Krypto-Vorwissen, eine Browser-Erweiterung oder das Verlassen der Plattform voraussetzen. Zahlungen über Stripe bleiben die einzige Ausnahme.
+
 ## Regeln
 
 1. **Etappenweise bauen.** Es gibt sechs Etappen (siehe unten). Arbeite immer nur an der aktuell beauftragten Etappe. Beginne keine spätere Etappe, auch nicht «vorbereitend».
@@ -42,8 +46,9 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 | 4 | Investitionsprozess | `/investieren/[slug]`: Betrag, Zusammenfassung, aktive Risikozustimmung, Stripe Checkout (Testmodus), Webhook, Statuswechsel `reserved → paid`, Fehlerfälle | ja |
 | 5 | Portfolio und Emittenten-Dashboard | `/portfolio`, `/emittent` mit Projekt-Wizard und Dokument-Upload (Supabase Storage), Admin: Projektprüfung, Freigabe, KYC-Status manuell setzen, Audit-Log | ja |
 | 6 | Smart Contracts und Wallet | OpenZeppelin ERC-20-Template mit Cap, Allowlist, Pausable; Deployment auf Polygon-Testnet; Wallet-Verbindung (MetaMask/WalletConnect); Mint nach Backend-Freigabe; Token-Referenz speichern | ja |
+| 7 | Eingebettete Wallet | Wallet-Anbieter (z. B. Privy/Dynamic/Web3Auth) anbinden: jeder Investor erhält beim Registrieren automatisch eine Wallet, kein MetaMask nötig; MetaMask bleibt optional. Vertrag, Allowlist und Mint unverändert | ja |
 
-Aktuelle Etappe: **6**, umgesetzt auf Branch `etappe-6-smart-contracts-wallet`, Abnahme offen. Etappen 1 bis 5 sind abgenommen und auf `main`. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
+Aktuelle Etappe: **7** (Plan offen). Etappen 1 bis 6 (MVP) sind abgenommen und auf `main`. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
 
 ## Befehle
 
