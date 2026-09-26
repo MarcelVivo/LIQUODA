@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+
+export const maxDuration = 120;
 import { requireAdmin } from '../_lib';
 import { notifyProjectStatus } from '@/lib/email/notify';
+import { processProjectRefunds } from '@/lib/refunds';
 
 const STATUSES = ['active', 'draft', 'cancelled', 'failed'] as const;
 
@@ -34,5 +37,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'server', message: error.message }, { status: 409 });
   }
   notifyProjectStatus(projectId, status as 'active' | 'draft' | 'cancelled' | 'failed').catch((e) => console.error('[email]', e));
-  return NextResponse.json({ success: true });
+  // Rückabwicklung sofort und automatisch (Spec, Abschnitt 7); Ergebnis im Admin sichtbar
+  let refunds: { processed: number; refunded: number; failed: number } | undefined;
+  if (status === 'failed' || status === 'cancelled') {
+    const results = await processProjectRefunds(projectId, ctx.actor);
+    refunds = { processed: results.length, refunded: results.filter((r) => r.ok).length, failed: results.filter((r) => !r.ok).length };
+  }
+  return NextResponse.json({ success: true, refunds });
 }

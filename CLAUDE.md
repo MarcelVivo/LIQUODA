@@ -48,7 +48,7 @@ Für Nutzer muss alles so einfach wie möglich sein und vollständig auf liquoda
 | 6 | Smart Contracts und Wallet | OpenZeppelin ERC-20-Template mit Cap, Allowlist, Pausable; Deployment auf Polygon-Testnet; Wallet-Verbindung (MetaMask/WalletConnect); Mint nach Backend-Freigabe; Token-Referenz speichern | ja |
 | 7 | Eingebettete Wallet | Wallet-Anbieter (z. B. Privy/Dynamic/Web3Auth) anbinden: jeder Investor erhält beim Registrieren automatisch eine Wallet, kein MetaMask nötig; MetaMask bleibt optional. Vertrag, Allowlist und Mint unverändert | ja |
 
-Aktuelle Etappe: **9** (Plan offen). Etappen 1 bis 8 sind abgenommen und auf `main`. Offen vor dem Echtbetrieb: automatische Rückerstattungen, Schlüsselschutz, rechtliche Texte, Umstellung Stripe/Polygon auf Echtbetrieb. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
+Aktuelle Etappe: **9** Rückerstattungen, umgesetzt auf Branch `etappe-9-rueckerstattungen`, Abnahme offen. Etappen 1 bis 8 sind abgenommen und auf `main`. Offen vor dem Echtbetrieb: Schlüsselschutz, rechtliche Texte, Umstellung Stripe/Polygon auf Echtbetrieb. Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
 
 ## Befehle
 

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { getSupabaseAdmin } from '@/lib/supabase';
 import AdminNav from '../../_components/AdminNav';
 import ProjectActions from '../../_components/ProjectActions';
-import { DeployTokenButton, MintButton } from '../../_components/TokenActions';
+import { DeployTokenButton, MintButton, RefundButton } from '../../_components/TokenActions';
 import { explorerAddress, explorerTx } from '@/lib/chain/config';
 import { card, chf, dt, STATUS_LABEL, KYC_LABEL } from '../../_lib';
 
@@ -19,7 +19,7 @@ type Project = {
   emittent: { id: string; name: string; email: string; kyc_status: string } | null;
 };
 type Doc = { id: string; type: string; title: L; version: number; sha256_hash: string | null; created_at: string };
-type Inv = { id: string; amount_chf: number; status: string; created_at: string; investor: { name: string; email: string; kyc_status: string; wallet_address: string | null } | null; token_references: { tx_hash: string; token_amount: number }[] };
+type Inv = { id: string; amount_chf: number; status: string; created_at: string; refund_status: string | null; refund_error: string | null; investor: { name: string; email: string; kyc_status: string; wallet_address: string | null } | null; token_references: { tx_hash: string; token_amount: number }[] };
 type Audit = { id: number; actor_label: string | null; action: string; old_value: string | null; new_value: string | null; created_at: string };
 
 export default async function AdminProjectDetail({ params }: { params: { id: string } }) {
@@ -33,7 +33,7 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
   const p = data as unknown as Project;
   const [{ data: docs }, { data: invs }, { data: audit }] = await Promise.all([
     admin.from('documents').select('id, type, title, version, sha256_hash, created_at').eq('project_id', p.id).is('investment_id', null).order('created_at'),
-    admin.from('investments').select('id, amount_chf, status, created_at, token_references(tx_hash, token_amount), investor:users!investments_investor_id_fkey(name, email, kyc_status, wallet_address)').eq('project_id', p.id).order('created_at', { ascending: false }),
+    admin.from('investments').select('id, amount_chf, status, created_at, refund_status, refund_error, token_references(tx_hash, token_amount), investor:users!investments_investor_id_fkey(name, email, kyc_status, wallet_address)').eq('project_id', p.id).order('created_at', { ascending: false }),
     admin.from('audit_log').select('id, actor_label, action, old_value, new_value, created_at').eq('entity', 'projects').eq('entity_id', p.id).order('created_at', { ascending: false }).limit(20),
   ]);
   const documents = (docs ?? []) as Doc[];
@@ -105,10 +105,15 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                         <td className="py-2">
                           {i.status}
                           {i.token_references?.[0] && <a href={explorerTx(i.token_references[0].tx_hash)} target="_blank" rel="noopener" className="block text-[10px] text-gray-500 underline">Mint-Tx</a>}
+                          {i.refund_status === 'failed' && <span className="block text-[10px] text-red-600" title={i.refund_error ?? ''}>Rückerstattung fehlgeschlagen</span>}
+                          {i.refund_status === 'done' && <span className="block text-[10px] text-emerald-700">Erstattet</span>}
                         </td>
                         <td className="py-2 text-xs text-gray-400">{dt(i.created_at)}</td>
                         <td className="py-2">
-                          {i.status === 'paid' && (
+                          {['failed', 'cancelled'].includes(p.status) && ['paid', 'confirmed'].includes(i.status) && (
+                            <RefundButton investmentId={i.id} label={i.refund_status === 'failed' ? 'Rückerstattung wiederholen' : 'Rückerstattung auslösen'} />
+                          )}
+                          {i.status === 'paid' && !['failed', 'cancelled'].includes(p.status) && (
                             <MintButton
                               investmentId={i.id}
                               disabled={!p.token_contract_address || !i.investor?.wallet_address || i.investor?.kyc_status !== 'approved'}

@@ -37,6 +37,27 @@ export function DeployTokenButton({ projectId, disabled }: { projectId: string; 
   );
 }
 
+export function RefundButton({ investmentId, label = 'Rückerstattung wiederholen' }: { investmentId: string; label?: string }) {
+  const router = useRouter();
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState('');
+  const run = async () => {
+    if (!window.confirm('Rückerstattung über Stripe auslösen?')) return;
+    setBusy(true);
+    const res = await fetch('/api/admin/refund', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ investmentId }) });
+    const data = await res.json().catch(() => ({}));
+    setBusy(false);
+    setMsg(res.ok ? 'Erstattet.' : `Fehler: ${data.failed?.[0]?.error ?? data.error}`);
+    router.refresh();
+  };
+  return (
+    <div>
+      <button type="button" onClick={run} disabled={busy} className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-[11px] font-semibold text-gray-700 disabled:opacity-40">{busy ? '…' : label}</button>
+      {msg && <p className="mt-1 max-w-xs text-[10px] text-gray-600">{msg}</p>}
+    </div>
+  );
+}
+
 export function MintButton({ investmentId, disabled, hint }: { investmentId: string; disabled?: boolean; hint?: string }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);

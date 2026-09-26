@@ -71,7 +71,7 @@ export default async function AccountOverview({
             <ul className="mt-4 divide-y divide-navy/10">
               {investments.map((inv) => {
                 const docs = (inv.project?.documents ?? []).filter((d) => !d.investment_id);
-                const pay = inv.payment_references?.[0];
+                const pay = inv.payment_references?.find((r) => r.provider === 'stripe') ?? inv.payment_references?.[0];
                 return (
                   <li key={inv.id} className="py-4 text-sm">
                     <div className="flex flex-wrap items-center justify-between gap-3">
@@ -98,6 +98,10 @@ export default async function AccountOverview({
                         <dt className="text-muted">{t('payment')}</dt>
                         <dd className="text-navy">
                           {pay ? <>{formatChf(Number(pay.amount_chf))} · {pay.status} · <span className="font-mono">{pay.provider_ref.slice(-8)}</span></> : '–'}
+                          {inv.status === 'refunded' && (() => {
+                            const refund = inv.payment_references?.find((r) => r.provider === 'stripe_refund');
+                            return refund ? <span className="block text-accent">{t('refunded')}: {formatChf(Number(refund.amount_chf))}</span> : null;
+                          })()}
                         </dd>
                       </div>
                       <div>

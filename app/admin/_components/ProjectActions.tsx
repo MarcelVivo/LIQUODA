@@ -22,6 +22,7 @@ export default function ProjectActions({ projectId, status }: { projectId: strin
   const [note, setNote] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
+  const [msg, setMsg] = useState('');
   const actions = ACTIONS[status] ?? [];
 
   if (actions.length === 0) {
@@ -48,6 +49,7 @@ export default function ProjectActions({ projectId, status }: { projectId: strin
       return;
     }
     setNote('');
+    if (data.refunds) setMsg(`Rückabwicklung: ${data.refunds.refunded} von ${data.refunds.processed} Zahlungen erstattet${data.refunds.failed ? `, ${data.refunds.failed} fehlgeschlagen (siehe Investitionen)` : ''}.`);
     router.refresh();
   };
 
@@ -79,6 +81,7 @@ export default function ProjectActions({ projectId, status }: { projectId: strin
         ))}
       </div>
       {error && <p className="text-xs text-red-600">{error}</p>}
+      {msg && <p className="text-xs text-gray-600">{msg}</p>}
     </div>
   );
 }

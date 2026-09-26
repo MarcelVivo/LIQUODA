@@ -616,7 +616,8 @@
       "tokens": "Shares",
       "tokensNone": "No shares allocated yet. Allocation follows after review by LIQUODA once the payment is confirmed.",
       "tokenContract": "Public record",
-      "tokenTx": "Transfer"
+      "tokenTx": "Transfer",
+      "refunded": "Refunded"
     }
   },
   "invest": {
@@ -897,7 +898,8 @@
       "company": "Company",
       "assetType": "Asset type",
       "estimate": "Estimated amount",
-      "description": "Description"
+      "description": "Description",
+      "refunded": "Refunded"
     },
     "kyc": {
       "approved": {
@@ -986,7 +988,13 @@
       "failedProject": {
         "subject": "Funding not successful: {project}",
         "title": "Funding not successful",
-        "body": "The project did not reach its target amount within the term. No shares are issued. Your payment will be reversed; LIQUODA will get in touch with the details.",
+        "body": "The project did not reach its target amount within the term. No shares are issued. Your payment is refunded automatically; you will receive a separate email about it.",
+        "button": "Go to portfolio"
+      },
+      "refunded": {
+        "subject": "Refund for {project}",
+        "title": "Payment refunded",
+        "body": "The funding did not go ahead. Your payment has been refunded in full, including the fee. Depending on your bank, the credit appears on the card you paid with within 5 to 10 business days. No obligation has arisen.",
         "button": "Go to portfolio"
       }
     },

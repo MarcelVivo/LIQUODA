@@ -135,31 +135,6 @@ export async function notifyProjectStatus(projectId: string, status: 'active' | 
   });
   await sendMail({ to: user.email, subject: t(`project.${status}.subject`), ...mail, template: `project.${status}`, locale: user.locale, entity: 'projects', entityId: project.id });
 
-  // Bei Scheitern zusätzlich alle bezahlten Investoren informieren (Spec, Abschnitt 7)
-  if (status !== 'failed') return;
-  const { data: invs } = await getSupabaseAdmin()
-    .from('investments')
-    .select('id, amount_chf, investor_id')
-    .eq('project_id', project.id)
-    .in('status', ['paid', 'confirmed']);
-  for (const inv of invs ?? []) {
-    const investor = await loadUser(inv.investor_id);
-    if (!investor) continue;
-    const ti = await getTranslations({ locale: investor.locale, namespace: 'email' });
-    const title = project.title[investor.locale] ?? project.title.de;
-    const m = await compose({
-      locale: investor.locale,
-      name: investor.name,
-      title: ti('investment.failedProject.title'),
-      body: ti('investment.failedProject.body'),
-      facts: [
-        { label: ti('labels.project'), value: title },
-        { label: ti('labels.amount'), value: formatChf(Number(inv.amount_chf)) },
-      ],
-      button: { label: ti('investment.failedProject.button'), href: localeUrl(investor.locale, '/portfolio') },
-    });
-    await sendMail({ to: investor.email, subject: ti('investment.failedProject.subject', { project: title }), ...m, template: 'investment.failedProject', locale: investor.locale, entity: 'investments', entityId: inv.id });
-  }
 }
 
 /** Investition: Zahlung erhalten (Webhook) oder Anteile zugewiesen (Mint). */
@@ -192,6 +167,33 @@ export async function notifyInvestment(investmentId: string, status: 'paid' | 'c
     button: { label: t(`investment.${status}.button`), href: localeUrl(user.locale, '/portfolio') },
   });
   await sendMail({ to: user.email, subject: t(`investment.${status}.subject`), ...mail, template: `investment.${status}`, locale: user.locale, entity: 'investments', entityId: inv.id });
+}
+
+/** Rückerstattung ausgeführt: Investor informieren (Spec, Abschnitt 11). */
+export async function notifyInvestmentRefunded(investmentId: string, refundedChf: number): Promise<void> {
+  const { data: inv } = await getSupabaseAdmin()
+    .from('investments')
+    .select('id, amount_chf, investor_id, project_id')
+    .eq('id', investmentId)
+    .maybeSingle();
+  if (!inv) return;
+  const [user, project] = await Promise.all([loadUser(inv.investor_id), loadProject(inv.project_id)]);
+  if (!user || !project) return;
+  const t = await getTranslations({ locale: user.locale, namespace: 'email' });
+  const title = project.title[user.locale] ?? project.title.de;
+  const mail = await compose({
+    locale: user.locale,
+    name: user.name,
+    title: t('investment.refunded.title'),
+    body: t('investment.refunded.body'),
+    facts: [
+      { label: t('labels.project'), value: title },
+      { label: t('labels.amount'), value: formatChf(Number(inv.amount_chf)) },
+      { label: t('labels.refunded'), value: formatChf(refundedChf) },
+    ],
+    button: { label: t('investment.refunded.button'), href: localeUrl(user.locale, '/portfolio') },
+  });
+  await sendMail({ to: user.email, subject: t('investment.refunded.subject', { project: title }), ...mail, template: 'investment.refunded', locale: user.locale, entity: 'investments', entityId: inv.id });
 }
 
 /** Projektanfrage von der Seite «Für Emittenten»: an LIQUODA plus Eingangsbestätigung. */
