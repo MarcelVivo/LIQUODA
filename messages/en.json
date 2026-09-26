@@ -431,11 +431,11 @@
       "deadline": "Term until",
       "daysLeft": "{days, plural, =0 {ends today} one {# day left} other {# days left}}",
       "ended": "Term ended",
-      "tokenModel": "Token model",
+      "tokenModel": "Type of shares",
       "tokenModels": {
-        "erc20": "Fungible shares (ERC-20)",
-        "erc721": "Single asset (ERC-721)",
-        "erc1155": "Series or edition (ERC-1155)"
+        "erc20": "Shares in a company or project",
+        "erc721": "Share in a single tangible asset",
+        "erc1155": "Shares of a series"
       },
       "description": "Description",
       "purpose": "Use of capital",
@@ -472,9 +472,9 @@
       "ctaHintLogin": "To participate you need an investor account with verified identity.",
       "ctaHintClosed": "This project does not accept new participations.",
       "documentsLogin": "Documents are stored with versioning and open via a short-lived link.",
-      "tokenContract": "Token contract",
-      "tokenContractNone": "The token contract is created after the project is approved.",
-      "tokenContractHint": "Shares are represented as ERC-20 tokens on Polygon, 1 token = CHF 1. Transfers are only possible between verified wallets."
+      "tokenContract": "Public record",
+      "tokenContractNone": "The public record is created after the project is approved.",
+      "tokenContractHint": "Shares are kept in a public, tamper-proof record on Polygon, 1 share = CHF 1. Transfers are only possible between verified accounts."
     },
     "collateral": {
       "badgeSecured": "Secured",
@@ -560,7 +560,7 @@
     },
     "account": {
       "portfolioTitle": "Portfolio",
-      "portfolioLead": "Your investor area. Participations, documents and token references will appear here once the platform has launched.",
+      "portfolioLead": "Your investor area: participations, documents and your shares.",
       "issuerTitle": "Issuer dashboard",
       "issuerLead": "Your area as an issuer. Enter projects, upload documents, follow the status.",
       "profile": "Account",
@@ -579,13 +579,13 @@
         "rejected": "Not passed"
       },
       "kycHint": "The verification is carried out manually by LIQUODA. You will be informed by email once it is complete.",
-      "wallet": "Wallet",
-      "walletNone": "No wallet connected yet. Connecting follows before the first participation.",
+      "wallet": "Shares account",
+      "walletNone": "Set up automatically on your first visit to the portfolio.",
       "nextTitle": "What happens next",
       "nextInvestor": [
         "Your identity is verified (KYC).",
-        "You link a MetaMask wallet on Polygon.",
-        "After payment and review your tokens are transferred to the wallet."
+        "Your shares account is set up automatically.",
+        "After payment and review your shares are allocated. You see them here in the portfolio."
       ],
       "nextIssuer": [
         "Your company is verified (KYB).",
@@ -613,10 +613,10 @@
       "documents": "Documents",
       "download": "Open",
       "noDocuments": "No documents.",
-      "tokens": "Token reference",
-      "tokensNone": "No tokens allocated yet. Allocation follows after review by LIQUODA once payment, identity and wallet are confirmed.",
-      "tokenContract": "Contract",
-      "tokenTx": "Transaction"
+      "tokens": "Shares",
+      "tokensNone": "No shares allocated yet. Allocation follows after review by LIQUODA once the payment is confirmed.",
+      "tokenContract": "Public record",
+      "tokenTx": "Transfer"
     }
   },
   "invest": {
@@ -650,7 +650,7 @@
       "fee": "LIQUODA transaction fee (1 %)",
       "total": "Amount to pay",
       "deadline": "Term until",
-      "tokenModel": "Token model",
+      "tokenModel": "Type of shares",
       "issuer": "Issuer",
       "back": "Change amount",
       "next": "Continue to consent"
@@ -692,7 +692,7 @@
     "success": {
       "metaTitle": "Payment received",
       "paidTitle": "Payment received",
-      "paidText": "Your payment has been received. The participation has the status “paid”. Tokens are allocated after review by LIQUODA; you will be informed by email.",
+      "paidText": "Your payment has been received. The participation has the status “paid”. Shares are allocated after review by LIQUODA; you will be informed by email.",
       "pendingTitle": "Confirming payment",
       "pendingText": "Confirmation from Stripe is still pending. This usually takes a few seconds. This page refreshes automatically.",
       "failedTitle": "Payment not completed",
@@ -866,6 +866,17 @@
       "wallet_taken": "This wallet is already linked to another account.",
       "not_configured": "Wallet linking is not yet set up in this environment.",
       "server": "An error occurred. Please try again later."
+    },
+    "embedded": {
+      "ready": "Your shares account is set up.",
+      "settingUp": "Your shares account is being set up. This only takes a moment.",
+      "showDetails": "Show details",
+      "hideDetails": "Hide details",
+      "addressLabel": "Public address of your shares account:",
+      "errors": {
+        "not_configured": "The shares account is not yet set up in this environment.",
+        "server": "The shares account could not be linked. Please reload the page."
+      }
     }
   },
   "legal": {

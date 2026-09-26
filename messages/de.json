@@ -431,11 +431,11 @@
       "deadline": "Laufzeit bis",
       "daysLeft": "{days, plural, =0 {läuft heute ab} one {noch # Tag} other {noch # Tage}}",
       "ended": "Laufzeit beendet",
-      "tokenModel": "Token-Modell",
+      "tokenModel": "Art der Anteile",
       "tokenModels": {
-        "erc20": "Fungible Anteile (ERC-20)",
-        "erc721": "Einzelnes Asset (ERC-721)",
-        "erc1155": "Serie oder Edition (ERC-1155)"
+        "erc20": "Anteile an Unternehmen oder Projekt",
+        "erc721": "Anteil an einem einzelnen Sachwert",
+        "erc1155": "Anteile einer Serie"
       },
       "description": "Beschreibung",
       "purpose": "Verwendung des Kapitals",
@@ -472,9 +472,9 @@
       "ctaHintLogin": "Für eine Beteiligung benötigen Sie ein Investoren-Konto mit bestätigter Identität.",
       "ctaHintClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an.",
       "documentsLogin": "Dokumente werden versioniert abgelegt und öffnen sich über einen kurz gültigen Link.",
-      "tokenContract": "Token-Vertrag",
-      "tokenContractNone": "Der Token-Vertrag wird nach der Freigabe des Projekts angelegt.",
-      "tokenContractHint": "Anteile werden als ERC-20-Token auf Polygon abgebildet, 1 Token = CHF 1. Transfers sind nur zwischen geprüften Wallets möglich."
+      "tokenContract": "Öffentliches Register",
+      "tokenContractNone": "Das öffentliche Register wird nach der Freigabe des Projekts angelegt.",
+      "tokenContractHint": "Die Anteile werden in einem öffentlichen, fälschungssicheren Register auf Polygon geführt, 1 Anteil = CHF 1. Übertragungen sind nur zwischen geprüften Konten möglich."
     },
     "collateral": {
       "badgeSecured": "Besichert",
@@ -560,7 +560,7 @@
     },
     "account": {
       "portfolioTitle": "Portfolio",
-      "portfolioLead": "Ihr Investoren-Bereich. Beteiligungen, Dokumente und Token-Referenzen erscheinen hier, sobald die Plattform gestartet ist.",
+      "portfolioLead": "Ihr Investoren-Bereich: Beteiligungen, Dokumente und Ihre Anteile.",
       "issuerTitle": "Emittenten-Dashboard",
       "issuerLead": "Ihr Bereich als Emittent. Projekte erfassen, Dokumente hochladen, Status verfolgen.",
       "profile": "Konto",
@@ -579,13 +579,13 @@
         "rejected": "Nicht bestanden"
       },
       "kycHint": "Die Prüfung wird von LIQUODA manuell durchgeführt. Sie werden per E-Mail informiert, sobald sie abgeschlossen ist.",
-      "wallet": "Wallet",
-      "walletNone": "Noch keine Wallet verknüpft. Die Verknüpfung folgt vor der ersten Beteiligung.",
+      "wallet": "Anteile-Konto",
+      "walletNone": "Wird beim ersten Besuch des Portfolios automatisch eingerichtet.",
       "nextTitle": "Was als Nächstes passiert",
       "nextInvestor": [
         "Ihre Identität wird geprüft (KYC).",
-        "Sie verknüpfen eine MetaMask-Wallet auf Polygon.",
-        "Nach Zahlung und Prüfung werden Ihre Token in die Wallet übertragen."
+        "Ihr Anteile-Konto wird automatisch eingerichtet.",
+        "Nach Zahlung und Prüfung werden Ihre Anteile zugewiesen. Sie sehen sie hier im Portfolio."
       ],
       "nextIssuer": [
         "Ihr Unternehmen wird geprüft (KYB).",
@@ -613,10 +613,10 @@
       "documents": "Dokumente",
       "download": "Öffnen",
       "noDocuments": "Keine Dokumente.",
-      "tokens": "Token-Referenz",
-      "tokensNone": "Noch keine Token zugewiesen. Die Zuweisung erfolgt nach Prüfung durch LIQUODA, sobald Zahlung, Identität und Wallet bestätigt sind.",
-      "tokenContract": "Vertrag",
-      "tokenTx": "Transaktion"
+      "tokens": "Anteile",
+      "tokensNone": "Noch keine Anteile zugewiesen. Die Zuweisung erfolgt nach Prüfung durch LIQUODA, sobald die Zahlung bestätigt ist.",
+      "tokenContract": "Öffentlicher Nachweis",
+      "tokenTx": "Übertragung"
     }
   },
   "invest": {
@@ -650,7 +650,7 @@
       "fee": "Transaktionsgebühr LIQUODA (1 %)",
       "total": "Zu zahlender Betrag",
       "deadline": "Laufzeit bis",
-      "tokenModel": "Token-Modell",
+      "tokenModel": "Art der Anteile",
       "issuer": "Emittent",
       "back": "Betrag ändern",
       "next": "Weiter zur Zustimmung"
@@ -692,7 +692,7 @@
     "success": {
       "metaTitle": "Zahlung erhalten",
       "paidTitle": "Zahlung erhalten",
-      "paidText": "Ihre Zahlung ist eingegangen. Die Beteiligung hat den Status «bezahlt». Die Zuweisung der Token erfolgt nach Prüfung durch LIQUODA; Sie werden per E-Mail informiert.",
+      "paidText": "Ihre Zahlung ist eingegangen. Die Beteiligung hat den Status «bezahlt». Die Zuweisung der Anteile erfolgt nach Prüfung durch LIQUODA; Sie werden per E-Mail informiert.",
       "pendingTitle": "Zahlung wird bestätigt",
       "pendingText": "Die Bestätigung von Stripe steht noch aus. Das dauert in der Regel wenige Sekunden. Diese Seite aktualisiert sich automatisch.",
       "failedTitle": "Zahlung nicht abgeschlossen",
@@ -866,6 +866,17 @@
       "wallet_taken": "Diese Wallet ist bereits mit einem anderen Konto verknüpft.",
       "not_configured": "Die Wallet-Verknüpfung ist auf dieser Umgebung noch nicht eingerichtet.",
       "server": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+    },
+    "embedded": {
+      "ready": "Ihr Anteile-Konto ist eingerichtet.",
+      "settingUp": "Ihr Anteile-Konto wird eingerichtet. Das dauert nur einen Moment.",
+      "showDetails": "Details anzeigen",
+      "hideDetails": "Details ausblenden",
+      "addressLabel": "Öffentliche Adresse Ihres Anteile-Kontos:",
+      "errors": {
+        "not_configured": "Das Anteile-Konto ist auf dieser Umgebung noch nicht eingerichtet.",
+        "server": "Das Anteile-Konto konnte nicht verknüpft werden. Bitte laden Sie die Seite neu."
+      }
     }
   },
   "legal": {
