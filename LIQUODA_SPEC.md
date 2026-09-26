@@ -141,7 +141,7 @@ Die Geschäftslogik liegt im Backend (Supabase-Funktionen / Route Handlers), nic
 
 ```
 users            id, auth_id, role (investor|emittent|admin), name, email, kyc_status (pending|approved|rejected), wallet_address, created_at
-projects         id, slug, emittent_id, title, asset_type, description, target_amount_chf, min_investment_chf, deadline, status (draft|in_review|approved|active|funded|failed|cancelled|closed), token_model (erc20|erc721|erc1155), created_at
+projects         id, slug, emittent_id, title, asset_type, description, target_amount_chf, min_investment_chf, deadline, status (draft|in_review|approved|active|funded|failed|cancelled|closed), token_model (erc20|erc721|erc1155), collateral_type (none|pledge|guarantee|milestone_payout), collateral_note, created_at
 investments      id, project_id, investor_id, amount_chf, status (reserved|paid|confirmed|cancelled|refunded), created_at
 documents        id, project_id, investment_id (nullable), type, title, storage_path, version, sha256_hash, created_at
 token_references id, investment_id, contract_address, token_id, token_amount, tx_hash, created_at
@@ -230,6 +230,12 @@ Transaktionsgebühr Emittent: 3 % auf erfolgreich investiertes Volumen (nur bei 
 
 ---
 
+## 11a. Absicherung für Investoren
+
+- **LIQUODA bietet keine eigene Versicherung und keine Garantie** (wäre bewilligungspflichtiges Versicherungsgeschäft und widerspricht der non-custodial Rolle). Kein UI-Text darf «versichert», «abgesichert» oder «geschützt» im Sinne einer Plattformgarantie verwenden.
+- **Ab MVP (Etappe 2/5):** Projekt-Felder `collateral_type` (`none | pledge | guarantee | milestone_payout`) und `collateral_note` (Text). Anzeige auf Projektseite und im Marktplatz als Badge «besichert» / «unbesichert» mit Erklärung, was die Sicherheit bedeutet und dass LIQUODA sie nicht bewertet. Wird im Off-Chain-Vertrag geregelt.
+- **Spätere Phase (nicht im MVP):** Optionale Zusatzdeckung durch einen lizenzierten Versicherungspartner auf der Projektseite; Vertrag direkt zwischen Investor und Versicherer, LIQUODA vermittelt nur. Realistisch nur für Sachrisiken physischer Assets (Modell B) und Kreditausfall bei Darlehen (Modell A), nicht für unternehmerisches Risiko.
+
 ## 12. Nicht im MVP (nicht bauen)
 
-Eigener Stablecoin · Sekundärmarkt / Trading · automatisierte Projektfreigabe · internationale Expansion · Mobile App · DeFi-Mechaniken · Rendite-Dashboards oder Prognosen · vollautomatisierte Auszahlungen · On-Chain-Governance · ERC-1400 · Custom-Rollen · Abos für Investoren
+Eigener Stablecoin · Sekundärmarkt / Trading · automatisierte Projektfreigabe · internationale Expansion · Mobile App · DeFi-Mechaniken · Rendite-Dashboards oder Prognosen · vollautomatisierte Auszahlungen · On-Chain-Governance · ERC-1400 · Custom-Rollen · Abos für Investoren · eigene Versicherung oder Garantie durch LIQUODA · Versicherungspartner-Integration
