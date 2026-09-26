@@ -58,6 +58,8 @@ export interface Project {
   tokenModel: TokenModel;
   collateralType: CollateralType;
   collateralNote: string | null;
+  tokenContractAddress: string | null;
+  tokenSymbol: string | null;
   documents: ProjectDocument[];
   risks: Localized[]; // projektspezifische Risiken, ergänzend zu den allgemeinen Hinweisen
 }

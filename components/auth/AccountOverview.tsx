@@ -6,6 +6,8 @@ import { Link } from '@/i18n/routing';
 import { createSupabaseServerClient, type Account } from '@/lib/supabase/server';
 import { listOwnInvestments } from '@/lib/investments';
 import { formatChf, formatDate } from '@/lib/format';
+import WalletLink from '@/components/wallet/WalletLink';
+import { EXPLORER_URL } from '@/lib/chain/config';
 
 type Profile = {
   name: string;
@@ -120,7 +122,12 @@ export default async function AccountOverview({
                         <dd className="text-navy">
                           {inv.token_references?.length ? (
                             inv.token_references.map((tr) => (
-                              <span key={tr.tx_hash} className="font-mono">{tr.token_amount} @ {tr.contract_address.slice(0, 10)}…</span>
+                              <span key={tr.tx_hash} className="block">
+                                {tr.token_amount} {t('tokens')} ·{' '}
+                                <a href={`${EXPLORER_URL}/token/${tr.contract_address}`} target="_blank" rel="noopener" className="liq-link font-mono">{t('tokenContract')}</a>
+                                {' · '}
+                                <a href={`${EXPLORER_URL}/tx/${tr.tx_hash}`} target="_blank" rel="noopener" className="liq-link font-mono">{t('tokenTx')}</a>
+                              </span>
                             ))
                           ) : (
                             <span className="text-muted">{t('tokensNone')}</span>
@@ -164,12 +171,8 @@ export default async function AccountOverview({
               <p className="text-xs leading-relaxed text-muted">{t('kycHint')}</p>
               <div className="flex justify-between gap-4 border-t border-navy/10 pt-4">
                 <dt className="text-muted">{t('wallet')}</dt>
-                <dd className="text-right text-xs text-muted">
-                  {profile.wallet_address ? (
-                    <code className="text-navy">{profile.wallet_address}</code>
-                  ) : (
-                    t('walletNone')
-                  )}
+                <dd className="max-w-[60%] text-right text-xs text-muted">
+                  {variant === 'investor' ? <WalletLink linkedAddress={profile.wallet_address} /> : profile.wallet_address ?? t('walletNone')}
                 </dd>
               </div>
             </dl>

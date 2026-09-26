@@ -12,6 +12,7 @@ import DocumentList from '@/components/projects/DocumentList';
 import RiskNotes from '@/components/projects/RiskNotes';
 import { daysUntil, formatChf, formatDate } from '@/lib/format';
 import { getAccount } from '@/lib/supabase/server';
+import { explorerToken } from '@/lib/chain/config';
 import { getProjectBySlug, progressPercent, publicStatus, type Locale } from '@/lib/projects';
 
 type Params = { locale: string; slug: string };
@@ -134,6 +135,18 @@ export default async function ProjectPage({ params }: { params: Params }) {
                 <div className="flex justify-between gap-4">
                   <dt className="text-muted">{t('detail.tokenModel')}</dt>
                   <dd className="text-right font-semibold text-navy">{t(`detail.tokenModels.${project.tokenModel}`)}</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-muted">{t('detail.tokenContract')}</dt>
+                  <dd className="text-right text-xs">
+                    {project.tokenContractAddress ? (
+                      <a href={explorerToken(project.tokenContractAddress)} target="_blank" rel="noopener" className="liq-link font-mono font-semibold text-navy" title={t('detail.tokenContractHint')}>
+                        {project.tokenSymbol ?? project.tokenContractAddress.slice(0, 10)}
+                      </a>
+                    ) : (
+                      <span className="text-muted">{t('detail.tokenContractNone')}</span>
+                    )}
+                  </dd>
                 </div>
               </dl>
 

@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { getSupabaseAdmin } from '@/lib/supabase';
 import AdminNav from '../../_components/AdminNav';
 import ProjectActions from '../../_components/ProjectActions';
+import { DeployTokenButton, MintButton } from '../../_components/TokenActions';
+import { explorerAddress, explorerTx } from '@/lib/chain/config';
 import { card, chf, dt, STATUS_LABEL, KYC_LABEL } from '../../_lib';
 
 export const dynamic = 'force-dynamic';
@@ -13,10 +15,11 @@ type Project = {
   title: L; summary: L; purpose: L; location: L; description: { de: string[]; en?: string[] }; risks: { de: string[]; en?: string[] };
   target_amount_chf: number; min_investment_chf: number; raised_amount_chf: number; deadline: string; created_at: string; updated_at: string;
   collateral_type: string; collateral_note: string | null;
+  token_contract_address: string | null; token_symbol: string | null; token_deploy_tx: string | null; token_chain_id: number | null;
   emittent: { id: string; name: string; email: string; kyc_status: string } | null;
 };
 type Doc = { id: string; type: string; title: L; version: number; sha256_hash: string | null; created_at: string };
-type Inv = { id: string; amount_chf: number; status: string; created_at: string; investor: { name: string; email: string } | null };
+type Inv = { id: string; amount_chf: number; status: string; created_at: string; investor: { name: string; email: string; kyc_status: string; wallet_address: string | null } | null; token_references: { tx_hash: string; token_amount: number }[] };
 type Audit = { id: number; actor_label: string | null; action: string; old_value: string | null; new_value: string | null; created_at: string };
 
 export default async function AdminProjectDetail({ params }: { params: { id: string } }) {
@@ -30,7 +33,7 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
   const p = data as unknown as Project;
   const [{ data: docs }, { data: invs }, { data: audit }] = await Promise.all([
     admin.from('documents').select('id, type, title, version, sha256_hash, created_at').eq('project_id', p.id).is('investment_id', null).order('created_at'),
-    admin.from('investments').select('id, amount_chf, status, created_at, investor:users!investments_investor_id_fkey(name, email)').eq('project_id', p.id).order('created_at', { ascending: false }),
+    admin.from('investments').select('id, amount_chf, status, created_at, token_references(tx_hash, token_amount), investor:users!investments_investor_id_fkey(name, email, kyc_status, wallet_address)').eq('project_id', p.id).order('created_at', { ascending: false }),
     admin.from('audit_log').select('id, actor_label, action, old_value, new_value, created_at').eq('entity', 'projects').eq('entity_id', p.id).order('created_at', { ascending: false }).limit(20),
   ]);
   const documents = (docs ?? []) as Doc[];
@@ -93,11 +96,26 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                 <table className="mt-3 w-full text-sm">
                   <tbody>
                     {investments.map((i) => (
-                      <tr key={i.id} className="border-t border-gray-100">
-                        <td className="py-2">{i.investor?.name} <span className="text-xs text-gray-400">{i.investor?.email}</span></td>
+                      <tr key={i.id} className="border-t border-gray-100 align-top">
+                        <td className="py-2">
+                          {i.investor?.name} <span className="text-xs text-gray-400">{i.investor?.email}</span>
+                          <span className="block text-[10px] text-gray-400">KYC {i.investor?.kyc_status} · Wallet {i.investor?.wallet_address ? `${i.investor.wallet_address.slice(0, 8)}…` : 'fehlt'}</span>
+                        </td>
                         <td className="py-2 font-semibold">{chf(i.amount_chf)}</td>
-                        <td className="py-2">{i.status}</td>
+                        <td className="py-2">
+                          {i.status}
+                          {i.token_references?.[0] && <a href={explorerTx(i.token_references[0].tx_hash)} target="_blank" rel="noopener" className="block text-[10px] text-gray-500 underline">Mint-Tx</a>}
+                        </td>
                         <td className="py-2 text-xs text-gray-400">{dt(i.created_at)}</td>
+                        <td className="py-2">
+                          {i.status === 'paid' && (
+                            <MintButton
+                              investmentId={i.id}
+                              disabled={!p.token_contract_address || !i.investor?.wallet_address || i.investor?.kyc_status !== 'approved'}
+                              hint={!p.token_contract_address ? 'Zuerst Token-Vertrag anlegen' : !i.investor?.wallet_address ? 'Investor hat keine Wallet verknüpft' : i.investor?.kyc_status !== 'approved' ? 'KYC nicht bestätigt' : undefined}
+                            />
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -110,6 +128,21 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
             <div className={`${card} p-6`}>
               <p className={label}>Aktionen</p>
               <div className="mt-3"><ProjectActions projectId={p.id} status={p.status} /></div>
+            </div>
+            <div className={`${card} p-6`}>
+              <p className={label}>Token-Vertrag (Polygon Amoy)</p>
+              {p.token_contract_address ? (
+                <div className="mt-3 space-y-1 text-xs">
+                  <p><b>{p.token_symbol}</b> · Chain {p.token_chain_id}</p>
+                  <a href={explorerAddress(p.token_contract_address)} target="_blank" rel="noopener" className="block break-all font-mono underline decoration-gray-300 underline-offset-4">{p.token_contract_address}</a>
+                  {p.token_deploy_tx && <a href={explorerTx(p.token_deploy_tx)} target="_blank" rel="noopener" className="block text-gray-500 underline decoration-gray-300 underline-offset-4">Deployment-Transaktion</a>}
+                </div>
+              ) : (
+                <div className="mt-3">
+                  <p className="mb-3 text-xs text-gray-500">Noch kein Vertrag. Möglich, sobald das Projekt offen oder finanziert ist (ERC-20, Cap = Zielbetrag).</p>
+                  <DeployTokenButton projectId={p.id} disabled={!['active', 'funded'].includes(p.status) || p.token_model !== 'erc20'} />
+                </div>
+              )}
             </div>
             <div className={`${card} p-6`}>
               <p className={label}>Verlauf</p>

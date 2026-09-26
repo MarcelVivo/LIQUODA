@@ -471,7 +471,10 @@
       },
       "ctaHintLogin": "Für eine Beteiligung benötigen Sie ein Investoren-Konto mit bestätigter Identität.",
       "ctaHintClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an.",
-      "documentsLogin": "Dokumente werden versioniert abgelegt und öffnen sich über einen kurz gültigen Link."
+      "documentsLogin": "Dokumente werden versioniert abgelegt und öffnen sich über einen kurz gültigen Link.",
+      "tokenContract": "Token-Vertrag",
+      "tokenContractNone": "Der Token-Vertrag wird nach der Freigabe des Projekts angelegt.",
+      "tokenContractHint": "Anteile werden als ERC-20-Token auf Polygon abgebildet, 1 Token = CHF 1. Transfers sind nur zwischen geprüften Wallets möglich."
     },
     "collateral": {
       "badgeSecured": "Besichert",
@@ -581,8 +584,8 @@
       "nextTitle": "Was als Nächstes passiert",
       "nextInvestor": [
         "Ihre Identität wird geprüft (KYC).",
-        "Sie verknüpfen eine Wallet.",
-        "Sobald die Plattform startet, können Sie Projekte prüfen und sich beteiligen."
+        "Sie verknüpfen eine MetaMask-Wallet auf Polygon.",
+        "Nach Zahlung und Prüfung werden Ihre Token in die Wallet übertragen."
       ],
       "nextIssuer": [
         "Ihr Unternehmen wird geprüft (KYB).",
@@ -611,7 +614,9 @@
       "download": "Öffnen",
       "noDocuments": "Keine Dokumente.",
       "tokens": "Token-Referenz",
-      "tokensNone": "Noch keine Token zugewiesen. Die Zuweisung erfolgt nach Prüfung durch LIQUODA."
+      "tokensNone": "Noch keine Token zugewiesen. Die Zuweisung erfolgt nach Prüfung durch LIQUODA, sobald Zahlung, Identität und Wallet bestätigt sind.",
+      "tokenContract": "Vertrag",
+      "tokenTx": "Transaktion"
     }
   },
   "invest": {
@@ -847,6 +852,20 @@
         "note": "Beschreibung der Sicherheit",
         "noteHint": "Pflicht, sobald eine Sicherheit gewählt ist. Sachlich, maximal 1000 Zeichen."
       }
+    }
+  },
+  "wallet": {
+    "lead": "Verknüpfen Sie eine MetaMask-Wallet auf Polygon (Testnetz Amoy). Sie signieren nur eine Nachricht, es entsteht keine Transaktion und keine Gebühr.",
+    "link": "Wallet mit MetaMask verknüpfen",
+    "linking": "Bitte in MetaMask bestätigen …",
+    "relink": "Andere Wallet verknüpfen",
+    "errors": {
+      "no_metamask": "MetaMask wurde nicht gefunden. Bitte installieren Sie die Browser-Erweiterung und laden Sie die Seite neu.",
+      "rejected": "Die Anfrage wurde in MetaMask abgelehnt. Es wurde nichts verknüpft.",
+      "signature_invalid": "Die Signatur konnte nicht geprüft werden. Bitte versuchen Sie es erneut.",
+      "wallet_taken": "Diese Wallet ist bereits mit einem anderen Konto verknüpft.",
+      "not_configured": "Die Wallet-Verknüpfung ist auf dieser Umgebung noch nicht eingerichtet.",
+      "server": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
     }
   },
   "legal": {

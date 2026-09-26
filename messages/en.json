@@ -471,7 +471,10 @@
       },
       "ctaHintLogin": "To participate you need an investor account with verified identity.",
       "ctaHintClosed": "This project does not accept new participations.",
-      "documentsLogin": "Documents are stored with versioning and open via a short-lived link."
+      "documentsLogin": "Documents are stored with versioning and open via a short-lived link.",
+      "tokenContract": "Token contract",
+      "tokenContractNone": "The token contract is created after the project is approved.",
+      "tokenContractHint": "Shares are represented as ERC-20 tokens on Polygon, 1 token = CHF 1. Transfers are only possible between verified wallets."
     },
     "collateral": {
       "badgeSecured": "Secured",
@@ -581,8 +584,8 @@
       "nextTitle": "What happens next",
       "nextInvestor": [
         "Your identity is verified (KYC).",
-        "You connect a wallet.",
-        "Once the platform launches, you can review projects and participate."
+        "You link a MetaMask wallet on Polygon.",
+        "After payment and review your tokens are transferred to the wallet."
       ],
       "nextIssuer": [
         "Your company is verified (KYB).",
@@ -611,7 +614,9 @@
       "download": "Open",
       "noDocuments": "No documents.",
       "tokens": "Token reference",
-      "tokensNone": "No tokens allocated yet. Allocation follows after review by LIQUODA."
+      "tokensNone": "No tokens allocated yet. Allocation follows after review by LIQUODA once payment, identity and wallet are confirmed.",
+      "tokenContract": "Contract",
+      "tokenTx": "Transaction"
     }
   },
   "invest": {
@@ -847,6 +852,20 @@
         "note": "Description of the collateral",
         "noteHint": "Required once a collateral type is selected. Factual, at most 1000 characters."
       }
+    }
+  },
+  "wallet": {
+    "lead": "Link a MetaMask wallet on Polygon (Amoy testnet). You only sign a message; no transaction and no fee results.",
+    "link": "Link wallet with MetaMask",
+    "linking": "Please confirm in MetaMask …",
+    "relink": "Link a different wallet",
+    "errors": {
+      "no_metamask": "MetaMask was not found. Please install the browser extension and reload the page.",
+      "rejected": "The request was rejected in MetaMask. Nothing was linked.",
+      "signature_invalid": "The signature could not be verified. Please try again.",
+      "wallet_taken": "This wallet is already linked to another account.",
+      "not_configured": "Wallet linking is not yet set up in this environment.",
+      "server": "An error occurred. Please try again later."
     }
   },
   "legal": {
