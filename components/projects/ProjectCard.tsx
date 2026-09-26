@@ -18,6 +18,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="flex flex-wrap items-center gap-2">
         <Badge label={t(`assetTypes.${project.assetType}`)} variant="neutral" />
         {status && <StatusBadge status={status} />}
+        <Badge label={t(project.collateralType === 'none' ? 'collateral.badgeUnsecured' : 'collateral.badgeSecured')} variant={project.collateralType === 'none' ? 'neutral' : 'active'} />
         <Badge label={t('card.example')} variant="info" className="ml-auto" />
       </div>
 

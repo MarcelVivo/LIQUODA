@@ -472,6 +472,24 @@
       "ctaHintLogin": "To participate you need an investor account with verified identity.",
       "ctaHintClosed": "This project does not accept new participations.",
       "documentsLogin": "Documents are stored with versioning and open via a short-lived link."
+    },
+    "collateral": {
+      "badgeSecured": "Secured",
+      "badgeUnsecured": "Unsecured",
+      "title": "Collateral",
+      "types": {
+        "none": "No collateral",
+        "pledge": "Pledge",
+        "guarantee": "Guarantee or surety",
+        "milestone_payout": "Payout by milestones"
+      },
+      "explain": {
+        "none": "The issuer provides no collateral. The participation is covered solely by the success of the project.",
+        "pledge": "The issuer provides a pledge, for example a mortgage or a pledge on a tangible asset. In case of loss the pledge can be realised; the proceeds may be below the invested capital.",
+        "guarantee": "A third party or a contract secures part of the payments, for example a surety or a purchase agreement. The collateral is only as good as the solvency of that third party.",
+        "milestone_payout": "The capital is released to the issuer step by step after agreed milestones are reached. This reduces the risk of misuse, not the project risk."
+      },
+      "disclaimer": "The collateral is governed by the contract between issuer and investors. LIQUODA does not assess, verify or guarantee it and offers no insurance of its own."
     }
   },
   "auth": {
@@ -805,7 +823,8 @@
           "target": "Target amount invalid",
           "min": "Minimum invalid or larger than the target amount",
           "deadline": "Term is not in the future",
-          "documents": "No document uploaded"
+          "documents": "No document uploaded",
+          "collateral": "Description of the collateral missing"
         },
         "ready": "All details are complete.",
         "consent": "I confirm that the details are true and complete and that I am entitled to offer this project.",
@@ -820,6 +839,13 @@
         "date": "Please enter a date in the future.",
         "locked": "The project can no longer be edited.",
         "server": "Saving failed. Please try again."
+      },
+      "collateral": {
+        "title": "Collateral for investors",
+        "lead": "Which collateral do you provide? LIQUODA does not assess it; it is governed by the participation agreement and shown on the project page as the issuer's statement.",
+        "type": "Type of collateral",
+        "note": "Description of the collateral",
+        "noteHint": "Required once a collateral type is selected. Factual, at most 1000 characters."
       }
     }
   },

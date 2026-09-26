@@ -12,6 +12,7 @@ type Project = {
   id: string; slug: string; status: string; review_note: string | null; asset_type: string; token_model: string;
   title: L; summary: L; purpose: L; location: L; description: { de: string[]; en?: string[] }; risks: { de: string[]; en?: string[] };
   target_amount_chf: number; min_investment_chf: number; raised_amount_chf: number; deadline: string; created_at: string; updated_at: string;
+  collateral_type: string; collateral_note: string | null;
   emittent: { id: string; name: string; email: string; kyc_status: string } | null;
 };
 type Doc = { id: string; type: string; title: L; version: number; sha256_hash: string | null; created_at: string };
@@ -56,6 +57,7 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                 <div><dt className="text-gray-400">Erreicht</dt><dd className="font-semibold">{chf(p.raised_amount_chf)}</dd></div>
                 <div><dt className="text-gray-400">Mindestbetrag</dt><dd>{chf(p.min_investment_chf)}</dd></div>
                 <div><dt className="text-gray-400">Laufzeit bis</dt><dd>{p.deadline}</dd></div>
+                <div className="sm:col-span-2"><dt className="text-gray-400">Absicherung (Angabe Emittent, nicht bewertet)</dt><dd>{p.collateral_type}{p.collateral_note ? ` · ${p.collateral_note}` : ''}</dd></div>
                 <div><dt className="text-gray-400">Emittent</dt><dd>{p.emittent?.name} <span className="text-gray-400">({p.emittent?.email})</span></dd></div>
                 <div><dt className="text-gray-400">KYB</dt><dd>{KYC_LABEL[p.emittent?.kyc_status ?? 'pending']}</dd></div>
               </dl>

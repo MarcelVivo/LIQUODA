@@ -9,6 +9,8 @@ import {
   requireEmittent,
 } from '../../_lib';
 import { MAX_INVESTMENT_CHF } from '@/lib/fees';
+import { COLLATERAL_TYPES } from '@/lib/projects/types';
+import { cleanText } from '../../_lib';
 
 const UUID_RE = /^[0-9a-f-]{36}$/i;
 
@@ -56,6 +58,11 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
     if (Number.isInteger(n) && n >= MIN_INVESTMENT_FLOOR_CHF && n <= MAX_INVESTMENT_CHF) update.min_investment_chf = n;
     else fields.push('minInvestmentChf');
   }
+  if ('collateralType' in body) {
+    if (typeof body.collateralType === 'string' && (COLLATERAL_TYPES as readonly string[]).includes(body.collateralType)) update.collateral_type = body.collateralType;
+    else fields.push('collateralType');
+  }
+  if ('collateralNote' in body) update.collateral_note = cleanText(body.collateralNote, 1000) || null;
   if ('deadline' in body) {
     const s = typeof body.deadline === 'string' ? body.deadline : '';
     const d = new Date(`${s}T00:00:00`);

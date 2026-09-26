@@ -7,7 +7,7 @@ import { CheckCircle, FileText, Trash2, XCircle } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { InputField, SelectField, TextareaField, CheckboxField } from '@/components/ui/Field';
 import { formatDate } from '@/lib/format';
-import { ASSET_TYPES } from '@/lib/projects/types';
+import { ASSET_TYPES, COLLATERAL_TYPES } from '@/lib/projects/types';
 import type { OwnProject } from '@/lib/emittent';
 import type { DocumentRecord } from '@/lib/documents';
 
@@ -24,6 +24,7 @@ interface Draft {
   purposeDe: string; purposeEn: string;
   risksDe: string; risksEn: string;
   target: string; min: string; deadline: string;
+  collateralType: string; collateralNote: string;
 }
 
 function toDraft(p: OwnProject): Draft {
@@ -36,6 +37,7 @@ function toDraft(p: OwnProject): Draft {
     purposeDe: p.purpose.de ?? '', purposeEn: p.purpose.en ?? '',
     risksDe: (p.risks?.de ?? []).join('\n'), risksEn: (p.risks?.en ?? []).join('\n'),
     target: String(Math.round(Number(p.target_amount_chf))), min: String(Math.round(Number(p.min_investment_chf))), deadline: p.deadline,
+    collateralType: p.collateral_type ?? 'none', collateralNote: p.collateral_note ?? '',
   };
 }
 
@@ -85,7 +87,13 @@ export default function ProjectWizard({
           risks: { de: draft.risksDe, en: draft.risksEn },
         };
       case 'amounts':
-        return { targetAmountChf: Number(draft.target), minInvestmentChf: Number(draft.min), deadline: draft.deadline };
+        return {
+          targetAmountChf: Number(draft.target),
+          minInvestmentChf: Number(draft.min),
+          deadline: draft.deadline,
+          collateralType: draft.collateralType,
+          collateralNote: draft.collateralNote,
+        };
       default:
         return {};
     }
@@ -106,6 +114,7 @@ export default function ProjectWizard({
       if (!/^\d+$/.test(draft.target) || Number(draft.target) < 10000) e.target = t('errors.number');
       if (!/^\d+$/.test(draft.min) || Number(draft.min) < 100 || Number(draft.min) > 20000) e.min = t('errors.number');
       if (!draft.deadline || new Date(draft.deadline) <= new Date()) e.deadline = t('errors.date');
+      if (draft.collateralType !== 'none' && !draft.collateralNote.trim()) e.collateralNote = t('errors.required');
     }
     return e;
   };
@@ -214,10 +223,24 @@ export default function ProjectWizard({
         )}
 
         {step === 'amounts' && (
-          <div className="grid gap-4 sm:grid-cols-3">
-            <InputField label={t('amounts.target')} hint={t('amounts.targetHint')} error={fieldErrors.target} inputProps={{ id: 'w-target', inputMode: 'numeric', value: draft.target, disabled: !editable, onChange: (e) => set('target', e.target.value) }} />
-            <InputField label={t('amounts.min')} hint={t('amounts.minHint')} error={fieldErrors.min} inputProps={{ id: 'w-min', inputMode: 'numeric', value: draft.min, disabled: !editable, onChange: (e) => set('min', e.target.value) }} />
-            <InputField label={t('amounts.deadline')} hint={t('amounts.deadlineHint')} error={fieldErrors.deadline} inputProps={{ id: 'w-deadline', type: 'date', value: draft.deadline, disabled: !editable, onChange: (e) => set('deadline', e.target.value) }} />
+          <div className="space-y-6">
+            <div className="grid gap-4 sm:grid-cols-3">
+              <InputField label={t('amounts.target')} hint={t('amounts.targetHint')} error={fieldErrors.target} inputProps={{ id: 'w-target', inputMode: 'numeric', value: draft.target, disabled: !editable, onChange: (e) => set('target', e.target.value) }} />
+              <InputField label={t('amounts.min')} hint={t('amounts.minHint')} error={fieldErrors.min} inputProps={{ id: 'w-min', inputMode: 'numeric', value: draft.min, disabled: !editable, onChange: (e) => set('min', e.target.value) }} />
+              <InputField label={t('amounts.deadline')} hint={t('amounts.deadlineHint')} error={fieldErrors.deadline} inputProps={{ id: 'w-deadline', type: 'date', value: draft.deadline, disabled: !editable, onChange: (e) => set('deadline', e.target.value) }} />
+            </div>
+            <div className="rounded-xl border border-navy/10 bg-cream p-4">
+              <p className="text-sm font-semibold text-navy">{t('collateral.title')}</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted">{t('collateral.lead')}</p>
+              <div className="mt-4 grid gap-4 sm:grid-cols-[1fr_2fr]">
+                <SelectField label={t('collateral.type')} selectProps={{ id: 'w-collateral', value: draft.collateralType, disabled: !editable, onChange: (e) => set('collateralType', e.target.value) }}>
+                  {COLLATERAL_TYPES.map((c) => (
+                    <option key={c} value={c}>{tProjects(`collateral.types.${c}`)}</option>
+                  ))}
+                </SelectField>
+                <TextareaField label={t('collateral.note')} hint={t('collateral.noteHint')} error={fieldErrors.collateralNote} textareaProps={{ id: 'w-collateral-note', value: draft.collateralNote, maxLength: 1000, disabled: !editable || draft.collateralType === 'none', onChange: (e) => set('collateralNote', e.target.value) }} />
+              </div>
+            </div>
           </div>
         )}
 
@@ -399,7 +422,7 @@ function SubmitStep({ projectId, editable, problems }: { projectId: string; edit
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | undefined>();
-  const keys = ['title', 'summary', 'description', 'purpose', 'location', 'target', 'min', 'deadline', 'documents'];
+  const keys = ['title', 'summary', 'description', 'purpose', 'location', 'target', 'min', 'deadline', 'collateral', 'documents'];
 
   const submit = async () => {
     setBusy(true);

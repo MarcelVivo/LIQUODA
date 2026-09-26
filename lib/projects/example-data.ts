@@ -8,6 +8,8 @@ export const exampleProjects: Project[] = [
   {
     id: 'p-001',
     slug: 'pizzeria-wander-bern',
+    collateralType: 'none',
+    collateralNote: null,
     title: { de: 'Pizzeria Wander, Bern', en: 'Pizzeria Wander, Bern' },
     issuerName: 'Wander Gastro GmbH',
     location: { de: 'Bern BE', en: 'Bern BE' },
@@ -55,6 +57,8 @@ export const exampleProjects: Project[] = [
   {
     id: 'p-002',
     slug: 'mehrfamilienhaus-vera-thun',
+    collateralType: 'pledge',
+    collateralNote: 'Nachrangiges Grundpfand auf der Liegenschaft zugunsten des Sanierungsvehikels. Rang und Höhe sind im Beteiligungsvertrag geregelt.',
     title: { de: 'Mehrfamilienhaus Vera, Thun', en: 'Apartment building Vera, Thun' },
     issuerName: 'Vera Immobilien AG',
     location: { de: 'Thun BE', en: 'Thun BE' },
@@ -107,6 +111,8 @@ export const exampleProjects: Project[] = [
   {
     id: 'p-003',
     slug: 'display-solutions-ag',
+    collateralType: 'none',
+    collateralNote: null,
     title: { de: 'Display Solutions AG', en: 'Display Solutions AG' },
     issuerName: 'Display Solutions AG',
     location: { de: 'Winterthur ZH', en: 'Winterthur ZH' },
@@ -154,6 +160,8 @@ export const exampleProjects: Project[] = [
   {
     id: 'p-004',
     slug: 'solaranlage-gewerbedach-burgdorf',
+    collateralType: 'guarantee',
+    collateralNote: 'Abnahmevertrag mit dem Hallenbetreiber über 15 Jahre; keine Bankgarantie.',
     title: { de: 'Solaranlage Gewerbedach, Burgdorf', en: 'Solar plant on commercial roof, Burgdorf' },
     issuerName: 'Emme Solar GmbH',
     location: { de: 'Burgdorf BE', en: 'Burgdorf BE' },
@@ -201,6 +209,8 @@ export const exampleProjects: Project[] = [
   {
     id: 'p-005',
     slug: 'porsche-356-coupe-1958',
+    collateralType: 'pledge',
+    collateralNote: 'Faustpfand am Fahrzeug, eingelagert bei der Emittentin; Versicherung zugunsten des Vehikels.',
     title: { de: 'Porsche 356 A Coupé, Jahrgang 1958', en: 'Porsche 356 A Coupé, 1958' },
     issuerName: 'Classic Garage Aarau AG',
     location: { de: 'Aarau AG', en: 'Aarau AG' },
@@ -248,6 +258,8 @@ export const exampleProjects: Project[] = [
   {
     id: 'p-006',
     slug: 'schreinerei-huber-maschinenpark',
+    collateralType: 'none',
+    collateralNote: null,
     title: { de: 'Schreinerei Huber, Maschinenpark', en: 'Huber joinery, machinery' },
     issuerName: 'Schreinerei Huber AG',
     location: { de: 'Sursee LU', en: 'Sursee LU' },

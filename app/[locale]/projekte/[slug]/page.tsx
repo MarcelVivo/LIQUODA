@@ -49,6 +49,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
         <div className="mt-6 flex flex-wrap items-center gap-2">
           <Badge label={t(`assetTypes.${project.assetType}`)} variant="neutral" />
           <StatusBadge status={status} />
+          <Badge label={t(project.collateralType === 'none' ? 'collateral.badgeUnsecured' : 'collateral.badgeSecured')} variant={project.collateralType === 'none' ? 'neutral' : 'active'} />
           <Badge label={t('card.example')} variant="info" />
         </div>
         <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl lg:text-5xl">
@@ -77,6 +78,14 @@ export default async function ProjectPage({ params }: { params: Params }) {
             <div>
               <h2 className="text-xl font-extrabold tracking-tight text-navy">{t('detail.purpose')}</h2>
               <p className="mt-3 text-sm leading-relaxed text-body sm:text-base">{project.purpose[locale]}</p>
+            </div>
+
+            <div className="liq-card p-6 sm:p-8">
+              <h2 className="text-xl font-extrabold tracking-tight text-navy">{t('collateral.title')}</h2>
+              <p className="mt-3 text-sm font-semibold text-navy">{t(`collateral.types.${project.collateralType}`)}</p>
+              <p className="mt-1 text-sm leading-relaxed text-body">{t(`collateral.explain.${project.collateralType}`)}</p>
+              {project.collateralNote && <p className="mt-3 rounded-lg bg-cream px-3 py-2.5 text-sm leading-relaxed text-body">{project.collateralNote}</p>}
+              <p className="mt-4 border-t border-navy/10 pt-3 text-xs leading-relaxed text-muted">{t('collateral.disclaimer')}</p>
             </div>
 
             <div>

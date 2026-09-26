@@ -472,6 +472,24 @@
       "ctaHintLogin": "Für eine Beteiligung benötigen Sie ein Investoren-Konto mit bestätigter Identität.",
       "ctaHintClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an.",
       "documentsLogin": "Dokumente werden versioniert abgelegt und öffnen sich über einen kurz gültigen Link."
+    },
+    "collateral": {
+      "badgeSecured": "Besichert",
+      "badgeUnsecured": "Unbesichert",
+      "title": "Absicherung",
+      "types": {
+        "none": "Keine Sicherheit",
+        "pledge": "Pfand",
+        "guarantee": "Garantie oder Bürgschaft",
+        "milestone_payout": "Auszahlung nach Meilensteinen"
+      },
+      "explain": {
+        "none": "Der Emittent stellt keine Sicherheit. Die Beteiligung ist ausschliesslich durch den Erfolg des Projekts gedeckt.",
+        "pledge": "Der Emittent stellt ein Pfand, zum Beispiel ein Grundpfand oder ein Faustpfand an einem Sachwert. Im Verlustfall kann das Pfand verwertet werden; der Erlös kann unter dem eingesetzten Kapital liegen.",
+        "guarantee": "Ein Dritter oder ein Vertrag sichert einen Teil der Zahlungen zu, zum Beispiel eine Bürgschaft oder ein Abnahmevertrag. Die Sicherheit ist nur so gut wie die Zahlungsfähigkeit dieses Dritten.",
+        "milestone_payout": "Das Kapital wird dem Emittenten nur schrittweise nach Erreichen vereinbarter Meilensteine freigegeben. Das verringert das Risiko einer Fehlverwendung, nicht das Projektrisiko."
+      },
+      "disclaimer": "Die Sicherheit wird im Vertrag zwischen Emittent und Investoren geregelt. LIQUODA bewertet, prüft oder garantiert sie nicht und bietet keine eigene Versicherung."
     }
   },
   "auth": {
@@ -805,7 +823,8 @@
           "target": "Zielbetrag ungültig",
           "min": "Mindestbetrag ungültig oder grösser als der Zielbetrag",
           "deadline": "Laufzeit liegt nicht in der Zukunft",
-          "documents": "Kein Dokument hochgeladen"
+          "documents": "Kein Dokument hochgeladen",
+          "collateral": "Beschreibung der Sicherheit fehlt"
         },
         "ready": "Alle Angaben sind vollständig.",
         "consent": "Ich bestätige, dass die Angaben wahr und vollständig sind und dass ich berechtigt bin, dieses Projekt anzubieten.",
@@ -820,6 +839,13 @@
         "date": "Bitte geben Sie ein Datum in der Zukunft ein.",
         "locked": "Das Projekt kann nicht mehr bearbeitet werden.",
         "server": "Speichern fehlgeschlagen. Bitte versuchen Sie es erneut."
+      },
+      "collateral": {
+        "title": "Absicherung für Investoren",
+        "lead": "Welche Sicherheit stellen Sie? LIQUODA bewertet die Sicherheit nicht; sie wird im Beteiligungsvertrag geregelt und auf der Projektseite als Angabe des Emittenten gezeigt.",
+        "type": "Art der Sicherheit",
+        "note": "Beschreibung der Sicherheit",
+        "noteHint": "Pflicht, sobald eine Sicherheit gewählt ist. Sachlich, maximal 1000 Zeichen."
       }
     }
   },

@@ -26,6 +26,10 @@ export type PublicStatus = (typeof PUBLIC_STATUSES)[number];
 
 export type TokenModel = 'erc20' | 'erc721' | 'erc1155';
 
+/** Absicherung (Spec, Abschnitt 11a). LIQUODA bewertet sie nicht. */
+export const COLLATERAL_TYPES = ['none', 'pledge', 'guarantee', 'milestone_payout'] as const;
+export type CollateralType = (typeof COLLATERAL_TYPES)[number];
+
 export type DocumentType = 'contract' | 'prospectus' | 'valuation' | 'financials' | 'other';
 
 export interface ProjectDocument {
@@ -52,6 +56,8 @@ export interface Project {
   deadline: string; // ISO-Datum
   status: ProjectStatus;
   tokenModel: TokenModel;
+  collateralType: CollateralType;
+  collateralNote: string | null;
   documents: ProjectDocument[];
   risks: Localized[]; // projektspezifische Risiken, ergänzend zu den allgemeinen Hinweisen
 }

@@ -32,6 +32,8 @@ type ProjectRow = {
   status: Project['status'];
   token_model: Project['tokenModel'];
   issuer_name: string;
+  collateral_type: Project['collateralType'] | null;
+  collateral_note: string | null;
 };
 
 type DocumentRow = {
@@ -77,6 +79,8 @@ function toProject(row: ProjectRow, docs: DocumentRow[]): Project {
     deadline: row.deadline,
     status: row.status,
     tokenModel: row.token_model,
+    collateralType: row.collateral_type ?? 'none',
+    collateralNote: row.collateral_note ?? null,
     documents: docs
       .filter((d) => d.project_id === row.id)
       .sort((a, b) => a.created_at.localeCompare(b.created_at))
