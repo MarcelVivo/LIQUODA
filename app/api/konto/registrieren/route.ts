@@ -31,12 +31,13 @@ export async function POST(req: NextRequest) {
   if (fields.length) return NextResponse.json({ error: 'validation', fields }, { status: 400 });
 
   const next = safeNext(body.next, '/');
+  const locale = body.locale === 'en' ? 'en' : 'de';
   const supabase = createSupabaseServerClient();
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      data: { name, role },
+      data: { name, role, locale },
       emailRedirectTo: `${requestOrigin(req)}/api/konto/callback?next=${encodeURIComponent(next)}`,
     },
   });

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import type Stripe from 'stripe';
 import { getSupabaseAdmin } from '@/lib/supabase';
 import { getStripe, hasStripeEnv } from '@/lib/stripe';
+import { notifyInvestment, notifyProjectStatus } from '@/lib/email/notify';
 
 /**
  * Stripe-Webhook (Spec, Abschnitt 7, Schritt 4): bestätigt die Zahlung,
@@ -38,12 +39,20 @@ export async function POST(req: NextRequest) {
       .eq('provider_ref', session.id);
 
     // Nur reservierte Investitionen wechseln; alles andere ist bereits verarbeitet
-    const { error } = await admin
+    const { data: updated, error } = await admin
       .from('investments')
       .update({ status: outcome })
       .eq('id', investmentId)
-      .eq('status', 'reserved');
+      .eq('status', 'reserved')
+      .select('id, project_id');
     if (error) console.error('[investieren/webhook] update:', error.message);
+
+    // Benachrichtigungen: Zahlung erhalten; Projekt finanziert (Datenbank-Trigger hat den Status gesetzt)
+    if (outcome === 'paid' && updated?.[0]) {
+      notifyInvestment(updated[0].id, 'paid').catch((e) => console.error('[email]', e));
+      const { data: project } = await admin.from('projects').select('status').eq('id', updated[0].project_id).maybeSingle();
+      if (project?.status === 'funded') notifyProjectStatus(updated[0].project_id, 'funded').catch((e) => console.error('[email]', e));
+    }
   };
 
   switch (event.type) {

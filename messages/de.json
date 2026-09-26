@@ -879,6 +879,130 @@
       }
     }
   },
+  "email": {
+    "greeting": "Guten Tag {name}",
+    "footer": "Diese E-Mail wurde automatisch von LIQUODA gesendet. LIQUODA ist eine Vermittlungs- und Technologieplattform, keine Bank und keine Anlageberatung. Fragen an info@liquoda.com.",
+    "open": "Auf LIQUODA öffnen",
+    "labels": {
+      "project": "Projekt",
+      "amount": "Betrag",
+      "total": "Bezahlt",
+      "reference": "Referenz",
+      "status": "Status",
+      "shares": "Anteile",
+      "target": "Zielbetrag",
+      "raised": "Erreicht",
+      "deadline": "Laufzeit bis",
+      "email": "E-Mail",
+      "company": "Unternehmen",
+      "assetType": "Art des Assets",
+      "estimate": "Geschätzter Betrag",
+      "description": "Beschreibung"
+    },
+    "kyc": {
+      "approved": {
+        "subject": "Ihre Identität ist bestätigt",
+        "title": "Identität bestätigt",
+        "body": "LIQUODA hat Ihre Identitätsprüfung abgeschlossen. Sie können jetzt Projekte prüfen und sich beteiligen, sobald ein Projekt offen ist.",
+        "button": "Zum Portfolio"
+      },
+      "rejected": {
+        "subject": "Ihre Identitätsprüfung ist nicht abgeschlossen",
+        "title": "Identitätsprüfung nicht bestanden",
+        "body": "Bei Ihrer Identitätsprüfung fehlen Angaben oder Unterlagen. Bitte antworten Sie auf diese E-Mail oder schreiben Sie an info@liquoda.com, damit wir die Prüfung abschliessen können. Bis dahin sind keine Beteiligungen möglich.",
+        "button": "Zum Konto"
+      },
+      "pending": {
+        "subject": "Ihre Identitätsprüfung ist wieder offen",
+        "title": "Identitätsprüfung offen",
+        "body": "Der Status Ihrer Identitätsprüfung wurde auf «Ausstehend» gesetzt. LIQUODA meldet sich, sobald die Prüfung abgeschlossen ist.",
+        "button": "Zum Konto"
+      },
+      "kybApproved": {
+        "subject": "Ihr Unternehmen ist bestätigt",
+        "title": "Unternehmensprüfung abgeschlossen",
+        "body": "LIQUODA hat die Prüfung Ihres Unternehmens abgeschlossen. Sie können jetzt Projekte erfassen und zur Prüfung einreichen.",
+        "button": "Zum Dashboard"
+      }
+    },
+    "project": {
+      "submitted": {
+        "subject": "Ihr Projekt ist eingereicht",
+        "title": "Projekt eingereicht",
+        "body": "Ihr Projekt ist bei LIQUODA zur Prüfung eingegangen. Es ist jetzt eingefroren, bis wir eine Rückmeldung geben. Sie erhalten eine E-Mail, sobald das Projekt freigegeben ist oder Rückfragen bestehen.",
+        "button": "Zum Dashboard"
+      },
+      "submittedAdmin": {
+        "subject": "Neues Projekt zur Prüfung: {project}",
+        "title": "Neues Projekt zur Prüfung",
+        "body": "Ein Emittent hat ein Projekt eingereicht. Bitte im Admin-Bereich prüfen.",
+        "button": "Im Admin öffnen"
+      },
+      "active": {
+        "subject": "Ihr Projekt ist freigegeben",
+        "title": "Projekt freigegeben",
+        "body": "LIQUODA hat Ihr Projekt freigegeben. Es ist ab sofort im Marktplatz sichtbar, die Finanzierungsphase läuft bis zum angegebenen Datum.",
+        "button": "Projektseite öffnen"
+      },
+      "draft": {
+        "subject": "Rückfrage zu Ihrem Projekt",
+        "title": "Rückfrage von LIQUODA",
+        "body": "Bei der Prüfung Ihres Projekts sind Fragen entstanden. Das Projekt ist wieder bearbeitbar. Bitte passen Sie es an und reichen Sie es erneut ein.",
+        "button": "Projekt bearbeiten"
+      },
+      "cancelled": {
+        "subject": "Ihr Projekt wurde beendet",
+        "title": "Projekt beendet",
+        "body": "LIQUODA hat Ihr Projekt vorzeitig beendet. Neue Beteiligungen sind nicht mehr möglich. Die Begründung finden Sie unten.",
+        "button": "Zum Dashboard"
+      },
+      "failed": {
+        "subject": "Finanzierung nicht erfolgreich",
+        "title": "Finanzierung nicht erfolgreich",
+        "body": "Der Zielbetrag Ihres Projekts wurde innerhalb der Laufzeit nicht erreicht. Es werden keine Anteile ausgegeben; die Zahlungen der Investoren werden rückabgewickelt.",
+        "button": "Zum Dashboard"
+      },
+      "funded": {
+        "subject": "Ihr Projekt ist finanziert",
+        "title": "Zielbetrag erreicht",
+        "body": "Der Zielbetrag Ihres Projekts wurde erreicht. Die Runde ist abgeschlossen. LIQUODA meldet sich wegen der nächsten Schritte.",
+        "button": "Zum Dashboard"
+      },
+      "noteLabel": "Rückmeldung von LIQUODA"
+    },
+    "investment": {
+      "paid": {
+        "subject": "Zahlung erhalten",
+        "title": "Zahlung erhalten",
+        "body": "Ihre Zahlung ist eingegangen. Die Beteiligung hat den Status «bezahlt». Die Zuweisung der Anteile erfolgt nach Prüfung durch LIQUODA; Sie erhalten dann eine weitere E-Mail.",
+        "button": "Zum Portfolio"
+      },
+      "confirmed": {
+        "subject": "Ihre Anteile sind zugewiesen",
+        "title": "Anteile zugewiesen",
+        "body": "Ihre Anteile wurden Ihrem Anteile-Konto zugewiesen und sind im Portfolio sichtbar. Der öffentliche Nachweis ist über das Portfolio abrufbar.",
+        "button": "Zum Portfolio"
+      },
+      "failedProject": {
+        "subject": "Finanzierung nicht erfolgreich: {project}",
+        "title": "Finanzierung nicht erfolgreich",
+        "body": "Das Projekt hat den Zielbetrag innerhalb der Laufzeit nicht erreicht. Es werden keine Anteile ausgegeben. Ihre Zahlung wird rückabgewickelt; LIQUODA meldet sich mit den Details.",
+        "button": "Zum Portfolio"
+      }
+    },
+    "request": {
+      "admin": {
+        "subject": "Neue Projektanfrage von {name}",
+        "title": "Neue Projektanfrage",
+        "body": "Über die Seite «Für Emittenten» ist eine Anfrage eingegangen."
+      },
+      "sender": {
+        "subject": "Ihre Projektanfrage bei LIQUODA",
+        "title": "Anfrage erhalten",
+        "body": "Vielen Dank für Ihre Anfrage. LIQUODA prüft Ihre Angaben und meldet sich mit einer ersten Einschätzung. Aus der Anfrage entsteht keine Verpflichtung."
+      }
+    }
+  },
   "legal": {
     "impressum": {
       "metaTitle": "Impressum",

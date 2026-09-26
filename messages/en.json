@@ -879,6 +879,130 @@
       }
     }
   },
+  "email": {
+    "greeting": "Hello {name}",
+    "footer": "This email was sent automatically by LIQUODA. LIQUODA is an intermediation and technology platform, not a bank and not an investment adviser. Questions to info@liquoda.com.",
+    "open": "Open on LIQUODA",
+    "labels": {
+      "project": "Project",
+      "amount": "Amount",
+      "total": "Paid",
+      "reference": "Reference",
+      "status": "Status",
+      "shares": "Shares",
+      "target": "Target amount",
+      "raised": "Reached",
+      "deadline": "Term until",
+      "email": "Email",
+      "company": "Company",
+      "assetType": "Asset type",
+      "estimate": "Estimated amount",
+      "description": "Description"
+    },
+    "kyc": {
+      "approved": {
+        "subject": "Your identity is verified",
+        "title": "Identity verified",
+        "body": "LIQUODA has completed your identity verification. You can now review projects and participate as soon as a project is open.",
+        "button": "Go to portfolio"
+      },
+      "rejected": {
+        "subject": "Your identity verification is not complete",
+        "title": "Identity verification not passed",
+        "body": "Information or documents are missing for your identity verification. Please reply to this email or write to info@liquoda.com so we can complete the check. Until then, participations are not possible.",
+        "button": "Go to account"
+      },
+      "pending": {
+        "subject": "Your identity verification is open again",
+        "title": "Identity verification open",
+        "body": "The status of your identity verification was set to “pending”. LIQUODA will get in touch once the verification is complete.",
+        "button": "Go to account"
+      },
+      "kybApproved": {
+        "subject": "Your company is verified",
+        "title": "Company verification complete",
+        "body": "LIQUODA has completed the verification of your company. You can now enter projects and submit them for review.",
+        "button": "Go to dashboard"
+      }
+    },
+    "project": {
+      "submitted": {
+        "subject": "Your project has been submitted",
+        "title": "Project submitted",
+        "body": "Your project has been received by LIQUODA for review. It is now frozen until we respond. You will receive an email once the project is approved or if there are questions.",
+        "button": "Go to dashboard"
+      },
+      "submittedAdmin": {
+        "subject": "New project for review: {project}",
+        "title": "New project for review",
+        "body": "An issuer has submitted a project. Please review it in the admin area.",
+        "button": "Open admin"
+      },
+      "active": {
+        "subject": "Your project is approved",
+        "title": "Project approved",
+        "body": "LIQUODA has approved your project. It is now visible in the marketplace and the funding phase runs until the stated date.",
+        "button": "Open project page"
+      },
+      "draft": {
+        "subject": "Questions about your project",
+        "title": "Feedback from LIQUODA",
+        "body": "Questions came up during the review of your project. The project is editable again. Please adjust it and submit it again.",
+        "button": "Edit project"
+      },
+      "cancelled": {
+        "subject": "Your project has been ended",
+        "title": "Project ended",
+        "body": "LIQUODA has ended your project early. New participations are no longer possible. The reason is given below.",
+        "button": "Go to dashboard"
+      },
+      "failed": {
+        "subject": "Funding not successful",
+        "title": "Funding not successful",
+        "body": "The target amount of your project was not reached within the term. No shares are issued; investors’ payments are reversed.",
+        "button": "Go to dashboard"
+      },
+      "funded": {
+        "subject": "Your project is funded",
+        "title": "Target amount reached",
+        "body": "The target amount of your project has been reached. The round is complete. LIQUODA will get in touch about the next steps.",
+        "button": "Go to dashboard"
+      },
+      "noteLabel": "Feedback from LIQUODA"
+    },
+    "investment": {
+      "paid": {
+        "subject": "Payment received",
+        "title": "Payment received",
+        "body": "Your payment has been received. The participation has the status “paid”. Shares are allocated after review by LIQUODA; you will then receive another email.",
+        "button": "Go to portfolio"
+      },
+      "confirmed": {
+        "subject": "Your shares have been allocated",
+        "title": "Shares allocated",
+        "body": "Your shares have been allocated to your shares account and are visible in the portfolio. The public record is available via the portfolio.",
+        "button": "Go to portfolio"
+      },
+      "failedProject": {
+        "subject": "Funding not successful: {project}",
+        "title": "Funding not successful",
+        "body": "The project did not reach its target amount within the term. No shares are issued. Your payment will be reversed; LIQUODA will get in touch with the details.",
+        "button": "Go to portfolio"
+      }
+    },
+    "request": {
+      "admin": {
+        "subject": "New project enquiry from {name}",
+        "title": "New project enquiry",
+        "body": "An enquiry was received via the page “For issuers”."
+      },
+      "sender": {
+        "subject": "Your project enquiry at LIQUODA",
+        "title": "Enquiry received",
+        "body": "Thank you for your enquiry. LIQUODA reviews your details and responds with a first assessment. The enquiry creates no obligation."
+      }
+    }
+  },
   "legal": {
     "impressum": {
       "metaTitle": "Legal notice",

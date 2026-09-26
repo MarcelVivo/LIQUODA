@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { requireEmittent, slugify, randomSuffix } from '../../../_lib';
 import { getOwnProject, listProjectDocuments, submissionProblems } from '@/lib/emittent';
+import { notifyProjectSubmitted } from '@/lib/email/notify';
 
 /** Entwurf zur Prüfung einreichen: draft -> in_review (Spec, Abschnitt 4, Emittent Schritt 5). */
 export async function POST(_req: Request, { params }: { params: { id: string } }) {
@@ -28,5 +29,6 @@ export async function POST(_req: Request, { params }: { params: { id: string } }
     console.error('[emittent/einreichen]', error.message);
     return NextResponse.json({ error: 'server' }, { status: 500 });
   }
+  notifyProjectSubmitted(project.id).catch((e) => console.error('[email]', e));
   return NextResponse.json({ success: true, slug });
 }

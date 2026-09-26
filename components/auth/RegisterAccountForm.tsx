@@ -56,7 +56,7 @@ export default function RegisterAccountForm() {
       const res = await fetch('/api/konto/registrieren', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, next }),
+        body: JSON.stringify({ ...form, next, locale }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {

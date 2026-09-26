@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { CheckCircle } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import Button from '@/components/ui/Button';
@@ -36,6 +36,7 @@ const initialState: FormState = {
 export default function ProjectRequestForm() {
   const t = useTranslations('projectRequest');
   const tIssuers = useTranslations('issuers');
+  const locale = useLocale();
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -74,6 +75,7 @@ export default function ProjectRequestForm() {
           assetType: form.assetType,
           amount: form.amount.trim() ? Number(form.amount.trim()) : null,
           description: form.description,
+          locale,
         }),
       });
       if (!res.ok) throw new Error('request failed');

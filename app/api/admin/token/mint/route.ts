@@ -3,6 +3,7 @@ import type { Address } from 'viem';
 import { requireAdmin } from '../../_lib';
 import { hasChainEnv, isAllowed, mintTokens, setAllowed } from '@/lib/chain/token';
 import { daysUntil } from '@/lib/format';
+import { notifyInvestment } from '@/lib/email/notify';
 
 /**
  * Mint-Freigabe (Spec, Abschnitt 7, Schritte 5 bis 7):
@@ -52,6 +53,7 @@ export async function POST(req: NextRequest) {
       console.error('[admin/token/mint] confirm:', error.message);
       return NextResponse.json({ error: 'server', message: error.message, txHash }, { status: 500 });
     }
+    notifyInvestment(inv.id, 'confirmed').catch((e) => console.error('[email]', e));
     return NextResponse.json({ success: true, txHash });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'unknown';

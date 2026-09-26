@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { notifyProjectRequest } from '@/lib/email/notify';
 
 /**
  * Projektanfrage von der Seite «Für Emittenten».
@@ -6,9 +7,7 @@ import { NextRequest, NextResponse } from 'next/server';
  * Etappe 1: serverseitige Validierung und Protokollierung.
  * Es wird bewusst keine Supabase-Tabelle angelegt.
  *
- * TODO (Etappe 3): E-Mail-Versand an LIQUODA (info@liquoda.com) und
- * Eingangsbestätigung an den Absender; Ablage der Anfrage in Supabase
- * mit RLS, sobald das Datenmodell aus Spec Abschnitt 6 steht.
+ * Etappe 8: E-Mail an LIQUODA (info@liquoda.com) und Eingangsbestätigung an den Absender.
  */
 
 const ASSET_TYPES = ['company', 'real_estate', 'energy', 'collectible', 'other'] as const;
@@ -94,7 +93,9 @@ export async function POST(req: NextRequest) {
     ...result.data,
   });
 
-  // TODO (Etappe 3): E-Mail-Versand und Ablage in Supabase, siehe Kopf der Datei.
+  // E-Mail an LIQUODA und Eingangsbestätigung (Etappe 8); Fehler blockieren die Antwort nicht
+  const locale = (body as Record<string, unknown>).locale === 'en' ? 'en' : 'de';
+  notifyProjectRequest({ ...result.data, locale }).catch((e) => console.error('[email]', e));
 
   return NextResponse.json({ success: true });
 }

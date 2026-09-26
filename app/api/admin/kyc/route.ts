@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdmin } from '../_lib';
+import { notifyKycStatus } from '@/lib/email/notify';
 
 const STATUSES = ['pending', 'approved', 'rejected'] as const;
 
@@ -20,5 +21,6 @@ export async function POST(req: NextRequest) {
     console.error('[admin/kyc]', error.message);
     return NextResponse.json({ error: 'server', message: error.message }, { status: 500 });
   }
+  notifyKycStatus(userId, status as 'pending' | 'approved' | 'rejected').catch((e) => console.error('[email]', e));
   return NextResponse.json({ success: true });
 }
