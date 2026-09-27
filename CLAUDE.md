@@ -16,6 +16,7 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 - Bestehende Komponenten: `components/layout/{Navbar,Footer}`, `components/ui/{Button,Badge,LanguageToggle,WaveBackground}`, `components/sections/{Hero,HowItWorks,ProjectPreview,RegisterForm,ComingSoon}`
 - Design: verbindlich nach `../LIQUODA_Praesentation.html` (siehe Spec, Abschnitt 2 «Design»); Tokens in `tailwind.config.ts`, Bausteine in `components/ui/`
 - Logo: SVG-Schriftzug in `components/ui/Wordmark.tsx` (das alte `public/liquoda-logo-v2.svg` wird nicht mehr verwendet)
+- KI (Etappe 20): Anthropic SDK (`@anthropic-ai/sdk`, Modell `claude-opus-5` mit Server-Fallback) in `lib/ki/` (`client.ts`, `wissen.ts` Wissensbasis, `assistent.ts` Werkzeug-Schleife, `vorpruefung.ts` strukturierter Bericht, `pdf.ts` Markdown→PDF mit pdf-lib, `support.ts`, `freischaltung.ts`); Routen `app/api/emittent/projekte/[id]/assistent` (GET/POST-Stream/DELETE, `freischalten` = Stripe CHF 190), `app/api/ki/support`, `app/api/admin/ki-freischalten`; UI `components/emittent/KiAssistent.tsx`, `components/support/SupportBot.tsx`; Tabellen `ai_conversations`, `ai_prechecks`, `ai_orders`, `ai_support_messages`, Spalte `projects.ai_unlocked_at`. Ohne `ANTHROPIC_API_KEY` sind beide Bots aus.
 - Hosting: Vercel, Deployment aus GitHub `main`
 
 ## Leitsatz (Entscheid Marcel, 26.09.2026)
@@ -50,9 +51,10 @@ Auf der Website heisst der Emittent «Kapitalnehmer» (EN bleibt «issuer»), En
 | 4 | Investitionsprozess | `/investieren/[slug]`: Betrag, Zusammenfassung, aktive Risikozustimmung, Stripe Checkout (Testmodus), Webhook, Statuswechsel `reserved → paid`, Fehlerfälle | ja |
 | 5 | Portfolio und Emittenten-Dashboard | `/portfolio`, `/emittent` mit Projekt-Wizard und Dokument-Upload (Supabase Storage), Admin: Projektprüfung, Freigabe, KYC-Status manuell setzen, Audit-Log | ja |
 | 6 | Smart Contracts und Wallet | OpenZeppelin ERC-20-Template mit Cap, Allowlist, Pausable; Deployment auf Polygon-Testnet; Wallet-Verbindung (MetaMask/WalletConnect); Mint nach Backend-Freigabe; Token-Referenz speichern | ja |
+| 20 | KI-Assistent | Assistent für Kapitalnehmer im Wizard (füllt Felder, schreibt Businessplan/Finanzierungskonzept/Projektbeschrieb als PDF, liest Dokumente, Vorprüfung, Einreichen nach Bestätigung); Freischaltung CHF 190 einmalig je Projekt (Stripe) oder manuell im Admin (Standard/Premium); Admin sieht Vorprüfungsbericht; Support-/CTA-Bot auf der Website. Freigabe bleibt manuell | ja |
 | 7 | Eingebettete Wallet | Wallet-Anbieter (z. B. Privy/Dynamic/Web3Auth) anbinden: jeder Investor erhält beim Registrieren automatisch eine Wallet, kein MetaMask nötig; MetaMask bleibt optional. Vertrag, Allowlist und Mint unverändert | ja |
 
-Stand: Etappen 1 bis 11 sind auf `main`; die Plattform ist im Testbetrieb vollständig. Offen für den Echtbetrieb: siehe `docs/GO_LIVE.md` (rechtliche Texte durch Fachperson, Stripe live, Polygon Mainnet, Supabase Pro, Testdaten entfernen). Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
+Stand: Etappen 1 bis 20 sind auf `main` (Etappen 12 bis 19: Rückerstattungen, Schlüsselschutz, Passwort-Funktionen, Bilder, Absicherung, Profile/Neuigkeiten/Fragen, Pflichtdokumente, Mindestbetrag CHF 100, Begriff Kapitalnehmer; Etappe 20: KI-Assistent und Support-Bot); die Plattform ist im Testbetrieb vollständig. Offen für den Echtbetrieb: siehe `docs/GO_LIVE.md` (rechtliche Texte durch Fachperson, Stripe live, Polygon Mainnet, Supabase Pro, Testdaten entfernen). Supabase-Projekt `dozdhstxbrlevenqckxc` (Zürich), Vercel deployt automatisch aus GitHub `main`. (Diese Zeile nach Abschluss jeder Etappe aktualisieren.)
 
 ## Befehle
 

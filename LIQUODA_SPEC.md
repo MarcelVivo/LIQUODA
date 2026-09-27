@@ -216,6 +216,14 @@ Transaktionsgebühr Emittent: 3 % auf erfolgreich investiertes Volumen (nur bei 
 
 ---
 
+## 10a. KI-Assistent und Support-Bot (Etappe 20, Entscheid Marcel 27.09.2026)
+
+- **KI-Assistent für Kapitalnehmer** im Projekt-Wizard: erledigt alles, was der Kapitalnehmer nicht selbst tun will oder kann: befragt ihn, füllt alle Projektfelder (DE und EN), schreibt Businessplan, Finanzierungskonzept oder Projektbeschrieb aus seinen Angaben als PDF ins Projekt, liest alle hochgeladenen Dokumente, führt eine Vorprüfung durch (Vollständigkeit, Konsistenz, Tonalität, Dokument-Befunde, offene Punkte) und reicht das Projekt nach ausdrücklicher Bestätigung des Kapitalnehmers ein. Amtliche Unterlagen und Bilder muss der Kapitalnehmer selbst beschaffen und hochladen.
+- **Preis:** CHF 190 einmalig je Projekt (Stripe Checkout); im Standard- und Premium-Paket inbegriffen (Freischaltung manuell durch LIQUODA im Admin).
+- **Admin:** sieht den Vorprüfungsbericht mit Empfehlung an LIQUODA auf der Projektseite und schaltet den Assistenten frei oder sperrt ihn. Die Freigabe eines Projekts bleibt manuell (Abschnitt 12 unverändert).
+- **Support-/CTA-Bot** auf allen öffentlichen Seiten: beantwortet Fragen zu LIQUODA aus einer festen Wissensbasis (`lib/ki/wissen.ts`), nennt Risiken offen, verweist Kapitalnehmer auf «Für Kapitalnehmer»/Registrierung und Investoren auf Projekte/Registrierung. Regeln: keine Rendite- oder Gewinnaussagen, keine Anlage-, Rechts- oder Steuerberatung, keine Dringlichkeit, keine erfundenen Angaben; Unbekanntes an info@liquoda.com verweisen.
+- **Technik:** Anthropic Claude (Opus 5) mit serverseitigem Fallback; Gesprächsverlauf je Projekt in der Datenbank; Support-Gespräche anonym protokolliert (Admin «KI»). Der Assistent handelt nur über geprüfte Backend-Werkzeuge; er kann keine Freigabe erteilen und keine Zahlungen auslösen.
+
 ## 11. Fehler- und Sonderfälle (UX)
 
 | Fall | Anzeige |

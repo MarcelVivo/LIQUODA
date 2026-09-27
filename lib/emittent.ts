@@ -28,12 +28,13 @@ export interface OwnProject {
   cover_image_path: string | null;
   gallery_paths: string[];
   review_note: string | null;
+  ai_unlocked_at: string | null;
   created_at: string;
   updated_at: string;
 }
 
 const COLUMNS =
-  'id, slug, title, summary, description, purpose, location, risks, asset_type, target_amount_chf, min_investment_chf, raised_amount_chf, deadline, status, token_model, collateral_type, collateral_note, cover_image_path, gallery_paths, review_note, created_at, updated_at';
+  'id, slug, title, summary, description, purpose, location, risks, asset_type, target_amount_chf, min_investment_chf, raised_amount_chf, deadline, status, token_model, collateral_type, collateral_note, cover_image_path, gallery_paths, review_note, ai_unlocked_at, created_at, updated_at';
 
 export async function listOwnProjects(): Promise<OwnProject[]> {
   const supabase = createSupabaseServerClient();

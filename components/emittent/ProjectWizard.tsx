@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { CheckCircle, FileText, Trash2, XCircle } from 'lucide-react';
@@ -66,6 +66,14 @@ export default function ProjectWizard({
   const [savedAt, setSavedAt] = useState<number | null>(null);
   const [error, setError] = useState<string | undefined>();
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  // Änderungen durch den KI-Assistenten (router.refresh) in den Entwurf übernehmen
+  useEffect(() => {
+    setDraft(toDraft(project));
+    setDocuments(initialDocuments);
+    setProblems(initialProblems);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [project.updated_at, project.status, initialDocuments.length, initialProblems.join(',')]);
 
   const set = (key: keyof Draft, value: string) => {
     setDraft((d) => ({ ...d, [key]: value }));

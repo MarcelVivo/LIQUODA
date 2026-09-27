@@ -6,6 +6,7 @@ import { Link, redirect } from '@/i18n/routing';
 import Section, { SectionHeading } from '@/components/ui/Section';
 import Badge from '@/components/ui/Badge';
 import ProjectWizard from '@/components/emittent/ProjectWizard';
+import KiAssistentLazy from '@/components/emittent/KiAssistentLazy';
 import { getAccount } from '@/lib/supabase/server';
 import { getOwnProject, listProjectDocuments, submissionProblems } from '@/lib/emittent';
 
@@ -24,6 +25,7 @@ export default async function ProjectWizardPage({ params }: { params: { locale: 
 
   const t = await getTranslations('emittent.wizard');
   const tDash = await getTranslations('emittent.dashboard');
+  const tKi = await getTranslations('ki.assistant');
   const locale = (await getLocale()) as 'de' | 'en';
   const documents = await listProjectDocuments(project.id);
   const problems = submissionProblems(project, documents);
@@ -44,8 +46,13 @@ export default async function ProjectWizardPage({ params }: { params: { locale: 
           {project.review_note}
         </p>
       )}
-      <div className="mt-8">
-        <ProjectWizard project={project} documents={documents} problems={problems} />
+      <div className="mt-8 grid gap-8 xl:grid-cols-[minmax(0,1fr)_400px]">
+        <div className="min-w-0">
+          <ProjectWizard project={project} documents={documents} problems={problems} />
+        </div>
+        <aside className="order-first xl:order-none xl:sticky xl:top-28 xl:self-start" aria-label={tKi('title')}>
+          <KiAssistentLazy projectId={project.id} editable={project.status === 'draft'} />
+        </aside>
       </div>
     </Section>
   );

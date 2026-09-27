@@ -48,3 +48,10 @@ Stand: 26. September 2026. Die Plattform läuft vollständig im Testbetrieb (Str
 - Beispielprojekte aus `supabase/seed.sql` sind als «Beispiel» markiert. Vor dem Start löschen oder beibehalten, je nach Wunsch. Löschen: im Admin «Entwurf beenden» ist nicht möglich für aktive Projekte; direkt in der Datenbank entfernen (Projekte, Dokumente, Investitionen).
 - Testkonten `test-emittent@liquoda.example` und `test-investor@liquoda.example` löschen (Supabase → Authentication → Users).
 - Restguthaben der alten Backend-Wallet (0.005 ETH auf Ethereum Mainnet) zurückführen; der Schlüssel liegt in `.env.local` als `LEGACY_DEPLOYER_PRIVATE_KEY` und kann danach gelöscht werden.
+
+## KI-Assistent und Support-Bot (Etappe 20)
+
+- `ANTHROPIC_API_KEY` auf Vercel gesetzt (workspace-gebundener Schlüssel; sonst zusätzlich `ANTHROPIC_WORKSPACE_ID`). Guthaben in der Anthropic-Console prüfen; Kosten: Support-Antwort Rappenbeträge, Businessplan ca. CHF 0.50 bis 1.00, Vorprüfung mit vielen PDFs bis ca. CHF 2.
+- Preis CHF 190 läuft über denselben Stripe-Webhook wie Investitionen (`metadata.kind = ai_assistant`); nach dem Live-Schalten von Stripe einmal testen.
+- Wissensbasis `lib/ki/wissen.ts` nach jeder Preis- oder Ablaufänderung nachführen (z. B. «Testbetrieb» entfernen).
+- Admin → «KI»: Support-Gespräche regelmässig lesen, um falsche Antworten oder häufige Fragen zu erkennen.
