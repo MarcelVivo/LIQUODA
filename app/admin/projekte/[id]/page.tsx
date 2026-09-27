@@ -70,7 +70,7 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                 <div><dt className="text-gray-400">Mindestbetrag</dt><dd>{chf(p.min_investment_chf)}</dd></div>
                 <div><dt className="text-gray-400">Laufzeit bis</dt><dd>{p.deadline}</dd></div>
                 <div className="sm:col-span-2"><dt className="text-gray-400">Absicherung (Angabe Emittent, nicht bewertet)</dt><dd>{p.collateral_type}{p.collateral_note ? ` · ${p.collateral_note}` : ''}</dd></div>
-                <div><dt className="text-gray-400">Emittent</dt><dd>{p.emittent?.name} <span className="text-gray-400">({p.emittent?.email})</span></dd></div>
+                <div><dt className="text-gray-400">Projektanbieter</dt><dd>{p.emittent?.name} <span className="text-gray-400">({p.emittent?.email})</span></dd></div>
                 <div><dt className="text-gray-400">KYB</dt><dd>{KYC_LABEL[p.emittent?.kyc_status ?? 'pending']}</dd></div>
               </dl>
               {p.review_note && <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900"><b>Letzte Rückmeldung:</b> {p.review_note}</p>}
@@ -92,8 +92,8 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                 {p.emittent?.avatar_path && (
                   <div className="text-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={imageUrl(p.emittent.avatar_path) ?? ''} alt="Emittent" className="h-16 w-16 rounded-full object-cover" />
-                    <span className="block text-[10px] text-gray-400">Emittent</span>
+                    <img src={imageUrl(p.emittent.avatar_path) ?? ''} alt="Projektanbieter" className="h-16 w-16 rounded-full object-cover" />
+                    <span className="block text-[10px] text-gray-400">Projektanbieter</span>
                   </div>
                 )}
               </div>

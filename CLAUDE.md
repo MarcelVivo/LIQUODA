@@ -22,6 +22,10 @@ Website und MVP-Plattform für LIQUODA, eine Schweizer non-custodial Vermittlung
 
 Für Nutzer muss alles so einfach wie möglich sein und vollständig auf liquoda.com funktionieren. Kein Schritt darf Krypto-Vorwissen, eine Browser-Erweiterung oder das Verlassen der Plattform voraussetzen. Zahlungen über Stripe bleiben die einzige Ausnahme.
 
+## Begriffe
+
+Auf der Website heisst der Emittent «Projektanbieter» (EN «project provider»), Entscheid Marcel 27.09.2026. Technische Namen (Rolle `emittent`, Routen `/emittent`, `/fuer-emittenten`) bleiben. In rechtlichen Texten bleibt «Emittent» mit einmaliger Erklärung.
+
 ## Regeln
 
 1. **Etappenweise bauen.** Es gibt sechs Etappen (siehe unten). Arbeite immer nur an der aktuell beauftragten Etappe. Beginne keine spätere Etappe, auch nicht «vorbereitend».

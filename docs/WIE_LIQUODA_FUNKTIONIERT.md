@@ -1,28 +1,30 @@
 # Wie LIQUODA funktioniert – in einfacher Sprache
 
+Begriff: «Projektanbieter» ist auf der Website der Ausdruck für den rechtlichen Begriff «Emittent» (wer Anteile ausgibt). In AGB und Risikoaufklärung bleibt «Emittent».
+
 Stand: 26. September 2026, nach Abschluss des MVP (Etappen 1 bis 6).
 
 ## Die Idee in einem Satz
 
-Ein Emittent (z. B. eine Pizzeria) stellt ein Projekt vor, Investoren beteiligen sich mit CHF 100 bis 20'000, und jeder Investor erhält seine Anteile als fälschungssicheren digitalen Nachweis. LIQUODA vermittelt und stellt die Technik, verwahrt aber weder Geld noch Anteile.
+Ein Projektanbieter (z. B. eine Pizzeria) stellt ein Projekt vor, Investoren beteiligen sich mit CHF 100 bis 20'000, und jeder Investor erhält seine Anteile als fälschungssicheren digitalen Nachweis. LIQUODA vermittelt und stellt die Technik, verwahrt aber weder Geld noch Anteile.
 
 ## Die drei Rollen
 
 | Rolle | Wer | Was er auf liquoda.com tut |
 |---|---|---|
 | Investor | Privatperson | Projekte ansehen, Konto erstellen, Beteiligung prüfen, bezahlen, Portfolio ansehen |
-| Emittent | KMU, Eigentümer | Konto erstellen, Projekt erfassen, Dokumente hochladen, einreichen, Finanzierung verfolgen |
+| Projektanbieter | KMU, Eigentümer | Konto erstellen, Projekt erfassen, Dokumente hochladen, einreichen, Finanzierung verfolgen |
 | Admin (Marcel) | LIQUODA | Identitäten bestätigen, Projekte freigeben, Anteile zuweisen, alles nachvollziehen |
 
-## Der Weg eines Emittenten
+## Der Weg eines Projektanbieter
 
-1. Registriert sich als Emittent, bestätigt seine E-Mail.
+1. Registriert sich als Projektanbieter, bestätigt seine E-Mail.
 2. Marcel prüft das Unternehmen ausserhalb der Plattform (KYB) und setzt im Admin den Status auf «Bestätigt».
-3. Der Emittent erfasst sein Projekt im Wizard: Titel, Texte, Zielbetrag, Mindestbetrag, Laufzeit, Absicherung, Dokumente.
+3. Der Projektanbieter erfasst sein Projekt im Wizard: Titel, Texte, Zielbetrag, Mindestbetrag, Laufzeit, Absicherung, Dokumente.
 4. Er reicht es ein. Das Projekt ist jetzt eingefroren und steht im Admin unter «In Prüfung».
-5. Marcel gibt frei (Projekt erscheint sofort im Marktplatz) oder stellt eine Rückfrage (Projekt geht mit Begründung zurück an den Emittenten).
+5. Marcel gibt frei (Projekt erscheint sofort im Marktplatz) oder stellt eine Rückfrage (Projekt geht mit Begründung zurück an den Projektanbieter).
 6. Marcel legt im Admin mit einem Klick den Vertrag auf der Blockchain an. Das ist das digitale Register für die Anteile dieses Projekts.
-7. Während der Laufzeit sieht der Emittent im Dashboard, wie viel bereits investiert wurde.
+7. Während der Laufzeit sieht der Projektanbieter im Dashboard, wie viel bereits investiert wurde.
 8. Ziel erreicht: Projekt wird automatisch «Finanziert». Laufzeit abgelaufen ohne Ziel: automatisch «Nicht erfolgreich», Zahlungen werden zurückerstattet (Rückerstattung selbst ist noch manuell über Stripe).
 
 ## Der Weg eines Investors
@@ -37,7 +39,7 @@ Ein Emittent (z. B. eine Pizzeria) stellt ein Projekt vor, Investoren beteiligen
 
 ## Wo das Geld ist und wo die Anteile sind
 
-- Geld: Der Investor zahlt an das Stripe-Konto von LIQUODA. Von dort überweist Marcel es nach erfolgreicher Finanzierung manuell an den Emittenten. Eine automatische Auszahlung ist im MVP bewusst nicht gebaut.
+- Geld: Der Investor zahlt an das Stripe-Konto von LIQUODA. Von dort überweist Marcel es nach erfolgreicher Finanzierung manuell an den Projektanbieter. Eine automatische Auszahlung ist im MVP bewusst nicht gebaut.
 - Anteile: Liegen als Token auf der Polygon-Blockchain in der Wallet des Investors. LIQUODA kann sie sehen, pausieren und nur an geprüfte Wallets übertragen lassen, aber nicht wegnehmen und nicht selbst halten.
 - Dokumente: Liegen verschlüsselt bei Supabase. Ihr Fingerabdruck (SHA-256) wird beim Anlegen des Vertrags auf der Blockchain verankert, damit später niemand ein Dokument unbemerkt austauschen kann.
 
