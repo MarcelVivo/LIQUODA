@@ -47,8 +47,8 @@
       "isTitle": "LIQUODA is",
       "isItems": [
         "an intermediation platform: it brings issuers and investors together.",
-        "a technology platform: it represents shares as tokens and documents the process.",
-        "non-custodial: money, tokens and wallet keys stay with the parties involved.",
+        "a technology platform: it keeps shares in a public, tamper-proof record and documents the process.",
+        "non-custodial: money and shares stay with the parties involved. LIQUODA has no access to the shares accounts.",
         "structured: every project goes through the same, traceable process.",
         "transparent: risks are named, not hidden."
       ],
@@ -57,7 +57,7 @@
         "a bank, a financial institution, an asset manager or a custodian.",
         "an investor, a guarantor or an investment adviser.",
         "a trading or speculation platform. There is no secondary market.",
-        "a place that holds money, tokens or wallet keys.",
+        "a place that holds money or shares.",
         "a source of profit or return promises."
       ],
       "principle": "LIQUODA does not replace risk. LIQUODA makes risk visible, structured and traceable."
@@ -85,7 +85,7 @@
         },
         {
           "title": "Account and identity",
-          "text": "You create an account, verify your identity and connect a wallet."
+          "text": "You create an account and verify your identity. Your shares account is set up automatically."
         },
         {
           "title": "Amount and consent",
@@ -93,7 +93,7 @@
         },
         {
           "title": "Confirmation",
-          "text": "After successful payment and checks, tokens are transferred to your wallet. Your portfolio shows the participation, documents and project status."
+          "text": "After successful payment and checks, your shares are allocated to your shares account. Your portfolio shows the participation, documents and project status."
         }
       ],
       "link": "Read the full process"
@@ -108,7 +108,7 @@
       "items": [
         {
           "title": "The role of LIQUODA",
-          "text": "LIQUODA intermediates and provides the technology. LIQUODA is not a party to the participation and holds neither money nor tokens."
+          "text": "LIQUODA intermediates and provides the technology. LIQUODA is not a party to the participation and holds neither money nor shares."
         },
         {
           "title": "Entrepreneurial risk",
@@ -124,7 +124,7 @@
         },
         {
           "title": "Cancellation and failure",
-          "text": "If the funding target is not reached, no tokens are issued and payments are reversed. A cancelled process creates no obligation."
+          "text": "If the funding target is not reached, no shares are issued and payments are refunded in full. A cancelled process creates no obligation."
         }
       ]
     }
@@ -172,20 +172,20 @@
         "text": "The project page shows the description, purpose, target amount, term, documents and the section “Risks and notes”."
       },
       {
-        "title": "Create an account, verify identity, connect a wallet",
-        "text": "You register as an investor and verify your identity (KYC). Then you connect a wallet to which tokens can be transferred."
+        "title": "Create an account and verify identity",
+        "text": "You register as an investor and verify your identity (KYC). Your shares account is set up automatically; there is nothing to install."
       },
       {
         "title": "Enter an amount and confirm the conditions",
         "text": "You enter an amount between the minimum and CHF 20'000, read the summary and actively agree to the risks. Payment is made in CHF."
       },
       {
-        "title": "Confirmation and tokens",
-        "text": "After successful payment LIQUODA checks project status, term and identity. Only if everything is fulfilled are tokens transferred to your wallet. You confirm the transfer in your wallet."
+        "title": "Confirmation and shares",
+        "text": "After successful payment LIQUODA checks project status, term and identity. Only if everything is fulfilled are your shares allocated to your shares account. You receive an email about it."
       },
       {
         "title": "Portfolio",
-        "text": "Your portfolio shows participations, documents, project status and the reference to your tokens."
+        "text": "Your portfolio shows participations, documents, project status and the public record of your shares."
       }
     ],
     "issuersTitle": "Process for issuers",
@@ -225,7 +225,7 @@
     "failureItems": [
       {
         "title": "Funding target not reached",
-        "text": "The project is marked as “funding not successful”. No tokens are issued. Payments already made are reversed and investors are informed."
+        "text": "The project is marked as “funding not successful”. No shares are issued. Payments already made are refunded automatically and in full, and investors are informed by email."
       },
       {
         "title": "Payment failed",
@@ -269,8 +269,8 @@
         "text": "Your project is presented uniformly with description, target amount, term, documents and risk notes."
       },
       {
-        "title": "Shares as tokens",
-        "text": "Shares are represented on the Polygon blockchain using audited standard contracts. There is no custom contract logic."
+        "title": "Shares in a public record",
+        "text": "Shares are kept in a public record on Polygon using audited standard contracts. There is no custom contract logic."
       },
       {
         "title": "Documents in one place",
@@ -455,11 +455,11 @@
       "generalRisks": [
         "Every participation is an entrepreneurial investment. The invested capital can be lost in full or in part.",
         "LIQUODA makes no commitments regarding income, repayment or value development. Information provided by the issuer is checked for completeness but not guaranteed.",
-        "There is no secondary market. Tokens are not freely transferable. Expect your participation to be locked until the end of the term.",
-        "If the funding target is not reached, no tokens are issued and payments are reversed."
+        "There is no secondary market. Shares are not freely transferable. Expect your participation to be locked until the end of the term.",
+        "If the funding target is not reached, no shares are issued and payments are refunded in full."
       ],
       "projectRisksTitle": "Project-specific risks",
-      "roleNote": "LIQUODA intermediates and provides the technology. LIQUODA is not a party to the participation and holds neither money nor tokens.",
+      "roleNote": "LIQUODA intermediates and provides the technology. LIQUODA is not a party to the participation and holds neither money nor shares.",
       "ctaCheck": "Review investment",
       "ctaHint": "Participations will be possible once the platform launches. Join the waiting list if you would like to be informed.",
       "ctaWaitlist": "Go to waiting list",
@@ -467,7 +467,7 @@
         "open": "The funding phase is running. The target amount has not yet been reached.",
         "funded": "The target amount has been reached. The round is complete; new participations are no longer possible.",
         "closed": "The project is closed. New participations are not possible.",
-        "failed": "Funding not successful: the target amount was not reached within the term. No tokens were issued and all payments were reversed."
+        "failed": "Funding not successful: the target amount was not reached within the term. No shares were issued and all payments were refunded."
       },
       "ctaHintLogin": "To participate you need an investor account with verified identity.",
       "ctaHintClosed": "This project does not accept new participations.",
@@ -693,8 +693,8 @@
         "risks": "I have read and understood the section “Risks and notes” of this project.",
         "loss": "I understand that this is an entrepreneurial investment and that the invested capital can be lost in full or in part.",
         "lock": "I understand that there is no secondary market and that my participation is locked until the end of the term.",
-        "role": "I understand that LIQUODA intermediates and provides the technology, is not a party to the contract, holds no money or tokens and does not provide investment advice.",
-        "refund": "I understand that if the funding target is not reached, no tokens are issued and my payment is reversed."
+        "role": "I understand that LIQUODA intermediates and provides the technology, is not a party to the contract, holds no money or shares and does not provide investment advice.",
+        "refund": "I understand that if the funding target is not reached, no shares are issued and my payment is refunded in full."
       },
       "error": "Please confirm all points.",
       "back": "Back",
@@ -774,7 +774,7 @@
         "approved": "The project is approved.",
         "active": "The project is visible in the marketplace and the funding phase is running.",
         "funded": "The target amount has been reached. The round is complete.",
-        "failed": "The target amount was not reached within the term. No tokens were issued; payments are reversed.",
+        "failed": "The target amount was not reached within the term. No shares were issued; investors' payments are refunded automatically.",
         "cancelled": "The project was ended early. The reason is in the feedback.",
         "closed": "The project is closed."
       },
@@ -810,7 +810,7 @@
         "locationEn": "Location (EN)",
         "locationHint": "e.g. “Thun BE”",
         "assetType": "Asset type",
-        "tokenModel": "Token model",
+        "tokenModel": "Type of shares",
         "tokenModelHint": "ERC-20 for shares in companies, real estate and energy projects. ERC-721 for a single asset such as a watch or a vehicle."
       },
       "texts": {
@@ -1278,8 +1278,9 @@
         {
           "title": "Technical risks",
           "items": [
-            "Tokens are transferred to your own wallet. Access to this wallet is solely your responsibility.",
-            "LIQUODA holds no keys and cannot restore lost access."
+            "Your shares are kept in a shares account that is set up automatically with your login. Its key is split between a specialised service provider and your browser; LIQUODA has no access to it.",
+            "If you lose access to your LIQUODA account and your email address, access to your shares is affected as well. LIQUODA cannot replace shares.",
+            "The public record (Polygon) is operated by third parties. Disruptions there can delay the allocation or display of shares."
           ]
         }
       ]

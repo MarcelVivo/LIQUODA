@@ -97,7 +97,7 @@ Prinzip: **Öffentlich verstehen → Projekt prüfen → Investieren → Verwalt
 1. Startseite: versteht in kurzer Zeit, was LIQUODA ist und was nicht
 2. Projekte entdecken, filtern
 3. Projekt prüfen: Beschreibung, Zweck, Laufzeit, Dokumente, Risiken
-4. Registrieren / Login, KYC, Wallet verknüpfen
+4. Registrieren / Login, KYC; das Anteile-Konto (Wallet) wird automatisch eingerichtet (eingebettete Wallet über Privy, Etappe 7)
 5. Betrag eingeben, Bedingungen bestätigen, in CHF zahlen
 6. Investition wird bestätigt, Token werden zugewiesen
 7. Portfolio: Beteiligungen, Dokumente, Projektstatus
@@ -164,7 +164,7 @@ Beziehungen: ein User hat mehrere Projekte oder Investitionen; ein Projekt hat m
 3. CHF-Zahlung über Stripe (Checkout); Investition erhält Status `reserved`
 4. Stripe-Webhook bestätigt Zahlung → Backend speichert `payment_reference`, Investition → `paid`
 5. Backend prüft: Projektstatus aktiv, Laufzeit nicht abgelaufen, KYC des Investors `approved`
-6. Nur bei erfüllten Bedingungen: Mint-Freigabe; Investor signiert in seiner Wallet; Smart Contract mintet Token in die Wallet des Investors
+6. Nur bei erfüllten Bedingungen: Mint-Freigabe durch LIQUODA; das Backend mintet die Token direkt in die Wallet des Investors (Entscheid Etappe 6: Backend mintet, Investor braucht kein Gas)
 7. Backend speichert `token_reference` (tx_hash), Investition → `confirmed`, Portfolio aktualisiert
 
 **Scheitert die Finanzierung** (Ziel nicht erreicht, Laufzeit abgelaufen): Projekt → `failed`, alle Investitionen → `refunded` (Rückabwicklung über Stripe), keine Token, Investoren werden informiert.

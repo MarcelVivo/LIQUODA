@@ -47,8 +47,8 @@
       "isTitle": "LIQUODA ist",
       "isItems": [
         "eine Vermittlungsplattform: Sie bringt Kapitalnehmer und Investoren zusammen.",
-        "eine Technologieplattform: Sie bildet Anteile als Token ab und dokumentiert den Ablauf.",
-        "non-custodial: Geld, Token und Wallet-Schlüssel bleiben bei den Beteiligten.",
+        "eine Technologieplattform: Sie führt Anteile in einem öffentlichen, fälschungssicheren Register und dokumentiert den Ablauf.",
+        "non-custodial: Geld und Anteile bleiben bei den Beteiligten. LIQUODA hat keinen Zugriff auf die Anteile-Konten.",
         "strukturiert: Jedes Projekt durchläuft denselben, nachvollziehbaren Prozess.",
         "transparent: Risiken werden benannt, nicht versteckt."
       ],
@@ -57,7 +57,7 @@
         "eine Bank, ein Finanzinstitut, ein Vermögensverwalter oder eine Verwahrstelle.",
         "ein Investor, ein Garant oder eine Anlageberatung.",
         "eine Trading- oder Spekulationsplattform. Es gibt keinen Sekundärmarkt.",
-        "eine Stelle, die Geld, Token oder Wallet-Schlüssel verwahrt.",
+        "eine Stelle, die Geld oder Anteile verwahrt.",
         "eine Quelle für Gewinn- oder Renditeversprechen."
       ],
       "principle": "LIQUODA ersetzt kein Risiko. LIQUODA macht Risiko sichtbar, strukturiert und nachvollziehbar."
@@ -85,7 +85,7 @@
         },
         {
           "title": "Konto und Identität",
-          "text": "Sie erstellen ein Konto, bestätigen Ihre Identität und verknüpfen eine Wallet."
+          "text": "Sie erstellen ein Konto und bestätigen Ihre Identität. Ihr Anteile-Konto wird automatisch eingerichtet."
         },
         {
           "title": "Betrag und Zustimmung",
@@ -93,7 +93,7 @@
         },
         {
           "title": "Bestätigung",
-          "text": "Nach erfolgreicher Zahlung und Prüfung werden Token in Ihre Wallet übertragen. Ihr Portfolio zeigt Beteiligung, Dokumente und Projektstatus."
+          "text": "Nach erfolgreicher Zahlung und Prüfung werden Ihre Anteile Ihrem Anteile-Konto zugewiesen. Ihr Portfolio zeigt Beteiligung, Dokumente und Projektstatus."
         }
       ],
       "link": "Vollständigen Ablauf lesen"
@@ -108,7 +108,7 @@
       "items": [
         {
           "title": "Rolle von LIQUODA",
-          "text": "LIQUODA vermittelt und stellt die Technik bereit. LIQUODA ist nicht Vertragspartei der Beteiligung und verwahrt weder Geld noch Token."
+          "text": "LIQUODA vermittelt und stellt die Technik bereit. LIQUODA ist nicht Vertragspartei der Beteiligung und verwahrt weder Geld noch Anteile."
         },
         {
           "title": "Unternehmerisches Risiko",
@@ -124,7 +124,7 @@
         },
         {
           "title": "Abbruch und Scheitern",
-          "text": "Wird das Finanzierungsziel nicht erreicht, werden keine Token ausgegeben und die Zahlungen rückabgewickelt. Ein abgebrochener Vorgang begründet keine Verpflichtung."
+          "text": "Wird das Finanzierungsziel nicht erreicht, werden keine Anteile ausgegeben und die Zahlungen vollständig zurückerstattet. Ein abgebrochener Vorgang begründet keine Verpflichtung."
         }
       ]
     }
@@ -172,20 +172,20 @@
         "text": "Die Projektseite zeigt Beschreibung, Zweck, Zielbetrag, Laufzeit, Dokumente und den Abschnitt «Risiken und Hinweise»."
       },
       {
-        "title": "Konto erstellen, Identität bestätigen, Wallet verknüpfen",
-        "text": "Sie registrieren sich als Investor und bestätigen Ihre Identität (KYC). Anschliessend verknüpfen Sie eine Wallet, in die Token übertragen werden können."
+        "title": "Konto erstellen und Identität bestätigen",
+        "text": "Sie registrieren sich als Investor und bestätigen Ihre Identität (KYC). Ihr Anteile-Konto wird dabei automatisch eingerichtet; Sie müssen nichts installieren."
       },
       {
         "title": "Betrag eingeben und Bedingungen bestätigen",
         "text": "Sie geben einen Betrag zwischen dem Mindestbetrag und CHF 20'000 ein, lesen die Zusammenfassung und stimmen den Risiken aktiv zu. Die Zahlung erfolgt in CHF."
       },
       {
-        "title": "Bestätigung und Token",
-        "text": "Nach erfolgreicher Zahlung prüft LIQUODA Projektstatus, Laufzeit und Identität. Nur wenn alles erfüllt ist, werden Token in Ihre Wallet übertragen. Sie bestätigen die Übertragung in Ihrer Wallet."
+        "title": "Bestätigung und Anteile",
+        "text": "Nach erfolgreicher Zahlung prüft LIQUODA Projektstatus, Laufzeit und Identität. Nur wenn alles erfüllt ist, werden Ihre Anteile Ihrem Anteile-Konto zugewiesen. Sie erhalten dazu eine E-Mail."
       },
       {
         "title": "Portfolio",
-        "text": "Ihr Portfolio zeigt Beteiligungen, Dokumente, Projektstatus und die Referenz auf Ihre Token."
+        "text": "Ihr Portfolio zeigt Beteiligungen, Dokumente, Projektstatus und den öffentlichen Nachweis Ihrer Anteile."
       }
     ],
     "issuersTitle": "Ablauf für Kapitalnehmer",
@@ -225,7 +225,7 @@
     "failureItems": [
       {
         "title": "Finanzierungsziel nicht erreicht",
-        "text": "Das Projekt wird als «Finanzierung nicht erfolgreich» markiert. Es werden keine Token ausgegeben. Bereits geleistete Zahlungen werden rückabgewickelt und die Investoren informiert."
+        "text": "Das Projekt wird als «Finanzierung nicht erfolgreich» markiert. Es werden keine Anteile ausgegeben. Bereits geleistete Zahlungen werden automatisch und vollständig zurückerstattet, die Investoren werden per E-Mail informiert."
       },
       {
         "title": "Zahlung fehlgeschlagen",
@@ -269,8 +269,8 @@
         "text": "Ihr Projekt wird mit Beschreibung, Zielbetrag, Laufzeit, Dokumenten und Risikohinweisen einheitlich dargestellt."
       },
       {
-        "title": "Anteile als Token",
-        "text": "Anteile werden mit geprüften Standardverträgen auf der Polygon-Blockchain abgebildet. Es gibt keine individuelle Vertragslogik."
+        "title": "Anteile im öffentlichen Register",
+        "text": "Anteile werden mit geprüften Standardverträgen in einem öffentlichen Register auf Polygon geführt. Es gibt keine individuelle Vertragslogik."
       },
       {
         "title": "Dokumente an einem Ort",
@@ -455,11 +455,11 @@
       "generalRisks": [
         "Jede Beteiligung ist eine unternehmerische Beteiligung. Das eingesetzte Kapital kann ganz oder teilweise verloren gehen.",
         "LIQUODA gibt keine Zusagen zu Erträgen, Rückzahlungen oder Wertentwicklung. Angaben des Kapitalnehmers werden auf Vollständigkeit geprüft, aber nicht garantiert.",
-        "Es gibt keinen Sekundärmarkt. Token sind nicht frei übertragbar. Rechnen Sie damit, dass Ihre Beteiligung bis zum Ende der Laufzeit gebunden ist.",
-        "Wird das Finanzierungsziel nicht erreicht, werden keine Token ausgegeben und die Zahlungen rückabgewickelt."
+        "Es gibt keinen Sekundärmarkt. Anteile sind nicht frei übertragbar. Rechnen Sie damit, dass Ihre Beteiligung bis zum Ende der Laufzeit gebunden ist.",
+        "Wird das Finanzierungsziel nicht erreicht, werden keine Anteile ausgegeben und die Zahlungen vollständig zurückerstattet."
       ],
       "projectRisksTitle": "Projektspezifische Risiken",
-      "roleNote": "LIQUODA vermittelt und stellt die Technik bereit. LIQUODA ist nicht Vertragspartei der Beteiligung und verwahrt weder Geld noch Token.",
+      "roleNote": "LIQUODA vermittelt und stellt die Technik bereit. LIQUODA ist nicht Vertragspartei der Beteiligung und verwahrt weder Geld noch Anteile.",
       "ctaCheck": "Investition prüfen",
       "ctaHint": "Beteiligungen sind ab dem Start der Plattform möglich. Tragen Sie sich in die Warteliste ein, wenn Sie informiert werden möchten.",
       "ctaWaitlist": "Zur Warteliste",
@@ -467,7 +467,7 @@
         "open": "Die Finanzierungsphase läuft. Der Zielbetrag ist noch nicht erreicht.",
         "funded": "Der Zielbetrag wurde erreicht. Die Runde ist abgeschlossen; neue Beteiligungen sind nicht mehr möglich.",
         "closed": "Das Projekt ist geschlossen. Neue Beteiligungen sind nicht möglich.",
-        "failed": "Finanzierung nicht erfolgreich: Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Token ausgegeben, alle Zahlungen wurden rückabgewickelt."
+        "failed": "Finanzierung nicht erfolgreich: Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Anteile ausgegeben, alle Zahlungen wurden zurückerstattet."
       },
       "ctaHintLogin": "Für eine Beteiligung benötigen Sie ein Investoren-Konto mit bestätigter Identität.",
       "ctaHintClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an.",
@@ -693,8 +693,8 @@
         "risks": "Ich habe den Abschnitt «Risiken und Hinweise» dieses Projekts gelesen und verstanden.",
         "loss": "Ich verstehe, dass es sich um eine unternehmerische Beteiligung handelt und das eingesetzte Kapital ganz oder teilweise verloren gehen kann.",
         "lock": "Ich verstehe, dass es keinen Sekundärmarkt gibt und meine Beteiligung bis zum Ende der Laufzeit gebunden ist.",
-        "role": "Ich verstehe, dass LIQUODA vermittelt und die Technik bereitstellt, nicht Vertragspartei ist, kein Geld und keine Token verwahrt und keine Anlageberatung erbringt.",
-        "refund": "Ich verstehe, dass bei Nichterreichen des Finanzierungsziels keine Token ausgegeben werden und meine Zahlung rückabgewickelt wird."
+        "role": "Ich verstehe, dass LIQUODA vermittelt und die Technik bereitstellt, nicht Vertragspartei ist, kein Geld und keine Anteile verwahrt und keine Anlageberatung erbringt.",
+        "refund": "Ich verstehe, dass bei Nichterreichen des Finanzierungsziels keine Anteile ausgegeben werden und meine Zahlung vollständig zurückerstattet wird."
       },
       "error": "Bitte bestätigen Sie alle Punkte.",
       "back": "Zurück",
@@ -774,7 +774,7 @@
         "approved": "Das Projekt ist freigegeben.",
         "active": "Das Projekt ist im Marktplatz sichtbar, die Finanzierungsphase läuft.",
         "funded": "Der Zielbetrag wurde erreicht. Die Runde ist abgeschlossen.",
-        "failed": "Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Token ausgegeben; Zahlungen werden rückabgewickelt.",
+        "failed": "Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Anteile ausgegeben; die Zahlungen der Investoren werden automatisch zurückerstattet.",
         "cancelled": "Das Projekt wurde vorzeitig beendet. Die Begründung steht in der Rückmeldung.",
         "closed": "Das Projekt ist abgeschlossen."
       },
@@ -810,7 +810,7 @@
         "locationEn": "Ort (EN)",
         "locationHint": "z. B. «Thun BE»",
         "assetType": "Art des Assets",
-        "tokenModel": "Token-Modell",
+        "tokenModel": "Art der Anteile",
         "tokenModelHint": "ERC-20 für Anteile an Unternehmen, Immobilien und Energieprojekten. ERC-721 für ein einzelnes Asset wie eine Uhr oder ein Fahrzeug."
       },
       "texts": {
@@ -1278,8 +1278,9 @@
         {
           "title": "Technische Risiken",
           "items": [
-            "Token werden in Ihre eigene Wallet übertragen. Der Zugang zu dieser Wallet liegt allein in Ihrer Verantwortung.",
-            "LIQUODA verwahrt keine Schlüssel und kann verlorene Zugänge nicht wiederherstellen."
+            "Ihre Anteile werden in einem Anteile-Konto geführt, das automatisch mit Ihrem Login eingerichtet wird. Der Schlüssel dazu liegt aufgeteilt bei einem spezialisierten Dienstleister und in Ihrem Browser; LIQUODA hat keinen Zugriff darauf.",
+            "Verlieren Sie den Zugang zu Ihrem LIQUODA-Konto und Ihrer E-Mail-Adresse, ist auch der Zugang zu Ihren Anteilen betroffen. LIQUODA kann Anteile nicht ersetzen.",
+            "Das öffentliche Register (Polygon) wird von Dritten betrieben. Störungen dort können die Zuweisung oder Anzeige von Anteilen verzögern."
           ]
         }
       ]
