@@ -4,7 +4,7 @@ Stand: 27. September 2026. Dieses Dokument fasst zusammen, was eine Anwältin od
 
 ## 1. Was LIQUODA ist
 
-- Schweizer Vermittlungs- und Technologieplattform (www.liquoda.com), betrieben von Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern. Rechtsform noch offen (Einzelfirma oder GmbH, siehe Frage 5.1).
+- Schweizer Vermittlungs- und Technologieplattform (www.liquoda.com), betrieben vom Einzelunternehmen Electromantiques Marcel Spahr, Handelsregister des Kantons Bern CH-036.1.051.760-7, UID CHE-153.310.592, Schwarzenburgstrasse 65, 3008 Bern (Frage 5.1: GmbH sinnvoll?).
 - Kapitalnehmer (rechtlich Emittenten: KMU, Eigentümer von Immobilien, Energieprojekten, Sachwerten) stellen ein Projekt mit Zielbetrag ab CHF 10'000 und Laufzeit vor. Investoren (Privatpersonen) beteiligen sich mit CHF 100 bis CHF 20'000 je Beteiligung.
 - LIQUODA prüft Vollständigkeit und Plausibilität, gibt Projekte manuell frei, wickelt die Kartenzahlung über Stripe ab und führt die Anteile als Token (ERC-20 mit Allowlist, pausierbar, gedeckelt auf den Zielbetrag; 1 Token = CHF 1) in einem öffentlichen Register auf Polygon.
 - LIQUODA verwahrt kein Geld dauerhaft, keine Anteile und keine Schlüssel. Jeder Investor erhält bei der Registrierung automatisch eine eigene Wallet (Anbieter Privy, USA); LIQUODA kann Anteile pausieren, aber nicht entziehen.
@@ -23,7 +23,7 @@ Alle Texte zweisprachig (Deutsch mit Schweizer Schreibweise, Englisch). Sie werd
 | Datenschutzerklärung | /datenschutz | Entwurf nach DSG mit allen Auftragsbearbeitern |
 | Risikohinweise | /risiken | Entwurf |
 | Haftungsausschluss | /haftung | Entwurf |
-| Impressum | /impressum | Entwurf; UID und Handelsregister fehlen |
+| Impressum | /impressum | vollständig |
 
 Zusätzlich im Investitionsprozess: fünf Zustimmungen, die der Investor aktiv anklickt (Risiken gelesen, Totalverlust möglich, Kapital gebunden, Rolle von LIQUODA verstanden, Rückerstattung bei Scheitern). Wortlaut in `messages/de.json` unter `invest.consent.items`. Und beim Einreichen eines Projekts die Bestätigung des Kapitalnehmers (Angaben wahr und vollständig, berechtigt).
 
@@ -59,7 +59,7 @@ Vorlage in `docs/vertraege/BETEILIGUNGSVERTRAG.md`. Zu prüfen:
 
 ## 5. Weitere Fragen
 
-1. Rechtsform und Haftung: Einzelfirma oder GmbH; Handelsregistereintrag; Angaben im Impressum.
+1. Rechtsform und Haftung: LIQUODA läuft heute unter dem Einzelunternehmen Electromantiques Marcel Spahr (Zweck laut Handelsregister prüfen und allenfalls ergänzen). Empfiehlt sich eine GmbH mit eigenem Zweck, um die persönliche Haftung zu begrenzen?
 2. Haftung für die Vorprüfung durch die KI und für Businesspläne, die der KI-Assistent aus den Angaben des Kapitalnehmers schreibt. Heute: Hinweis im Dokument und in der Oberfläche, dass der Kapitalnehmer den Inhalt verantwortet.
 3. Aufbewahrung: Welche Daten wie lange (Zahlungsbelege, Identitätsnachweise, Dokumente der Projekte, Gesprächsverläufe mit der KI)?
 4. Steuern: Verrechnungssteuer bei Zinszahlungen, MwSt. auf Gebühren und auf den KI-Assistenten (CHF 190 «inkl. MwSt.» steht heute in der Oberfläche).

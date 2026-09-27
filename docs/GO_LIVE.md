@@ -8,9 +8,9 @@ Erledigt ist alles, was ohne Geld, Firmendaten oder Fachperson möglich war. Vor
 
 **[Marcel]** Rechtsberatung beauftragen; das Briefing dafür liegt in `RECHTLICHES_BRIEFING.md`.
 
-- AGB, Datenschutzerklärung (DSG), Risikoaufklärung, Haftungsausschluss und Impressum liegen seit 27.09.2026 als vollständige Entwürfe auf der Website (`messages/de.json` und `messages/en.json` unter `legal.*`). Vorlagen für den Beteiligungsvertrag und den Plattformvertrag mit dem Kapitalnehmer liegen in `docs/vertraege/`. **[Marcel]** Alle Texte durch eine Anwältin oder einen Anwalt prüfen lassen (Prüfung statt Erstellung); danach den Hinweis «Entwurf» in `LegalPage.tsx` entfernen und Rechtsform/UID im Impressum ergänzen.
+- AGB, Datenschutzerklärung (DSG), Risikoaufklärung, Haftungsausschluss und Impressum liegen seit 27.09.2026 als vollständige Entwürfe auf der Website (`messages/de.json` und `messages/en.json` unter `legal.*`). Vorlagen für den Beteiligungsvertrag und den Plattformvertrag mit dem Kapitalnehmer liegen in `docs/vertraege/`. **[Marcel]** Alle Texte durch eine Anwältin oder einen Anwalt prüfen lassen (Prüfung statt Erstellung); danach den Hinweis «Entwurf» in `LegalPage.tsx` entfernen.
 - Klären: Ist LIQUODA mit dem gewählten Modell (Vermittlung, non-custodial, Anteile als Token) in der Schweiz bewilligungsfrei? Stichworte: FINMA-Vermittlerregelung, Prospektpflicht ab bestimmten Volumen, Geldwäschereigesetz bei Zahlungsabwicklung. Dies ist vor dem ersten echten Projekt zu klären.
-- Impressum um Rechtsform und Handelsregister ergänzen.
+- Impressum: erledigt (Einzelunternehmen Electromantiques Marcel Spahr, HR Bern CH-036.1.051.760-7, UID CHE-153.310.592). Offen: Zweck im Handelsregister prüfen, ob er eine Vermittlungsplattform abdeckt.
 
 ## 2. Stripe auf Echtbetrieb
 
