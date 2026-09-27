@@ -3,8 +3,8 @@
     "brand": "LIQUODA",
     "tagline": "Real Assets · Digital Security",
     "role": "Schweizer Vermittlungs- und Technologieplattform für tokenisierte Sachwerte",
-    "placeholderTitle": "Platzhalter",
-    "placeholderText": "Dieser Inhalt wird vor dem Start der Plattform rechtlich geprüft und ergänzt. Die folgenden Punkte zeigen, was hier stehen wird."
+    "placeholderTitle": "Entwurf",
+    "placeholderText": "Dieser Text ist ein vollständiger Entwurf nach Schweizer Recht. Vor dem Start des Echtbetriebs wird er durch eine Fachperson geprüft; bis dahin gilt er als Information, nicht als abschliessende Vertragsgrundlage."
   },
   "nav": {
     "home": "Startseite",
@@ -1203,7 +1203,7 @@
     "impressum": {
       "metaTitle": "Impressum",
       "title": "Impressum",
-      "lead": "Verantwortlich für diese Website.",
+      "lead": "Verantwortlich für diese Website und die Plattform.",
       "sections": [
         {
           "title": "Betreiber",
@@ -1212,14 +1212,22 @@
             "Schwarzenburgstrasse 65",
             "3008 Bern, Schweiz",
             "info@liquoda.com",
-            "+41 79 511 09 11"
+            "+41 79 511 09 11",
+            "Rechtsform und Handelsregister: Einzelunternehmen; Eintrag im Handelsregister und UID werden vor dem Start ergänzt."
           ]
         },
         {
-          "title": "Rolle",
+          "title": "Rolle und Aufsicht",
           "items": [
-            "LIQUODA ist eine Vermittlungs- und Technologieplattform. LIQUODA ist keine Bank, kein Finanzinstitut, kein Vermögensverwalter und keine Verwahrstelle.",
-            "Angaben zu Rechtsform, Handelsregister und Aufsicht werden vor dem Start der Plattform ergänzt."
+            "LIQUODA ist eine Vermittlungs- und Technologieplattform. LIQUODA ist keine Bank, kein Finanzinstitut, kein Wertpapierhaus, kein Vermögensverwalter und keine Verwahrstelle.",
+            "LIQUODA verfügt über keine Bewilligung der Eidgenössischen Finanzmarktaufsicht FINMA und ist keiner prudenziellen Aufsicht unterstellt. Die Frage, ob das Geschäftsmodell einer Bewilligung oder dem Anschluss an eine Selbstregulierungsorganisation bedarf, wird vor dem Start des Echtbetriebs durch eine Fachperson abgeklärt.",
+            "Zuständig für Datenschutzfragen: info@liquoda.com. Beschwerdestelle: Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)."
+          ]
+        },
+        {
+          "title": "Technik",
+          "items": [
+            "Hosting: Vercel Inc., USA. Datenbank und Dokumente: Supabase (Region Zürich). Zahlungen: Stripe Payments Europe Ltd. Anteile-Konto: Privy Inc., USA. E-Mail: Resend Inc., USA. KI: Anthropic PBC, USA. Öffentliches Register: Polygon."
           ]
         }
       ]
@@ -1227,34 +1235,84 @@
     "datenschutz": {
       "metaTitle": "Datenschutz",
       "title": "Datenschutzerklärung",
-      "lead": "Wie LIQUODA mit Personendaten umgeht, nach dem Schweizer Datenschutzgesetz (DSG).",
+      "lead": "Wie LIQUODA Personendaten bearbeitet, nach dem Schweizer Datenschutzgesetz (DSG). Fassung vom 27. September 2026 (Entwurf, Prüfung durch Fachperson ausstehend).",
       "sections": [
         {
-          "title": "Verantwortliche Stelle",
+          "title": "1. Verantwortliche Stelle",
           "items": [
-            "LIQUODA, betrieben von Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern. Kontakt: info@liquoda.com."
+            "LIQUODA, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, Schweiz. Kontakt für Datenschutzfragen: info@liquoda.com."
           ]
         },
         {
-          "title": "Welche Daten erhoben werden",
+          "title": "2. Welche Daten wir bearbeiten",
           "items": [
-            "Warteliste: Vorname, Nachname, E-Mail-Adresse und gewählte Rolle.",
-            "Projektanfrage: Name, Unternehmen, E-Mail-Adresse, Art des Assets, geschätzter Betrag und Beschreibung.",
-            "Nach dem Start der Plattform zusätzlich: Angaben zur Identitätsprüfung (KYC/KYB), Wallet-Adresse und Zahlungsreferenzen. Diese Punkte werden vor dem Start ergänzt."
+            "Konto: Name, E-Mail-Adresse, Rolle (Investor oder Kapitalnehmer), Sprache, Passwort (verschlüsselt gespeichert), Zeitpunkt der Registrierung und Anmeldungen.",
+            "Identitätsprüfung (KYC/KYB): Ausweiskopien, Adresse, Geburtsdatum, bei Unternehmen Handelsregisterauszug und Angaben zu zeichnungsberechtigten Personen. Diese Unterlagen werden ausserhalb der Plattform in einem geschützten Ablagesystem aufbewahrt; auf der Plattform wird nur der Prüfstatus gespeichert.",
+            "Beteiligungen: Projekt, Betrag, Zeitpunkt, Status, Zahlungsreferenz des Zahlungsdienstleisters (keine Kartendaten; diese verarbeitet ausschliesslich Stripe).",
+            "Anteile-Konto: Adresse der Wallet, die bei der Registrierung für Sie erstellt wird, und die Zuweisungen von Anteilen.",
+            "Projekte von Kapitalnehmern: Texte, Bilder, Dokumente, Absender von Fragen und Neuigkeiten, Gesprächsverlauf mit dem KI-Assistenten, Vorprüfungsberichte.",
+            "Warteliste und Projektanfrage: Name, Unternehmen, E-Mail-Adresse, Art des Assets, geschätzter Betrag, Beschreibung.",
+            "Support-Bot: Ihre Fragen und die Antworten, mit einer zufälligen Sitzungsnummer, ohne Bezug zu Ihrem Konto.",
+            "Technische Daten: IP-Adresse, Browser, Zeitpunkt des Zugriffs (Protokolle des Hostings) sowie ein Sitzungs-Cookie für die Anmeldung. Wir setzen keine Werbe- oder Tracking-Cookies und kein Analysewerkzeug."
           ]
         },
         {
-          "title": "Wofür die Daten verwendet werden",
+          "title": "3. Wofür wir die Daten verwenden",
           "items": [
-            "Ausschliesslich zur Information über den Start und zur Bearbeitung Ihrer Anfrage.",
-            "Keine Weitergabe an Dritte, keine Werbung, kein Profiling, kein Verkauf.",
-            "Keine personenbezogenen Daten werden auf der Blockchain gespeichert."
+            "Betrieb der Plattform: Konto, Anmeldung, Anzeige von Projekten, Abwicklung von Beteiligungen, Zuweisung von Anteilen, Rückerstattungen, Mitteilungen per E-Mail zu Ihrem Konto und Ihren Beteiligungen oder Projekten.",
+            "Gesetzliche Pflichten: Identitätsprüfung, Verhinderung von Missbrauch und Geldwäscherei, Aufbewahrungspflichten, Auskunft an Behörden, soweit gesetzlich vorgeschrieben.",
+            "Sicherheit: Erkennen und Abwehren von Angriffen, Nachvollziehbarkeit von Änderungen (Audit-Protokoll im Admin-Bereich).",
+            "Verbesserung der Plattform: Auswertung von Support-Gesprächen, um Antworten und Erklärungen zu verbessern, ohne Personenbezug.",
+            "Keine Werbung, kein Profiling, kein Verkauf von Daten."
           ]
         },
         {
-          "title": "Ihre Rechte",
+          "title": "4. An wen Daten weitergegeben werden",
           "items": [
-            "Sie haben jederzeit das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten. Schreiben Sie dazu an info@liquoda.com."
+            "An andere Nutzer: Investoren sehen bei Projekten den Namen und, sofern hinterlegt, das Profil des Kapitalnehmers sowie öffentliche Dokumente. Kapitalnehmer sehen Betrag und Zeitpunkt von Beteiligungen, nicht aber die Identität der Investoren, ausser dies ist zur Erfüllung des Beteiligungsvertrags oder zur Rechtsdurchsetzung nötig.",
+            "Auftragsbearbeiter, die für uns Daten bearbeiten: Supabase (Datenbank, Login, Dokumentenablage; Server in Zürich, Schweiz), Vercel (Hosting; Server in den USA), Stripe (Kartenzahlung; Irland/USA), Resend (E-Mail-Versand; USA), Privy (Anteile-Konto; USA), Anthropic (Sprachmodell für KI-Assistent und Support-Bot; USA).",
+            "Bei Übermittlungen in die USA stützen wir uns auf Standarddatenschutzklauseln beziehungsweise auf die Zertifizierung des Anbieters unter dem Swiss-U.S. Data Privacy Framework.",
+            "KI-Dienste: Eingaben an den KI-Assistenten (Gespräch, Projektangaben, hochgeladene Dokumente für die Vorprüfung) und an den Support-Bot werden an Anthropic übermittelt und dort nach dessen Bedingungen bis zu 30 Tage aufbewahrt, nicht aber zum Training von Modellen verwendet. Geben Sie im Gespräch nur Daten ein, die Sie weitergeben dürfen.",
+            "Behörden und Gerichte: soweit wir gesetzlich verpflichtet sind oder es zur Durchsetzung von Ansprüchen nötig ist."
+          ]
+        },
+        {
+          "title": "5. Öffentliches Register (Blockchain)",
+          "items": [
+            "Anteile werden im öffentlichen Register auf der Polygon-Blockchain geführt. Dort sind die Adresse Ihres Anteile-Kontos, die Anzahl Anteile, der Zeitpunkt der Zuweisung und die Prüfsummen der Projektdokumente dauerhaft und weltweit einsehbar.",
+            "Ihr Name, Ihre E-Mail-Adresse und andere Personendaten werden nicht auf der Blockchain gespeichert. Die Zuordnung von Adresse zu Person kennt nur LIQUODA.",
+            "Einträge auf der Blockchain können technisch nicht gelöscht oder geändert werden. Das Recht auf Löschung kann sich deshalb nicht auf diese Einträge beziehen; wir löschen stattdessen die Zuordnung zu Ihrer Person, sobald die Aufbewahrungspflichten enden."
+          ]
+        },
+        {
+          "title": "6. Aufbewahrung",
+          "items": [
+            "Kontodaten: bis zur Löschung des Kontos und danach so lange, wie gesetzliche Aufbewahrungspflichten bestehen.",
+            "Beteiligungen, Zahlungen, Identitätsprüfung und Projektdokumente: 10 Jahre ab Ende der Beteiligung oder des Projekts (Buchführungs- und Sorgfaltspflichten).",
+            "Support-Gespräche: 12 Monate. Gespräche mit dem KI-Assistenten: bis zur Löschung durch den Kapitalnehmer oder des Projekts.",
+            "Technische Protokolle: 90 Tage.",
+            "Warteliste und Projektanfragen: bis zur Bearbeitung, höchstens 24 Monate."
+          ]
+        },
+        {
+          "title": "7. Sicherheit",
+          "items": [
+            "Datenübertragung verschlüsselt (TLS), Passwörter nur als Hash, Zugriff auf Daten nach dem Prinzip der minimalen Rechte, Dokumente in einem geschützten Speicher mit kurzlebigen Zugriffslinks, Änderungen an Statusdaten werden protokolliert.",
+            "Die Schlüssel zu Ihrem Anteile-Konto liegen aufgeteilt beim Wallet-Dienstleister und in Ihrem Gerät; LIQUODA hat keinen Zugriff."
+          ]
+        },
+        {
+          "title": "8. Ihre Rechte",
+          "items": [
+            "Sie haben das Recht auf Auskunft über Ihre Daten, auf Berichtigung, auf Löschung (mit den Einschränkungen aus Ziffer 5 und 6), auf Einschränkung der Bearbeitung und auf Herausgabe Ihrer Daten in einem gängigen Format.",
+            "Schreiben Sie dazu an info@liquoda.com. Wir antworten innert 30 Tagen. Zur Sicherheit können wir einen Identitätsnachweis verlangen.",
+            "Sie können sich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) beschweren."
+          ]
+        },
+        {
+          "title": "9. Änderungen",
+          "items": [
+            "Wir passen diese Erklärung an, wenn sich die Bearbeitung oder das Recht ändert. Es gilt die auf der Plattform veröffentlichte Fassung."
           ]
         }
       ]
@@ -1262,17 +1320,141 @@
     "agb": {
       "metaTitle": "AGB",
       "title": "Allgemeine Geschäftsbedingungen",
-      "lead": "Die Bedingungen für die Nutzung der Plattform.",
+      "lead": "Diese Bedingungen regeln die Nutzung der Plattform LIQUODA durch Investoren und Kapitalnehmer. Fassung vom 27. September 2026 (Entwurf, Prüfung durch Fachperson ausstehend).",
       "sections": [
         {
-          "title": "Vorgesehene Inhalte",
+          "title": "1. Geltungsbereich und Begriffe",
           "items": [
-            "Geltungsbereich und Rolle von LIQUODA als Vermittlungs- und Technologieplattform.",
-            "Pflichten von Emittenten und Investoren.",
-            "Ablauf von Registrierung, Identitätsprüfung, Projektaufnahme und Beteiligung.",
-            "Gebühren gemäss der Seite «Für Emittenten».",
-            "Konsequenzen bei Abbruch, Nichterreichen des Finanzierungsziels und vorzeitiger Beendigung.",
-            "Anwendbares Recht und Gerichtsstand in der Schweiz."
+            "1.1 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Nutzung der Website und Plattform www.liquoda.com (Plattform), betrieben von LIQUODA, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern (LIQUODA).",
+            "1.2 Nutzer sind Investoren (natürliche Personen, die sich an Projekten beteiligen) und Kapitalnehmer (Unternehmen oder Personen, die ein Projekt zur Finanzierung anbieten; im rechtlichen Sinn Emittenten). Wo diese AGB von Nutzern sprechen, gelten sie für beide.",
+            "1.3 Anteile sind die Beteiligungsrechte eines Investors an einem Projekt, die als digitale Einheiten (Token) im öffentlichen Register auf der Polygon-Blockchain nachgewiesen werden. Anteile-Konto ist die Wallet, die für jeden Investor bei der Registrierung automatisch eingerichtet wird.",
+            "1.4 Mit der Registrierung akzeptiert der Nutzer diese AGB, die Datenschutzerklärung, die Risikoaufklärung und den Haftungsausschluss. Abweichende Bedingungen des Nutzers gelten nicht."
+          ]
+        },
+        {
+          "title": "2. Rolle von LIQUODA",
+          "items": [
+            "2.1 LIQUODA ist eine Vermittlungs- und Technologieplattform. LIQUODA bringt Kapitalnehmer und Investoren zusammen, stellt den Prozess, die Projektseiten, die Zahlungsabwicklung über einen Zahlungsdienstleister und das Register der Anteile bereit.",
+            "2.2 LIQUODA ist keine Bank, kein Finanzinstitut, kein Wertpapierhaus, kein Vermögensverwalter, keine Verwahrstelle und kein Handelsplatz. LIQUODA erbringt keine Anlage-, Rechts- oder Steuerberatung und gibt keine Empfehlungen zu einzelnen Projekten ab.",
+            "2.3 LIQUODA ist nicht Partei des Beteiligungsvertrags zwischen Investor und Kapitalnehmer (Ziffer 6). LIQUODA garantiert weder den Erfolg eines Projekts noch die Erfüllung der Pflichten des Kapitalnehmers.",
+            "2.4 LIQUODA verwahrt keine Anteile und keine Wallet-Schlüssel. Zahlungen der Investoren werden vom Zahlungsdienstleister entgegengenommen und nach Abschluss der Finanzierungsrunde an den Kapitalnehmer weitergeleitet oder an die Investoren zurückerstattet (Ziffer 4.6 und 4.7).",
+            "2.5 LIQUODA prüft Projekte vor der Freigabe auf Vollständigkeit und Plausibilität. Diese Prüfung ist keine Garantie für die Richtigkeit der Angaben des Kapitalnehmers und keine Bewertung der Beteiligung oder ihrer Sicherheiten."
+          ]
+        },
+        {
+          "title": "3. Registrierung, Konto und Identitätsprüfung",
+          "items": [
+            "3.1 Die Nutzung der Plattform setzt ein Konto mit gültiger E-Mail-Adresse voraus. Der Nutzer wählt bei der Registrierung seine Rolle (Investor oder Kapitalnehmer). Pro Person ist ein Konto zulässig.",
+            "3.2 Investoren müssen volljährig und handlungsfähig sein und ihren Wohnsitz in der Schweiz haben. Kapitalnehmer müssen ihren Sitz oder das angebotene Asset in der Schweiz haben und zur Verfügung über das Asset berechtigt sein.",
+            "3.3 Vor der ersten Beteiligung beziehungsweise vor der Freigabe eines Projekts prüft LIQUODA die Identität des Investors (KYC) beziehungsweise des Kapitalnehmers und der zeichnungsberechtigten Personen (KYB). Der Nutzer liefert die verlangten Unterlagen wahrheitsgetreu. LIQUODA kann die Prüfung ohne Angabe von Gründen verweigern oder Dritte damit beauftragen.",
+            "3.4 Der Nutzer hält seine Zugangsdaten geheim und meldet LIQUODA jeden Verdacht auf Missbrauch unverzüglich. Handlungen über sein Konto werden ihm zugerechnet.",
+            "3.5 Der Nutzer hält seine Angaben aktuell. LIQUODA darf ein Konto sperren, wenn Angaben falsch sind, gegen diese AGB verstossen wird oder ein gesetzlicher Grund vorliegt."
+          ]
+        },
+        {
+          "title": "4. Beteiligung durch Investoren",
+          "items": [
+            "4.1 Auf der Projektseite sind Zweck, Zielbetrag, Laufzeit, Mindestbetrag, Absicherung, Dokumente und projektspezifische Risiken beschrieben. Diese Angaben stammen vom Kapitalnehmer. Der Investor prüft sie selbst und zieht bei Bedarf eigene Berater bei.",
+            "4.2 Eine Beteiligung ist möglich zwischen dem Mindestbetrag des Projekts und CHF 20'000 je Beteiligung, höchstens bis zum noch offenen Betrag des Projekts. LIQUODA kann Höchstbeträge je Investor festlegen.",
+            "4.3 Vor der Zahlung bestätigt der Investor aktiv, dass er die Risikoaufklärung und die projektspezifischen Risiken gelesen hat, dass ein Totalverlust möglich ist, dass es keinen Sekundärmarkt gibt, dass LIQUODA nicht Vertragspartei ist und dass bei Scheitern der Finanzierung die Zahlung zurückerstattet wird.",
+            "4.4 Mit Abschluss der Zahlung gibt der Investor ein verbindliches Angebot zur Beteiligung ab. Ein Widerrufsrecht besteht nicht. Die Beteiligung kommt zustande, wenn das Finanzierungsziel innerhalb der Laufzeit erreicht wird und LIQUODA die Anteile dem Anteile-Konto des Investors zuweist.",
+            "4.5 Zahlungen erfolgen in Schweizer Franken per Karte über den Zahlungsdienstleister Stripe. Es gelten zusätzlich dessen Bedingungen. Auf den Beteiligungsbetrag erhebt LIQUODA eine Transaktionsgebühr von 1 %, die vor der Zahlung ausgewiesen wird.",
+            "4.6 Wird das Finanzierungsziel bis zum Ende der Laufzeit nicht erreicht oder wird das Projekt vorher beendet, werden keine Anteile ausgegeben. Der Investor erhält den bezahlten Betrag einschliesslich Gebühr vollständig auf das ursprüngliche Zahlungsmittel zurück. Zinsen werden nicht vergütet.",
+            "4.7 Wird das Finanzierungsziel erreicht, weist LIQUODA jedem Investor nach bestätigter Identität die Anteile im Verhältnis 1 Anteil je CHF 1 Beteiligungsbetrag zu und leitet die Zahlungen abzüglich der Gebühr des Kapitalnehmers an diesen weiter.",
+            "4.8 Anteile sind an das Anteile-Konto des Investors gebunden. Sie können auf der Plattform nicht gehandelt und nur an Konten übertragen werden, deren Inhaber von LIQUODA geprüft sind. Ein Sekundärmarkt besteht nicht. LIQUODA kann Übertragungen technisch anhalten, wenn dies gesetzlich oder zum Schutz der Beteiligten nötig ist.",
+            "4.9 Das Anteile-Konto wird durch einen spezialisierten Dienstleister (Privy) bereitgestellt; der Schlüssel liegt aufgeteilt beim Dienstleister und im Gerät des Investors. LIQUODA hat keinen Zugriff auf den Schlüssel und kann Anteile weder entziehen noch ersetzen.",
+            "4.10 Erträge, Zinsen oder Rückzahlungen schuldet ausschliesslich der Kapitalnehmer gemäss Beteiligungsvertrag. LIQUODA leistet keine Zahlungen an Investoren, ausser die Rückerstattung nach Ziffer 4.6."
+          ]
+        },
+        {
+          "title": "5. Projekte von Kapitalnehmern",
+          "items": [
+            "5.1 Der Kapitalnehmer erfasst sein Projekt auf der Plattform und liefert die Pflichtdokumente für die jeweilige Asset-Art. Er bestätigt beim Einreichen, dass alle Angaben wahr und vollständig sind und dass er berechtigt ist, das Projekt anzubieten.",
+            "5.2 Der Kapitalnehmer ist allein verantwortlich für den Inhalt seines Projekts, seiner Dokumente und seiner Antworten an Investoren, auch wenn Texte mit Unterstützung des KI-Assistenten erstellt wurden. Er hält die gesetzlichen Vorschriften ein, insbesondere zu öffentlichen Angeboten, Prospektpflicht und Werbung, und holt nötige Bewilligungen selbst ein.",
+            "5.3 LIQUODA entscheidet frei über die Freigabe eines Projekts und kann sie ohne Angabe von Gründen verweigern, mit Rückfragen verbinden oder ein freigegebenes Projekt beenden, wenn Angaben unrichtig sind, Pflichten verletzt werden oder ein gesetzlicher Grund vorliegt. Ein Anspruch auf Freigabe besteht nicht.",
+            "5.4 Vor der Freigabe schliessen LIQUODA und der Kapitalnehmer einen Plattformvertrag, der Paket, Gebühren, Pflichten während der Laufzeit und die Abwicklung regelt. Bei Widersprüchen geht der Plattformvertrag diesen AGB vor.",
+            "5.5 Gebühren: Setup- und Monatsgebühr gemäss gewähltem Paket (Basic, Standard, Premium) sowie eine Transaktionsgebühr von 3 % auf das erfolgreich investierte Volumen, fällig nur bei Erreichen des Finanzierungsziels und mit der Auszahlung verrechnet. Der KI-Assistent kostet CHF 190 einmalig je Projekt und ist im Standard- und Premium-Paket inbegriffen. Alle Preise verstehen sich inklusive allfälliger Mehrwertsteuer, sofern nicht anders angegeben.",
+            "5.6 Nach Erreichen des Finanzierungsziels überweist LIQUODA den investierten Betrag abzüglich der Transaktionsgebühr innert 10 Arbeitstagen nach Abschluss aller Zuweisungen auf das Bankkonto des Kapitalnehmers. LIQUODA kann die Auszahlung zurückhalten, solange die Identitätsprüfung nicht abgeschlossen ist oder ein Verdacht auf Missbrauch besteht.",
+            "5.7 Während der Laufzeit der Beteiligung informiert der Kapitalnehmer die Investoren über wesentliche Entwicklungen über die Plattform (Neuigkeiten) und beantwortet Fragen sachlich. Er erfüllt seine Pflichten aus dem Beteiligungsvertrag direkt gegenüber den Investoren.",
+            "5.8 Der Kapitalnehmer räumt LIQUODA das Recht ein, die eingereichten Texte, Bilder und Dokumente auf der Plattform und in Mitteilungen an Investoren zu veröffentlichen, soweit er sie als öffentlich oder für angemeldete Nutzer sichtbar bezeichnet hat."
+          ]
+        },
+        {
+          "title": "6. Vertrag zwischen Investor und Kapitalnehmer",
+          "items": [
+            "6.1 Die Beteiligung ist ein Vertrag zwischen dem Investor und dem Kapitalnehmer (Beteiligungsvertrag). Seine Bedingungen (Art der Beteiligung, Laufzeit, Rückzahlung, Verzinsung oder Erfolgsbeteiligung, Sicherheiten, Informationspflichten) sind auf der Projektseite und in den Projektdokumenten beschrieben.",
+            "6.2 Die Anteile im öffentlichen Register dienen als Nachweis der Beteiligung. Sie begründen keine Rechte gegenüber LIQUODA.",
+            "6.3 Sicherheiten (Pfand, Garantie oder Bürgschaft, Auszahlung nach Meilensteinen) werden zwischen Investor und Kapitalnehmer vereinbart. LIQUODA bewertet, verwahrt oder verwertet keine Sicherheiten.",
+            "6.4 Streitigkeiten aus dem Beteiligungsvertrag regeln Investor und Kapitalnehmer direkt. LIQUODA kann Kontaktdaten an die andere Partei weitergeben, soweit dies zur Durchsetzung von Ansprüchen nötig ist."
+          ]
+        },
+        {
+          "title": "7. KI-Assistent und Support-Bot",
+          "items": [
+            "7.1 LIQUODA stellt Kapitalnehmern einen KI-Assistenten und allen Besuchern einen Support-Bot zur Verfügung. Beide erzeugen Texte automatisch und können Fehler enthalten. Sie erbringen keine Rechts-, Steuer- oder Anlageberatung.",
+            "7.2 Dokumente, die der KI-Assistent aus den Angaben des Kapitalnehmers erstellt, sind Entwürfe. Der Kapitalnehmer prüft sie und verantwortet ihren Inhalt. Die Vorprüfung durch den KI-Assistenten ersetzt die Prüfung durch LIQUODA nicht und begründet keinen Anspruch auf Freigabe.",
+            "7.3 Eingaben an den KI-Assistenten und den Support-Bot werden zur Verarbeitung an den Anbieter des Sprachmodells (Anthropic, USA) übermittelt. Einzelheiten stehen in der Datenschutzerklärung. Der Nutzer gibt keine Daten Dritter ein, zu deren Weitergabe er nicht berechtigt ist."
+          ]
+        },
+        {
+          "title": "8. Pflichten der Nutzer und Sperrung",
+          "items": [
+            "8.1 Die Plattform darf nur für den vorgesehenen Zweck genutzt werden. Untersagt sind insbesondere: falsche Angaben, Nutzung fremder Identitäten, Umgehung der Identitätsprüfung, Einschleusen von Schadsoftware, automatisiertes Auslesen, Belästigung anderer Nutzer und jede Handlung, die gegen Gesetze verstösst.",
+            "8.2 Beiträge in Fragen und Neuigkeiten müssen sachlich sein und dürfen keine Renditeversprechen, Werbung für Dritte oder rechtswidrige Inhalte enthalten. LIQUODA darf Beiträge ausblenden.",
+            "8.3 Bei Verstössen kann LIQUODA Konten sperren, Projekte beenden und Beteiligungen anhalten. Bereits geleistete Zahlungen werden nach Ziffer 4.6 behandelt, soweit keine Anteile zugewiesen sind."
+          ]
+        },
+        {
+          "title": "9. Verfügbarkeit und Änderungen der Plattform",
+          "items": [
+            "9.1 LIQUODA bemüht sich um eine hohe Verfügbarkeit, schuldet aber keine ununterbrochene Erreichbarkeit. Wartung, Störungen bei Drittanbietern (Hosting, Zahlungsdienstleister, Blockchain, Wallet-Dienst, Sprachmodell) und höhere Gewalt können die Nutzung einschränken.",
+            "9.2 LIQUODA kann Funktionen ändern, ergänzen oder einstellen. Laufende Finanzierungsrunden werden nach diesen AGB abgeschlossen oder rückabgewickelt."
+          ]
+        },
+        {
+          "title": "10. Immaterialgüterrechte",
+          "items": [
+            "10.1 Alle Rechte an der Plattform, ihrer Gestaltung, Software und den Inhalten von LIQUODA verbleiben bei LIQUODA. Der Nutzer erhält ein nicht übertragbares Recht zur Nutzung im Rahmen dieser AGB.",
+            "10.2 An eingereichten Inhalten behält der Kapitalnehmer seine Rechte und räumt LIQUODA die Nutzung nach Ziffer 5.8 ein."
+          ]
+        },
+        {
+          "title": "11. Haftung",
+          "items": [
+            "11.1 LIQUODA haftet für Schäden nur bei Absicht oder grober Fahrlässigkeit. Die Haftung für leichte Fahrlässigkeit, für Hilfspersonen und für indirekte Schäden oder Folgeschäden (insbesondere entgangener Gewinn, Verlust des eingesetzten Kapitals, Datenverlust) ist im gesetzlich zulässigen Umfang ausgeschlossen.",
+            "11.2 LIQUODA haftet nicht für Angaben, Dokumente und Handlungen von Kapitalnehmern, für die Erfüllung von Beteiligungsverträgen, für Werthaltigkeit von Sicherheiten, für Leistungen von Drittanbietern und für Inhalte, die der KI-Assistent oder der Support-Bot erzeugen.",
+            "11.3 Der Investor trägt das wirtschaftliche Risiko seiner Beteiligung allein. Die Risikoaufklärung ist Bestandteil dieser AGB.",
+            "11.4 Der Haftungsausschluss auf der Plattform ergänzt diese Ziffer."
+          ]
+        },
+        {
+          "title": "12. Datenschutz",
+          "items": [
+            "12.1 LIQUODA bearbeitet Personendaten nach der Datenschutzerklärung und dem Schweizer Datenschutzgesetz (DSG).",
+            "12.2 Der Nutzer nimmt zur Kenntnis, dass Wallet-Adressen und Anteile im öffentlichen Register auf Polygon dauerhaft und öffentlich einsehbar sind und nicht gelöscht werden können."
+          ]
+        },
+        {
+          "title": "13. Änderungen dieser AGB",
+          "items": [
+            "13.1 LIQUODA kann diese AGB anpassen. Änderungen werden auf der Plattform veröffentlicht und angemeldeten Nutzern per E-Mail mitgeteilt. Sie gelten als angenommen, wenn der Nutzer die Plattform nach Ablauf von 30 Tagen weiter nutzt oder nicht innert dieser Frist sein Konto kündigt.",
+            "13.2 Für laufende Beteiligungen gelten die AGB in der Fassung zum Zeitpunkt der Zahlung, soweit die Änderung den Investor benachteiligt."
+          ]
+        },
+        {
+          "title": "14. Kündigung",
+          "items": [
+            "14.1 Nutzer können ihr Konto jederzeit per E-Mail an info@liquoda.com kündigen. Laufende Beteiligungen und Projekte bleiben davon unberührt; das Konto wird nach Abschluss aller offenen Vorgänge geschlossen. Anteile verbleiben im Anteile-Konto des Investors.",
+            "14.2 LIQUODA kann Konten mit einer Frist von 30 Tagen kündigen, aus wichtigem Grund fristlos."
+          ]
+        },
+        {
+          "title": "15. Schlussbestimmungen",
+          "items": [
+            "15.1 Es gilt Schweizer Recht unter Ausschluss des Kollisionsrechts und des UN-Kaufrechts.",
+            "15.2 Gerichtsstand ist Bern, Schweiz. Zwingende Gerichtsstände für Konsumenten bleiben vorbehalten.",
+            "15.3 Sollte eine Bestimmung dieser AGB unwirksam sein, bleiben die übrigen Bestimmungen wirksam. Die unwirksame Bestimmung wird durch eine wirksame ersetzt, die ihrem Zweck am nächsten kommt.",
+            "15.4 Die deutsche Fassung dieser AGB ist massgebend; die englische Fassung dient der Information."
           ]
         }
       ]
@@ -1280,35 +1462,74 @@
     "risiken": {
       "metaTitle": "Risikoaufklärung",
       "title": "Risikoaufklärung",
-      "lead": "Was Sie wissen sollten, bevor Sie sich an einem Projekt beteiligen.",
+      "lead": "Was Sie wissen müssen, bevor Sie sich an einem Projekt beteiligen. Diese Aufklärung ist Bestandteil der AGB. Fassung vom 27. September 2026 (Entwurf, Prüfung durch Fachperson ausstehend).",
       "sections": [
         {
-          "title": "Unternehmerisches Risiko",
+          "title": "Unternehmerisches Risiko und Totalverlust",
           "items": [
-            "Jede Beteiligung ist eine unternehmerische Beteiligung. Der Erfolg hängt vom Projekt und vom Emittenten ab.",
-            "Das eingesetzte Kapital kann ganz oder teilweise verloren gehen."
+            "Jede Beteiligung über LIQUODA ist eine unternehmerische Beteiligung an einem einzelnen Projekt. Ihr Erfolg hängt vom Kapitalnehmer, vom Asset und vom Marktumfeld ab.",
+            "Das eingesetzte Kapital kann ganz oder teilweise verloren gehen. Beteiligen Sie sich nur mit Geld, dessen Verlust Sie tragen können.",
+            "Es gibt keine Einlagensicherung und keine staatliche Absicherung."
           ]
         },
         {
           "title": "Keine Garantie, keine Renditeaussage",
           "items": [
-            "LIQUODA gibt keine Zusagen zu Erträgen, Rückzahlungen oder Wertentwicklung.",
-            "Angaben der Emittenten werden geprüft, aber nicht garantiert."
+            "LIQUODA gibt keine Zusagen zu Erträgen, Zinsen, Rückzahlungen oder Wertentwicklung. Angaben zu erwarteten Zahlungen stammen vom Kapitalnehmer und sind dessen Annahmen.",
+            "LIQUODA prüft Projekte auf Vollständigkeit und Plausibilität, nicht auf Richtigkeit aller Angaben. Die Verantwortung für die Angaben trägt der Kapitalnehmer.",
+            "Vergangene Zahlen des Kapitalnehmers sagen nichts über künftige Ergebnisse aus."
           ]
         },
         {
-          "title": "Keine Handelbarkeit",
+          "title": "Keine Handelbarkeit, gebundenes Kapital",
           "items": [
-            "Es gibt keinen Sekundärmarkt. Token sind nicht frei übertragbar und können nicht auf LIQUODA verkauft werden.",
-            "Rechnen Sie damit, dass Ihre Beteiligung bis zum Ende der Laufzeit gebunden ist."
+            "Es gibt keinen Sekundärmarkt. Anteile können auf LIQUODA nicht verkauft und nur an geprüfte Konten übertragen werden.",
+            "Rechnen Sie damit, dass Ihr Kapital bis zum Ende der vereinbarten Laufzeit gebunden ist. Eine vorzeitige Rückzahlung ist nur möglich, wenn der Kapitalnehmer dies anbietet."
+          ]
+        },
+        {
+          "title": "Risiko des Kapitalnehmers",
+          "items": [
+            "Gerät der Kapitalnehmer in Zahlungsschwierigkeiten oder Konkurs, können Zins- und Rückzahlungen ausfallen. Ihre Forderung ist in der Regel nachrangig gegenüber Banken und anderen gesicherten Gläubigern.",
+            "Bei Sachwerten (Fahrzeuge, Uhren, Kunst) kommen Verlust, Beschädigung, Fehlbewertung und schwankende Marktpreise hinzu. Bei Immobilien und Energieprojekten Bau-, Bewilligungs-, Ertrags- und Zinsrisiken."
+          ]
+        },
+        {
+          "title": "Sicherheiten",
+          "items": [
+            "Eine Sicherheit (Pfand, Garantie oder Bürgschaft, Auszahlung nach Meilensteinen) verringert das Risiko, beseitigt es aber nicht. Der Erlös aus einer Sicherheit kann unter dem eingesetzten Kapital liegen, und ihre Durchsetzung kann Zeit und Kosten verursachen.",
+            "LIQUODA bewertet, verwahrt und verwertet keine Sicherheiten. Ob eine Sicherheit rechtlich wirksam bestellt wurde, prüfen Sie selbst oder mit Ihrer Beratung."
+          ]
+        },
+        {
+          "title": "Kein Prospekt, keine Beratung",
+          "items": [
+            "Projekte auf LIQUODA werden ohne von einer Prüfstelle genehmigten Prospekt angeboten. Die Projektseite und die Dokumente des Kapitalnehmers sind Ihre Informationsgrundlage.",
+            "LIQUODA erbringt keine Anlage-, Rechts- oder Steuerberatung und prüft nicht, ob eine Beteiligung zu Ihrer finanziellen Situation passt. Der Support-Bot und der KI-Assistent ersetzen keine Beratung.",
+            "Streuen Sie Ihr Risiko. Setzen Sie nur einen kleinen Teil Ihres Vermögens in einzelne Projekte."
           ]
         },
         {
           "title": "Technische Risiken",
           "items": [
-            "Ihre Anteile werden in einem Anteile-Konto geführt, das automatisch mit Ihrem Login eingerichtet wird. Der Schlüssel dazu liegt aufgeteilt bei einem spezialisierten Dienstleister und in Ihrem Browser; LIQUODA hat keinen Zugriff darauf.",
+            "Ihre Anteile werden in einem Anteile-Konto geführt, das automatisch mit Ihrem Login eingerichtet wird. Der Schlüssel dazu liegt aufgeteilt bei einem spezialisierten Dienstleister und in Ihrem Gerät; LIQUODA hat keinen Zugriff darauf.",
             "Verlieren Sie den Zugang zu Ihrem LIQUODA-Konto und Ihrer E-Mail-Adresse, ist auch der Zugang zu Ihren Anteilen betroffen. LIQUODA kann Anteile nicht ersetzen.",
-            "Das öffentliche Register (Polygon) wird von Dritten betrieben. Störungen dort können die Zuweisung oder Anzeige von Anteilen verzögern."
+            "Das öffentliche Register (Polygon) und die beteiligten Dienstleister werden von Dritten betrieben. Störungen, Fehler in Software oder Angriffe können die Zuweisung, Anzeige oder Übertragung von Anteilen verzögern oder verhindern.",
+            "Einträge im öffentlichen Register sind dauerhaft und öffentlich einsehbar."
+          ]
+        },
+        {
+          "title": "Rechtliche und steuerliche Risiken",
+          "items": [
+            "Gesetze und Aufsichtspraxis zu tokenisierten Beteiligungen können sich ändern. Das kann die Plattform, die Übertragbarkeit der Anteile oder die Rechte aus der Beteiligung beeinflussen, bis hin zur Rückabwicklung.",
+            "Erträge aus Beteiligungen sind in der Regel steuerpflichtig, Zinsen können der Verrechnungssteuer unterliegen. Klären Sie Ihre steuerliche Situation selbst."
+          ]
+        },
+        {
+          "title": "Zahlung und Rückerstattung",
+          "items": [
+            "Wird das Finanzierungsziel nicht erreicht oder ein Projekt vorher beendet, werden keine Anteile ausgegeben und Ihre Zahlung wird vollständig zurückerstattet. Die Rückerstattung kann je nach Kartenherausgeber einige Tage dauern; Zinsen werden nicht vergütet.",
+            "Bis zur Zuweisung der Anteile liegt Ihre Zahlung beim Zahlungsdienstleister beziehungsweise auf dem Konto von LIQUODA. Ein Ausfall von LIQUODA in dieser Zeit könnte die Rückerstattung verzögern."
           ]
         }
       ]
@@ -1316,16 +1537,40 @@
     "haftung": {
       "metaTitle": "Haftungsausschluss",
       "title": "Haftungsausschluss",
-      "lead": "Grenzen der Verantwortung von LIQUODA.",
+      "lead": "Wofür LIQUODA einsteht und wofür nicht. Dieser Ausschluss ergänzt Ziffer 11 der AGB. Fassung vom 27. September 2026 (Entwurf, Prüfung durch Fachperson ausstehend).",
       "sections": [
         {
-          "title": "Vorgesehene Inhalte",
+          "title": "Inhalte der Plattform",
           "items": [
-            "LIQUODA ist nicht Vertragspartei der Beteiligung zwischen Emittent und Investor.",
-            "LIQUODA erbringt keine Anlageberatung und gibt keine Empfehlungen zu einzelnen Projekten ab.",
-            "Inhalte der Projektseiten stammen von den Emittenten. LIQUODA prüft die Vollständigkeit, übernimmt aber keine Gewähr für Richtigkeit oder Erfolg.",
-            "Haftung für Verfügbarkeit der Plattform, Störungen und Wartung.",
-            "Haftung für Blockchain-Netzwerke und Wallets Dritter."
+            "LIQUODA erstellt die eigenen Inhalte der Website mit Sorgfalt, übernimmt aber keine Gewähr für Richtigkeit, Vollständigkeit und Aktualität. Die Inhalte sind allgemeine Information und keine Anlage-, Rechts- oder Steuerberatung.",
+            "Projektangaben, Dokumente, Neuigkeiten und Antworten stammen vom jeweiligen Kapitalnehmer. LIQUODA prüft sie auf Vollständigkeit und Plausibilität, haftet aber nicht für ihre Richtigkeit."
+          ]
+        },
+        {
+          "title": "Beteiligungen",
+          "items": [
+            "LIQUODA ist nicht Partei des Beteiligungsvertrags und haftet nicht für die Erfüllung der Pflichten des Kapitalnehmers, für Erträge, Rückzahlungen, die Werthaltigkeit von Sicherheiten oder den Erfolg eines Projekts.",
+            "Der Investor trägt das wirtschaftliche Risiko seiner Beteiligung allein (siehe Risikoaufklärung)."
+          ]
+        },
+        {
+          "title": "KI-Assistent und Support-Bot",
+          "items": [
+            "Texte, Dokumente und Prüfberichte des KI-Assistenten sowie Antworten des Support-Bots werden automatisch erzeugt und können unvollständig oder fehlerhaft sein. Sie sind keine Zusicherung von LIQUODA und keine Beratung. Der Kapitalnehmer verantwortet Dokumente, die er mit dem Assistenten erstellt."
+          ]
+        },
+        {
+          "title": "Verfügbarkeit und Drittanbieter",
+          "items": [
+            "LIQUODA haftet nicht für Unterbrüche, Datenverluste oder Verzögerungen, die auf Wartung, Störungen, Angriffe oder Ausfälle von Drittanbietern zurückgehen (Hosting, Datenbank, Zahlungsdienstleister, E-Mail-Versand, Wallet-Dienst, Sprachmodell, Polygon-Netzwerk).",
+            "Für verlinkte Websites Dritter ist ausschliesslich deren Betreiber verantwortlich."
+          ]
+        },
+        {
+          "title": "Umfang des Ausschlusses",
+          "items": [
+            "Soweit gesetzlich zulässig, ist die Haftung von LIQUODA für leichte Fahrlässigkeit, für Hilfspersonen sowie für indirekte Schäden und Folgeschäden ausgeschlossen. Unberührt bleibt die Haftung für Absicht und grobe Fahrlässigkeit sowie zwingende gesetzliche Haftung.",
+            "Es gilt Schweizer Recht, Gerichtsstand Bern."
           ]
         }
       ]

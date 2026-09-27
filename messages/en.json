@@ -3,8 +3,8 @@
     "brand": "LIQUODA",
     "tagline": "Real Assets · Digital Security",
     "role": "Swiss intermediation and technology platform for tokenised real assets",
-    "placeholderTitle": "Placeholder",
-    "placeholderText": "This content will be legally reviewed and completed before the platform launches. The points below show what will be covered here."
+    "placeholderTitle": "Draft",
+    "placeholderText": "This text is a complete draft under Swiss law. It will be reviewed by a professional before live operation starts; until then it serves as information, not as a final contractual basis."
   },
   "nav": {
     "home": "Home",
@@ -1203,7 +1203,7 @@
     "impressum": {
       "metaTitle": "Legal notice",
       "title": "Legal notice",
-      "lead": "Responsible for this website.",
+      "lead": "Responsible for this website and the platform.",
       "sections": [
         {
           "title": "Operator",
@@ -1212,103 +1212,324 @@
             "Schwarzenburgstrasse 65",
             "3008 Bern, Switzerland",
             "info@liquoda.com",
-            "+41 79 511 09 11"
+            "+41 79 511 09 11",
+            "Legal form and commercial register: sole proprietorship; commercial register entry and UID will be added before launch."
           ]
         },
         {
-          "title": "Role",
+          "title": "Role and supervision",
           "items": [
-            "LIQUODA is an intermediation and technology platform. LIQUODA is not a bank, not a financial institution, not an asset manager and not a custodian.",
-            "Details on legal form, commercial register and supervision will be added before the platform launches."
+            "LIQUODA is an intermediary and technology platform. LIQUODA is not a bank, financial institution, securities firm, asset manager or custodian.",
+            "LIQUODA holds no licence from the Swiss Financial Market Supervisory Authority FINMA and is not subject to prudential supervision. Whether the business model requires a licence or affiliation with a self-regulatory organisation is being clarified by a professional before live operation starts.",
+            "Contact for data protection: info@liquoda.com. Complaints: Federal Data Protection and Information Commissioner (FDPIC)."
+          ]
+        },
+        {
+          "title": "Technology",
+          "items": [
+            "Hosting: Vercel Inc., USA. Database and documents: Supabase (Zurich region). Payments: Stripe Payments Europe Ltd. Shares account: Privy Inc., USA. Email: Resend Inc., USA. AI: Anthropic PBC, USA. Public register: Polygon."
           ]
         }
       ]
     },
     "datenschutz": {
       "metaTitle": "Privacy",
-      "title": "Privacy policy",
-      "lead": "How LIQUODA handles personal data under the Swiss Data Protection Act (DSG).",
+      "title": "Privacy Policy",
+      "lead": "How LIQUODA processes personal data under the Swiss Federal Act on Data Protection (FADP). Version of 27 September 2026 (draft, professional review pending).",
       "sections": [
         {
-          "title": "Responsible party",
+          "title": "1. Controller",
           "items": [
-            "LIQUODA, operated by Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern. Contact: info@liquoda.com."
+            "LIQUODA, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, Switzerland. Contact for data protection matters: info@liquoda.com."
           ]
         },
         {
-          "title": "Which data is collected",
+          "title": "2. Data we process",
           "items": [
-            "Waiting list: first name, last name, email address and selected role.",
-            "Project enquiry: name, company, email address, asset type, estimated amount and description.",
-            "After the platform launches, additionally: identity verification data (KYC/KYB), wallet address and payment references. These points will be added before launch."
+            "Account: name, email address, role (investor or issuer), language, password (stored encrypted), time of registration and logins.",
+            "Identity verification (KYC/KYB): copies of identity documents, address, date of birth, for companies the commercial register extract and details of authorised signatories. These documents are kept outside the platform in a protected filing system; the platform stores only the verification status.",
+            "Participations: project, amount, time, status, payment reference of the payment service provider (no card data; these are processed exclusively by Stripe).",
+            "Shares account: the address of the wallet created for you on registration and the allocations of shares.",
+            "Issuer projects: texts, images, documents, authors of questions and updates, conversation history with the AI assistant, pre-check reports.",
+            "Waiting list and project request: name, company, email address, asset type, estimated amount, description.",
+            "Support bot: your questions and the answers, with a random session number, not linked to your account.",
+            "Technical data: IP address, browser, time of access (hosting logs) and a session cookie for login. We use no advertising or tracking cookies and no analytics tool."
           ]
         },
         {
-          "title": "What the data is used for",
+          "title": "3. What we use the data for",
           "items": [
-            "Exclusively to inform you about the launch and to process your enquiry.",
-            "No transfer to third parties, no advertising, no profiling, no sale.",
-            "No personal data is stored on the blockchain."
+            "Operating the platform: account, login, display of projects, processing of participations, allocation of shares, refunds, emails about your account and your participations or projects.",
+            "Legal obligations: identity verification, prevention of misuse and money laundering, retention duties, information to authorities where required by law.",
+            "Security: detecting and preventing attacks, traceability of changes (audit log in the admin area).",
+            "Improving the platform: reviewing support conversations to improve answers and explanations, without reference to persons.",
+            "No advertising, no profiling, no sale of data."
           ]
         },
         {
-          "title": "Your rights",
+          "title": "4. Who receives data",
           "items": [
-            "You have the right to access, correct and delete your data at any time. Write to info@liquoda.com."
+            "Other users: investors see the issuer's name and, if provided, profile and public documents. Issuers see amount and time of participations but not the identity of investors, unless necessary to perform the participation agreement or to enforce rights.",
+            "Processors acting on our behalf: Supabase (database, login, document storage; servers in Zurich, Switzerland), Vercel (hosting; servers in the USA), Stripe (card payments; Ireland/USA), Resend (email delivery; USA), Privy (shares account; USA), Anthropic (language model for the AI assistant and support bot; USA).",
+            "For transfers to the USA we rely on standard data protection clauses or on the provider's certification under the Swiss-U.S. Data Privacy Framework.",
+            "AI services: input to the AI assistant (conversation, project data, uploaded documents for the pre-check) and to the support bot is transmitted to Anthropic and retained there under its terms for up to 30 days, but not used to train models. Enter only data you are entitled to share.",
+            "Authorities and courts: where we are legally obliged or where necessary to enforce claims."
+          ]
+        },
+        {
+          "title": "5. Public register (blockchain)",
+          "items": [
+            "Shares are kept in the public register on the Polygon blockchain. There, the address of your shares account, the number of shares, the time of allocation and the checksums of project documents are permanently and globally visible.",
+            "Your name, email address and other personal data are not stored on the blockchain. Only LIQUODA knows which address belongs to which person.",
+            "Blockchain entries cannot technically be deleted or changed. The right to erasure therefore cannot cover these entries; instead we delete the link to your person once retention duties end."
+          ]
+        },
+        {
+          "title": "6. Retention",
+          "items": [
+            "Account data: until the account is deleted and thereafter as long as legal retention duties exist.",
+            "Participations, payments, identity verification and project documents: 10 years from the end of the participation or project (accounting and due-diligence duties).",
+            "Support conversations: 12 months. Conversations with the AI assistant: until deleted by the issuer or the project is deleted.",
+            "Technical logs: 90 days.",
+            "Waiting list and project requests: until processed, at most 24 months."
+          ]
+        },
+        {
+          "title": "7. Security",
+          "items": [
+            "Encrypted transmission (TLS), passwords stored only as hashes, access on a least-privilege basis, documents in protected storage with short-lived access links, changes to status data are logged.",
+            "The keys to your shares account are split between the wallet provider and your device; LIQUODA has no access."
+          ]
+        },
+        {
+          "title": "8. Your rights",
+          "items": [
+            "You have the right to information about your data, to rectification, to erasure (subject to sections 5 and 6), to restriction of processing and to receive your data in a common format.",
+            "Write to info@liquoda.com. We respond within 30 days. For security we may request proof of identity.",
+            "You may lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC)."
+          ]
+        },
+        {
+          "title": "9. Changes",
+          "items": [
+            "We update this policy when processing or the law changes. The version published on the platform applies."
           ]
         }
       ]
     },
     "agb": {
       "metaTitle": "Terms",
-      "title": "Terms and conditions",
-      "lead": "The conditions for using the platform.",
+      "title": "Terms and Conditions",
+      "lead": "These terms govern the use of the LIQUODA platform by investors and issuers. Version of 27 September 2026 (draft, professional review pending).",
       "sections": [
         {
-          "title": "Planned content",
+          "title": "1. Scope and definitions",
           "items": [
-            "Scope and the role of LIQUODA as an intermediation and technology platform.",
-            "Obligations of issuers and investors.",
-            "Process of registration, identity verification, project onboarding and participation.",
-            "Fees as shown on the page “For issuers”.",
-            "Consequences of cancellation, failure to reach the funding target and early termination.",
-            "Applicable law and place of jurisdiction in Switzerland."
+            "1.1 These Terms and Conditions (Terms) apply to the use of the website and platform www.liquoda.com (Platform), operated by LIQUODA, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, Switzerland (LIQUODA).",
+            "1.2 Users are investors (natural persons who participate in projects) and issuers (companies or persons who offer a project for financing; called «Kapitalnehmer» in the German interface). Where these Terms refer to users, they apply to both.",
+            "1.3 Shares are an investor's participation rights in a project, evidenced as digital units (tokens) in the public register on the Polygon blockchain. Shares account is the wallet created automatically for every investor on registration.",
+            "1.4 By registering, the user accepts these Terms, the Privacy Policy, the Risk Disclosure and the Disclaimer. Deviating terms of the user do not apply."
+          ]
+        },
+        {
+          "title": "2. Role of LIQUODA",
+          "items": [
+            "2.1 LIQUODA is an intermediary and technology platform. LIQUODA brings issuers and investors together and provides the process, the project pages, payment processing through a payment service provider and the register of shares.",
+            "2.2 LIQUODA is not a bank, financial institution, securities firm, asset manager, custodian or trading venue. LIQUODA does not provide investment, legal or tax advice and does not recommend individual projects.",
+            "2.3 LIQUODA is not a party to the participation agreement between investor and issuer (section 6). LIQUODA guarantees neither the success of a project nor the performance of the issuer's obligations.",
+            "2.4 LIQUODA does not hold shares or wallet keys in custody. Investors' payments are received by the payment service provider and, after the funding round closes, forwarded to the issuer or refunded to the investors (sections 4.6 and 4.7).",
+            "2.5 LIQUODA reviews projects for completeness and plausibility before approval. This review is no guarantee of the accuracy of the issuer's information and no assessment of the participation or its collateral."
+          ]
+        },
+        {
+          "title": "3. Registration, account and identity verification",
+          "items": [
+            "3.1 Using the Platform requires an account with a valid email address. The user chooses a role on registration (investor or issuer). One account per person is permitted.",
+            "3.2 Investors must be of legal age and capacity and resident in Switzerland. Issuers must have their seat or the offered asset in Switzerland and be entitled to dispose of the asset.",
+            "3.3 Before the first participation or before a project is approved, LIQUODA verifies the identity of the investor (KYC) or of the issuer and its authorised signatories (KYB). The user provides the requested documents truthfully. LIQUODA may refuse verification without giving reasons or engage third parties for it.",
+            "3.4 The user keeps login details confidential and reports any suspected misuse to LIQUODA without delay. Actions taken through the account are attributed to the user.",
+            "3.5 The user keeps their information up to date. LIQUODA may suspend an account if information is false, these Terms are breached or a legal reason exists."
+          ]
+        },
+        {
+          "title": "4. Participation by investors",
+          "items": [
+            "4.1 The project page describes purpose, target amount, term, minimum amount, collateral, documents and project-specific risks. This information comes from the issuer. The investor examines it independently and consults advisers where needed.",
+            "4.2 A participation is possible between the project's minimum amount and CHF 20,000 per participation, at most up to the amount still open. LIQUODA may set maximum amounts per investor.",
+            "4.3 Before paying, the investor actively confirms having read the Risk Disclosure and the project-specific risks, that a total loss is possible, that there is no secondary market, that LIQUODA is not a contracting party and that the payment is refunded if the funding fails.",
+            "4.4 By completing the payment, the investor makes a binding offer to participate. There is no right of withdrawal. The participation comes into effect when the funding target is reached within the term and LIQUODA allocates the shares to the investor's shares account.",
+            "4.5 Payments are made in Swiss francs by card through the payment service provider Stripe, whose terms also apply. LIQUODA charges a transaction fee of 1 % on the participation amount, shown before payment.",
+            "4.6 If the funding target is not reached by the end of the term or the project is ended earlier, no shares are issued. The investor receives the full amount paid including the fee back to the original payment method. No interest is paid.",
+            "4.7 If the funding target is reached, LIQUODA allocates to each verified investor shares at 1 share per CHF 1 of participation amount and forwards the payments, less the issuer's fee, to the issuer.",
+            "4.8 Shares are tied to the investor's shares account. They cannot be traded on the Platform and can only be transferred to accounts whose holders have been verified by LIQUODA. There is no secondary market. LIQUODA may technically pause transfers where required by law or to protect those involved.",
+            "4.9 The shares account is provided by a specialised service provider (Privy); the key is split between the provider and the investor's device. LIQUODA has no access to the key and can neither withdraw nor replace shares.",
+            "4.10 Income, interest or repayments are owed exclusively by the issuer under the participation agreement. LIQUODA makes no payments to investors other than the refund under section 4.6."
+          ]
+        },
+        {
+          "title": "5. Projects by issuers",
+          "items": [
+            "5.1 The issuer records the project on the Platform and provides the mandatory documents for the asset type. On submission the issuer confirms that all information is true and complete and that they are entitled to offer the project.",
+            "5.2 The issuer is solely responsible for the content of the project, its documents and its answers to investors, even where texts were produced with the help of the AI assistant. The issuer complies with the law, in particular on public offers, prospectus requirements and advertising, and obtains any required permits.",
+            "5.3 LIQUODA decides freely on the approval of a project and may refuse it without giving reasons, attach questions or end an approved project if information is incorrect, obligations are breached or a legal reason exists. There is no entitlement to approval.",
+            "5.4 Before approval, LIQUODA and the issuer conclude a platform agreement governing package, fees, obligations during the term and settlement. In case of conflict the platform agreement prevails over these Terms.",
+            "5.5 Fees: setup and monthly fee according to the chosen package (Basic, Standard, Premium) plus a transaction fee of 3 % on the successfully invested volume, due only when the funding target is reached and set off against the payout. The AI assistant costs CHF 190 once per project and is included in the Standard and Premium packages. All prices include any VAT unless stated otherwise.",
+            "5.6 After the funding target is reached, LIQUODA transfers the invested amount less the transaction fee to the issuer's bank account within 10 business days after all allocations are completed. LIQUODA may withhold the payout while identity verification is incomplete or misuse is suspected.",
+            "5.7 During the term of the participation the issuer informs investors about material developments through the Platform (updates) and answers questions factually. The issuer performs its obligations under the participation agreement directly towards the investors.",
+            "5.8 The issuer grants LIQUODA the right to publish submitted texts, images and documents on the Platform and in communications to investors, to the extent the issuer marked them as public or visible to registered users."
+          ]
+        },
+        {
+          "title": "6. Agreement between investor and issuer",
+          "items": [
+            "6.1 The participation is a contract between the investor and the issuer (participation agreement). Its conditions (type of participation, term, repayment, interest or profit share, collateral, information duties) are described on the project page and in the project documents.",
+            "6.2 The shares in the public register serve as evidence of the participation. They create no rights against LIQUODA.",
+            "6.3 Collateral (pledge, guarantee or surety, payout by milestones) is agreed between investor and issuer. LIQUODA does not value, hold or realise collateral.",
+            "6.4 Disputes under the participation agreement are settled directly between investor and issuer. LIQUODA may pass contact details to the other party where necessary to enforce claims."
+          ]
+        },
+        {
+          "title": "7. AI assistant and support bot",
+          "items": [
+            "7.1 LIQUODA provides an AI assistant to issuers and a support bot to all visitors. Both generate text automatically and may contain errors. They do not provide legal, tax or investment advice.",
+            "7.2 Documents the AI assistant produces from the issuer's information are drafts. The issuer reviews them and is responsible for their content. The AI pre-check does not replace LIQUODA's review and creates no entitlement to approval.",
+            "7.3 Input to the AI assistant and the support bot is transmitted for processing to the provider of the language model (Anthropic, USA). Details are in the Privacy Policy. Users do not enter third-party data they are not entitled to share."
+          ]
+        },
+        {
+          "title": "8. User obligations and suspension",
+          "items": [
+            "8.1 The Platform may only be used for its intended purpose. Prohibited in particular: false information, use of other people's identities, circumventing identity verification, introducing malware, automated scraping, harassing other users and any unlawful act.",
+            "8.2 Contributions in questions and updates must be factual and must not contain promises of returns, advertising for third parties or unlawful content. LIQUODA may hide contributions.",
+            "8.3 In case of breaches LIQUODA may suspend accounts, end projects and pause participations. Payments already made are treated under section 4.6 as long as no shares have been allocated."
+          ]
+        },
+        {
+          "title": "9. Availability and changes to the Platform",
+          "items": [
+            "9.1 LIQUODA strives for high availability but does not owe uninterrupted access. Maintenance, outages at third-party providers (hosting, payment provider, blockchain, wallet service, language model) and force majeure may restrict use.",
+            "9.2 LIQUODA may change, add or discontinue functions. Ongoing funding rounds are completed or unwound under these Terms."
+          ]
+        },
+        {
+          "title": "10. Intellectual property",
+          "items": [
+            "10.1 All rights in the Platform, its design, software and LIQUODA's content remain with LIQUODA. The user receives a non-transferable right of use within these Terms.",
+            "10.2 The issuer retains its rights in submitted content and grants LIQUODA the use under section 5.8."
+          ]
+        },
+        {
+          "title": "11. Liability",
+          "items": [
+            "11.1 LIQUODA is liable for damage only in case of intent or gross negligence. Liability for slight negligence, for auxiliary persons and for indirect or consequential damage (in particular lost profit, loss of invested capital, data loss) is excluded to the extent permitted by law.",
+            "11.2 LIQUODA is not liable for information, documents and actions of issuers, for the performance of participation agreements, for the value of collateral, for services of third-party providers or for content generated by the AI assistant or the support bot.",
+            "11.3 The investor bears the economic risk of the participation alone. The Risk Disclosure forms part of these Terms.",
+            "11.4 The Disclaimer on the Platform supplements this section."
+          ]
+        },
+        {
+          "title": "12. Data protection",
+          "items": [
+            "12.1 LIQUODA processes personal data in accordance with the Privacy Policy and the Swiss Federal Act on Data Protection (FADP).",
+            "12.2 The user acknowledges that wallet addresses and shares in the public register on Polygon are permanently and publicly visible and cannot be deleted."
+          ]
+        },
+        {
+          "title": "13. Changes to these Terms",
+          "items": [
+            "13.1 LIQUODA may amend these Terms. Changes are published on the Platform and notified to registered users by email. They are deemed accepted if the user continues to use the Platform after 30 days or does not terminate the account within that period.",
+            "13.2 For ongoing participations the Terms in force at the time of payment apply where a change would disadvantage the investor."
+          ]
+        },
+        {
+          "title": "14. Termination",
+          "items": [
+            "14.1 Users may terminate their account at any time by email to info@liquoda.com. Ongoing participations and projects are unaffected; the account is closed once all open matters are completed. Shares remain in the investor's shares account.",
+            "14.2 LIQUODA may terminate accounts with 30 days' notice, or without notice for good cause."
+          ]
+        },
+        {
+          "title": "15. Final provisions",
+          "items": [
+            "15.1 Swiss law applies, excluding conflict-of-law rules and the UN Convention on Contracts for the International Sale of Goods.",
+            "15.2 Place of jurisdiction is Bern, Switzerland. Mandatory places of jurisdiction for consumers are reserved.",
+            "15.3 Should a provision of these Terms be invalid, the remaining provisions remain in force. The invalid provision is replaced by a valid one that comes closest to its purpose.",
+            "15.4 The German version of these Terms is authoritative; the English version is for information."
           ]
         }
       ]
     },
     "risiken": {
       "metaTitle": "Risk disclosure",
-      "title": "Risk disclosure",
-      "lead": "What you should know before participating in a project.",
+      "title": "Risk Disclosure",
+      "lead": "What you need to know before participating in a project. This disclosure forms part of the Terms. Version of 27 September 2026 (draft, professional review pending).",
       "sections": [
         {
-          "title": "Entrepreneurial risk",
+          "title": "Entrepreneurial risk and total loss",
           "items": [
-            "Every participation is an entrepreneurial investment. Success depends on the project and the issuer.",
-            "The invested capital can be lost in full or in part."
+            "Every participation via LIQUODA is an entrepreneurial participation in a single project. Its success depends on the issuer, the asset and the market environment.",
+            "The invested capital may be lost in whole or in part. Participate only with money whose loss you can bear.",
+            "There is no deposit insurance and no state protection."
           ]
         },
         {
-          "title": "No guarantee, no statement about returns",
+          "title": "No guarantee, no statement on returns",
           "items": [
-            "LIQUODA makes no commitments regarding income, repayment or value development.",
-            "Information provided by issuers is reviewed but not guaranteed."
+            "LIQUODA makes no commitments regarding income, interest, repayments or value development. Information on expected payments comes from the issuer and reflects the issuer's assumptions.",
+            "LIQUODA reviews projects for completeness and plausibility, not for the accuracy of all information. The issuer is responsible for the information.",
+            "Past figures of the issuer say nothing about future results."
           ]
         },
         {
-          "title": "No tradability",
+          "title": "No tradability, locked-up capital",
           "items": [
-            "There is no secondary market. Tokens are not freely transferable and cannot be sold on LIQUODA.",
-            "Expect your participation to be locked until the end of the term."
+            "There is no secondary market. Shares cannot be sold on LIQUODA and can only be transferred to verified accounts.",
+            "Expect your capital to be locked up until the end of the agreed term. Early repayment is only possible if the issuer offers it."
+          ]
+        },
+        {
+          "title": "Issuer risk",
+          "items": [
+            "If the issuer runs into payment difficulties or bankruptcy, interest and repayments may fail. Your claim usually ranks behind banks and other secured creditors.",
+            "For tangible assets (vehicles, watches, art) there are additional risks of loss, damage, misvaluation and fluctuating market prices. For real estate and energy projects: construction, permit, yield and interest-rate risks."
+          ]
+        },
+        {
+          "title": "Collateral",
+          "items": [
+            "Collateral (pledge, guarantee or surety, payout by milestones) reduces the risk but does not remove it. The proceeds from collateral may be below the invested capital, and enforcing it may take time and cost money.",
+            "LIQUODA does not value, hold or realise collateral. Whether collateral has been validly created is for you or your advisers to check."
+          ]
+        },
+        {
+          "title": "No prospectus, no advice",
+          "items": [
+            "Projects on LIQUODA are offered without a prospectus approved by a reviewing body. The project page and the issuer's documents are your basis of information.",
+            "LIQUODA does not provide investment, legal or tax advice and does not check whether a participation suits your financial situation. The support bot and the AI assistant are no substitute for advice.",
+            "Spread your risk. Put only a small part of your assets into individual projects."
           ]
         },
         {
           "title": "Technical risks",
           "items": [
-            "Your shares are kept in a shares account that is set up automatically with your login. Its key is split between a specialised service provider and your browser; LIQUODA has no access to it.",
-            "If you lose access to your LIQUODA account and your email address, access to your shares is affected as well. LIQUODA cannot replace shares.",
-            "The public record (Polygon) is operated by third parties. Disruptions there can delay the allocation or display of shares."
+            "Your shares are kept in a shares account created automatically with your login. Its key is split between a specialised provider and your device; LIQUODA has no access to it.",
+            "If you lose access to your LIQUODA account and your email address, access to your shares is affected too. LIQUODA cannot replace shares.",
+            "The public register (Polygon) and the providers involved are operated by third parties. Outages, software errors or attacks may delay or prevent the allocation, display or transfer of shares.",
+            "Entries in the public register are permanent and publicly visible."
+          ]
+        },
+        {
+          "title": "Legal and tax risks",
+          "items": [
+            "Laws and supervisory practice on tokenised participations may change. This may affect the platform, the transferability of shares or the rights under the participation, up to and including unwinding.",
+            "Income from participations is generally taxable; interest may be subject to withholding tax. Clarify your tax situation yourself."
+          ]
+        },
+        {
+          "title": "Payment and refund",
+          "items": [
+            "If the funding target is not reached or a project is ended earlier, no shares are issued and your payment is refunded in full. Depending on the card issuer the refund may take a few days; no interest is paid.",
+            "Until shares are allocated, your payment is held by the payment service provider or in LIQUODA's account. A failure of LIQUODA during this period could delay the refund."
           ]
         }
       ]
@@ -1316,16 +1537,40 @@
     "haftung": {
       "metaTitle": "Disclaimer",
       "title": "Disclaimer",
-      "lead": "Limits of LIQUODA's responsibility.",
+      "lead": "What LIQUODA is and is not responsible for. This disclaimer supplements section 11 of the Terms. Version of 27 September 2026 (draft, professional review pending).",
       "sections": [
         {
-          "title": "Planned content",
+          "title": "Platform content",
           "items": [
-            "LIQUODA is not a party to the participation between issuer and investor.",
-            "LIQUODA does not provide investment advice and makes no recommendations on individual projects.",
-            "Content on project pages comes from the issuers. LIQUODA checks completeness but gives no warranty for accuracy or success.",
-            "Liability for availability of the platform, outages and maintenance.",
-            "Liability for third-party blockchain networks and wallets."
+            "LIQUODA prepares its own website content with care but gives no warranty as to accuracy, completeness or currency. The content is general information and not investment, legal or tax advice.",
+            "Project information, documents, updates and answers come from the respective issuer. LIQUODA reviews them for completeness and plausibility but is not liable for their accuracy."
+          ]
+        },
+        {
+          "title": "Participations",
+          "items": [
+            "LIQUODA is not a party to the participation agreement and is not liable for the performance of the issuer's obligations, for income, repayments, the value of collateral or the success of a project.",
+            "The investor bears the economic risk of the participation alone (see Risk Disclosure)."
+          ]
+        },
+        {
+          "title": "AI assistant and support bot",
+          "items": [
+            "Texts, documents and pre-check reports of the AI assistant and answers of the support bot are generated automatically and may be incomplete or incorrect. They are no assurance by LIQUODA and no advice. The issuer is responsible for documents created with the assistant."
+          ]
+        },
+        {
+          "title": "Availability and third-party providers",
+          "items": [
+            "LIQUODA is not liable for interruptions, data loss or delays caused by maintenance, outages, attacks or failures of third-party providers (hosting, database, payment provider, email delivery, wallet service, language model, Polygon network).",
+            "Linked third-party websites are the sole responsibility of their operators."
+          ]
+        },
+        {
+          "title": "Scope of the exclusion",
+          "items": [
+            "To the extent permitted by law, LIQUODA's liability for slight negligence, for auxiliary persons and for indirect and consequential damage is excluded. Liability for intent and gross negligence and mandatory statutory liability remain unaffected.",
+            "Swiss law applies; place of jurisdiction is Bern."
           ]
         }
       ]

@@ -7,8 +7,9 @@ export type LegalKey = 'impressum' | 'datenschutz' | 'agb' | 'risiken' | 'haftun
 type LegalSection = { title: string; items: string[] };
 
 /**
- * Rechtliche Seiten als Platzhalter (Etappe 1). Inhalte kommen aus
- * messages/*.json unter «legal.<key>» und werden vor dem Start ergänzt.
+ * Rechtliche Seiten. Inhalte kommen aus messages/*.json unter «legal.<key>»;
+ * seit 27.09.2026 vollständige Entwürfe nach Schweizer Recht, Hinweis «Entwurf»
+ * bleibt bis zur Prüfung durch eine Fachperson.
  */
 export default function LegalPage({ legalKey }: { legalKey: LegalKey }) {
   const t = useTranslations(`legal.${legalKey}`);

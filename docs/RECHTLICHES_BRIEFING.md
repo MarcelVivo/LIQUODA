@@ -11,17 +11,19 @@ Stand: 27. September 2026. Dieses Dokument fasst zusammen, was eine Anwältin od
 - Wird das Ziel nicht erreicht, werden alle Zahlungen automatisch über Stripe zurückerstattet. Wird es erreicht, überweist LIQUODA das Geld manuell an den Kapitalnehmer. Es gibt keinen Sekundärmarkt, keine Ertragsausschüttung über die Plattform, keine Anlageberatung.
 - Gebühren: Kapitalnehmer 3 % auf erfolgreich investiertes Volumen, Pakete mit Setup- und Monatsgebühr; Investor 1 % Transaktionsgebühr; KI-Assistent CHF 190 einmalig.
 
-## 2. Texte, die geschrieben werden müssen
+## 2. Texte, die zu prüfen sind
+
+Seit 27. September 2026 liegen alle Texte als vollständige Entwürfe vor (Website, Fusszeile) sowie zwei Vertragsvorlagen in `docs/vertraege/` (Beteiligungsvertrag mit drei Varianten: festverzinsliches Darlehen, partiarisches Darlehen, Erlösbeteiligung an einem Sachwert; Plattformvertrag mit dem Kapitalnehmer). Aufgabe der Rechtsberatung ist die Prüfung und Korrektur dieser Entwürfe, nicht die Neuerstellung.
 
 Alle Texte zweisprachig (Deutsch mit Schweizer Schreibweise, Englisch). Sie werden auf diesen Seiten angezeigt:
 
 | Seite | Pfad | Inhalt heute |
 |---|---|---|
-| AGB | /agb | Platzhalter |
-| Datenschutzerklärung | /datenschutz | Entwurf nach DSG, unvollständig |
+| AGB | /agb | Entwurf, 15 Ziffern |
+| Datenschutzerklärung | /datenschutz | Entwurf nach DSG mit allen Auftragsbearbeitern |
 | Risikohinweise | /risiken | Entwurf |
 | Haftungsausschluss | /haftung | Entwurf |
-| Impressum | /impressum | ohne Rechtsform und Handelsregister |
+| Impressum | /impressum | Entwurf; UID und Handelsregister fehlen |
 
 Zusätzlich im Investitionsprozess: fünf Zustimmungen, die der Investor aktiv anklickt (Risiken gelesen, Totalverlust möglich, Kapital gebunden, Rolle von LIQUODA verstanden, Rückerstattung bei Scheitern). Wortlaut in `messages/de.json` unter `invest.consent.items`. Und beim Einreichen eines Projekts die Bestätigung des Kapitalnehmers (Angaben wahr und vollständig, berechtigt).
 
@@ -39,7 +41,7 @@ Für die Datenschutzerklärung relevant, welche Dienste Personendaten verarbeite
 
 ## 3. Vertrag zwischen Investor und Kapitalnehmer
 
-Heute gibt es keinen Vertragstext für die Beteiligung selbst. Zu klären und zu schreiben:
+Vorlage in `docs/vertraege/BETEILIGUNGSVERTRAG.md`. Zu prüfen:
 
 - Rechtsnatur der Beteiligung je Asset-Art (Darlehen, partiarisches Darlehen, Genussschein, Miteigentum, Beteiligung an einer Gesellschaft). Der KI-Assistent und die Projektseite beschreiben heute nur, was der Kapitalnehmer angibt (z. B. «feste Rückzahlung über 5 Jahre mit 5 % Zins»).
 - Ob die Token als Registerwertrechte nach Art. 973d ff. OR ausgestaltet werden (Registrierungsvereinbarung nötig) oder nur als Nachweis ohne eigene Rechtswirkung.
