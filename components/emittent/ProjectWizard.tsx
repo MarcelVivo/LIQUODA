@@ -10,9 +10,10 @@ import { formatDate } from '@/lib/format';
 import { ASSET_TYPES, COLLATERAL_TYPES } from '@/lib/projects/types';
 import type { OwnProject } from '@/lib/emittent';
 import type { DocumentRecord } from '@/lib/documents';
+import ProjectImagesStep from '@/components/images/ProjectImagesStep';
 
-type Step = 'basics' | 'texts' | 'amounts' | 'documents' | 'submit';
-const STEPS: Step[] = ['basics', 'texts', 'amounts', 'documents', 'submit'];
+type Step = 'basics' | 'texts' | 'images' | 'amounts' | 'documents' | 'submit';
+const STEPS: Step[] = ['basics', 'texts', 'images', 'amounts', 'documents', 'submit'];
 const DOC_TYPES = ['contract', 'prospectus', 'valuation', 'financials', 'other'] as const;
 
 interface Draft {
@@ -222,6 +223,16 @@ export default function ProjectWizard({
           </div>
         )}
 
+        {step === 'images' && (
+          <ProjectImagesStep
+            projectId={project.id}
+            editable={editable}
+            cover={project.cover_image_path}
+            gallery={project.gallery_paths ?? []}
+            onChange={(cover) => setProblems((p) => (cover ? p.filter((x) => x !== 'cover') : Array.from(new Set([...p, 'cover']))))}
+          />
+        )}
+
         {step === 'amounts' && (
           <div className="space-y-6">
             <div className="grid gap-4 sm:grid-cols-3">
@@ -274,7 +285,7 @@ export default function ProjectWizard({
                 {t('prev')}
               </Button>
             )}
-            {editable && step !== 'documents' && (
+            {editable && step !== 'documents' && step !== 'images' && (
               <Button type="button" variant="outline" onClick={() => save(step)} disabled={saving}>
                 {saving ? t('saving') : t('save')}
               </Button>
@@ -422,7 +433,7 @@ function SubmitStep({ projectId, editable, problems }: { projectId: string; edit
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | undefined>();
-  const keys = ['title', 'summary', 'description', 'purpose', 'location', 'target', 'min', 'deadline', 'collateral', 'documents'];
+  const keys = ['title', 'summary', 'description', 'purpose', 'location', 'cover', 'target', 'min', 'deadline', 'collateral', 'documents'];
 
   const submit = async () => {
     setBusy(true);

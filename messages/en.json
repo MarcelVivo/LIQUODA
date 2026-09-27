@@ -474,7 +474,8 @@
       "documentsLogin": "Documents are stored with versioning and open via a short-lived link.",
       "tokenContract": "Public record",
       "tokenContractNone": "The public record is created after the project is approved.",
-      "tokenContractHint": "Shares are kept in a public, tamper-proof record on Polygon, 1 share = CHF 1. Transfers are only possible between verified accounts."
+      "tokenContractHint": "Shares are kept in a public, tamper-proof record on Polygon, 1 share = CHF 1. Transfers are only possible between verified accounts.",
+      "gallery": "Images"
     },
     "collateral": {
       "badgeSecured": "Secured",
@@ -776,6 +777,10 @@
         "failed": "The target amount was not reached within the term. No tokens were issued; payments are reversed.",
         "cancelled": "The project was ended early. The reason is in the feedback.",
         "closed": "The project is closed."
+      },
+      "avatar": {
+        "title": "Your logo or portrait (optional)",
+        "lead": "Shown on your project pages next to your name and builds trust. Square, e.g. company logo or portrait of the responsible person."
       }
     },
     "wizard": {
@@ -784,6 +789,7 @@
       "steps": {
         "basics": "Key data",
         "texts": "Texts",
+        "images": "Images",
         "amounts": "Amounts and term",
         "documents": "Documents",
         "submit": "Submit"
@@ -859,7 +865,8 @@
           "min": "Minimum invalid or larger than the target amount",
           "deadline": "Term is not in the future",
           "documents": "No document uploaded",
-          "collateral": "Description of the collateral missing"
+          "collateral": "Description of the collateral missing",
+          "cover": "Cover image missing"
         },
         "ready": "All details are complete.",
         "consent": "I confirm that the details are true and complete and that I am entitled to offer this project.",
@@ -881,6 +888,12 @@
         "type": "Type of collateral",
         "note": "Description of the collateral",
         "noteHint": "Required once a collateral type is selected. Factual, at most 1000 characters."
+      },
+      "images": {
+        "coverTitle": "Cover image (required)",
+        "coverLead": "A real photo of the asset or the project. It appears in the marketplace and at the top of the project page. Landscape, at least 1200 pixels wide.",
+        "galleryTitle": "More images (optional)",
+        "galleryLead": "Up to four additional images for the project page."
       }
     }
   },
@@ -1038,6 +1051,20 @@
         "title": "Enquiry received",
         "body": "Thank you for your enquiry. LIQUODA reviews your details and responds with a first assessment. The enquiry creates no obligation."
       }
+    }
+  },
+  "images": {
+    "add": "Add image",
+    "uploading": "Uploading …",
+    "remove": "Remove image",
+    "hint": "JPG, PNG or WebP, up to 10 MB. Real motifs, no stock photos.",
+    "none": "No image.",
+    "errors": {
+      "file_type": "Only JPG, PNG or WebP.",
+      "file_size": "The image is larger than 10 MB.",
+      "gallery_full": "The gallery is full (at most 4 images).",
+      "locked": "The project can no longer be edited.",
+      "server": "The upload failed. Please try again."
     }
   },
   "legal": {

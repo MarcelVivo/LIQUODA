@@ -36,6 +36,9 @@ type ProjectRow = {
   collateral_note: string | null;
   token_contract_address?: string | null;
   token_symbol?: string | null;
+  cover_image_path?: string | null;
+  gallery_paths?: string[] | null;
+  issuer_avatar_path?: string | null;
 };
 
 type DocumentRow = {
@@ -85,6 +88,9 @@ function toProject(row: ProjectRow, docs: DocumentRow[]): Project {
     collateralNote: row.collateral_note ?? null,
     tokenContractAddress: row.token_contract_address ?? null,
     tokenSymbol: row.token_symbol ?? null,
+    coverImagePath: row.cover_image_path ?? null,
+    galleryPaths: row.gallery_paths ?? [],
+    issuerAvatarPath: row.issuer_avatar_path ?? null,
     documents: docs
       .filter((d) => d.project_id === row.id)
       .sort((a, b) => a.created_at.localeCompare(b.created_at))

@@ -4,6 +4,8 @@ import Badge from '@/components/ui/Badge';
 import Section, { SectionHeading } from '@/components/ui/Section';
 import LogoutButton from '@/components/auth/LogoutButton';
 import NewProjectButton from '@/components/emittent/NewProjectButton';
+import AvatarUploader from '@/components/images/AvatarUploader';
+import { createSupabaseServerClient } from '@/lib/supabase/server';
 import { listOwnProjects, type OwnProject } from '@/lib/emittent';
 import { formatChf, formatDate } from '@/lib/format';
 import type { Account } from '@/lib/supabase/server';
@@ -26,6 +28,7 @@ export default async function EmittentDashboard({ account }: { account: Account 
   const tAccount = await getTranslations('auth.account');
   const locale = (await getLocale()) as 'de' | 'en';
   const projects = await listOwnProjects();
+  const { data: me } = await createSupabaseServerClient().from('users').select('avatar_path').eq('auth_id', account.authId).maybeSingle();
 
   return (
     <Section className="pt-28 sm:pt-32">
@@ -94,6 +97,8 @@ export default async function EmittentDashboard({ account }: { account: Account 
           ))}
         </ul>
       )}
+
+      <AvatarUploader avatarPath={(me?.avatar_path as string | null) ?? null} />
 
       <p className="mt-8 text-xs text-muted">
         {tAccount('kyc')}: {tAccount('kycHint')}

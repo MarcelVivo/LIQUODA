@@ -5,6 +5,7 @@ import AdminNav from '../../_components/AdminNav';
 import ProjectActions from '../../_components/ProjectActions';
 import { DeployTokenButton, MintButton, RefundButton } from '../../_components/TokenActions';
 import { explorerAddress, explorerTx } from '@/lib/chain/config';
+import { imageUrl } from '@/lib/images';
 import { card, chf, dt, STATUS_LABEL, KYC_LABEL } from '../../_lib';
 
 export const dynamic = 'force-dynamic';
@@ -16,7 +17,8 @@ type Project = {
   target_amount_chf: number; min_investment_chf: number; raised_amount_chf: number; deadline: string; created_at: string; updated_at: string;
   collateral_type: string; collateral_note: string | null;
   token_contract_address: string | null; token_symbol: string | null; token_deploy_tx: string | null; token_chain_id: number | null;
-  emittent: { id: string; name: string; email: string; kyc_status: string } | null;
+  cover_image_path: string | null; gallery_paths: string[] | null;
+  emittent: { id: string; name: string; email: string; kyc_status: string; avatar_path: string | null } | null;
 };
 type Doc = { id: string; type: string; title: L; version: number; sha256_hash: string | null; created_at: string };
 type Inv = { id: string; amount_chf: number; status: string; created_at: string; refund_status: string | null; refund_error: string | null; investor: { name: string; email: string; kyc_status: string; wallet_address: string | null } | null; token_references: { tx_hash: string; token_amount: number }[] };
@@ -26,7 +28,7 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
   const admin = getSupabaseAdmin();
   const { data } = await admin
     .from('projects')
-    .select('*, emittent:users!projects_emittent_id_fkey(id, name, email, kyc_status)')
+    .select('*, emittent:users!projects_emittent_id_fkey(id, name, email, kyc_status, avatar_path)')
     .eq('id', params.id)
     .maybeSingle();
   if (!data) notFound();
@@ -65,6 +67,29 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                 <div><dt className="text-gray-400">KYB</dt><dd>{KYC_LABEL[p.emittent?.kyc_status ?? 'pending']}</dd></div>
               </dl>
               {p.review_note && <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900"><b>Letzte Rückmeldung:</b> {p.review_note}</p>}
+            </div>
+
+            <div className={`${card} p-6`}>
+              <p className={label}>Bilder</p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {p.cover_image_path ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={imageUrl(p.cover_image_path) ?? ''} alt="Titelbild" className="h-32 w-56 rounded-lg object-cover" />
+                ) : (
+                  <p className="text-sm text-red-600">Kein Titelbild (Pflicht vor Freigabe).</p>
+                )}
+                {(p.gallery_paths ?? []).map((g) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img key={g} src={imageUrl(g) ?? ''} alt="" className="h-32 w-32 rounded-lg object-cover" />
+                ))}
+                {p.emittent?.avatar_path && (
+                  <div className="text-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={imageUrl(p.emittent.avatar_path) ?? ''} alt="Emittent" className="h-16 w-16 rounded-full object-cover" />
+                    <span className="block text-[10px] text-gray-400">Emittent</span>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className={`${card} p-6 space-y-4 text-sm`}>

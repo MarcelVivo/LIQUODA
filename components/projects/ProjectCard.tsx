@@ -4,6 +4,8 @@ import { Link } from '@/i18n/routing';
 import Badge from '@/components/ui/Badge';
 import StatusBadge from '@/components/projects/StatusBadge';
 import ProgressBar from '@/components/projects/ProgressBar';
+import ProjectImage from '@/components/images/ProjectImage';
+import { imageUrl } from '@/lib/images';
 import { formatChf, formatDate } from '@/lib/format';
 import { progressPercent, publicStatus, type Locale, type Project } from '@/lib/projects';
 
@@ -14,7 +16,11 @@ export default function ProjectCard({ project }: { project: Project }) {
   const percent = progressPercent(project);
 
   return (
-    <article className="liq-card liq-card-hover flex flex-col p-6">
+    <article className="liq-card liq-card-hover flex flex-col overflow-hidden">
+      <div className="aspect-[16/9] w-full">
+        <ProjectImage url={imageUrl(project.coverImagePath)} alt={project.title[locale]} assetType={project.assetType} />
+      </div>
+      <div className="flex flex-1 flex-col p-6">
       <div className="flex flex-wrap items-center gap-2">
         <Badge label={t(`assetTypes.${project.assetType}`)} variant="neutral" />
         {status && <StatusBadge status={status} />}
@@ -56,6 +62,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         {t('card.details')}
         <ArrowRight size={16} aria-hidden="true" />
       </Link>
+      </div>
     </article>
   );
 }

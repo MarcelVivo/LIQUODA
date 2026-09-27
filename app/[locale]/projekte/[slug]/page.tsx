@@ -13,6 +13,8 @@ import RiskNotes from '@/components/projects/RiskNotes';
 import { daysUntil, formatChf, formatDate } from '@/lib/format';
 import { getAccount } from '@/lib/supabase/server';
 import { explorerToken } from '@/lib/chain/config';
+import ProjectImage from '@/components/images/ProjectImage';
+import { imageUrl } from '@/lib/images';
 import { getProjectBySlug, progressPercent, publicStatus, type Locale } from '@/lib/projects';
 
 type Params = { locale: string; slug: string };
@@ -56,10 +58,29 @@ export default async function ProjectPage({ params }: { params: Params }) {
         <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl lg:text-5xl">
           {project.title[locale]}
         </h1>
-        <p className="mt-3 text-sm text-muted">
-          {t('detail.issuer')}: <span className="font-semibold text-navy">{project.issuerName}</span> ·{' '}
-          {project.location[locale]}
+        <p className="mt-3 flex items-center gap-2 text-sm text-muted">
+          {project.issuerAvatarPath && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={imageUrl(project.issuerAvatarPath) ?? ''} alt="" className="h-8 w-8 rounded-full object-cover ring-1 ring-navy/10" />
+          )}
+          <span>
+            {t('detail.issuer')}: <span className="font-semibold text-navy">{project.issuerName}</span> ·{' '}
+            {project.location[locale]}
+          </span>
         </p>
+        <div className="mt-8 aspect-[21/9] w-full overflow-hidden rounded-2xl shadow-card">
+          <ProjectImage url={imageUrl(project.coverImagePath)} alt={project.title[locale]} assetType={project.assetType} priority />
+        </div>
+        {project.galleryPaths.length > 0 && (
+          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label={t('detail.gallery')}>
+            {project.galleryPaths.map((p) => (
+              <a key={p} href={imageUrl(p) ?? '#'} target="_blank" rel="noopener" className="aspect-square overflow-hidden rounded-xl shadow-card">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={imageUrl(p) ?? ''} alt="" className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy" />
+              </a>
+            ))}
+          </div>
+        )}
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-body sm:text-lg">{project.summary[locale]}</p>
       </Section>
 

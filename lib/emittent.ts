@@ -24,13 +24,15 @@ export interface OwnProject {
   token_model: TokenModel;
   collateral_type: CollateralType;
   collateral_note: string | null;
+  cover_image_path: string | null;
+  gallery_paths: string[];
   review_note: string | null;
   created_at: string;
   updated_at: string;
 }
 
 const COLUMNS =
-  'id, slug, title, summary, description, purpose, location, risks, asset_type, target_amount_chf, min_investment_chf, raised_amount_chf, deadline, status, token_model, collateral_type, collateral_note, review_note, created_at, updated_at';
+  'id, slug, title, summary, description, purpose, location, risks, asset_type, target_amount_chf, min_investment_chf, raised_amount_chf, deadline, status, token_model, collateral_type, collateral_note, cover_image_path, gallery_paths, review_note, created_at, updated_at';
 
 export async function listOwnProjects(): Promise<OwnProject[]> {
   const supabase = createSupabaseServerClient();
@@ -88,6 +90,7 @@ export function submissionProblems(project: OwnProject, documents: DocumentRecor
   if (Number(project.min_investment_chf) <= 0 || Number(project.min_investment_chf) > Number(project.target_amount_chf)) problems.push('min');
   if (!project.deadline || new Date(project.deadline) <= new Date()) problems.push('deadline');
   if (project.collateral_type !== 'none' && !project.collateral_note?.trim()) problems.push('collateral');
+  if (!project.cover_image_path) problems.push('cover');
   if (documents.length === 0) problems.push('documents');
   return problems;
 }

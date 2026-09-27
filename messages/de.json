@@ -474,7 +474,8 @@
       "documentsLogin": "Dokumente werden versioniert abgelegt und öffnen sich über einen kurz gültigen Link.",
       "tokenContract": "Öffentliches Register",
       "tokenContractNone": "Das öffentliche Register wird nach der Freigabe des Projekts angelegt.",
-      "tokenContractHint": "Die Anteile werden in einem öffentlichen, fälschungssicheren Register auf Polygon geführt, 1 Anteil = CHF 1. Übertragungen sind nur zwischen geprüften Konten möglich."
+      "tokenContractHint": "Die Anteile werden in einem öffentlichen, fälschungssicheren Register auf Polygon geführt, 1 Anteil = CHF 1. Übertragungen sind nur zwischen geprüften Konten möglich.",
+      "gallery": "Bilder"
     },
     "collateral": {
       "badgeSecured": "Besichert",
@@ -776,6 +777,10 @@
         "failed": "Der Zielbetrag wurde innerhalb der Laufzeit nicht erreicht. Es wurden keine Token ausgegeben; Zahlungen werden rückabgewickelt.",
         "cancelled": "Das Projekt wurde vorzeitig beendet. Die Begründung steht in der Rückmeldung.",
         "closed": "Das Projekt ist abgeschlossen."
+      },
+      "avatar": {
+        "title": "Ihr Logo oder Porträt (freiwillig)",
+        "lead": "Wird auf Ihren Projektseiten neben Ihrem Namen gezeigt und schafft Vertrauen. Quadratisch, z. B. Firmenlogo oder Porträt der verantwortlichen Person."
       }
     },
     "wizard": {
@@ -784,6 +789,7 @@
       "steps": {
         "basics": "Eckdaten",
         "texts": "Texte",
+        "images": "Bilder",
         "amounts": "Beträge und Laufzeit",
         "documents": "Dokumente",
         "submit": "Einreichen"
@@ -859,7 +865,8 @@
           "min": "Mindestbetrag ungültig oder grösser als der Zielbetrag",
           "deadline": "Laufzeit liegt nicht in der Zukunft",
           "documents": "Kein Dokument hochgeladen",
-          "collateral": "Beschreibung der Sicherheit fehlt"
+          "collateral": "Beschreibung der Sicherheit fehlt",
+          "cover": "Titelbild fehlt"
         },
         "ready": "Alle Angaben sind vollständig.",
         "consent": "Ich bestätige, dass die Angaben wahr und vollständig sind und dass ich berechtigt bin, dieses Projekt anzubieten.",
@@ -881,6 +888,12 @@
         "type": "Art der Sicherheit",
         "note": "Beschreibung der Sicherheit",
         "noteHint": "Pflicht, sobald eine Sicherheit gewählt ist. Sachlich, maximal 1000 Zeichen."
+      },
+      "images": {
+        "coverTitle": "Titelbild (Pflicht)",
+        "coverLead": "Ein reales Bild des Assets oder Vorhabens. Es erscheint im Marktplatz und oben auf der Projektseite. Querformat, mindestens 1200 Pixel breit.",
+        "galleryTitle": "Weitere Bilder (freiwillig)",
+        "galleryLead": "Bis zu vier zusätzliche Bilder für die Projektseite."
       }
     }
   },
@@ -1038,6 +1051,20 @@
         "title": "Anfrage erhalten",
         "body": "Vielen Dank für Ihre Anfrage. LIQUODA prüft Ihre Angaben und meldet sich mit einer ersten Einschätzung. Aus der Anfrage entsteht keine Verpflichtung."
       }
+    }
+  },
+  "images": {
+    "add": "Bild hinzufügen",
+    "uploading": "Wird hochgeladen …",
+    "remove": "Bild entfernen",
+    "hint": "JPG, PNG oder WebP, bis 10 MB. Reale Motive, keine Stockfotos.",
+    "none": "Kein Bild.",
+    "errors": {
+      "file_type": "Nur JPG, PNG oder WebP.",
+      "file_size": "Das Bild ist grösser als 10 MB.",
+      "gallery_full": "Die Galerie ist voll (maximal 4 Bilder).",
+      "locked": "Das Projekt kann nicht mehr bearbeitet werden.",
+      "server": "Der Upload ist fehlgeschlagen. Bitte versuchen Sie es erneut."
     }
   },
   "legal": {
