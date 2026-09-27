@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import PasswordInput from '@/components/ui/PasswordInput';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -58,8 +59,7 @@ export default function AdminLogin() {
               autoComplete="email"
               className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0b1830] transition-colors"
             />
-            <input
-              type="password"
+            <PasswordInput
               placeholder="Passwort"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -75,6 +75,7 @@ export default function AdminLogin() {
               {loading ? '...' : 'Einloggen'}
             </button>
           </form>
+          <a href="/admin/passwort" className="mt-5 block text-center text-xs text-gray-400 hover:text-gray-600">Passwort vergessen?</a>
         </div>
       </div>
     </div>

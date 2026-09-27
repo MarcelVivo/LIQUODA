@@ -148,6 +148,14 @@ export default function LoginForm({ next, notice }: { next?: string; notice?: st
         </Button>
       </div>
 
+      {mode === 'password' && (
+        <p className="mt-4 text-center text-sm">
+          <Link href="/passwort-vergessen" className="liq-link text-muted">
+            {t('forgot')}
+          </Link>
+        </p>
+      )}
+
       <p className="mt-5 text-center text-sm text-muted">
         {t('noAccount')}{' '}
         <Link href="/registrieren" className="liq-link font-semibold text-navy">

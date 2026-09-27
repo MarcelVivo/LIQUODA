@@ -1,19 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { SignJWT } from 'jose';
+import { adminEmail, verifyAdminLogin } from '@/lib/admin-password';
 
 export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json();
 
-    const validEmail = (process.env.ADMIN_EMAIL ?? '').trim();
-    const validPassword = (process.env.ADMIN_PASSWORD ?? '').trim();
-
-    if (!validEmail || !validPassword) {
-      console.error('ADMIN_EMAIL or ADMIN_PASSWORD env var is not set');
+    const validEmail = adminEmail();
+    if (!validEmail) {
+      console.error('ADMIN_EMAIL env var is not set');
       return NextResponse.json({ error: 'Server misconfigured' }, { status: 500 });
     }
 
-    if ((email ?? '').trim() !== validEmail || (password ?? '') !== validPassword) {
+    if (!(await verifyAdminLogin(String(email ?? ''), String(password ?? '')))) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
     }
 

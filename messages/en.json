@@ -556,7 +556,8 @@
         "email_not_confirmed": "Your email address is not yet confirmed. Please click the link in the confirmation email.",
         "not_configured": "Login is not yet set up in this environment.",
         "server": "An error occurred. Please try again later."
-      }
+      },
+      "forgot": "Forgot password?"
     },
     "account": {
       "portfolioTitle": "Portfolio",
@@ -618,6 +619,34 @@
       "tokenContract": "Public record",
       "tokenTx": "Transfer",
       "refunded": "Refunded"
+    },
+    "reset": {
+      "metaTitle": "Forgot password",
+      "title": "Forgot password",
+      "lead": "Enter your email address. You will receive a link to set a new password. The link is valid for one hour.",
+      "email": "Email address",
+      "submit": "Send link",
+      "submitting": "Sending …",
+      "sentTitle": "Email on its way",
+      "sentText": "If an account exists for this address, you will shortly receive an email with the link.",
+      "backToLogin": "Go to login"
+    },
+    "newPassword": {
+      "metaTitle": "New password",
+      "title": "Set a new password",
+      "lead": "Choose a new password with at least 8 characters.",
+      "password": "New password",
+      "password2": "Repeat new password",
+      "submit": "Save password",
+      "submitting": "Saving …",
+      "doneTitle": "Password saved",
+      "doneText": "You are logged in and can use the new password from now on.",
+      "errors": {
+        "length": "The password must be at least 8 characters long.",
+        "mismatch": "The passwords do not match.",
+        "session": "The link is invalid or has expired. Please request a new one.",
+        "server": "The password could not be saved. Please try again."
+      }
     }
   },
   "invest": {

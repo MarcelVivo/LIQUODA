@@ -11,7 +11,7 @@ const PROTECTED: Record<string, 'investor' | 'emittent'> = {
   '/investieren': 'investor',
   '/emittent': 'emittent',
 };
-const AUTH_PAGES = ['/login', '/registrieren'];
+const AUTH_PAGES = ['/login', '/registrieren', '/passwort-vergessen'];
 
 /** Locale-Präfix abtrennen: "/en/portfolio" -> { locale: "en", path: "/portfolio" } */
 function splitLocale(pathname: string) {
@@ -71,7 +71,7 @@ export async function middleware(request: NextRequest) {
 
   // Bestehender Admin-Bereich mit eigenem Login (unverändert)
   if (pathname.startsWith('/admin')) {
-    if (pathname === '/admin/login') return NextResponse.next();
+    if (pathname === '/admin/login' || pathname === '/admin/passwort') return NextResponse.next();
 
     const token = request.cookies.get('admin_session')?.value;
     if (!token || !(await verifyAdminToken(token))) {

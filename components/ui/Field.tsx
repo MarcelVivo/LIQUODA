@@ -1,3 +1,4 @@
+import PasswordInput from '@/components/ui/PasswordInput';
 import type {
   InputHTMLAttributes,
   SelectHTMLAttributes,
@@ -60,7 +61,11 @@ export function InputField({
 }) {
   return (
     <Wrapper id={inputProps.id} label={label} hint={hint} error={error}>
-      <input {...inputProps} {...aria(inputProps.id, error)} className={controlClasses(error)} />
+      {inputProps.type === 'password' ? (
+        <PasswordInput {...inputProps} {...aria(inputProps.id, error)} className={controlClasses(error)} />
+      ) : (
+        <input {...inputProps} {...aria(inputProps.id, error)} className={controlClasses(error)} />
+      )}
     </Wrapper>
   );
 }
