@@ -7,6 +7,7 @@ import { DeployTokenButton, MintButton, RefundButton } from '../../_components/T
 import { explorerAddress, explorerTx } from '@/lib/chain/config';
 import { imageUrl } from '@/lib/images';
 import ModerationButtons from '../../_components/ModerationButtons';
+import ReviewToggle from '../../_components/ReviewToggle';
 import { card, chf, dt, STATUS_LABEL, KYC_LABEL } from '../../_lib';
 
 export const dynamic = 'force-dynamic';
@@ -21,7 +22,7 @@ type Project = {
   cover_image_path: string | null; gallery_paths: string[] | null;
   emittent: { id: string; name: string; email: string; kyc_status: string; avatar_path: string | null } | null;
 };
-type Doc = { id: string; type: string; title: L; version: number; sha256_hash: string | null; created_at: string };
+type Doc = { id: string; type: string; title: L; version: number; sha256_hash: string | null; created_at: string; visibility: string; reviewed_at: string | null };
 type Inv = { id: string; amount_chf: number; status: string; created_at: string; refund_status: string | null; refund_error: string | null; investor: { name: string; email: string; kyc_status: string; wallet_address: string | null } | null; token_references: { tx_hash: string; token_amount: number }[] };
 type Upd = { id: string; title: { de: string }; hidden: boolean; created_at: string };
 type Q = { id: string; question: string; answer: string | null; hidden: boolean; created_at: string };
@@ -41,7 +42,7 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
     admin.from('project_questions').select('id, question, answer, hidden, created_at').eq('project_id', p.id).order('created_at', { ascending: false }),
   ]);
   const [{ data: docs }, { data: invs }, { data: audit }] = await Promise.all([
-    admin.from('documents').select('id, type, title, version, sha256_hash, created_at').eq('project_id', p.id).is('investment_id', null).order('created_at'),
+    admin.from('documents').select('id, type, title, version, sha256_hash, created_at, visibility, reviewed_at').eq('project_id', p.id).is('investment_id', null).order('created_at'),
     admin.from('investments').select('id, amount_chf, status, created_at, refund_status, refund_error, token_references(tx_hash, token_amount), investor:users!investments_investor_id_fkey(name, email, kyc_status, wallet_address)').eq('project_id', p.id).order('created_at', { ascending: false }),
     admin.from('audit_log').select('id, actor_label, action, old_value, new_value, created_at').eq('entity', 'projects').eq('entity_id', p.id).order('created_at', { ascending: false }).limit(20),
   ]);
@@ -114,7 +115,8 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                   {documents.map((d) => (
                     <li key={d.id} className="py-2">
                       <a href={`/api/dokumente/${d.id}`} target="_blank" rel="noopener" className="font-medium underline decoration-gray-300 underline-offset-4">{d.title.de}</a>
-                      <span className="ml-2 text-xs text-gray-400">{d.type} · v{d.version} · {dt(d.created_at)}</span>
+                      <span className="ml-2 text-xs text-gray-400">{d.type} · v{d.version} · {dt(d.created_at)} · {d.visibility === 'public' ? 'öffentlich' : 'nach Anmeldung'}</span>
+                      <ReviewToggle id={d.id} reviewed={!!d.reviewed_at} />
                       {d.sha256_hash && <span className="block font-mono text-[10px] text-gray-400">{d.sha256_hash}</span>}
                     </li>
                   ))}

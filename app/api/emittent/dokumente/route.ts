@@ -19,6 +19,7 @@ export async function POST(req: NextRequest) {
   const type = cleanText(form.get('type'), 20) as DocumentType;
   const titleDe = cleanText(form.get('titleDe'), 160);
   const titleEn = cleanText(form.get('titleEn'), 160) || titleDe;
+  const visibility = form.get('visibility') === 'public' ? 'public' : 'members';
   const file = form.get('file');
 
   const fields: string[] = [];
@@ -36,7 +37,7 @@ export async function POST(req: NextRequest) {
   if (!project) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   if (project.status !== 'draft') return NextResponse.json({ error: 'locked' }, { status: 409 });
 
-  const result = await storeDocument({ projectId, type, title: { de: titleDe, en: titleEn }, file: f });
+  const result = await storeDocument({ projectId, type, title: { de: titleDe, en: titleEn }, file: f, visibility });
   if (!result.ok) return NextResponse.json({ error: result.error }, { status: result.error === 'server' ? 500 : 400 });
   return NextResponse.json({ success: true, document: result.document });
 }

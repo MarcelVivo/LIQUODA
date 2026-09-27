@@ -30,7 +30,12 @@ export type TokenModel = 'erc20' | 'erc721' | 'erc1155';
 export const COLLATERAL_TYPES = ['none', 'pledge', 'guarantee', 'milestone_payout'] as const;
 export type CollateralType = (typeof COLLATERAL_TYPES)[number];
 
-export type DocumentType = 'contract' | 'prospectus' | 'valuation' | 'financials' | 'other';
+export type DocumentType =
+  | 'contract' | 'prospectus' | 'valuation' | 'financials' | 'other'
+  | 'business_plan' | 'financing_concept' | 'land_register' | 'commercial_register'
+  | 'ownership_proof' | 'insurance' | 'yield_report' | 'purchase_agreement';
+
+export type DocumentVisibility = 'public' | 'members';
 
 export interface ProjectDocument {
   id: string;
@@ -38,6 +43,8 @@ export interface ProjectDocument {
   title: Localized;
   version: number;
   date: string; // ISO-Datum
+  visibility: DocumentVisibility;
+  reviewedAt: string | null; // von LIQUODA gesichtet
 }
 
 export interface Project {

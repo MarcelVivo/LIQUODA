@@ -26,6 +26,7 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
   if (!project) return NextResponse.json({ error: 'not_found' }, { status: 404 });
 
   let allowed = !!(await getAdminSession());
+  if (!allowed && doc.visibility === 'public' && !doc.investment_id && PUBLIC_STATUSES.includes(project.status)) allowed = true;
   if (!allowed) {
     const account = await getAccount();
     const profile = account ? await getOwnProfile(account.authId) : null;

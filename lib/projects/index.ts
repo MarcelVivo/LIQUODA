@@ -49,6 +49,8 @@ type DocumentRow = {
   title: ProjectDocument['title'];
   version: number;
   created_at: string;
+  visibility?: 'public' | 'members';
+  reviewed_at?: string | null;
 };
 
 const FEATURED_SLUGS = ['pizzeria-wander-bern', 'mehrfamilienhaus-vera-thun', 'display-solutions-ag'];
@@ -102,6 +104,8 @@ function toProject(row: ProjectRow, docs: DocumentRow[]): Project {
         title: d.title,
         version: d.version,
         date: d.created_at.slice(0, 10),
+        visibility: d.visibility ?? 'members',
+        reviewedAt: d.reviewed_at ?? null,
       })),
     risks: toLocalizedList(row.risks),
   };
@@ -112,7 +116,7 @@ async function loadDocuments(projectIds: string[]): Promise<DocumentRow[]> {
   const supabase = createSupabaseServerClient();
   const { data, error } = await supabase
     .from('documents')
-    .select('id, project_id, type, title, version, created_at')
+    .select('id, project_id, type, title, version, created_at, visibility, reviewed_at')
     .in('project_id', projectIds)
     .is('investment_id', null);
   if (error) {

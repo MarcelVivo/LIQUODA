@@ -440,12 +440,20 @@
       "description": "Description",
       "purpose": "Use of capital",
       "documents": "Documents",
-      "documentsNote": "Documents are stored with versioning. Log in to open them.",
+      "documentsNote": "Documents with a lock open after login. All documents are versioned; their checksum is anchored in the public record.",
       "docTypes": {
-        "contract": "Contract",
+        "business_plan": "Business plan",
+        "financing_concept": "Financing concept",
         "prospectus": "Project description",
-        "valuation": "Appraisal",
-        "financials": "Financials",
+        "financials": "Annual accounts / financials",
+        "commercial_register": "Commercial register extract",
+        "land_register": "Land register extract",
+        "valuation": "Appraisal / valuation",
+        "ownership_proof": "Proof of ownership",
+        "insurance": "Proof of insurance",
+        "yield_report": "Yield report",
+        "purchase_agreement": "Purchase agreement",
+        "contract": "Contract",
         "other": "Other"
       },
       "version": "Version {version}",
@@ -471,11 +479,20 @@
       },
       "ctaHintLogin": "To participate you need an investor account with verified identity.",
       "ctaHintClosed": "This project does not accept new participations.",
-      "documentsLogin": "Documents are stored with versioning and open via a short-lived link.",
+      "documentsLogin": "Documents are stored with versioning; their checksum is anchored in the public record.",
       "tokenContract": "Public record",
       "tokenContractNone": "The public record is created after the project is approved.",
       "tokenContractHint": "Shares are kept in a public, tamper-proof record on Polygon, 1 share = CHF 1. Transfers are only possible between verified accounts.",
-      "gallery": "Images"
+      "gallery": "Images",
+      "reviewed": "Reviewed by LIQUODA on {date}",
+      "notReviewed": "Not yet reviewed",
+      "reviewedHint": "“Reviewed” means LIQUODA looked at the document for completeness and plausibility, not for accuracy.",
+      "visibilityPublic": "Public",
+      "visibilityMembers": "After login",
+      "completeTitle": "Documents",
+      "completeYes": "All documents intended for this asset type are available.",
+      "completeNo": "Intended documents are missing:",
+      "requiredFor": "Intended for {asset}"
     },
     "collateral": {
       "badgeSecured": "Secured",
@@ -835,7 +852,7 @@
         "deadlineHint": "Last day of the funding phase. If the target is not reached by then, the round is reversed."
       },
       "documents": {
-        "lead": "At least one document is required, for example a project description or participation agreement. PDF, JPG and PNG up to 20 MB are allowed.",
+        "lead": "PDF, JPG and PNG up to 20 MB are allowed. Each document receives a checksum that is anchored in the public record.",
         "type": "Type",
         "titleDe": "Title (DE)",
         "titleEn": "Title (EN)",
@@ -852,7 +869,15 @@
           "upload": "The upload failed. Please try again.",
           "server": "An error occurred.",
           "required": "Please fill in this field."
-        }
+        },
+        "required": "Required documents for {asset}",
+        "requiredHint": "The project cannot be submitted without these documents.",
+        "present": "available",
+        "missing": "missing",
+        "visibility": "Visibility",
+        "visibilityPublic": "Public (any visitor can open)",
+        "visibilityMembers": "Logged-in users only",
+        "visibilityHint": "Documents with personal data, e.g. land register or annual accounts, are better kept behind login."
       },
       "submit": {
         "lead": "Before submission LIQUODA only checks completeness. After submission the project is frozen until LIQUODA gives feedback.",
@@ -868,7 +893,8 @@
           "deadline": "Term is not in the future",
           "documents": "No document uploaded",
           "collateral": "Description of the collateral missing",
-          "cover": "Cover image missing"
+          "cover": "Cover image missing",
+          "requiredDocs": "Required documents for this asset type are missing"
         },
         "ready": "All details are complete.",
         "consent": "I confirm that the details are true and complete and that I am entitled to offer this project.",

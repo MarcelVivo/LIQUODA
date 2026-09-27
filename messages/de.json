@@ -440,12 +440,20 @@
       "description": "Beschreibung",
       "purpose": "Verwendung des Kapitals",
       "documents": "Dokumente",
-      "documentsNote": "Dokumente werden versioniert abgelegt. Zum Öffnen melden Sie sich an.",
+      "documentsNote": "Dokumente mit Schloss öffnen sich nach der Anmeldung. Alle Dokumente sind versioniert; ihre Prüfsumme wird im öffentlichen Register verankert.",
       "docTypes": {
-        "contract": "Vertrag",
+        "business_plan": "Businessplan",
+        "financing_concept": "Finanzierungskonzept",
         "prospectus": "Projektbeschrieb",
-        "valuation": "Gutachten",
-        "financials": "Finanzen",
+        "financials": "Jahresrechnung / Finanzen",
+        "commercial_register": "Handelsregisterauszug",
+        "land_register": "Grundbuchauszug",
+        "valuation": "Gutachten / Bewertung",
+        "ownership_proof": "Eigentumsnachweis",
+        "insurance": "Versicherungsnachweis",
+        "yield_report": "Ertragsgutachten",
+        "purchase_agreement": "Abnahmevertrag",
+        "contract": "Vertrag",
         "other": "Sonstiges"
       },
       "version": "Version {version}",
@@ -471,11 +479,20 @@
       },
       "ctaHintLogin": "Für eine Beteiligung benötigen Sie ein Investoren-Konto mit bestätigter Identität.",
       "ctaHintClosed": "Dieses Projekt nimmt keine neuen Beteiligungen an.",
-      "documentsLogin": "Dokumente werden versioniert abgelegt und öffnen sich über einen kurz gültigen Link.",
+      "documentsLogin": "Dokumente werden versioniert abgelegt; ihre Prüfsumme wird im öffentlichen Register verankert.",
       "tokenContract": "Öffentliches Register",
       "tokenContractNone": "Das öffentliche Register wird nach der Freigabe des Projekts angelegt.",
       "tokenContractHint": "Die Anteile werden in einem öffentlichen, fälschungssicheren Register auf Polygon geführt, 1 Anteil = CHF 1. Übertragungen sind nur zwischen geprüften Konten möglich.",
-      "gallery": "Bilder"
+      "gallery": "Bilder",
+      "reviewed": "Von LIQUODA gesichtet am {date}",
+      "notReviewed": "Noch nicht gesichtet",
+      "reviewedHint": "«Gesichtet» heisst: LIQUODA hat das Dokument auf Vollständigkeit und Plausibilität angeschaut, nicht auf Richtigkeit geprüft.",
+      "visibilityPublic": "Öffentlich",
+      "visibilityMembers": "Nach Anmeldung",
+      "completeTitle": "Unterlagen",
+      "completeYes": "Alle für diese Asset-Art vorgesehenen Unterlagen liegen vor.",
+      "completeNo": "Es fehlen vorgesehene Unterlagen:",
+      "requiredFor": "Vorgesehen für {asset}"
     },
     "collateral": {
       "badgeSecured": "Besichert",
@@ -835,7 +852,7 @@
         "deadlineHint": "Letzter Tag der Finanzierungsphase. Wird das Ziel bis dahin nicht erreicht, wird die Runde rückabgewickelt."
       },
       "documents": {
-        "lead": "Mindestens ein Dokument ist Pflicht, zum Beispiel ein Projektbeschrieb oder Beteiligungsvertrag. Zulässig sind PDF, JPG und PNG bis 20 MB.",
+        "lead": "Zulässig sind PDF, JPG und PNG bis 20 MB. Jedes Dokument erhält eine Prüfsumme, die im öffentlichen Register verankert wird.",
         "type": "Art",
         "titleDe": "Titel (DE)",
         "titleEn": "Titel (EN)",
@@ -852,7 +869,15 @@
           "upload": "Der Upload ist fehlgeschlagen. Bitte versuchen Sie es erneut.",
           "server": "Es ist ein Fehler aufgetreten.",
           "required": "Bitte füllen Sie dieses Feld aus."
-        }
+        },
+        "required": "Pflichtdokumente für {asset}",
+        "requiredHint": "Ohne diese Unterlagen kann das Projekt nicht eingereicht werden.",
+        "present": "vorhanden",
+        "missing": "fehlt",
+        "visibility": "Sichtbarkeit",
+        "visibilityPublic": "Öffentlich (jeder Besucher kann öffnen)",
+        "visibilityMembers": "Nur für angemeldete Nutzer",
+        "visibilityHint": "Unterlagen mit Personendaten, z. B. Grundbuchauszug oder Jahresrechnung, besser nur nach Anmeldung."
       },
       "submit": {
         "lead": "Vor dem Einreichen prüft LIQUODA nur die Vollständigkeit. Nach dem Einreichen ist das Projekt eingefroren, bis LIQUODA eine Rückmeldung gibt.",
@@ -868,7 +893,8 @@
           "deadline": "Laufzeit liegt nicht in der Zukunft",
           "documents": "Kein Dokument hochgeladen",
           "collateral": "Beschreibung der Sicherheit fehlt",
-          "cover": "Titelbild fehlt"
+          "cover": "Titelbild fehlt",
+          "requiredDocs": "Pflichtdokumente für diese Asset-Art fehlen"
         },
         "ready": "Alle Angaben sind vollständig.",
         "consent": "Ich bestätige, dass die Angaben wahr und vollständig sind und dass ich berechtigt bin, dieses Projekt anzubieten.",

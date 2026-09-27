@@ -9,7 +9,8 @@ export const DOCUMENT_MIME: Record<string, string> = {
   'image/jpeg': 'jpg',
   'image/png': 'png',
 };
-export const DOCUMENT_TYPES: DocumentType[] = ['contract', 'prospectus', 'valuation', 'financials', 'other'];
+import { ALL_DOCUMENT_TYPES } from '@/lib/document-requirements';
+export const DOCUMENT_TYPES: DocumentType[] = ALL_DOCUMENT_TYPES;
 
 export interface DocumentRecord {
   id: string;
@@ -21,6 +22,10 @@ export interface DocumentRecord {
   version: number;
   sha256_hash: string | null;
   created_at: string;
+  visibility: 'public' | 'members';
+  reviewed_at: string | null;
+  reviewed_by: string | null;
+  onchain_tx?: string | null;
 }
 
 /** Datei in den privaten Bucket laden, SHA-256 berechnen, Zeile in «documents» anlegen. */
@@ -29,6 +34,7 @@ export async function storeDocument(params: {
   type: DocumentType;
   title: { de: string; en: string };
   file: File;
+  visibility: 'public' | 'members';
 }): Promise<{ ok: true; document: DocumentRecord } | { ok: false; error: string }> {
   const ext = DOCUMENT_MIME[params.file.type];
   if (!ext) return { ok: false, error: 'file_type' };
@@ -67,6 +73,7 @@ export async function storeDocument(params: {
       storage_path: path,
       version,
       sha256_hash: sha256,
+      visibility: params.visibility,
     })
     .select('*')
     .single();

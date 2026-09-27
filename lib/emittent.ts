@@ -5,6 +5,7 @@
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import type { AssetType, CollateralType, Localized, ProjectStatus, TokenModel } from '@/lib/projects/types';
 import type { DocumentRecord } from '@/lib/documents';
+import { missingDocumentTypes } from '@/lib/document-requirements';
 
 export interface OwnProject {
   id: string;
@@ -92,5 +93,6 @@ export function submissionProblems(project: OwnProject, documents: DocumentRecor
   if (project.collateral_type !== 'none' && !project.collateral_note?.trim()) problems.push('collateral');
   if (!project.cover_image_path) problems.push('cover');
   if (documents.length === 0) problems.push('documents');
+  if (missingDocumentTypes(project.asset_type, documents.map((d) => d.type)).length > 0) problems.push('requiredDocs');
   return problems;
 }

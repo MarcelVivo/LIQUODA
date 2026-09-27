@@ -45,9 +45,9 @@ export const exampleProjects: Project[] = [
     status: 'active',
     tokenModel: 'erc20',
     documents: [
-      { id: 'd-001-1', type: 'prospectus', title: { de: 'Projektbeschrieb', en: 'Project description' }, version: 2, date: '2026-09-01' },
-      { id: 'd-001-2', type: 'financials', title: { de: 'Jahresrechnung 2025', en: 'Annual accounts 2025' }, version: 1, date: '2026-04-12' },
-      { id: 'd-001-3', type: 'contract', title: { de: 'Beteiligungsvertrag (Muster)', en: 'Participation agreement (template)' }, version: 1, date: '2026-08-20' },
+      { id: 'd-001-1', type: 'prospectus', title: { de: 'Projektbeschrieb', en: 'Project description' }, version: 2, date: '2026-09-01', visibility: 'members', reviewedAt: null },
+      { id: 'd-001-2', type: 'financials', title: { de: 'Jahresrechnung 2025', en: 'Annual accounts 2025' }, version: 1, date: '2026-04-12', visibility: 'members', reviewedAt: null },
+      { id: 'd-001-3', type: 'contract', title: { de: 'Beteiligungsvertrag (Muster)', en: 'Participation agreement (template)' }, version: 1, date: '2026-08-20', visibility: 'members', reviewedAt: null },
     ],
     risks: [
       {
@@ -100,10 +100,10 @@ export const exampleProjects: Project[] = [
     status: 'active',
     tokenModel: 'erc20',
     documents: [
-      { id: 'd-002-1', type: 'prospectus', title: { de: 'Sanierungskonzept', en: 'Renovation concept' }, version: 1, date: '2026-07-15' },
-      { id: 'd-002-2', type: 'valuation', title: { de: 'Verkehrswertschätzung', en: 'Market value appraisal' }, version: 1, date: '2026-06-02' },
-      { id: 'd-002-3', type: 'financials', title: { de: 'Mietertragsaufstellung', en: 'Rental income statement' }, version: 1, date: '2026-07-15' },
-      { id: 'd-002-4', type: 'contract', title: { de: 'Beteiligungsvertrag (Muster)', en: 'Participation agreement (template)' }, version: 1, date: '2026-08-01' },
+      { id: 'd-002-1', type: 'prospectus', title: { de: 'Sanierungskonzept', en: 'Renovation concept' }, version: 1, date: '2026-07-15', visibility: 'members', reviewedAt: null },
+      { id: 'd-002-2', type: 'valuation', title: { de: 'Verkehrswertschätzung', en: 'Market value appraisal' }, version: 1, date: '2026-06-02', visibility: 'members', reviewedAt: null },
+      { id: 'd-002-3', type: 'financials', title: { de: 'Mietertragsaufstellung', en: 'Rental income statement' }, version: 1, date: '2026-07-15', visibility: 'members', reviewedAt: null },
+      { id: 'd-002-4', type: 'contract', title: { de: 'Beteiligungsvertrag (Muster)', en: 'Participation agreement (template)' }, version: 1, date: '2026-08-01', visibility: 'members', reviewedAt: null },
     ],
     risks: [
       {
@@ -160,9 +160,9 @@ export const exampleProjects: Project[] = [
     status: 'active',
     tokenModel: 'erc20',
     documents: [
-      { id: 'd-003-1', type: 'prospectus', title: { de: 'Businessplan (Kurzfassung)', en: 'Business plan (summary)' }, version: 3, date: '2026-08-28' },
-      { id: 'd-003-2', type: 'financials', title: { de: 'Finanzplan 2026 bis 2029', en: 'Financial plan 2026 to 2029' }, version: 2, date: '2026-08-28' },
-      { id: 'd-003-3', type: 'contract', title: { de: 'Beteiligungsvertrag (Muster)', en: 'Participation agreement (template)' }, version: 1, date: '2026-09-05' },
+      { id: 'd-003-1', type: 'prospectus', title: { de: 'Businessplan (Kurzfassung)', en: 'Business plan (summary)' }, version: 3, date: '2026-08-28', visibility: 'members', reviewedAt: null },
+      { id: 'd-003-2', type: 'financials', title: { de: 'Finanzplan 2026 bis 2029', en: 'Financial plan 2026 to 2029' }, version: 2, date: '2026-08-28', visibility: 'members', reviewedAt: null },
+      { id: 'd-003-3', type: 'contract', title: { de: 'Beteiligungsvertrag (Muster)', en: 'Participation agreement (template)' }, version: 1, date: '2026-09-05', visibility: 'members', reviewedAt: null },
     ],
     risks: [
       {
@@ -215,9 +215,9 @@ export const exampleProjects: Project[] = [
     status: 'funded',
     tokenModel: 'erc20',
     documents: [
-      { id: 'd-004-1', type: 'prospectus', title: { de: 'Anlagebeschrieb und Ertragsprognose des Installateurs', en: 'Plant description and yield estimate by the installer' }, version: 1, date: '2026-02-10' },
-      { id: 'd-004-2', type: 'contract', title: { de: 'Stromabnahmevertrag (Auszug)', en: 'Power purchase agreement (excerpt)' }, version: 1, date: '2026-03-01' },
-      { id: 'd-004-3', type: 'contract', title: { de: 'Beteiligungsvertrag', en: 'Participation agreement' }, version: 2, date: '2026-06-30' },
+      { id: 'd-004-1', type: 'prospectus', title: { de: 'Anlagebeschrieb und Ertragsprognose des Installateurs', en: 'Plant description and yield estimate by the installer' }, version: 1, date: '2026-02-10', visibility: 'members', reviewedAt: null },
+      { id: 'd-004-2', type: 'contract', title: { de: 'Stromabnahmevertrag (Auszug)', en: 'Power purchase agreement (excerpt)' }, version: 1, date: '2026-03-01', visibility: 'members', reviewedAt: null },
+      { id: 'd-004-3', type: 'contract', title: { de: 'Beteiligungsvertrag', en: 'Participation agreement' }, version: 2, date: '2026-06-30', visibility: 'members', reviewedAt: null },
     ],
     risks: [
       {
@@ -270,9 +270,9 @@ export const exampleProjects: Project[] = [
     status: 'funded',
     tokenModel: 'erc721',
     documents: [
-      { id: 'd-005-1', type: 'valuation', title: { de: 'Fahrzeuggutachten', en: 'Vehicle appraisal' }, version: 1, date: '2026-04-22' },
-      { id: 'd-005-2', type: 'other', title: { de: 'Versicherungsnachweis', en: 'Proof of insurance' }, version: 1, date: '2026-05-03' },
-      { id: 'd-005-3', type: 'contract', title: { de: 'Beteiligungsvertrag', en: 'Participation agreement' }, version: 1, date: '2026-08-15' },
+      { id: 'd-005-1', type: 'valuation', title: { de: 'Fahrzeuggutachten', en: 'Vehicle appraisal' }, version: 1, date: '2026-04-22', visibility: 'members', reviewedAt: null },
+      { id: 'd-005-2', type: 'other', title: { de: 'Versicherungsnachweis', en: 'Proof of insurance' }, version: 1, date: '2026-05-03', visibility: 'members', reviewedAt: null },
+      { id: 'd-005-3', type: 'contract', title: { de: 'Beteiligungsvertrag', en: 'Participation agreement' }, version: 1, date: '2026-08-15', visibility: 'members', reviewedAt: null },
     ],
     risks: [
       {
@@ -325,8 +325,8 @@ export const exampleProjects: Project[] = [
     status: 'failed',
     tokenModel: 'erc20',
     documents: [
-      { id: 'd-006-1', type: 'prospectus', title: { de: 'Projektbeschrieb', en: 'Project description' }, version: 1, date: '2026-01-20' },
-      { id: 'd-006-2', type: 'financials', title: { de: 'Jahresrechnung 2025', en: 'Annual accounts 2025' }, version: 1, date: '2026-03-30' },
+      { id: 'd-006-1', type: 'prospectus', title: { de: 'Projektbeschrieb', en: 'Project description' }, version: 1, date: '2026-01-20', visibility: 'members', reviewedAt: null },
+      { id: 'd-006-2', type: 'financials', title: { de: 'Jahresrechnung 2025', en: 'Annual accounts 2025' }, version: 1, date: '2026-03-30', visibility: 'members', reviewedAt: null },
     ],
     risks: [
       {

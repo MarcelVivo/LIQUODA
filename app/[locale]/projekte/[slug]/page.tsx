@@ -18,6 +18,8 @@ import { imageUrl } from '@/lib/images';
 import ProjectCommunity from '@/components/community/ProjectCommunity';
 import { getEmittentById } from '@/lib/community';
 import { getOwnProfile } from '@/lib/investments';
+import { REQUIRED_DOCUMENTS, missingDocumentTypes } from '@/lib/document-requirements';
+import { CheckCircle, AlertCircle } from 'lucide-react';
 import { getProjectBySlug, progressPercent, publicStatus, type Locale } from '@/lib/projects';
 
 type Params = { locale: string; slug: string };
@@ -123,6 +125,21 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
             <div>
               <h2 className="text-xl font-extrabold tracking-tight text-navy">{t('detail.documents')}</h2>
+              {(() => {
+                const missing = missingDocumentTypes(project.assetType, project.documents.map((d) => d.type));
+                return (
+                  <div className={`mt-3 flex gap-3 rounded-xl border px-4 py-3 text-sm ${missing.length ? 'border-amber-300 bg-amber-50 text-amber-900' : 'border-accent/30 bg-accent/5 text-navy'}`}>
+                    {missing.length ? <AlertCircle size={18} className="mt-0.5 shrink-0" aria-hidden="true" /> : <CheckCircle size={18} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />}
+                    <div>
+                      <p className="font-semibold">{missing.length ? t('detail.completeNo') : t('detail.completeYes')}</p>
+                      <p className="mt-1 text-xs opacity-80">
+                        {t('detail.requiredFor', { asset: t(`assetTypes.${project.assetType}`) })}: {REQUIRED_DOCUMENTS[project.assetType].map((rt) => t(`detail.docTypes.${rt}`)).join(', ')}
+                      </p>
+                      {missing.length > 0 && <p className="mt-1 text-xs">{missing.map((rt) => t(`detail.docTypes.${rt}`)).join(', ')}</p>}
+                    </div>
+                  </div>
+                );
+              })()}
               <div className="mt-3">
                 <DocumentList documents={project.documents} canDownload={!!account} />
               </div>

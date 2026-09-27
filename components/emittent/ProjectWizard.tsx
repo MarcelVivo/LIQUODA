@@ -14,7 +14,8 @@ import ProjectImagesStep from '@/components/images/ProjectImagesStep';
 
 type Step = 'basics' | 'texts' | 'images' | 'amounts' | 'documents' | 'submit';
 const STEPS: Step[] = ['basics', 'texts', 'images', 'amounts', 'documents', 'submit'];
-const DOC_TYPES = ['contract', 'prospectus', 'valuation', 'financials', 'other'] as const;
+import { ALL_DOCUMENT_TYPES, REQUIRED_DOCUMENTS } from '@/lib/document-requirements';
+const DOC_TYPES = ALL_DOCUMENT_TYPES;
 
 interface Draft {
   titleDe: string; titleEn: string;
@@ -258,6 +259,7 @@ export default function ProjectWizard({
         {step === 'documents' && (
           <DocumentsStep
             projectId={project.id}
+            assetType={project.asset_type}
             editable={editable}
             documents={documents}
             onChange={(docs) => {
@@ -303,12 +305,14 @@ export default function ProjectWizard({
 
 function DocumentsStep({
   projectId,
+  assetType,
   editable,
   documents,
   onChange,
   locale,
 }: {
   projectId: string;
+  assetType: keyof typeof REQUIRED_DOCUMENTS;
   editable: boolean;
   documents: DocumentRecord[];
   onChange: (docs: DocumentRecord[]) => void;
@@ -316,7 +320,9 @@ function DocumentsStep({
 }) {
   const t = useTranslations('emittent.wizard.documents');
   const tProjects = useTranslations('projects.detail');
-  const [type, setType] = useState<string>('prospectus');
+  const [type, setType] = useState<string>(REQUIRED_DOCUMENTS[assetType]?.[0] ?? 'prospectus');
+  const [visibility, setVisibility] = useState<'public' | 'members'>('members');
+  const tProjectsAll = useTranslations('projects');
   const [titleDe, setTitleDe] = useState('');
   const [titleEn, setTitleEn] = useState('');
   const [file, setFile] = useState<File | null>(null);
@@ -338,6 +344,7 @@ function DocumentsStep({
       form.set('type', type);
       form.set('titleDe', titleDe);
       form.set('titleEn', titleEn);
+      form.set('visibility', visibility);
       form.set('file', file);
       const res = await fetch('/api/emittent/dokumente', { method: 'POST', body: form });
       const data = await res.json().catch(() => ({}));
@@ -347,6 +354,7 @@ function DocumentsStep({
         return;
       }
       onChange([...documents, data.document as DocumentRecord]);
+      setType((t) => t);
       setTitleDe('');
       setTitleEn('');
       setFile(null);
@@ -372,6 +380,22 @@ function DocumentsStep({
     <div>
       <p className="text-sm leading-relaxed text-muted">{t('lead')}</p>
 
+      <div className="mt-4 rounded-xl border border-navy/10 bg-cream p-4">
+        <p className="text-sm font-semibold text-navy">{t('required', { asset: tProjectsAll(`assetTypes.${assetType}`) })}</p>
+        <p className="mt-1 text-xs text-muted">{t('requiredHint')}</p>
+        <ul className="mt-3 grid gap-2 sm:grid-cols-3">
+          {(REQUIRED_DOCUMENTS[assetType] ?? []).map((rt) => {
+            const ok = documents.some((d) => d.type === rt);
+            return (
+              <li key={rt} className={`flex items-center gap-2 text-sm ${ok ? 'text-navy' : 'text-muted'}`}>
+                <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${ok ? 'bg-accent text-white' : 'border border-navy/20'}`}>{ok ? '✓' : ''}</span>
+                {tProjects(`docTypes.${rt}`)} <span className="text-xs text-muted">({ok ? t('present') : t('missing')})</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
       {documents.length === 0 ? (
         <p className="mt-4 text-sm text-muted">{t('empty')}</p>
       ) : (
@@ -384,7 +408,7 @@ function DocumentsStep({
                   {d.title[locale as 'de' | 'en'] || d.title.de}
                 </a>
                 <p className="text-xs text-muted">
-                  {tProjects(`docTypes.${d.type}`)} · {tProjects('version', { version: d.version })} · {formatDate(d.created_at.slice(0, 10), locale)}
+                  {tProjects(`docTypes.${d.type}`)} · {tProjects('version', { version: d.version })} · {formatDate(d.created_at.slice(0, 10), locale)} · {d.visibility === 'public' ? tProjects('visibilityPublic') : tProjects('visibilityMembers')}
                 </p>
                 {d.sha256_hash && (
                   <p className="mt-0.5 truncate font-mono text-[10px] text-muted" title={d.sha256_hash}>
@@ -412,6 +436,14 @@ function DocumentsStep({
           <InputField label={t('file')} inputProps={{ id: 'w-file', type: 'file', accept: 'application/pdf,image/jpeg,image/png', onChange: (e) => setFile(e.target.files?.[0] ?? null) }} />
           <InputField label={t('titleDe')} inputProps={{ id: 'w-doctitleDe', value: titleDe, onChange: (e) => setTitleDe(e.target.value) }} />
           <InputField label={t('titleEn')} inputProps={{ id: 'w-doctitleEn', value: titleEn, onChange: (e) => setTitleEn(e.target.value) }} />
+          <fieldset className="sm:col-span-2">
+            <legend className="text-sm font-medium text-navy">{t('visibility')}</legend>
+            <div className="mt-2 flex flex-wrap gap-4 text-sm">
+              <label className="flex items-center gap-2"><input type="radio" name="w-vis" checked={visibility === 'members'} onChange={() => setVisibility('members')} className="accent-accent" />{t('visibilityMembers')}</label>
+              <label className="flex items-center gap-2"><input type="radio" name="w-vis" checked={visibility === 'public'} onChange={() => setVisibility('public')} className="accent-accent" />{t('visibilityPublic')}</label>
+            </div>
+            <p className="mt-1 text-xs text-muted">{t('visibilityHint')}</p>
+          </fieldset>
           {error && (
             <p className="text-sm text-red-800 sm:col-span-2" role="alert">{error}</p>
           )}
@@ -433,7 +465,7 @@ function SubmitStep({ projectId, editable, problems }: { projectId: string; edit
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | undefined>();
-  const keys = ['title', 'summary', 'description', 'purpose', 'location', 'cover', 'target', 'min', 'deadline', 'collateral', 'documents'];
+  const keys = ['title', 'summary', 'description', 'purpose', 'location', 'cover', 'target', 'min', 'deadline', 'collateral', 'documents', 'requiredDocs'];
 
   const submit = async () => {
     setBusy(true);
