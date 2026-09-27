@@ -34,7 +34,7 @@ export default async function AdminUsers() {
                   <td className={`${td} font-medium`}>{u.name}</td>
                   <td className={`${td} text-gray-500`}>{u.email}</td>
                   <td className={td}>
-                    <span className={`inline-block px-2.5 py-1 rounded-full text-[11px] font-semibold ${u.role === 'emittent' ? 'bg-blue-50 text-blue-700' : u.role === 'admin' ? 'bg-gray-800 text-white' : 'bg-emerald-50 text-emerald-700'}`}>{u.role === 'emittent' ? 'Projektanbieter' : u.role === 'investor' ? 'Investor' : u.role}</span>
+                    <span className={`inline-block px-2.5 py-1 rounded-full text-[11px] font-semibold ${u.role === 'emittent' ? 'bg-blue-50 text-blue-700' : u.role === 'admin' ? 'bg-gray-800 text-white' : 'bg-emerald-50 text-emerald-700'}`}>{u.role === 'emittent' ? 'Kapitalnehmer' : u.role === 'investor' ? 'Investor' : u.role}</span>
                   </td>
                   <td className={td}><KycSelect userId={u.id} value={u.kyc_status} /></td>
                   <td className={`${td} font-mono text-xs text-gray-500`}>{u.wallet_address ? `${u.wallet_address.slice(0, 8)}…` : '–'}</td>

@@ -8,7 +8,7 @@ type Action = { status: 'active' | 'draft' | 'cancelled' | 'failed'; label: stri
 const ACTIONS: Record<string, Action[]> = {
   in_review: [
     { status: 'active', label: 'Freigeben (sofort live)', needsNote: false, confirm: 'Projekt freigeben? Es wird sofort im Marktplatz sichtbar.' },
-    { status: 'draft', label: 'Rückfrage, zurück an Projektanbieter', needsNote: true, confirm: 'Projekt mit Rückfrage an den Emittenten zurückgeben?' },
+    { status: 'draft', label: 'Rückfrage, zurück an Kapitalnehmer', needsNote: true, confirm: 'Projekt mit Rückfrage an den Emittenten zurückgeben?' },
   ],
   active: [
     { status: 'cancelled', label: 'Vorzeitig beenden', needsNote: true, confirm: 'Projekt vorzeitig beenden? Neue Beteiligungen sind dann nicht mehr möglich.' },
@@ -56,7 +56,7 @@ export default function ProjectActions({ projectId, status }: { projectId: strin
   return (
     <div className="space-y-3">
       <label className="block text-xs font-semibold text-gray-500">
-        Begründung / Rückfrage an den Projektanbieter
+        Begründung / Rückfrage an den Kapitalnehmer
         <textarea
           value={note}
           onChange={(e) => setNote(e.target.value)}

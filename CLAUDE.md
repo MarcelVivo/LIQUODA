@@ -24,7 +24,7 @@ Für Nutzer muss alles so einfach wie möglich sein und vollständig auf liquoda
 
 ## Begriffe
 
-Auf der Website heisst der Emittent «Projektanbieter» (EN «project provider»), Entscheid Marcel 27.09.2026. Technische Namen (Rolle `emittent`, Routen `/emittent`, `/fuer-emittenten`) bleiben. In rechtlichen Texten bleibt «Emittent» mit einmaliger Erklärung.
+Auf der Website heisst der Emittent «Kapitalnehmer» (EN bleibt «issuer»), Entscheid Marcel 27.09.2026. «Projektanbieter» wurde verworfen, weil es für Sachwerte wie einen Oldtimer nicht passt. Technische Namen (Rolle `emittent`, Routen `/emittent`, `/fuer-emittenten`) bleiben. In rechtlichen Texten bleibt «Emittent» mit einmaliger Erklärung.
 
 ## Regeln
 

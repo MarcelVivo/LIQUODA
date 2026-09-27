@@ -33,7 +33,7 @@ export default async function AdminDashboard() {
         <div className="grid grid-cols-3 gap-4 mb-8">
           {[
             { label: 'Gesamt', value: total },
-            { label: 'Projektanbieter', value: emittenten },
+            { label: 'Kapitalnehmer', value: emittenten },
             { label: 'Investoren', value: investoren },
           ].map((s) => (
             <div key={s.label} className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
@@ -93,7 +93,7 @@ export default async function AdminDashboard() {
                           : 'bg-emerald-50 text-emerald-700',
                       ].join(' ')}
                     >
-                      {r.role === 'Emittent' ? 'Projektanbieter' : r.role}
+                      {r.role === 'Emittent' ? 'Kapitalnehmer' : r.role}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-gray-400 text-xs">

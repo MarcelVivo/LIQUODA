@@ -10,7 +10,7 @@
     "home": "Startseite",
     "projects": "Projekte",
     "howItWorks": "So funktioniert es",
-    "issuers": "Für Projektanbieter",
+    "issuers": "Für Kapitalnehmer",
     "waitlist": "Warteliste",
     "menuOpen": "Menü öffnen",
     "menuClose": "Menü schliessen",
@@ -36,9 +36,9 @@
     "hero": {
       "eyebrow": "Schweizer Vermittlungs- und Technologieplattform",
       "title": "Beteiligungen an realen Werten, strukturiert und nachvollziehbar.",
-      "lead": "LIQUODA bringt Projektanbieter und Investoren zusammen. Eigentümer von Unternehmen, Immobilien, Energieprojekten oder Sachwerten stellen ein Projekt vor. Privatpersonen können sich ab CHF 100 daran beteiligen. Anteile werden als Token auf der Polygon-Blockchain abgebildet.",
+      "lead": "LIQUODA bringt Kapitalnehmer und Investoren zusammen. Eigentümer von Unternehmen, Immobilien, Energieprojekten oder Sachwerten stellen ein Projekt vor. Privatpersonen können sich ab CHF 100 daran beteiligen. Anteile werden als Token auf der Polygon-Blockchain abgebildet.",
       "ctaInvestors": "Ablauf für Investoren",
-      "ctaIssuers": "Für Projektanbieter",
+      "ctaIssuers": "Für Kapitalnehmer",
       "note": "LIQUODA ist keine Bank, kein Vermögensverwalter und gibt keine Anlageberatung. Jede Beteiligung trägt ein unternehmerisches Risiko."
     },
     "whatIs": {
@@ -46,7 +46,7 @@
       "lead": "Damit Sie einordnen können, welche Rolle die Plattform hat.",
       "isTitle": "LIQUODA ist",
       "isItems": [
-        "eine Vermittlungsplattform: Sie bringt Projektanbieter und Investoren zusammen.",
+        "eine Vermittlungsplattform: Sie bringt Kapitalnehmer und Investoren zusammen.",
         "eine Technologieplattform: Sie bildet Anteile als Token ab und dokumentiert den Ablauf.",
         "non-custodial: Geld, Token und Wallet-Schlüssel bleiben bei den Beteiligten.",
         "strukturiert: Jedes Projekt durchläuft denselben, nachvollziehbaren Prozess.",
@@ -64,7 +64,7 @@
     },
     "roles": {
       "title": "Für wen LIQUODA gedacht ist",
-      "issuersTitle": "Projektanbieter",
+      "issuersTitle": "Kapitalnehmer",
       "issuersText": "KMU, Unternehmer und Eigentümer von Immobilien, Energieprojekten oder Sachwerten wie Uhren, Kunst oder Fahrzeugen, die Kapital freisetzen möchten, ohne das Asset vollständig zu verkaufen.",
       "issuersLink": "Ablauf und Pakete ansehen",
       "investorsTitle": "Investoren",
@@ -73,7 +73,7 @@
     },
     "steps": {
       "title": "So läuft eine Beteiligung ab",
-      "lead": "Fünf Schritte, aus Sicht eines Investors. Der Ablauf für Projektanbieter ist auf der Seite «So funktioniert es» beschrieben.",
+      "lead": "Fünf Schritte, aus Sicht eines Investors. Der Ablauf für Kapitalnehmer ist auf der Seite «So funktioniert es» beschrieben.",
       "items": [
         {
           "title": "Verstehen",
@@ -116,7 +116,7 @@
         },
         {
           "title": "Keine Garantie, keine Renditeaussage",
-          "text": "LIQUODA gibt keine Zusagen zu Erträgen, Rückzahlungen oder Wertentwicklung. Angaben der Projektanbieter werden geprüft, aber nicht garantiert."
+          "text": "LIQUODA gibt keine Zusagen zu Erträgen, Rückzahlungen oder Wertentwicklung. Angaben der Kapitalnehmer werden geprüft, aber nicht garantiert."
         },
         {
           "title": "Transparenter Ablauf",
@@ -136,7 +136,7 @@
     "lastName": "Nachname",
     "email": "E-Mail-Adresse",
     "roleLabel": "Ich interessiere mich als",
-    "roleIssuer": "Projektanbieter",
+    "roleIssuer": "Kapitalnehmer",
     "roleIssuerDesc": "Ich möchte ein Projekt vorstellen.",
     "roleInvestor": "Investor",
     "roleInvestorDesc": "Ich möchte mich an Projekten beteiligen.",
@@ -153,7 +153,7 @@
   },
   "howItWorks": {
     "metaTitle": "So funktioniert es",
-    "metaDescription": "Der Ablauf auf LIQUODA, Schritt für Schritt, für Investoren und Projektanbieter.",
+    "metaDescription": "Der Ablauf auf LIQUODA, Schritt für Schritt, für Investoren und Kapitalnehmer.",
     "title": "So funktioniert es",
     "lead": "LIQUODA führt beide Seiten durch denselben Prozess. Hier sehen Sie, was in welcher Reihenfolge passiert, ohne technische Details.",
     "investorsTitle": "Ablauf für Investoren",
@@ -188,12 +188,12 @@
         "text": "Ihr Portfolio zeigt Beteiligungen, Dokumente, Projektstatus und die Referenz auf Ihre Token."
       }
     ],
-    "issuersTitle": "Ablauf für Projektanbieter",
+    "issuersTitle": "Ablauf für Kapitalnehmer",
     "issuersIntro": "Von der Anfrage bis zum Abschluss der Finanzierungsrunde.",
     "issuerSteps": [
       {
         "title": "Informieren",
-        "text": "Die Seite «Für Projektanbieter» beschreibt Nutzen, Ablauf, Voraussetzungen und Kosten."
+        "text": "Die Seite «Für Kapitalnehmer» beschreibt Nutzen, Ablauf, Voraussetzungen und Kosten."
       },
       {
         "title": "Projektanfrage",
@@ -201,7 +201,7 @@
       },
       {
         "title": "Konto erstellen und Unternehmen bestätigen",
-        "text": "Sie registrieren sich als Projektanbieter und durchlaufen die Prüfung des Unternehmens (KYB)."
+        "text": "Sie registrieren sich als Kapitalnehmer und durchlaufen die Prüfung des Unternehmens (KYB)."
       },
       {
         "title": "Projekt erfassen",
@@ -241,7 +241,7 @@
       },
       {
         "title": "Projekt nicht freigegeben",
-        "text": "Der Projektanbieter sieht den Status mit einer sachlichen Begründung und Hinweisen zur Anpassung."
+        "text": "Der Kapitalnehmer sieht den Status mit einer sachlichen Begründung und Hinweisen zur Anpassung."
       },
       {
         "title": "Projekt vorzeitig beendet",
@@ -249,16 +249,16 @@
       }
     ],
     "ctaTitle": "Nächster Schritt",
-    "ctaText": "Konten und Beteiligungen sind noch nicht möglich. Sie können sich in die Warteliste eintragen oder als Projektanbieter eine Projektanfrage senden.",
+    "ctaText": "Konten und Beteiligungen sind noch nicht möglich. Sie können sich in die Warteliste eintragen oder als Kapitalnehmer eine Projektanfrage senden.",
     "ctaWaitlist": "Zur Warteliste",
     "ctaIssuers": "Projektanfrage senden"
   },
   "issuers": {
-    "metaTitle": "Für Projektanbieter",
-    "metaDescription": "Nutzen, Ablauf, Voraussetzungen und Pakete für Projektanbieter auf LIQUODA.",
-    "title": "Für Projektanbieter",
-    "lead": "Sie besitzen ein Unternehmen, eine Immobilie, ein Energieprojekt oder einen Sachwert und möchten Kapital freisetzen, ohne das Asset vollständig zu verkaufen. LIQUODA stellt dafür einen strukturierten Prozess und die Technik bereit. Projektanbieter sind im rechtlichen Sinn Emittenten: Sie geben Anteile an ihrem Vorhaben aus.",
-    "benefitsTitle": "Was LIQUODA für Projektanbieter leistet",
+    "metaTitle": "Für Kapitalnehmer",
+    "metaDescription": "Nutzen, Ablauf, Voraussetzungen und Pakete für Kapitalnehmer auf LIQUODA.",
+    "title": "Für Kapitalnehmer",
+    "lead": "Sie besitzen ein Unternehmen, eine Immobilie, ein Energieprojekt oder einen Sachwert und möchten Kapital freisetzen, ohne das Asset vollständig zu verkaufen. LIQUODA stellt dafür einen strukturierten Prozess und die Technik bereit. Kapitalnehmer sind im rechtlichen Sinn Emittenten: Sie geben Anteile an ihrem Unternehmen, ihrer Immobilie, ihrem Projekt oder Sachwert aus.",
+    "benefitsTitle": "Was LIQUODA für Kapitalnehmer leistet",
     "benefits": [
       {
         "title": "Ein klarer Prozess",
@@ -292,7 +292,7 @@
       },
       {
         "title": "Konto und Prüfung",
-        "text": "Sie erstellen ein Projektanbieter-Konto und durchlaufen die Unternehmensprüfung."
+        "text": "Sie erstellen ein Kapitalnehmer-Konto und durchlaufen die Unternehmensprüfung."
       },
       {
         "title": "Projekt erfassen",
@@ -352,7 +352,7 @@
       }
     },
     "feesTitle": "Transaktionsgebühren",
-    "feesIssuer": "Projektanbieter: 3 % auf das erfolgreich investierte Volumen. Fällt nur an, wenn die Finanzierung zustande kommt.",
+    "feesIssuer": "Kapitalnehmer: 3 % auf das erfolgreich investierte Volumen. Fällt nur an, wenn die Finanzierung zustande kommt.",
     "feesInvestor": "Investor: 1 %, im Investitionsprozess transparent ausgewiesen.",
     "feesNone": "Es gibt keine Erfolgs- und keine Renditegebühren.",
     "requestTitle": "Projektanfrage",
@@ -422,7 +422,7 @@
     },
     "detail": {
       "back": "Zurück zur Übersicht",
-      "issuer": "Projektanbieter",
+      "issuer": "Kapitalnehmer",
       "keyFigures": "Eckdaten",
       "target": "Zielbetrag",
       "raised": "Bisher erreicht",
@@ -454,7 +454,7 @@
       "generalRisksTitle": "Allgemeine Hinweise",
       "generalRisks": [
         "Jede Beteiligung ist eine unternehmerische Beteiligung. Das eingesetzte Kapital kann ganz oder teilweise verloren gehen.",
-        "LIQUODA gibt keine Zusagen zu Erträgen, Rückzahlungen oder Wertentwicklung. Angaben des Projektanbieters werden auf Vollständigkeit geprüft, aber nicht garantiert.",
+        "LIQUODA gibt keine Zusagen zu Erträgen, Rückzahlungen oder Wertentwicklung. Angaben des Kapitalnehmers werden auf Vollständigkeit geprüft, aber nicht garantiert.",
         "Es gibt keinen Sekundärmarkt. Token sind nicht frei übertragbar. Rechnen Sie damit, dass Ihre Beteiligung bis zum Ende der Laufzeit gebunden ist.",
         "Wird das Finanzierungsziel nicht erreicht, werden keine Token ausgegeben und die Zahlungen rückabgewickelt."
       ],
@@ -488,12 +488,12 @@
         "milestone_payout": "Auszahlung nach Meilensteinen"
       },
       "explain": {
-        "none": "Der Projektanbieter stellt keine Sicherheit. Die Beteiligung ist ausschliesslich durch den Erfolg des Projekts gedeckt.",
-        "pledge": "Der Projektanbieter stellt ein Pfand, zum Beispiel ein Grundpfand oder ein Faustpfand an einem Sachwert. Im Verlustfall kann das Pfand verwertet werden; der Erlös kann unter dem eingesetzten Kapital liegen.",
+        "none": "Der Kapitalnehmer stellt keine Sicherheit. Die Beteiligung ist ausschliesslich durch den Erfolg des Projekts gedeckt.",
+        "pledge": "Der Kapitalnehmer stellt ein Pfand, zum Beispiel ein Grundpfand oder ein Faustpfand an einem Sachwert. Im Verlustfall kann das Pfand verwertet werden; der Erlös kann unter dem eingesetzten Kapital liegen.",
         "guarantee": "Ein Dritter oder ein Vertrag sichert einen Teil der Zahlungen zu, zum Beispiel eine Bürgschaft oder ein Abnahmevertrag. Die Sicherheit ist nur so gut wie die Zahlungsfähigkeit dieses Dritten.",
-        "milestone_payout": "Das Kapital wird dem Projektanbieter nur schrittweise nach Erreichen vereinbarter Meilensteine freigegeben. Das verringert das Risiko einer Fehlverwendung, nicht das Projektrisiko."
+        "milestone_payout": "Das Kapital wird dem Kapitalnehmer nur schrittweise nach Erreichen vereinbarter Meilensteine freigegeben. Das verringert das Risiko einer Fehlverwendung, nicht das Projektrisiko."
       },
-      "disclaimer": "Die Sicherheit wird im Vertrag zwischen Projektanbieter und Investoren geregelt. LIQUODA bewertet, prüft oder garantiert sie nicht und bietet keine eigene Versicherung."
+      "disclaimer": "Die Sicherheit wird im Vertrag zwischen Kapitalnehmer und Investoren geregelt. LIQUODA bewertet, prüft oder garantiert sie nicht und bietet keine eigene Versicherung."
     }
   },
   "auth": {
@@ -508,7 +508,7 @@
       "roleLabel": "Ich registriere mich als",
       "roleInvestor": "Investor",
       "roleInvestorDesc": "Ich möchte mich an Projekten beteiligen.",
-      "roleIssuer": "Projektanbieter",
+      "roleIssuer": "Kapitalnehmer",
       "roleIssuerDesc": "Ich möchte ein Projekt zur Finanzierung vorstellen.",
       "consent": "Ich habe die AGB, die Datenschutzerklärung und die Risikoaufklärung gelesen und verstanden.",
       "submit": "Konto erstellen",
@@ -563,15 +563,15 @@
     "account": {
       "portfolioTitle": "Portfolio",
       "portfolioLead": "Ihr Investoren-Bereich: Beteiligungen, Dokumente und Ihre Anteile.",
-      "issuerTitle": "Projektanbieter-Dashboard",
-      "issuerLead": "Ihr Bereich als Projektanbieter. Projekte erfassen, Dokumente hochladen, Status verfolgen.",
+      "issuerTitle": "Kapitalnehmer-Dashboard",
+      "issuerLead": "Ihr Bereich als Kapitalnehmer. Projekte erfassen, Dokumente hochladen, Status verfolgen.",
       "profile": "Konto",
       "name": "Name",
       "email": "E-Mail-Adresse",
       "role": "Rolle",
       "roles": {
         "investor": "Investor",
-        "emittent": "Projektanbieter",
+        "emittent": "Kapitalnehmer",
         "admin": "Admin"
       },
       "kyc": "Identitätsprüfung",
@@ -682,7 +682,7 @@
       "total": "Zu zahlender Betrag",
       "deadline": "Laufzeit bis",
       "tokenModel": "Art der Anteile",
-      "issuer": "Projektanbieter",
+      "issuer": "Kapitalnehmer",
       "back": "Betrag ändern",
       "next": "Weiter zur Zustimmung"
     },
@@ -744,7 +744,7 @@
   },
   "emittent": {
     "dashboard": {
-      "title": "Projektanbieter-Dashboard",
+      "title": "Kapitalnehmer-Dashboard",
       "lead": "Ihre Projekte und deren Status. Ein neues Projekt beginnt als Entwurf und wird nach dem Einreichen von LIQUODA geprüft.",
       "newProject": "Neues Projekt anlegen",
       "creating": "Wird angelegt …",
@@ -886,7 +886,7 @@
       },
       "collateral": {
         "title": "Absicherung für Investoren",
-        "lead": "Welche Sicherheit stellen Sie? LIQUODA bewertet die Sicherheit nicht; sie wird im Beteiligungsvertrag geregelt und auf der Projektseite als Angabe des Projektanbieters gezeigt.",
+        "lead": "Welche Sicherheit stellen Sie? LIQUODA bewertet die Sicherheit nicht; sie wird im Beteiligungsvertrag geregelt und auf der Projektseite als Angabe des Kapitalnehmers gezeigt.",
         "type": "Art der Sicherheit",
         "note": "Beschreibung der Sicherheit",
         "noteHint": "Pflicht, sobald eine Sicherheit gewählt ist. Sachlich, maximal 1000 Zeichen."
@@ -984,7 +984,7 @@
       "submittedAdmin": {
         "subject": "Neues Projekt zur Prüfung: {project}",
         "title": "Neues Projekt zur Prüfung",
-        "body": "Ein Projektanbieter hat ein Projekt eingereicht. Bitte im Admin-Bereich prüfen.",
+        "body": "Ein Kapitalnehmer hat ein Projekt eingereicht. Bitte im Admin-Bereich prüfen.",
         "button": "Im Admin öffnen"
       },
       "active": {
@@ -1049,7 +1049,7 @@
       "admin": {
         "subject": "Neue Projektanfrage von {name}",
         "title": "Neue Projektanfrage",
-        "body": "Über die Seite «Für Projektanbieter» ist eine Anfrage eingegangen."
+        "body": "Über die Seite «Für Kapitalnehmer» ist eine Anfrage eingegangen."
       },
       "sender": {
         "subject": "Ihre Projektanfrage bei LIQUODA",
@@ -1059,8 +1059,8 @@
     },
     "update": {
       "subject": "Neuigkeit zu {project}",
-      "title": "Neuigkeit vom Projektanbieter",
-      "body": "Der Projektanbieter hat eine Neuigkeit zu einem Projekt veröffentlicht, an dem Sie beteiligt sind.",
+      "title": "Neuigkeit vom Kapitalnehmer",
+      "body": "Der Kapitalnehmer hat eine Neuigkeit zu einem Projekt veröffentlicht, an dem Sie beteiligt sind.",
       "button": "Projekt öffnen"
     },
     "question": {
@@ -1073,7 +1073,7 @@
       "answered": {
         "subject": "Antwort auf Ihre Frage zu {project}",
         "title": "Ihre Frage wurde beantwortet",
-        "body": "Der Projektanbieter hat Ihre Frage beantwortet. Die Antwort ist auf der Projektseite sichtbar.",
+        "body": "Der Kapitalnehmer hat Ihre Frage beantwortet. Die Antwort ist auf der Projektseite sichtbar.",
         "button": "Antwort ansehen"
       }
     }
@@ -1094,15 +1094,15 @@
   },
   "community": {
     "profile": {
-      "metaTitle": "Projektanbieter",
+      "metaTitle": "Kapitalnehmer",
       "verified": "Unternehmen geprüft",
       "notVerified": "Prüfung ausstehend",
       "website": "Website",
-      "projects": "Projekte dieses Projektanbieters",
+      "projects": "Projekte dieses Kapitalnehmers",
       "since": "Auf LIQUODA seit",
-      "noBio": "Dieser Projektanbieter hat noch keine Beschreibung hinterlegt.",
+      "noBio": "Dieser Kapitalnehmer hat noch keine Beschreibung hinterlegt.",
       "noProjects": "Noch keine öffentlichen Projekte.",
-      "linkFromProject": "Profil des Projektanbieters"
+      "linkFromProject": "Profil des Kapitalnehmers"
     },
     "profileEdit": {
       "title": "Ihr öffentliches Profil",
@@ -1124,7 +1124,7 @@
     "updates": {
       "title": "Neuigkeiten",
       "empty": "Noch keine Neuigkeiten.",
-      "by": "Vom Projektanbieter",
+      "by": "Vom Kapitalnehmer",
       "write": "Neuigkeit schreiben",
       "titleDe": "Titel (DE)",
       "titleEn": "Titel (EN)",
@@ -1144,20 +1144,20 @@
     },
     "questions": {
       "title": "Fragen und Antworten",
-      "lead": "Antworten stammen vom Projektanbieter. LIQUODA prüft sie nicht auf Richtigkeit.",
+      "lead": "Antworten stammen vom Kapitalnehmer. LIQUODA prüft sie nicht auf Richtigkeit.",
       "empty": "Noch keine beantworteten Fragen.",
-      "askTitle": "Frage an den Projektanbieter",
+      "askTitle": "Frage an den Kapitalnehmer",
       "askLead": "Ihre Frage wird nach der Antwort ohne Ihren Namen öffentlich angezeigt. Bitte keine persönlichen Daten.",
       "placeholder": "Ihre Frage, 10 bis 1000 Zeichen",
       "send": "Frage senden",
       "sending": "Wird gesendet …",
-      "sent": "Frage gesendet. Sie erhalten eine E-Mail, sobald der Projektanbieter antwortet.",
+      "sent": "Frage gesendet. Sie erhalten eine E-Mail, sobald der Kapitalnehmer antwortet.",
       "loginToAsk": "Melden Sie sich als Investor an, um eine Frage zu stellen.",
       "onlyOpen": "Fragen sind bei offenen und finanzierten Projekten möglich.",
       "asked": "Gefragt am",
       "answered": "Beantwortet am",
       "investor": "Ein Investor",
-      "emittent": "Projektanbieter",
+      "emittent": "Kapitalnehmer",
       "open": "Offene Fragen",
       "answeredList": "Beantwortete Fragen",
       "answerLabel": "Ihre Antwort",

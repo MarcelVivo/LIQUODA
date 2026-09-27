@@ -10,7 +10,7 @@
     "home": "Home",
     "projects": "Projects",
     "howItWorks": "How it works",
-    "issuers": "For project providers",
+    "issuers": "For issuers",
     "waitlist": "Waiting list",
     "menuOpen": "Open menu",
     "menuClose": "Close menu",
@@ -36,9 +36,9 @@
     "hero": {
       "eyebrow": "Swiss intermediation and technology platform",
       "title": "Participations in real assets, structured and traceable.",
-      "lead": "LIQUODA brings project providers and investors together. Owners of companies, real estate, energy projects or tangible assets present a project. Private individuals can participate from CHF 100. Shares are represented as tokens on the Polygon blockchain.",
+      "lead": "LIQUODA brings issuers and investors together. Owners of companies, real estate, energy projects or tangible assets present a project. Private individuals can participate from CHF 100. Shares are represented as tokens on the Polygon blockchain.",
       "ctaInvestors": "Process for investors",
-      "ctaIssuers": "For project providers",
+      "ctaIssuers": "For issuers",
       "note": "LIQUODA is not a bank, not an asset manager and does not provide investment advice. Every participation carries entrepreneurial risk."
     },
     "whatIs": {
@@ -46,7 +46,7 @@
       "lead": "So you can place the role of the platform.",
       "isTitle": "LIQUODA is",
       "isItems": [
-        "an intermediation platform: it brings project providers and investors together.",
+        "an intermediation platform: it brings issuers and investors together.",
         "a technology platform: it represents shares as tokens and documents the process.",
         "non-custodial: money, tokens and wallet keys stay with the parties involved.",
         "structured: every project goes through the same, traceable process.",
@@ -64,7 +64,7 @@
     },
     "roles": {
       "title": "Who LIQUODA is for",
-      "issuersTitle": "Project providers",
+      "issuersTitle": "Issuers",
       "issuersText": "SMEs, entrepreneurs and owners of real estate, energy projects or tangible assets such as watches, art or vehicles who want to release capital without selling the asset entirely.",
       "issuersLink": "See process and packages",
       "investorsTitle": "Investors",
@@ -73,7 +73,7 @@
     },
     "steps": {
       "title": "How a participation works",
-      "lead": "Five steps, from an investor's perspective. The process for project providers is described on the page “How it works”.",
+      "lead": "Five steps, from an investor's perspective. The process for issuers is described on the page “How it works”.",
       "items": [
         {
           "title": "Understand",
@@ -116,7 +116,7 @@
         },
         {
           "title": "No guarantee, no statement about returns",
-          "text": "LIQUODA makes no commitments regarding income, repayment or value development. Information provided by project providers is reviewed but not guaranteed."
+          "text": "LIQUODA makes no commitments regarding income, repayment or value development. Information provided by issuers is reviewed but not guaranteed."
         },
         {
           "title": "Transparent process",
@@ -136,7 +136,7 @@
     "lastName": "Last name",
     "email": "Email address",
     "roleLabel": "I am interested as",
-    "roleIssuer": "Project provider",
+    "roleIssuer": "Issuer",
     "roleIssuerDesc": "I would like to present a project.",
     "roleInvestor": "Investor",
     "roleInvestorDesc": "I would like to participate in projects.",
@@ -153,7 +153,7 @@
   },
   "howItWorks": {
     "metaTitle": "How it works",
-    "metaDescription": "The process on LIQUODA, step by step, for investors and project providers.",
+    "metaDescription": "The process on LIQUODA, step by step, for investors and issuers.",
     "title": "How it works",
     "lead": "LIQUODA guides both sides through the same process. Here you see what happens in which order, without technical detail.",
     "investorsTitle": "Process for investors",
@@ -188,12 +188,12 @@
         "text": "Your portfolio shows participations, documents, project status and the reference to your tokens."
       }
     ],
-    "issuersTitle": "Process for project providers",
+    "issuersTitle": "Process for issuers",
     "issuersIntro": "From the enquiry to the close of the funding round.",
     "issuerSteps": [
       {
         "title": "Get informed",
-        "text": "The page “For project providers” describes benefits, process, requirements and costs."
+        "text": "The page “For issuers” describes benefits, process, requirements and costs."
       },
       {
         "title": "Project enquiry",
@@ -201,7 +201,7 @@
       },
       {
         "title": "Create an account and verify the company",
-        "text": "You register as an project provider and go through the company verification (KYB)."
+        "text": "You register as an issuer and go through the company verification (KYB)."
       },
       {
         "title": "Enter the project",
@@ -241,7 +241,7 @@
       },
       {
         "title": "Project not approved",
-        "text": "The project provider sees the status with a factual reason and notes on how to adjust."
+        "text": "The issuer sees the status with a factual reason and notes on how to adjust."
       },
       {
         "title": "Project ended early",
@@ -249,16 +249,16 @@
       }
     ],
     "ctaTitle": "Next step",
-    "ctaText": "Accounts and participations are not yet possible. You can join the waiting list or, as an project provider, send a project enquiry.",
+    "ctaText": "Accounts and participations are not yet possible. You can join the waiting list or, as an issuer, send a project enquiry.",
     "ctaWaitlist": "Go to waiting list",
     "ctaIssuers": "Send a project enquiry"
   },
   "issuers": {
-    "metaTitle": "For project providers",
-    "metaDescription": "Benefits, process, requirements and packages for project providers on LIQUODA.",
-    "title": "For project providers",
-    "lead": "You own a company, a property, an energy project or a tangible asset and want to release capital without selling the asset entirely. LIQUODA provides a structured process and the technology for this. In legal terms, project providers are issuers: they issue shares in their project.",
-    "benefitsTitle": "What LIQUODA does for project providers",
+    "metaTitle": "For issuers",
+    "metaDescription": "Benefits, process, requirements and packages for issuers on LIQUODA.",
+    "title": "For issuers",
+    "lead": "You own a company, a property, an energy project or a tangible asset and want to release capital without selling the asset entirely. LIQUODA provides a structured process and the technology for this. In legal terms, issuers are the parties that issue shares in their company, property, project or tangible asset.",
+    "benefitsTitle": "What LIQUODA does for issuers",
     "benefits": [
       {
         "title": "A clear process",
@@ -292,7 +292,7 @@
       },
       {
         "title": "Account and verification",
-        "text": "You create an project provider account and go through the company verification."
+        "text": "You create an issuer account and go through the company verification."
       },
       {
         "title": "Enter the project",
@@ -352,7 +352,7 @@
       }
     },
     "feesTitle": "Transaction fees",
-    "feesIssuer": "Project provider: 3 % of the successfully invested volume. Only charged if the funding is completed.",
+    "feesIssuer": "Issuer: 3 % of the successfully invested volume. Only charged if the funding is completed.",
     "feesInvestor": "Investor: 1 %, shown transparently in the investment process.",
     "feesNone": "There are no performance fees and no fees on returns.",
     "requestTitle": "Project enquiry",
@@ -422,7 +422,7 @@
     },
     "detail": {
       "back": "Back to overview",
-      "issuer": "Project provider",
+      "issuer": "Issuer",
       "keyFigures": "Key figures",
       "target": "Target amount",
       "raised": "Reached so far",
@@ -454,7 +454,7 @@
       "generalRisksTitle": "General notes",
       "generalRisks": [
         "Every participation is an entrepreneurial investment. The invested capital can be lost in full or in part.",
-        "LIQUODA makes no commitments regarding income, repayment or value development. Information provided by the project provider is checked for completeness but not guaranteed.",
+        "LIQUODA makes no commitments regarding income, repayment or value development. Information provided by the issuer is checked for completeness but not guaranteed.",
         "There is no secondary market. Tokens are not freely transferable. Expect your participation to be locked until the end of the term.",
         "If the funding target is not reached, no tokens are issued and payments are reversed."
       ],
@@ -488,12 +488,12 @@
         "milestone_payout": "Payout by milestones"
       },
       "explain": {
-        "none": "The project provider provides no collateral. The participation is covered solely by the success of the project.",
-        "pledge": "The project provider provides a pledge, for example a mortgage or a pledge on a tangible asset. In case of loss the pledge can be realised; the proceeds may be below the invested capital.",
+        "none": "The issuer provides no collateral. The participation is covered solely by the success of the project.",
+        "pledge": "The issuer provides a pledge, for example a mortgage or a pledge on a tangible asset. In case of loss the pledge can be realised; the proceeds may be below the invested capital.",
         "guarantee": "A third party or a contract secures part of the payments, for example a surety or a purchase agreement. The collateral is only as good as the solvency of that third party.",
-        "milestone_payout": "The capital is released to the project provider step by step after agreed milestones are reached. This reduces the risk of misuse, not the project risk."
+        "milestone_payout": "The capital is released to the issuer step by step after agreed milestones are reached. This reduces the risk of misuse, not the project risk."
       },
-      "disclaimer": "The collateral is governed by the contract between project provider and investors. LIQUODA does not assess, verify or guarantee it and offers no insurance of its own."
+      "disclaimer": "The collateral is governed by the contract between issuer and investors. LIQUODA does not assess, verify or guarantee it and offers no insurance of its own."
     }
   },
   "auth": {
@@ -508,7 +508,7 @@
       "roleLabel": "I am registering as",
       "roleInvestor": "Investor",
       "roleInvestorDesc": "I would like to participate in projects.",
-      "roleIssuer": "Project provider",
+      "roleIssuer": "Issuer",
       "roleIssuerDesc": "I would like to present a project for funding.",
       "consent": "I have read and understood the terms, the privacy policy and the risk disclosure.",
       "submit": "Create account",
@@ -563,15 +563,15 @@
     "account": {
       "portfolioTitle": "Portfolio",
       "portfolioLead": "Your investor area: participations, documents and your shares.",
-      "issuerTitle": "Project provider dashboard",
-      "issuerLead": "Your area as an project provider. Enter projects, upload documents, follow the status.",
+      "issuerTitle": "Issuer dashboard",
+      "issuerLead": "Your area as an issuer. Enter projects, upload documents, follow the status.",
       "profile": "Account",
       "name": "Name",
       "email": "Email address",
       "role": "Role",
       "roles": {
         "investor": "Investor",
-        "emittent": "Project provider",
+        "emittent": "Issuer",
         "admin": "Admin"
       },
       "kyc": "Identity verification",
@@ -682,7 +682,7 @@
       "total": "Amount to pay",
       "deadline": "Term until",
       "tokenModel": "Type of shares",
-      "issuer": "Project provider",
+      "issuer": "Issuer",
       "back": "Change amount",
       "next": "Continue to consent"
     },
@@ -744,7 +744,7 @@
   },
   "emittent": {
     "dashboard": {
-      "title": "Project provider dashboard",
+      "title": "Issuer dashboard",
       "lead": "Your projects and their status. A new project starts as a draft and is reviewed by LIQUODA after submission.",
       "newProject": "Create a new project",
       "creating": "Creating …",
@@ -886,7 +886,7 @@
       },
       "collateral": {
         "title": "Collateral for investors",
-        "lead": "Which collateral do you provide? LIQUODA does not assess it; it is governed by the participation agreement and shown on the project page as the project provider's statement.",
+        "lead": "Which collateral do you provide? LIQUODA does not assess it; it is governed by the participation agreement and shown on the project page as the issuer's statement.",
         "type": "Type of collateral",
         "note": "Description of the collateral",
         "noteHint": "Required once a collateral type is selected. Factual, at most 1000 characters."
@@ -984,7 +984,7 @@
       "submittedAdmin": {
         "subject": "New project for review: {project}",
         "title": "New project for review",
-        "body": "An project provider has submitted a project. Please review it in the admin area.",
+        "body": "An issuer has submitted a project. Please review it in the admin area.",
         "button": "Open admin"
       },
       "active": {
@@ -1049,7 +1049,7 @@
       "admin": {
         "subject": "New project enquiry from {name}",
         "title": "New project enquiry",
-        "body": "An enquiry was received via the page “For project providers”."
+        "body": "An enquiry was received via the page “For issuers”."
       },
       "sender": {
         "subject": "Your project enquiry at LIQUODA",
@@ -1059,8 +1059,8 @@
     },
     "update": {
       "subject": "Update on {project}",
-      "title": "Update from the project provider",
-      "body": "The project provider has published an update on a project you participate in.",
+      "title": "Update from the issuer",
+      "body": "The issuer has published an update on a project you participate in.",
       "button": "Open project"
     },
     "question": {
@@ -1073,7 +1073,7 @@
       "answered": {
         "subject": "Answer to your question about {project}",
         "title": "Your question has been answered",
-        "body": "The project provider has answered your question. The answer is visible on the project page.",
+        "body": "The issuer has answered your question. The answer is visible on the project page.",
         "button": "View answer"
       }
     }
@@ -1094,15 +1094,15 @@
   },
   "community": {
     "profile": {
-      "metaTitle": "Project provider",
+      "metaTitle": "Issuer",
       "verified": "Company verified",
       "notVerified": "Verification pending",
       "website": "Website",
-      "projects": "Projects by this project provider",
+      "projects": "Projects by this issuer",
       "since": "On LIQUODA since",
-      "noBio": "This project provider has not added a description yet.",
+      "noBio": "This issuer has not added a description yet.",
       "noProjects": "No public projects yet.",
-      "linkFromProject": "Project provider profile"
+      "linkFromProject": "Issuer profile"
     },
     "profileEdit": {
       "title": "Your public profile",
@@ -1124,7 +1124,7 @@
     "updates": {
       "title": "Updates",
       "empty": "No updates yet.",
-      "by": "From the project provider",
+      "by": "From the issuer",
       "write": "Write an update",
       "titleDe": "Title (DE)",
       "titleEn": "Title (EN)",
@@ -1144,20 +1144,20 @@
     },
     "questions": {
       "title": "Questions and answers",
-      "lead": "Answers come from the project provider. LIQUODA does not verify them.",
+      "lead": "Answers come from the issuer. LIQUODA does not verify them.",
       "empty": "No answered questions yet.",
-      "askTitle": "Question to the project provider",
+      "askTitle": "Question to the issuer",
       "askLead": "After the answer your question is shown publicly without your name. Please do not include personal data.",
       "placeholder": "Your question, 10 to 1000 characters",
       "send": "Send question",
       "sending": "Sending …",
-      "sent": "Question sent. You will receive an email once the project provider answers.",
+      "sent": "Question sent. You will receive an email once the issuer answers.",
       "loginToAsk": "Log in as an investor to ask a question.",
       "onlyOpen": "Questions are possible for open and funded projects.",
       "asked": "Asked on",
       "answered": "Answered on",
       "investor": "An investor",
-      "emittent": "Project provider",
+      "emittent": "Issuer",
       "open": "Open questions",
       "answeredList": "Answered questions",
       "answerLabel": "Your answer",

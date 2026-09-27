@@ -42,7 +42,7 @@ export default async function AdminProjects() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-100 bg-gray-50/50">
-                <th className={th}>Projekt</th><th className={th}>Projektanbieter</th><th className={th}>Status</th><th className={th}>Ziel / erreicht</th><th className={th}>Laufzeit bis</th><th className={th}>Geändert</th>
+                <th className={th}>Projekt</th><th className={th}>Kapitalnehmer</th><th className={th}>Status</th><th className={th}>Ziel / erreicht</th><th className={th}>Laufzeit bis</th><th className={th}>Geändert</th>
               </tr>
             </thead>
             <tbody>
