@@ -7,7 +7,7 @@ Entwurf vom 27. September 2026 nach Schweizer Recht, Prüfung durch eine Fachper
 - **Kapitalnehmer:** [Firma oder Name], [Adresse], [UID], vertreten durch [Name, Funktion]
 - **Investor:** die Person, die sich über die Plattform LIQUODA (www.liquoda.com) am Projekt «[Projekttitel]» beteiligt und deren Identität LIQUODA bestätigt hat. Name und Adresse ergeben sich aus dem Konto des Investors bei LIQUODA.
 
-LIQUODA ist nicht Partei dieses Vertrags. LIQUODA vermittelt, stellt die Technik bereit und führt das Register der Anteile.
+LIQUODA (Electromantiques Marcel Spahr, UID CHE-153.310.592) ist nicht Partei dieses Vertrags. LIQUODA vermittelt, stellt die Technik bereit und führt das Register der Anteile.
 
 ## 1. Gegenstand
 

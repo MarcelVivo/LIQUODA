@@ -4,7 +4,7 @@ Entwurf vom 27. September 2026 nach Schweizer Recht, Prüfung durch eine Fachper
 
 ## Parteien
 
-- **LIQUODA**, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern (LIQUODA)
+- **LIQUODA**: Electromantiques Marcel Spahr, Einzelunternehmen, Handelsregister des Kantons Bern CH-036.1.051.760-7, UID CHE-153.310.592, Schwarzenburgstrasse 65, 3008 Bern (LIQUODA)
 - **Kapitalnehmer:** [Firma oder Name], [Adresse], [UID], vertreten durch [Name, Funktion]
 
 ## 1. Gegenstand

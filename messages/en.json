@@ -1208,12 +1208,12 @@
         {
           "title": "Operator",
           "items": [
-            "LIQUODA, operated by Marcel Spahr",
-            "Schwarzenburgstrasse 65",
-            "3008 Bern, Switzerland",
-            "info@liquoda.com",
-            "+41 79 511 09 11",
-            "Legal form and commercial register: sole proprietorship; commercial register entry and UID will be added before launch."
+            "LIQUODA is a trade name of the sole proprietorship Electromantiques Marcel Spahr",
+            "Owner: Marcel Spahr",
+            "Schwarzenburgstrasse 65, 3008 Bern, Switzerland",
+            "info@liquoda.com · +41 79 511 09 11",
+            "Commercial Register of the Canton of Bern, number CH-036.1.051.760-7",
+            "UID: CHE-153.310.592"
           ]
         },
         {
@@ -1240,7 +1240,7 @@
         {
           "title": "1. Controller",
           "items": [
-            "LIQUODA, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, Switzerland. Contact for data protection matters: info@liquoda.com."
+            "Electromantiques Marcel Spahr (sole proprietorship, Commercial Register of the Canton of Bern CH-036.1.051.760-7, UID CHE-153.310.592), trading as LIQUODA, Schwarzenburgstrasse 65, 3008 Bern, Switzerland. Contact for data protection matters: info@liquoda.com."
           ]
         },
         {
@@ -1325,7 +1325,7 @@
         {
           "title": "1. Scope and definitions",
           "items": [
-            "1.1 These Terms and Conditions (Terms) apply to the use of the website and platform www.liquoda.com (Platform), operated by LIQUODA, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, Switzerland (LIQUODA).",
+            "1.1 These Terms and Conditions (Terms) apply to the use of the website and platform www.liquoda.com (Platform), operated by Electromantiques Marcel Spahr (sole proprietorship, Commercial Register of the Canton of Bern CH-036.1.051.760-7, UID CHE-153.310.592), trading as LIQUODA, Schwarzenburgstrasse 65, 3008 Bern, Switzerland (LIQUODA).",
             "1.2 Users are investors (natural persons who participate in projects) and issuers (companies or persons who offer a project for financing; called «Kapitalnehmer» in the German interface). Where these Terms refer to users, they apply to both.",
             "1.3 Shares are an investor's participation rights in a project, evidenced as digital units (tokens) in the public register on the Polygon blockchain. Shares account is the wallet created automatically for every investor on registration.",
             "1.4 By registering, the user accepts these Terms, the Privacy Policy, the Risk Disclosure and the Disclaimer. Deviating terms of the user do not apply."

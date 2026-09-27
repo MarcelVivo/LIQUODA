@@ -1208,12 +1208,12 @@
         {
           "title": "Betreiber",
           "items": [
-            "LIQUODA, betrieben von Marcel Spahr",
-            "Schwarzenburgstrasse 65",
-            "3008 Bern, Schweiz",
-            "info@liquoda.com",
-            "+41 79 511 09 11",
-            "Rechtsform und Handelsregister: Einzelunternehmen; Eintrag im Handelsregister und UID werden vor dem Start ergänzt."
+            "LIQUODA ist eine Bezeichnung des Einzelunternehmens Electromantiques Marcel Spahr",
+            "Inhaber: Marcel Spahr",
+            "Schwarzenburgstrasse 65, 3008 Bern, Schweiz",
+            "info@liquoda.com · +41 79 511 09 11",
+            "Handelsregister des Kantons Bern, Nummer CH-036.1.051.760-7",
+            "UID: CHE-153.310.592"
           ]
         },
         {
@@ -1240,7 +1240,7 @@
         {
           "title": "1. Verantwortliche Stelle",
           "items": [
-            "LIQUODA, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, Schweiz. Kontakt für Datenschutzfragen: info@liquoda.com."
+            "Electromantiques Marcel Spahr (Einzelunternehmen, Handelsregister des Kantons Bern CH-036.1.051.760-7, UID CHE-153.310.592), handelnd unter der Bezeichnung LIQUODA, Schwarzenburgstrasse 65, 3008 Bern, Schweiz. Kontakt für Datenschutzfragen: info@liquoda.com."
           ]
         },
         {
@@ -1325,7 +1325,7 @@
         {
           "title": "1. Geltungsbereich und Begriffe",
           "items": [
-            "1.1 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Nutzung der Website und Plattform www.liquoda.com (Plattform), betrieben von LIQUODA, Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern (LIQUODA).",
+            "1.1 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Nutzung der Website und Plattform www.liquoda.com (Plattform), betrieben von Electromantiques Marcel Spahr (Einzelunternehmen, Handelsregister des Kantons Bern CH-036.1.051.760-7, UID CHE-153.310.592), handelnd unter der Bezeichnung LIQUODA, Schwarzenburgstrasse 65, 3008 Bern (LIQUODA).",
             "1.2 Nutzer sind Investoren (natürliche Personen, die sich an Projekten beteiligen) und Kapitalnehmer (Unternehmen oder Personen, die ein Projekt zur Finanzierung anbieten; im rechtlichen Sinn Emittenten). Wo diese AGB von Nutzern sprechen, gelten sie für beide.",
             "1.3 Anteile sind die Beteiligungsrechte eines Investors an einem Projekt, die als digitale Einheiten (Token) im öffentlichen Register auf der Polygon-Blockchain nachgewiesen werden. Anteile-Konto ist die Wallet, die für jeden Investor bei der Registrierung automatisch eingerichtet wird.",
             "1.4 Mit der Registrierung akzeptiert der Nutzer diese AGB, die Datenschutzerklärung, die Risikoaufklärung und den Haftungsausschluss. Abweichende Bedingungen des Nutzers gelten nicht."

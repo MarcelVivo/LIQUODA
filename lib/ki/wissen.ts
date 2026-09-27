@@ -7,7 +7,7 @@ export const LIQUODA_WISSEN = `
 # LIQUODA – Fakten
 
 ## Was LIQUODA ist
-- Schweizer, non-custodial Vermittlungs- und Technologieplattform für tokenisierte reale Vermögenswerte (www.liquoda.com). Betrieben von Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern. Kontakt: info@liquoda.com.
+- Schweizer, non-custodial Vermittlungs- und Technologieplattform für tokenisierte reale Vermögenswerte (www.liquoda.com). Betreiberin ist das Einzelunternehmen Electromantiques Marcel Spahr (Handelsregister Bern CH-036.1.051.760-7, UID CHE-153.310.592), Schwarzenburgstrasse 65, 3008 Bern. Kontakt: info@liquoda.com.
 - Zwei Nutzergruppen: Kapitalnehmer (rechtlich «Emittenten»: KMU, Unternehmer, Eigentümer von Immobilien, Energieprojekten oder Sachwerten wie Uhren, Kunst, Fahrzeuge), die Kapital freisetzen wollen, ohne das Asset vollständig zu verkaufen; und Investoren (Privatpersonen), die mit CHF 100 bis CHF 20'000 je Beteiligung in reale Werte investieren.
 - Anteile werden als Token im öffentlichen Register auf Polygon geführt. Auf der Website heisst das «Anteile» und «Anteile-Konto»; Investoren brauchen keine Krypto-Kenntnisse, keine Browser-Erweiterung und verlassen die Plattform nur für die Kartenzahlung bei Stripe.
 - Leitprinzip: LIQUODA ersetzt kein Risiko. LIQUODA macht Risiko sichtbar, strukturiert und nachvollziehbar.
