@@ -324,7 +324,8 @@
           "Basic review",
           "Standard tokenisation",
           "Document storage",
-          "Email support"
+          "Email support",
+          "AI assistant optional (CHF 190 one-time per project)"
         ]
       },
       "standard": {
@@ -336,7 +337,8 @@
           "Support with the structure",
           "Smart contract parameters",
           "Investor dashboard",
-          "Prioritised support"
+          "Prioritised support",
+          "AI assistant included"
         ]
       },
       "premium": {
@@ -1327,6 +1329,99 @@
           ]
         }
       ]
+    }
+  },
+  "ki": {
+    "assistant": {
+      "title": "AI assistant",
+      "subtitle": "Captures your project with you, writes documents, pre-checks everything and hands over to LIQUODA.",
+      "open": "Open assistant",
+      "close": "Collapse assistant",
+      "loading": "Loading …",
+      "welcome": "I help you complete your project. I ask questions, fill in the fields, write a business plan, financing concept or project description on request, pre-check everything and submit the project to LIQUODA once you confirm. Where would you like to start?",
+      "suggestions": [
+        "Set up the project together",
+        "What is still missing?",
+        "Write a business plan",
+        "Run the pre-check"
+      ],
+      "placeholder": "Message to the assistant … (Enter sends, Shift+Enter new line)",
+      "placeholderLocked": "The project is under review. You can ask questions.",
+      "send": "Send",
+      "thinking": "The assistant is thinking …",
+      "reset": "Start a new conversation",
+      "resetConfirm": "Delete the conversation? Project data and documents are kept.",
+      "disclaimer": "The assistant works only with your information and does not replace legal, tax or investment advice. You are responsible for the content. Approval is given manually by LIQUODA.",
+      "tools": {
+        "projekt_aktualisieren": "Project details saved",
+        "dokument_erstellen": "Document created",
+        "vorpruefung_starten": "Pre-check completed",
+        "einreichen": "Submitted for review"
+      },
+      "toolRunning": {
+        "projekt_aktualisieren": "Saving project details …",
+        "dokument_erstellen": "Creating the document …",
+        "vorpruefung_starten": "Pre-check running, this takes one to two minutes …",
+        "einreichen": "Submitting the project …"
+      },
+      "errors": {
+        "server": "The assistant is currently unavailable. Please try again in a minute.",
+        "rate": "Too many requests in a short time. Please wait a moment.",
+        "auth": "The assistant is not set up correctly. LIQUODA has been informed.",
+        "refusal": "The assistant cannot handle this request. Please rephrase it or contact info@liquoda.com.",
+        "truncated": "The answer was too long and was cut off. Please split the task into smaller steps.",
+        "not_unlocked": "The assistant is not yet unlocked for this project.",
+        "not_configured": "The assistant is currently unavailable."
+      }
+    },
+    "paywall": {
+      "lead": "The AI assistant takes over the work you do not want to do or cannot do yourself:",
+      "bullets": [
+        "It asks what it needs to know and fills in all project fields in German and English.",
+        "It writes a business plan, financing concept or project description from your information as a PDF.",
+        "It reads all uploaded documents and pre-checks completeness, contradictions and wording.",
+        "It submits the project to LIQUODA once you confirm. Approval stays with LIQUODA."
+      ],
+      "price": "CHF 190",
+      "priceNote": "one-time, for this project, incl. VAT",
+      "included": "Included in the Standard and Premium packages: if you booked a package, LIQUODA unlocks the assistant without payment. Write to info@liquoda.com.",
+      "action": "Unlock for CHF 190",
+      "redirecting": "Continuing to payment …",
+      "unavailable": "Unlocking is currently unavailable. Please contact info@liquoda.com.",
+      "error": "The payment could not be started. Please try again.",
+      "paid": "Thank you. The payment has been received; the assistant is being unlocked.",
+      "cancelled": "The payment was cancelled. No obligation has arisen."
+    },
+    "precheck": {
+      "title": "Pre-check",
+      "verdicts": {
+        "ready": "Ready to submit",
+        "needs_work": "Needs work",
+        "not_suitable": "Not suitable"
+      },
+      "score": "{score}/100",
+      "checks": "Checks",
+      "openPoints": "Open points",
+      "documents": "Documents"
+    },
+    "support": {
+      "open": "Questions?",
+      "title": "Questions about LIQUODA",
+      "subtitle": "AI assistant · answers on process, costs and security",
+      "welcome": "Hello. I answer questions about LIQUODA: how the process works for investors and issuers, what it costs and how shares and documents are secured. What would you like to know?",
+      "suggestions": [
+        "How does LIQUODA work?",
+        "What does it cost as an issuer?",
+        "How safe are my shares?",
+        "How do I start a project?"
+      ],
+      "placeholder": "Your question …",
+      "send": "Send",
+      "close": "Close",
+      "thinking": "Preparing the answer",
+      "disclaimer": "AI assistant. No investment, legal or tax advice, no statements on returns. If in doubt: info@liquoda.com.",
+      "error": "The assistant is currently unavailable. Write to us at info@liquoda.com.",
+      "rate": "Too many requests in a short time. Please try again in a few minutes."
     }
   }
 }

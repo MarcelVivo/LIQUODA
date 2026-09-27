@@ -10,6 +10,7 @@ const items = [
   { href: '/admin/projekte', label: 'Projekte' },
   { href: '/admin/audit', label: 'Audit-Log' },
   { href: '/admin/mails', label: 'E-Mails' },
+  { href: '/admin/ki', label: 'KI' },
 ];
 
 export default function AdminNav({ title }: { title: string }) {

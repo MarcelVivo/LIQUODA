@@ -3,6 +3,7 @@ import type Stripe from 'stripe';
 import { getSupabaseAdmin } from '@/lib/supabase';
 import { getStripe, hasStripeEnv } from '@/lib/stripe';
 import { notifyInvestment, notifyProjectStatus } from '@/lib/email/notify';
+import { settleAiOrder } from '@/lib/ki/freischaltung';
 
 /**
  * Stripe-Webhook (Spec, Abschnitt 7, Schritt 4): bestätigt die Zahlung,
@@ -29,6 +30,11 @@ export async function POST(req: NextRequest) {
   const admin = getSupabaseAdmin();
 
   const settle = async (session: Stripe.Checkout.Session, outcome: 'paid' | 'cancelled', refStatus: string) => {
+    // Freischaltung des KI-Assistenten (Etappe 20): eigene Bestellung, kein Investment
+    if (session.metadata?.kind === 'ai_assistant') {
+      await settleAiOrder(session.id, outcome === 'paid' ? 'paid' : refStatus === 'expired' ? 'expired' : 'failed');
+      return;
+    }
     const investmentId = session.metadata?.investment_id ?? session.client_reference_id;
     if (!investmentId) return;
 

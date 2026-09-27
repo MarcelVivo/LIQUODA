@@ -8,6 +8,8 @@ import { explorerAddress, explorerTx } from '@/lib/chain/config';
 import { imageUrl } from '@/lib/images';
 import ModerationButtons from '../../_components/ModerationButtons';
 import ReviewToggle from '../../_components/ReviewToggle';
+import KiFreischalten from '../../_components/KiFreischalten';
+import { latestPrecheck, type PrecheckStatus } from '@/lib/ki/vorpruefung';
 import { card, chf, dt, STATUS_LABEL, KYC_LABEL } from '../../_lib';
 
 export const dynamic = 'force-dynamic';
@@ -19,7 +21,7 @@ type Project = {
   target_amount_chf: number; min_investment_chf: number; raised_amount_chf: number; deadline: string; created_at: string; updated_at: string;
   collateral_type: string; collateral_note: string | null;
   token_contract_address: string | null; token_symbol: string | null; token_deploy_tx: string | null; token_chain_id: number | null;
-  cover_image_path: string | null; gallery_paths: string[] | null;
+  cover_image_path: string | null; gallery_paths: string[] | null; ai_unlocked_at: string | null;
   emittent: { id: string; name: string; email: string; kyc_status: string; avatar_path: string | null } | null;
 };
 type Doc = { id: string; type: string; title: L; version: number; sha256_hash: string | null; created_at: string; visibility: string; reviewed_at: string | null };
@@ -41,6 +43,10 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
     admin.from('project_updates').select('id, title, hidden, created_at').eq('project_id', p.id).order('created_at', { ascending: false }),
     admin.from('project_questions').select('id, question, answer, hidden, created_at').eq('project_id', p.id).order('created_at', { ascending: false }),
   ]);
+  const [precheck, { data: aiOrders }] = await Promise.all([
+    latestPrecheck(p.id),
+    admin.from('ai_orders').select('status, amount_chf, created_at').eq('project_id', p.id).order('created_at', { ascending: false }).limit(3),
+  ]);
   const [{ data: docs }, { data: invs }, { data: audit }] = await Promise.all([
     admin.from('documents').select('id, type, title, version, sha256_hash, created_at, visibility, reviewed_at').eq('project_id', p.id).is('investment_id', null).order('created_at'),
     admin.from('investments').select('id, amount_chf, status, created_at, refund_status, refund_error, token_references(tx_hash, token_amount), investor:users!investments_investor_id_fkey(name, email, kyc_status, wallet_address)').eq('project_id', p.id).order('created_at', { ascending: false }),
@@ -50,6 +56,13 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
   const investments = (invs ?? []) as unknown as Inv[];
   const history = (audit ?? []) as Audit[];
   const label = 'text-[10px] font-semibold tracking-[0.25em] uppercase text-gray-400';
+  const VERDICT: Record<string, { text: string; cls: string }> = {
+    ready: { text: 'Einreichungsreif', cls: 'bg-emerald-50 text-emerald-700' },
+    needs_work: { text: 'Nacharbeit nötig', cls: 'bg-amber-50 text-amber-800' },
+    not_suitable: { text: 'Nicht geeignet', cls: 'bg-red-50 text-red-700' },
+  };
+  const mark = (st: PrecheckStatus) => (st === 'ok' ? '✓' : st === 'warning' ? '!' : '✗');
+  const markCls = (st: PrecheckStatus) => (st === 'ok' ? 'text-emerald-600' : st === 'warning' ? 'text-amber-600' : 'text-red-600');
 
   return (
     <div className="min-h-screen bg-[#F5F5F3] p-6 md:p-10">
@@ -75,6 +88,50 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                 <div><dt className="text-gray-400">KYB</dt><dd>{KYC_LABEL[p.emittent?.kyc_status ?? 'pending']}</dd></div>
               </dl>
               {p.review_note && <p className="mt-4 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900"><b>Letzte Rückmeldung:</b> {p.review_note}</p>}
+            </div>
+
+            <div className={`${card} p-6`}>
+              <div className="flex items-center justify-between gap-3">
+                <p className={label}>KI-Vorprüfung</p>
+                <span className="text-xs text-gray-500">
+                  Assistent: {p.ai_unlocked_at ? `freigeschaltet ${dt(p.ai_unlocked_at)}` : 'gesperrt'}
+                  {(aiOrders ?? []).some((o) => o.status === 'paid') ? ' · bezahlt CHF 190' : ''}
+                  <span className="ml-2"><KiFreischalten projectId={p.id} unlocked={!!p.ai_unlocked_at} /></span>
+                </span>
+              </div>
+              {!precheck ? (
+                <p className="mt-2 text-sm text-gray-400">Noch keine Vorprüfung. Der Kapitalnehmer startet sie über den KI-Assistenten; das Ergebnis erscheint hier.</p>
+              ) : (
+                <div className="mt-3 space-y-3 text-sm">
+                  <p>
+                    <span className={`inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold ${VERDICT[precheck.verdict]?.cls}`}>{VERDICT[precheck.verdict]?.text}</span>
+                    <span className="ml-2 font-semibold">{precheck.score}/100</span>
+                    <span className="ml-2 text-xs text-gray-400">{dt(precheck.created_at)}{new Date(precheck.created_at) < new Date(p.updated_at) ? ' · Projekt seither geändert' : ''}</span>
+                  </p>
+                  <div className="rounded-lg bg-[#F5F5F3] px-3 py-2">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-400">Empfehlung an LIQUODA</p>
+                    <p className="mt-1 whitespace-pre-wrap">{precheck.result.adminSummary}</p>
+                  </div>
+                  <ul className="space-y-1">
+                    {precheck.result.checks.map((c, i) => (
+                      <li key={i}><span className={`mr-1.5 font-bold ${markCls(c.status)}`}>{mark(c.status)}</span><b>{c.area}:</b> {c.note}</li>
+                    ))}
+                  </ul>
+                  {precheck.result.documents.length > 0 && (
+                    <ul className="space-y-1 border-t border-gray-100 pt-2">
+                      {precheck.result.documents.map((d, i) => (
+                        <li key={i}><span className={`mr-1.5 font-bold ${markCls(d.status)}`}>{mark(d.status)}</span><b>{d.title}:</b> {d.note}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {precheck.result.openPoints.length > 0 && (
+                    <div className="border-t border-gray-100 pt-2">
+                      <p className="text-xs font-semibold text-gray-500">Offene Punkte für den Kapitalnehmer</p>
+                      <ol className="mt-1 list-decimal space-y-0.5 pl-5">{precheck.result.openPoints.map((o, i) => <li key={i}>{o}</li>)}</ol>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             <div className={`${card} p-6`}>

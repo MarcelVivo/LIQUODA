@@ -7,6 +7,8 @@ import { routing, type Locale } from '@/i18n/routing';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { getAccount } from '@/lib/supabase/server';
+import { hasKiEnv } from '@/lib/ki/client';
+import SupportBotLazy from '@/components/support/SupportBotLazy';
 import './globals.css';
 
 const inter = Inter({
@@ -69,6 +71,7 @@ export default async function LocaleLayout({
           <Navbar account={account ? { role: account.role } : null} />
           <main className="relative z-10 flex-1">{children}</main>
           <Footer />
+          <SupportBotLazy enabled={hasKiEnv()} />
         </NextIntlClientProvider>
       </body>
     </html>
