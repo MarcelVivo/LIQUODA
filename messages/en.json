@@ -36,7 +36,7 @@
     "hero": {
       "eyebrow": "Swiss intermediation and technology platform",
       "title": "Participations in real assets, structured and traceable.",
-      "lead": "LIQUODA brings issuers and investors together. Owners of companies, real estate, energy projects or tangible assets present a project. Private individuals can participate from CHF 1'000. Shares are represented as tokens on the Polygon blockchain.",
+      "lead": "LIQUODA brings issuers and investors together. Owners of companies, real estate, energy projects or tangible assets present a project. Private individuals can participate from CHF 100. Shares are represented as tokens on the Polygon blockchain.",
       "ctaInvestors": "Process for investors",
       "ctaIssuers": "For issuers",
       "note": "LIQUODA is not a bank, not an asset manager and does not provide investment advice. Every participation carries entrepreneurial risk."
@@ -68,7 +68,7 @@
       "issuersText": "SMEs, entrepreneurs and owners of real estate, energy projects or tangible assets such as watches, art or vehicles who want to release capital without selling the asset entirely.",
       "issuersLink": "See process and packages",
       "investorsTitle": "Investors",
-      "investorsText": "Private individuals who want to participate in real assets with CHF 1'000 to 20'000 and understand where their money goes and which risks exist.",
+      "investorsText": "Private individuals who want to participate in real assets with CHF 100 to 20'000 and understand where their money goes and which risks exist.",
       "investorsLink": "See the process for investors"
     },
     "steps": {
@@ -830,7 +830,7 @@
         "target": "Target amount in CHF",
         "targetHint": "Whole francs, at least CHF 10'000.",
         "min": "Minimum per participation in CHF",
-        "minHint": "Whole francs, between CHF 100 and CHF 20'000.",
+        "minHint": "Whole francs, at least CHF 100, at most CHF 20'000.",
         "deadline": "Term until",
         "deadlineHint": "Last day of the funding phase. If the target is not reached by then, the round is reversed."
       },

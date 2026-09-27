@@ -37,7 +37,7 @@ begin
       '{"de":["Die Pizzeria Wander besteht seit 2011 und wird in zweiter Generation geführt. Der Betrieb hat 42 Sitzplätze innen und 24 auf der bestehenden Terrasse. Die Auslastung liegt im Sommer regelmässig an der Kapazitätsgrenze.","Geplant sind eine Erweiterung der Terrasse um 20 Plätze sowie der Ersatz von Pizzaofen und Kühlanlage. Die Investoren erhalten fungible Anteile am Projektvehikel. Die Rückführung des Kapitals ist über eine Laufzeit von fünf Jahren aus dem laufenden Betrieb vorgesehen."],"en":["Pizzeria Wander has existed since 2011 and is run by the second generation. The restaurant has 42 seats inside and 24 on the existing terrace. In summer, occupancy regularly reaches capacity.","The plan is to extend the terrace by 20 seats and replace the pizza oven and refrigeration. Investors receive fungible shares in the project vehicle. Repayment of the capital is planned over a term of five years from ongoing operations."]}'::jsonb,
       '{"de":"Terrassenerweiterung, neuer Pizzaofen, neue Kühlanlage.","en":"Terrace extension, new pizza oven, new refrigeration."}'::jsonb, '{"de":"Bern BE","en":"Bern BE"}'::jsonb,
       '{"de":["Der Betrieb ist von der Saison und vom Wetter abhängig. Ein schlechter Sommer verringert den Umsatz der Terrasse.","Die Rückführung des Kapitals hängt vom laufenden Geschäftsgang ab. Bei einer Betriebsaufgabe kann das Kapital ganz oder teilweise verloren gehen."],"en":["The business depends on the season and the weather. A poor summer reduces terrace revenue.","Repayment depends on ongoing business performance. If the business closes, the capital may be lost in full or in part."]}'::jsonb,
-      'company', 30000, 1000, 20100,
+      'company', 30000, 100, 20100,
       '2026-12-31', 'active', 'erc20',
       'none', null
     );
@@ -77,7 +77,7 @@ begin
       '{"de":["Das Gebäude aus dem Jahr 1972 ist vollständig vermietet. Die Eigentümerin plant den Ersatz der Ölheizung durch eine Wärmepumpe, die Dämmung von Dach und Fassade sowie eine Photovoltaikanlage auf dem Dach.","Die Finanzierung ergänzt ein Bankdarlehen. Investoren erhalten fungible Anteile am Sanierungsvehikel mit einer Laufzeit von acht Jahren. Die Rückführung ist aus den Mieterträgen vorgesehen."],"en":["The building dates from 1972 and is fully let. The owner plans to replace the oil heating with a heat pump, insulate the roof and façade and install a photovoltaic system on the roof.","The financing complements a bank loan. Investors receive fungible shares in the renovation vehicle with a term of eight years. Repayment is planned from rental income."]}'::jsonb,
       '{"de":"Wärmepumpe, Dämmung Dach und Fassade, Photovoltaikanlage.","en":"Heat pump, roof and façade insulation, photovoltaic system."}'::jsonb, '{"de":"Thun BE","en":"Thun BE"}'::jsonb,
       '{"de":["Bauprojekte können teurer werden oder länger dauern als geplant.","Leerstände oder sinkende Mieten verringern die Mittel für die Rückführung.","Die Beteiligung ist über acht Jahre gebunden. Es gibt keinen Sekundärmarkt."],"en":["Construction projects can become more expensive or take longer than planned.","Vacancies or falling rents reduce the funds available for repayment.","The participation is locked for eight years. There is no secondary market."]}'::jsonb,
-      'real_estate', 600000, 1000, 138000,
+      'real_estate', 600000, 100, 138000,
       '2027-03-31', 'active', 'erc20',
       'pledge', 'Nachrangiges Grundpfand auf der Liegenschaft zugunsten des Sanierungsvehikels. Rang und Höhe sind im Beteiligungsvertrag geregelt.'
     );
@@ -118,7 +118,7 @@ begin
       '{"de":["Display Solutions entwickelt elektronische Preisschilder und Regaldisplays für kleine und mittlere Detailhändler. Ein Pilotprojekt mit drei Filialen läuft seit Anfang 2026.","Mit dem Kapital wird eine erste Serie von 2000 Einheiten produziert. Investoren erhalten fungible Anteile mit einer Laufzeit von vier Jahren. Das Unternehmen ist in einer frühen Phase; der Geschäftsverlauf ist noch nicht erprobt."],"en":["Display Solutions develops electronic price tags and shelf displays for small and medium-sized retailers. A pilot with three stores has been running since early 2026.","The capital funds a first series of 2,000 units. Investors receive fungible shares with a term of four years. The company is at an early stage; its business performance is not yet proven."]}'::jsonb,
       '{"de":"Erste Serienproduktion von 2000 Einheiten, Zertifizierung.","en":"First series production of 2,000 units, certification."}'::jsonb, '{"de":"Winterthur ZH","en":"Winterthur ZH"}'::jsonb,
       '{"de":["Frühphasenunternehmen scheitern häufig. Ein Totalverlust ist möglich.","Der Finanzplan beruht auf Annahmen zu Absatz und Preisen, die noch nicht bestätigt sind."],"en":["Early-stage companies frequently fail. A total loss is possible.","The financial plan is based on assumptions about sales and prices that are not yet confirmed."]}'::jsonb,
-      'company', 100000, 1000, 45000,
+      'company', 100000, 100, 45000,
       '2027-01-31', 'active', 'erc20',
       'none', null
     );
@@ -158,7 +158,7 @@ begin
       '{"de":["Die Anlage wurde im Sommer 2026 in Betrieb genommen. Mit dem Betreiber der Halle besteht ein Abnahmevertrag über 15 Jahre für rund 60 Prozent der Produktion. Der Rest wird ins Netz eingespeist.","Die Finanzierungsrunde ist abgeschlossen. Investoren halten fungible Anteile mit einer Laufzeit von zwölf Jahren. Die Rückführung erfolgt aus den Stromerlösen."],"en":["The plant was commissioned in summer 2026. A 15-year purchase agreement with the hall operator covers around 60 percent of production. The remainder is fed into the grid.","The funding round is complete. Investors hold fungible shares with a term of twelve years. Repayment comes from electricity revenues."]}'::jsonb,
       '{"de":"Bau und Inbetriebnahme der Photovoltaikanlage.","en":"Construction and commissioning of the photovoltaic plant."}'::jsonb, '{"de":"Burgdorf BE","en":"Burgdorf BE"}'::jsonb,
       '{"de":["Die Stromerlöse hängen von Sonneneinstrahlung und Marktpreisen ab. Beides schwankt.","Fällt der Hallenbetreiber als Abnehmer aus, sinken die Erlöse."],"en":["Electricity revenues depend on solar irradiation and market prices. Both fluctuate.","If the hall operator ceases to purchase, revenues fall."]}'::jsonb,
-      'energy', 250000, 1000, 250000,
+      'energy', 250000, 100, 250000,
       '2026-06-30', 'funded', 'erc20',
       'guarantee', 'Abnahmevertrag mit dem Hallenbetreiber über 15 Jahre; keine Bankgarantie.'
     );
@@ -238,7 +238,7 @@ begin
       '{"de":["Die Schreinerei Huber beschäftigt 14 Mitarbeitende und plante den Ersatz von zwei CNC-Bearbeitungszentren. Die Finanzierungsrunde lief von Februar bis Mai 2026.","Bis zum Ende der Laufzeit wurden 34 Prozent des Zielbetrags erreicht. Gemäss Ablauf wurden keine Token ausgegeben. Alle Zahlungen wurden an die Investoren zurückerstattet."],"en":["Huber joinery employs 14 people and planned to replace two CNC machining centres. The funding round ran from February to May 2026.","By the end of the term, 34 percent of the target amount was reached. As per the process, no tokens were issued. All payments were refunded to investors."]}'::jsonb,
       '{"de":"Ersatz von zwei CNC-Bearbeitungszentren.","en":"Replacement of two CNC machining centres."}'::jsonb, '{"de":"Sursee LU","en":"Sursee LU"}'::jsonb,
       '{"de":["Investitionen in Produktionsmittel zahlen sich nur aus, wenn die Auftragslage stabil bleibt."],"en":["Investments in production equipment only pay off if the order situation remains stable."]}'::jsonb,
-      'company', 120000, 1000, 41000,
+      'company', 120000, 100, 41000,
       '2026-05-31', 'failed', 'erc20',
       'none', null
     );

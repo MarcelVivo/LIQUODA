@@ -36,7 +36,7 @@
     "hero": {
       "eyebrow": "Schweizer Vermittlungs- und Technologieplattform",
       "title": "Beteiligungen an realen Werten, strukturiert und nachvollziehbar.",
-      "lead": "LIQUODA bringt Emittenten und Investoren zusammen. Eigentümer von Unternehmen, Immobilien, Energieprojekten oder Sachwerten stellen ein Projekt vor. Privatpersonen können sich ab CHF 1'000 daran beteiligen. Anteile werden als Token auf der Polygon-Blockchain abgebildet.",
+      "lead": "LIQUODA bringt Emittenten und Investoren zusammen. Eigentümer von Unternehmen, Immobilien, Energieprojekten oder Sachwerten stellen ein Projekt vor. Privatpersonen können sich ab CHF 100 daran beteiligen. Anteile werden als Token auf der Polygon-Blockchain abgebildet.",
       "ctaInvestors": "Ablauf für Investoren",
       "ctaIssuers": "Für Emittenten",
       "note": "LIQUODA ist keine Bank, kein Vermögensverwalter und gibt keine Anlageberatung. Jede Beteiligung trägt ein unternehmerisches Risiko."
@@ -68,7 +68,7 @@
       "issuersText": "KMU, Unternehmer und Eigentümer von Immobilien, Energieprojekten oder Sachwerten wie Uhren, Kunst oder Fahrzeugen, die Kapital freisetzen möchten, ohne das Asset vollständig zu verkaufen.",
       "issuersLink": "Ablauf und Pakete ansehen",
       "investorsTitle": "Investoren",
-      "investorsText": "Privatpersonen, die sich mit CHF 1'000 bis 20'000 an realen Werten beteiligen möchten und dabei nachvollziehen wollen, wohin ihr Geld fliesst und welche Risiken bestehen.",
+      "investorsText": "Privatpersonen, die sich mit CHF 100 bis 20'000 an realen Werten beteiligen möchten und dabei nachvollziehen wollen, wohin ihr Geld fliesst und welche Risiken bestehen.",
       "investorsLink": "Ablauf für Investoren ansehen"
     },
     "steps": {
@@ -830,7 +830,7 @@
         "target": "Zielbetrag in CHF",
         "targetHint": "Ganze Franken, mindestens CHF 10'000.",
         "min": "Mindestbetrag pro Beteiligung in CHF",
-        "minHint": "Ganze Franken, zwischen CHF 100 und CHF 20'000.",
+        "minHint": "Ganze Franken, mindestens CHF 100, höchstens CHF 20'000.",
         "deadline": "Laufzeit bis",
         "deadlineHint": "Letzter Tag der Finanzierungsphase. Wird das Ziel bis dahin nicht erreicht, wird die Runde rückabgewickelt."
       },

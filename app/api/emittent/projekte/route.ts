@@ -22,7 +22,7 @@ export async function POST() {
       risks: { de: [], en: [] },
       asset_type: 'company',
       target_amount_chf: 10000,
-      min_investment_chf: 1000,
+      min_investment_chf: 100,
       deadline: deadline.toISOString().slice(0, 10),
       status: 'draft',
       token_model: 'erc20',

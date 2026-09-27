@@ -9,7 +9,7 @@
 LIQUODA ist eine **Schweizer, non-custodial Vermittlungs- und Technologieplattform** für die Tokenisierung realer Vermögenswerte. Sie bringt zwei Nutzergruppen zusammen:
 
 - **Emittenten**: KMU, Unternehmer, Eigentümer von Immobilien, Energieprojekten oder Sachwerten (Uhren, Kunst, Fahrzeuge), die Kapital freisetzen wollen, ohne das Asset vollständig zu verkaufen.
-- **Investoren**: Privatpersonen, die mit CHF 1'000 bis 20'000 nachvollziehbar in reale Werte investieren wollen.
+- **Investoren**: Privatpersonen, die mit CHF 100 bis 20'000 nachvollziehbar in reale Werte investieren wollen.
 
 Anteile werden als Token auf **Polygon** abgebildet. Die Plattform funktioniert wie ein Marktplatz (Prinzip Airbnb): zwei Perspektiven, ein gemeinsamer Prozess.
 

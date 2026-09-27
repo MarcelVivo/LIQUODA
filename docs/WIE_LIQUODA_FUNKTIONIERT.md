@@ -4,7 +4,7 @@ Stand: 26. September 2026, nach Abschluss des MVP (Etappen 1 bis 6).
 
 ## Die Idee in einem Satz
 
-Ein Emittent (z. B. eine Pizzeria) stellt ein Projekt vor, Investoren beteiligen sich mit CHF 1'000 bis 20'000, und jeder Investor erhält seine Anteile als fälschungssicheren digitalen Nachweis. LIQUODA vermittelt und stellt die Technik, verwahrt aber weder Geld noch Anteile.
+Ein Emittent (z. B. eine Pizzeria) stellt ein Projekt vor, Investoren beteiligen sich mit CHF 100 bis 20'000, und jeder Investor erhält seine Anteile als fälschungssicheren digitalen Nachweis. LIQUODA vermittelt und stellt die Technik, verwahrt aber weder Geld noch Anteile.
 
 ## Die drei Rollen
 
