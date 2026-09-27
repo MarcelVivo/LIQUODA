@@ -100,12 +100,13 @@ export default function KiAssistent({ projectId, editable, onChanged }: { projec
           });
         } else if (event.type === 'tool') {
           setActiveTool(event.status === 'start' ? event.name : null);
-          if (event.status !== 'start') {
-            setMessages((m) => {
-              const last = m[m.length - 1];
-              return m.slice(0, -1).concat({ ...last, tools: [...last.tools, { name: event.name, ok: event.status === 'ok' }] });
-            });
-          }
+          setMessages((m) => {
+            const last = m[m.length - 1];
+            // Textabschnitte vor und nach einer Aktion durch einen Absatz trennen
+            const text = event.status === 'start' && last.text && !last.text.endsWith('\n') ? `${last.text}\n\n` : last.text;
+            const tools = event.status === 'start' ? last.tools : [...last.tools, { name: event.name, ok: event.status === 'ok' }];
+            return m.slice(0, -1).concat({ ...last, text, tools });
+          });
         } else if (event.type === 'done') {
           changed = event.changed;
         } else if (event.type === 'error') {

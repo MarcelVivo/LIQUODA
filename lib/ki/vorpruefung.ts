@@ -40,7 +40,7 @@ const RESULT_SCHEMA = {
   required: ['verdict', 'score', 'summary', 'adminSummary', 'checks', 'documents', 'openPoints'],
   properties: {
     verdict: { type: 'string', enum: ['ready', 'needs_work', 'not_suitable'] },
-    score: { type: 'integer', minimum: 0, maximum: 100 },
+    score: { type: 'integer', description: 'Einreichungsreife 0 bis 100' },
     summary: { type: 'string' },
     adminSummary: { type: 'string' },
     checks: {
@@ -89,6 +89,7 @@ export function projectFacts(project: OwnProject, documents: DocumentRecord[]): 
     `Projektspezifische Risiken:\n${(project.risks?.de ?? []).map((r) => `- ${r}`).join('\n') || '(leer)'}`,
     `Zielbetrag: CHF ${Number(project.target_amount_chf)} · Mindestbetrag je Beteiligung: CHF ${Number(project.min_investment_chf)} · Laufzeit bis: ${project.deadline}`,
     `Absicherung: ${project.collateral_type}${project.collateral_note ? ` – ${project.collateral_note}` : ''}`,
+    `Englische Fassung vorhanden: Titel ${project.title.en ? 'ja' : 'nein'}, Kurzbeschreibung ${project.summary.en ? 'ja' : 'nein'}, Beschreibung ${(project.description?.en?.length ?? 0) > 0 ? 'ja' : 'nein'}, Verwendung ${project.purpose.en ? 'ja' : 'nein'}, Risiken ${(project.risks?.en?.length ?? 0) > 0 ? 'ja' : 'nein'} (Inhalt entspricht der deutschen Fassung; nicht separat prüfen)`,
     `Titelbild: ${project.cover_image_path ? 'vorhanden' : 'fehlt'} · Galerie: ${project.gallery_paths?.length ?? 0} Bilder`,
     `Dokumente (${documents.length}): ${documents.map((d) => `${d.title.de} [${DOC_LABEL[d.type] ?? d.type}, ${d.visibility === 'public' ? 'öffentlich' : 'nur angemeldet'}]`).join('; ') || 'keine'}`,
     `Pflichtdokumente für ${ASSET_LABEL[project.asset_type]}: ${REQUIRED_DOCUMENTS[project.asset_type].map((t) => DOC_LABEL[t]).join(', ')} · fehlend: ${missing.map((t) => DOC_LABEL[t]).join(', ') || 'keine'}`,
@@ -171,6 +172,7 @@ export async function runPrecheck(params: { project: OwnProject; documents: Docu
   if (message.stop_reason === 'refusal') throw new Error('precheck_refused');
   const text = message.content.filter((b): b is Anthropic.Beta.BetaTextBlock => b.type === 'text').map((b) => b.text).join('');
   const result = JSON.parse(text) as PrecheckResult;
+  result.score = Math.max(0, Math.min(100, Math.round(Number(result.score) || 0)));
 
   const admin = getSupabaseAdmin();
   const { data, error } = await admin

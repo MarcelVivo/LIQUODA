@@ -71,8 +71,9 @@ export function toDisplay(messages: MessageParam[]): KiDisplayMessage[] {
       if (results.length && out.length && out[out.length - 1].role === 'assistant') {
         const last = out[out.length - 1];
         // Erfolg je Werkzeug anhand des is_error-Flags nachtragen (Reihenfolge = Reihenfolge der tool_use-Blöcke)
+        const offset = last.tools.length - results.length;
         results.forEach((r, i) => {
-          if (last.tools[i]) last.tools[i].ok = !r.is_error;
+          if (offset >= 0 && last.tools[offset + i]) last.tools[offset + i].ok = !r.is_error;
         });
         continue;
       }
@@ -80,11 +81,17 @@ export function toDisplay(messages: MessageParam[]): KiDisplayMessage[] {
       if (texts.length) out.push({ role: 'user', text: texts.map((t) => t.text).join('\n'), tools: [] });
       continue;
     }
-    const text = blocks.filter((b): b is Anthropic.Beta.BetaTextBlockParam => b.type === 'text').map((b) => b.text).join('\n').trim();
+    const text = blocks.filter((b): b is Anthropic.Beta.BetaTextBlockParam => b.type === 'text').map((b) => b.text.trim()).filter(Boolean).join('\n\n');
     const tools = blocks
       .filter((b): b is Anthropic.Beta.BetaToolUseBlockParam => b.type === 'tool_use')
       .map((b) => ({ name: b.name as ToolName, ok: true }));
-    if (text || tools.length) out.push({ role: 'assistant', text, tools });
+    if (!text && !tools.length) continue;
+    const prev = out[out.length - 1];
+    // Aufeinanderfolgende Assistenten-Abschnitte (vor und nach einer Aktion) zu einer Blase zusammenfassen
+    if (prev?.role === 'assistant') {
+      prev.text = [prev.text, text].filter(Boolean).join('\n\n');
+      prev.tools.push(...tools);
+    } else out.push({ role: 'assistant', text, tools });
   }
   return out;
 }
