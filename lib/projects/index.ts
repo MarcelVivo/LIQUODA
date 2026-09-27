@@ -39,6 +39,7 @@ type ProjectRow = {
   cover_image_path?: string | null;
   gallery_paths?: string[] | null;
   issuer_avatar_path?: string | null;
+  issuer_slug?: string | null;
 };
 
 type DocumentRow = {
@@ -91,6 +92,7 @@ function toProject(row: ProjectRow, docs: DocumentRow[]): Project {
     coverImagePath: row.cover_image_path ?? null,
     galleryPaths: row.gallery_paths ?? [],
     issuerAvatarPath: row.issuer_avatar_path ?? null,
+    issuerSlug: row.issuer_slug ?? null,
     documents: docs
       .filter((d) => d.project_id === row.id)
       .sort((a, b) => a.created_at.localeCompare(b.created_at))

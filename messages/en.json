@@ -781,7 +781,9 @@
       "avatar": {
         "title": "Your logo or portrait (optional)",
         "lead": "Shown on your project pages next to your name and builds trust. Square, e.g. company logo or portrait of the responsible person."
-      }
+      },
+      "communication": "Updates and questions",
+      "profile": "Public profile"
     },
     "wizard": {
       "title": "Enter project",
@@ -941,7 +943,10 @@
       "assetType": "Asset type",
       "estimate": "Estimated amount",
       "description": "Description",
-      "refunded": "Refunded"
+      "refunded": "Refunded",
+      "question": "Question",
+      "answer": "Answer",
+      "updateTitle": "Title"
     },
     "kyc": {
       "approved": {
@@ -1051,6 +1056,26 @@
         "title": "Enquiry received",
         "body": "Thank you for your enquiry. LIQUODA reviews your details and responds with a first assessment. The enquiry creates no obligation."
       }
+    },
+    "update": {
+      "subject": "Update on {project}",
+      "title": "Update from the issuer",
+      "body": "The issuer has published an update on a project you participate in.",
+      "button": "Open project"
+    },
+    "question": {
+      "new": {
+        "subject": "New question about {project}",
+        "title": "New question from an investor",
+        "body": "An investor has asked a question about your project. Please answer it in the dashboard; the answer becomes public.",
+        "button": "Answer question"
+      },
+      "answered": {
+        "subject": "Answer to your question about {project}",
+        "title": "Your question has been answered",
+        "body": "The issuer has answered your question. The answer is visible on the project page.",
+        "button": "View answer"
+      }
     }
   },
   "images": {
@@ -1065,6 +1090,85 @@
       "gallery_full": "The gallery is full (at most 4 images).",
       "locked": "The project can no longer be edited.",
       "server": "The upload failed. Please try again."
+    }
+  },
+  "community": {
+    "profile": {
+      "metaTitle": "Issuer",
+      "verified": "Company verified",
+      "notVerified": "Verification pending",
+      "website": "Website",
+      "projects": "Projects by this issuer",
+      "since": "On LIQUODA since",
+      "noBio": "This issuer has not added a description yet.",
+      "noProjects": "No public projects yet.",
+      "linkFromProject": "Issuer profile"
+    },
+    "profileEdit": {
+      "title": "Your public profile",
+      "lead": "Visible on your project pages and under your profile link once a project is public. Factual and without statements about returns.",
+      "bioDe": "About us (DE)",
+      "bioEn": "About us (EN)",
+      "bioHint": "Who you are, what you do, since when. At most 1500 characters.",
+      "website": "Website",
+      "websiteHint": "Optional, with https://",
+      "save": "Save",
+      "saving": "Saving …",
+      "saved": "Saved",
+      "link": "Your profile link",
+      "errors": {
+        "website": "Please enter a valid address with https://.",
+        "server": "Saving failed."
+      }
+    },
+    "updates": {
+      "title": "Updates",
+      "empty": "No updates yet.",
+      "by": "From the issuer",
+      "write": "Write an update",
+      "titleDe": "Title (DE)",
+      "titleEn": "Title (EN)",
+      "bodyDe": "Text (DE)",
+      "bodyEn": "Text (EN)",
+      "bodyHint": "Separate paragraphs with a blank line. Sent by email to all investors of this project.",
+      "publish": "Publish and send",
+      "publishing": "Sending …",
+      "delete": "Delete",
+      "deleted": "Deleted",
+      "hidden": "Hidden by LIQUODA",
+      "notAllowed": "Updates are possible once the project is approved.",
+      "errors": {
+        "required": "Title and text are required.",
+        "server": "Saving failed."
+      }
+    },
+    "questions": {
+      "title": "Questions and answers",
+      "lead": "Answers come from the issuer. LIQUODA does not verify them.",
+      "empty": "No answered questions yet.",
+      "askTitle": "Question to the issuer",
+      "askLead": "After the answer your question is shown publicly without your name. Please do not include personal data.",
+      "placeholder": "Your question, 10 to 1000 characters",
+      "send": "Send question",
+      "sending": "Sending …",
+      "sent": "Question sent. You will receive an email once the issuer answers.",
+      "loginToAsk": "Log in as an investor to ask a question.",
+      "onlyOpen": "Questions are possible for open and funded projects.",
+      "asked": "Asked on",
+      "answered": "Answered on",
+      "investor": "An investor",
+      "emittent": "Issuer",
+      "open": "Open questions",
+      "answeredList": "Answered questions",
+      "answerLabel": "Your answer",
+      "answerHint": "Factual, at most 2000 characters. The answer becomes public and is emailed to the person who asked.",
+      "answer": "Answer",
+      "answering": "Sending …",
+      "noOpen": "No open questions.",
+      "errors": {
+        "length": "Please use 10 to 1000 characters.",
+        "server": "Sending failed."
+      }
     }
   },
   "legal": {

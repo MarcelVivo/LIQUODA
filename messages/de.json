@@ -781,7 +781,9 @@
       "avatar": {
         "title": "Ihr Logo oder Porträt (freiwillig)",
         "lead": "Wird auf Ihren Projektseiten neben Ihrem Namen gezeigt und schafft Vertrauen. Quadratisch, z. B. Firmenlogo oder Porträt der verantwortlichen Person."
-      }
+      },
+      "communication": "Neuigkeiten und Fragen",
+      "profile": "Öffentliches Profil"
     },
     "wizard": {
       "title": "Projekt erfassen",
@@ -941,7 +943,10 @@
       "assetType": "Art des Assets",
       "estimate": "Geschätzter Betrag",
       "description": "Beschreibung",
-      "refunded": "Erstattet"
+      "refunded": "Erstattet",
+      "question": "Frage",
+      "answer": "Antwort",
+      "updateTitle": "Titel"
     },
     "kyc": {
       "approved": {
@@ -1051,6 +1056,26 @@
         "title": "Anfrage erhalten",
         "body": "Vielen Dank für Ihre Anfrage. LIQUODA prüft Ihre Angaben und meldet sich mit einer ersten Einschätzung. Aus der Anfrage entsteht keine Verpflichtung."
       }
+    },
+    "update": {
+      "subject": "Neuigkeit zu {project}",
+      "title": "Neuigkeit vom Emittenten",
+      "body": "Der Emittent hat eine Neuigkeit zu einem Projekt veröffentlicht, an dem Sie beteiligt sind.",
+      "button": "Projekt öffnen"
+    },
+    "question": {
+      "new": {
+        "subject": "Neue Frage zu {project}",
+        "title": "Neue Frage eines Investors",
+        "body": "Ein Investor hat eine Frage zu Ihrem Projekt gestellt. Bitte beantworten Sie sie im Dashboard; die Antwort wird öffentlich sichtbar.",
+        "button": "Frage beantworten"
+      },
+      "answered": {
+        "subject": "Antwort auf Ihre Frage zu {project}",
+        "title": "Ihre Frage wurde beantwortet",
+        "body": "Der Emittent hat Ihre Frage beantwortet. Die Antwort ist auf der Projektseite sichtbar.",
+        "button": "Antwort ansehen"
+      }
     }
   },
   "images": {
@@ -1065,6 +1090,85 @@
       "gallery_full": "Die Galerie ist voll (maximal 4 Bilder).",
       "locked": "Das Projekt kann nicht mehr bearbeitet werden.",
       "server": "Der Upload ist fehlgeschlagen. Bitte versuchen Sie es erneut."
+    }
+  },
+  "community": {
+    "profile": {
+      "metaTitle": "Emittent",
+      "verified": "Unternehmen geprüft",
+      "notVerified": "Prüfung ausstehend",
+      "website": "Website",
+      "projects": "Projekte dieses Emittenten",
+      "since": "Auf LIQUODA seit",
+      "noBio": "Dieser Emittent hat noch keine Beschreibung hinterlegt.",
+      "noProjects": "Noch keine öffentlichen Projekte.",
+      "linkFromProject": "Profil des Emittenten"
+    },
+    "profileEdit": {
+      "title": "Ihr öffentliches Profil",
+      "lead": "Sichtbar auf Ihren Projektseiten und unter Ihrem Profil-Link, sobald ein Projekt öffentlich ist. Sachlich und ohne Renditeaussagen.",
+      "bioDe": "Über uns (DE)",
+      "bioEn": "Über uns (EN)",
+      "bioHint": "Wer Sie sind, was Sie tun, seit wann. Maximal 1500 Zeichen.",
+      "website": "Website",
+      "websiteHint": "Optional, mit https://",
+      "save": "Speichern",
+      "saving": "Wird gespeichert …",
+      "saved": "Gespeichert",
+      "link": "Ihr Profil-Link",
+      "errors": {
+        "website": "Bitte eine gültige Adresse mit https:// eingeben.",
+        "server": "Speichern fehlgeschlagen."
+      }
+    },
+    "updates": {
+      "title": "Neuigkeiten",
+      "empty": "Noch keine Neuigkeiten.",
+      "by": "Vom Emittenten",
+      "write": "Neuigkeit schreiben",
+      "titleDe": "Titel (DE)",
+      "titleEn": "Titel (EN)",
+      "bodyDe": "Text (DE)",
+      "bodyEn": "Text (EN)",
+      "bodyHint": "Absätze durch Leerzeile trennen. Wird an alle Investoren dieses Projekts per E-Mail gesendet.",
+      "publish": "Veröffentlichen und senden",
+      "publishing": "Wird gesendet …",
+      "delete": "Löschen",
+      "deleted": "Gelöscht",
+      "hidden": "Von LIQUODA ausgeblendet",
+      "notAllowed": "Neuigkeiten sind möglich, sobald das Projekt freigegeben ist.",
+      "errors": {
+        "required": "Titel und Text sind Pflicht.",
+        "server": "Speichern fehlgeschlagen."
+      }
+    },
+    "questions": {
+      "title": "Fragen und Antworten",
+      "lead": "Antworten stammen vom Emittenten. LIQUODA prüft sie nicht auf Richtigkeit.",
+      "empty": "Noch keine beantworteten Fragen.",
+      "askTitle": "Frage an den Emittenten",
+      "askLead": "Ihre Frage wird nach der Antwort ohne Ihren Namen öffentlich angezeigt. Bitte keine persönlichen Daten.",
+      "placeholder": "Ihre Frage, 10 bis 1000 Zeichen",
+      "send": "Frage senden",
+      "sending": "Wird gesendet …",
+      "sent": "Frage gesendet. Sie erhalten eine E-Mail, sobald der Emittent antwortet.",
+      "loginToAsk": "Melden Sie sich als Investor an, um eine Frage zu stellen.",
+      "onlyOpen": "Fragen sind bei offenen und finanzierten Projekten möglich.",
+      "asked": "Gefragt am",
+      "answered": "Beantwortet am",
+      "investor": "Ein Investor",
+      "emittent": "Emittent",
+      "open": "Offene Fragen",
+      "answeredList": "Beantwortete Fragen",
+      "answerLabel": "Ihre Antwort",
+      "answerHint": "Sachlich, maximal 2000 Zeichen. Die Antwort wird öffentlich sichtbar und dem Fragesteller per E-Mail gesendet.",
+      "answer": "Antworten",
+      "answering": "Wird gesendet …",
+      "noOpen": "Keine offenen Fragen.",
+      "errors": {
+        "length": "Bitte 10 bis 1000 Zeichen.",
+        "server": "Senden fehlgeschlagen."
+      }
     }
   },
   "legal": {

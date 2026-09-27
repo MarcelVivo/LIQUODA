@@ -42,7 +42,10 @@ export default async function EmittentDashboard({ account }: { account: Account 
 
       <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
         <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{t('projects')}</h2>
-        <NewProjectButton />
+        <div className="flex flex-wrap items-center gap-3">
+          <Link href="/emittent/profil" className="liq-link text-sm font-semibold text-navy">{t('profile')}</Link>
+          <NewProjectButton />
+        </div>
       </div>
 
       {projects.length === 0 ? (
@@ -88,9 +91,14 @@ export default async function EmittentDashboard({ account }: { account: Account 
                   {p.status === 'draft' ? t('edit') : t('open')}
                 </Link>
                 {PUBLIC.includes(p.status) && (
-                  <Link href={`/projekte/${p.slug}`} className="liq-link text-muted">
-                    {t('view')}
-                  </Link>
+                  <>
+                    <Link href={`/projekte/${p.slug}`} className="liq-link text-muted">
+                      {t('view')}
+                    </Link>
+                    <Link href={`/emittent/projekte/${p.id}/kommunikation`} className="liq-link text-muted">
+                      {t('communication')}
+                    </Link>
+                  </>
                 )}
               </div>
             </li>

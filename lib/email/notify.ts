@@ -196,6 +196,70 @@ export async function notifyInvestmentRefunded(investmentId: string, refundedChf
   await sendMail({ to: user.email, subject: t('investment.refunded.subject', { project: title }), ...mail, template: 'investment.refunded', locale: user.locale, entity: 'investments', entityId: inv.id });
 }
 
+/** Neuigkeit veröffentlicht: alle bezahlten/bestätigten Investoren des Projekts informieren. */
+export async function notifyProjectUpdate(updateId: string): Promise<void> {
+  const admin = getSupabaseAdmin();
+  const { data: upd } = await admin.from('project_updates').select('id, project_id, title, body').eq('id', updateId).maybeSingle();
+  if (!upd) return;
+  const project = await loadProject(upd.project_id);
+  if (!project) return;
+  const { data: invs } = await admin.from('investments').select('investor_id').eq('project_id', project.id).in('status', ['paid', 'confirmed']);
+  const investorIds = Array.from(new Set((invs ?? []).map((i) => i.investor_id as string)));
+  for (const id of investorIds) {
+    const user = await loadUser(id);
+    if (!user) continue;
+    const t = await getTranslations({ locale: user.locale, namespace: 'email' });
+    const title = (upd.title as Record<string, string>)[user.locale] ?? (upd.title as Record<string, string>).de;
+    const bodyParas = ((upd.body as Record<string, string[]>)[user.locale] ?? (upd.body as Record<string, string[]>).de ?? []).join('\n\n');
+    const projectTitle = project.title[user.locale] ?? project.title.de;
+    const mail = await compose({
+      locale: user.locale, name: user.name, title: t('update.title'), body: t('update.body'),
+      note: `${title}\n\n${bodyParas}`,
+      facts: [{ label: t('labels.project'), value: projectTitle }],
+      button: { label: t('update.button'), href: localeUrl(user.locale, `/projekte/${project.slug}`) },
+    });
+    await sendMail({ to: user.email, subject: t('update.subject', { project: projectTitle }), ...mail, template: 'update', locale: user.locale, entity: 'project_updates', entityId: upd.id });
+  }
+}
+
+/** Neue Frage: Emittent informieren. */
+export async function notifyQuestionNew(questionId: string): Promise<void> {
+  const admin = getSupabaseAdmin();
+  const { data: q } = await admin.from('project_questions').select('id, project_id, question').eq('id', questionId).maybeSingle();
+  if (!q) return;
+  const project = await loadProject(q.project_id);
+  if (!project) return;
+  const user = await loadUser(project.emittent_id);
+  if (!user) return;
+  const t = await getTranslations({ locale: user.locale, namespace: 'email' });
+  const projectTitle = project.title[user.locale] ?? project.title.de;
+  const mail = await compose({
+    locale: user.locale, name: user.name, title: t('question.new.title'), body: t('question.new.body'),
+    note: `${t('labels.question')}: ${q.question}`,
+    facts: [{ label: t('labels.project'), value: projectTitle }],
+    button: { label: t('question.new.button'), href: localeUrl(user.locale, `/emittent/projekte/${project.id}/kommunikation`) },
+  });
+  await sendMail({ to: user.email, subject: t('question.new.subject', { project: projectTitle }), ...mail, template: 'question.new', locale: user.locale, entity: 'project_questions', entityId: q.id });
+}
+
+/** Frage beantwortet: Fragesteller informieren. */
+export async function notifyQuestionAnswered(questionId: string): Promise<void> {
+  const admin = getSupabaseAdmin();
+  const { data: q } = await admin.from('project_questions').select('id, project_id, investor_id, question, answer').eq('id', questionId).maybeSingle();
+  if (!q || !q.answer) return;
+  const [project, user] = await Promise.all([loadProject(q.project_id), loadUser(q.investor_id)]);
+  if (!project || !user) return;
+  const t = await getTranslations({ locale: user.locale, namespace: 'email' });
+  const projectTitle = project.title[user.locale] ?? project.title.de;
+  const mail = await compose({
+    locale: user.locale, name: user.name, title: t('question.answered.title'), body: t('question.answered.body'),
+    note: `${t('labels.question')}: ${q.question}\n\n${t('labels.answer')}: ${q.answer}`,
+    facts: [{ label: t('labels.project'), value: projectTitle }],
+    button: { label: t('question.answered.button'), href: localeUrl(user.locale, `/projekte/${project.slug}#fragen`) },
+  });
+  await sendMail({ to: user.email, subject: t('question.answered.subject', { project: projectTitle }), ...mail, template: 'question.answered', locale: user.locale, entity: 'project_questions', entityId: q.id });
+}
+
 /** Projektanfrage von der Seite «Für Emittenten»: an LIQUODA plus Eingangsbestätigung. */
 export async function notifyProjectRequest(data: {
   name: string; company: string | null; email: string; assetType: string; amount: number | null; description: string; locale: Locale;

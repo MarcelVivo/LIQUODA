@@ -6,6 +6,7 @@ import ProjectActions from '../../_components/ProjectActions';
 import { DeployTokenButton, MintButton, RefundButton } from '../../_components/TokenActions';
 import { explorerAddress, explorerTx } from '@/lib/chain/config';
 import { imageUrl } from '@/lib/images';
+import ModerationButtons from '../../_components/ModerationButtons';
 import { card, chf, dt, STATUS_LABEL, KYC_LABEL } from '../../_lib';
 
 export const dynamic = 'force-dynamic';
@@ -22,6 +23,8 @@ type Project = {
 };
 type Doc = { id: string; type: string; title: L; version: number; sha256_hash: string | null; created_at: string };
 type Inv = { id: string; amount_chf: number; status: string; created_at: string; refund_status: string | null; refund_error: string | null; investor: { name: string; email: string; kyc_status: string; wallet_address: string | null } | null; token_references: { tx_hash: string; token_amount: number }[] };
+type Upd = { id: string; title: { de: string }; hidden: boolean; created_at: string };
+type Q = { id: string; question: string; answer: string | null; hidden: boolean; created_at: string };
 type Audit = { id: number; actor_label: string | null; action: string; old_value: string | null; new_value: string | null; created_at: string };
 
 export default async function AdminProjectDetail({ params }: { params: { id: string } }) {
@@ -33,6 +36,10 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
     .maybeSingle();
   if (!data) notFound();
   const p = data as unknown as Project;
+  const [{ data: updates }, { data: questions }] = await Promise.all([
+    admin.from('project_updates').select('id, title, hidden, created_at').eq('project_id', p.id).order('created_at', { ascending: false }),
+    admin.from('project_questions').select('id, question, answer, hidden, created_at').eq('project_id', p.id).order('created_at', { ascending: false }),
+  ]);
   const [{ data: docs }, { data: invs }, { data: audit }] = await Promise.all([
     admin.from('documents').select('id, type, title, version, sha256_hash, created_at').eq('project_id', p.id).is('investment_id', null).order('created_at'),
     admin.from('investments').select('id, amount_chf, status, created_at, refund_status, refund_error, token_references(tx_hash, token_amount), investor:users!investments_investor_id_fkey(name, email, kyc_status, wallet_address)').eq('project_id', p.id).order('created_at', { ascending: false }),
@@ -113,6 +120,25 @@ export default async function AdminProjectDetail({ params }: { params: { id: str
                   ))}
                 </ul>
               )}
+            </div>
+
+            <div className={`${card} p-6`}>
+              <p className={label}>Neuigkeiten und Fragen</p>
+              <ul className="mt-3 space-y-2 text-sm">
+                {((updates ?? []) as Upd[]).map((u) => (
+                  <li key={u.id} className="flex items-start justify-between gap-3">
+                    <span>{u.hidden && <span className="text-gray-400">[ausgeblendet] </span>}<b>Neuigkeit:</b> {u.title.de} <span className="text-xs text-gray-400">{dt(u.created_at)}</span></span>
+                    <ModerationButtons type="update" id={u.id} hidden={u.hidden} />
+                  </li>
+                ))}
+                {((questions ?? []) as Q[]).map((q) => (
+                  <li key={q.id} className="flex items-start justify-between gap-3">
+                    <span>{q.hidden && <span className="text-gray-400">[ausgeblendet] </span>}<b>Frage:</b> {q.question} {q.answer ? <span className="text-gray-500">→ {q.answer}</span> : <span className="text-amber-700">(offen)</span>}</span>
+                    <ModerationButtons type="question" id={q.id} hidden={q.hidden} />
+                  </li>
+                ))}
+                {!(updates?.length || questions?.length) && <li className="text-gray-400">Keine Einträge.</li>}
+              </ul>
             </div>
 
             <div className={`${card} p-6`}>

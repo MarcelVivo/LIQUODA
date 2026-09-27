@@ -15,6 +15,9 @@ import { getAccount } from '@/lib/supabase/server';
 import { explorerToken } from '@/lib/chain/config';
 import ProjectImage from '@/components/images/ProjectImage';
 import { imageUrl } from '@/lib/images';
+import ProjectCommunity from '@/components/community/ProjectCommunity';
+import { getEmittentById } from '@/lib/community';
+import { getOwnProfile } from '@/lib/investments';
 import { getProjectBySlug, progressPercent, publicStatus, type Locale } from '@/lib/projects';
 
 type Params = { locale: string; slug: string };
@@ -40,6 +43,8 @@ export default async function ProjectPage({ params }: { params: Params }) {
   const statusNoteKey = project.status === 'failed' ? 'failed' : status;
   const investable = status === 'open' && days >= 0;
   const account = await getAccount();
+  const viewerRole = account ? ((await getOwnProfile(account.authId))?.role ?? null) : null;
+  const tCommunity = await getTranslations('community');
 
   return (
     <>
@@ -66,6 +71,12 @@ export default async function ProjectPage({ params }: { params: Params }) {
           <span>
             {t('detail.issuer')}: <span className="font-semibold text-navy">{project.issuerName}</span> ·{' '}
             {project.location[locale]}
+            {project.issuerSlug && (
+              <>
+                {' · '}
+                <Link href={`/emittenten/${project.issuerSlug}`} className="liq-link text-navy">{tCommunity('profile.linkFromProject')}</Link>
+              </>
+            )}
           </span>
         </p>
         <div className="mt-8 aspect-[21/9] w-full overflow-hidden rounded-2xl shadow-card">
@@ -118,6 +129,8 @@ export default async function ProjectPage({ params }: { params: Params }) {
             </div>
 
             <RiskNotes projectRisks={project.risks} />
+
+            <ProjectCommunity projectId={project.id} projectOpen={status === 'open' || status === 'funded'} viewerRole={viewerRole as 'investor' | 'emittent' | 'admin' | null} />
           </div>
 
           {/* Eckdaten und CTA */}

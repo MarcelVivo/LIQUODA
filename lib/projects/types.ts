@@ -63,6 +63,7 @@ export interface Project {
   coverImagePath: string | null;
   galleryPaths: string[];
   issuerAvatarPath: string | null;
+  issuerSlug: string | null;
   documents: ProjectDocument[];
   risks: Localized[]; // projektspezifische Risiken, ergänzend zu den allgemeinen Hinweisen
 }
