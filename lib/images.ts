@@ -6,9 +6,10 @@ export const IMAGE_MAX_BYTES = 10 * 1024 * 1024;
 export const GALLERY_MAX = 4;
 export const IMAGE_MIME: Record<string, string> = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp' };
 
-/** Öffentliche URL eines Bildpfads (oder null). */
+/** Öffentliche URL eines Storage-Pfads oder eines mitgelieferten Beispielbilds (oder null). */
 export function imageUrl(path: string | null | undefined): string | null {
   if (!path) return null;
+  if (/^\/images\/examples\/[a-z0-9-]+\.webp$/.test(path)) return path;
   const base = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, '');
   return base ? `${base}/storage/v1/object/public/${IMAGE_BUCKET}/${path}` : null;
 }
@@ -28,6 +29,6 @@ export async function storeImage(folder: string, file: File): Promise<{ ok: true
 }
 
 export async function removeImage(path: string | null | undefined): Promise<void> {
-  if (!path) return;
+  if (!path || path.startsWith('/images/examples/')) return;
   await getSupabaseAdmin().storage.from(IMAGE_BUCKET).remove([path]);
 }

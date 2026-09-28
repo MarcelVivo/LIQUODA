@@ -3,7 +3,7 @@ import type { AssetType } from '@/lib/projects/types';
 
 const icons = { company: Building2, real_estate: Home, energy: Sun, collectible: Gem } as const;
 
-/** Titelbild eines Projekts oder ein ruhiger Platzhalter mit Asset-Symbol (Beispielprojekte ohne Bild). */
+/** Titelbild eines Projekts oder ein ruhiger Platzhalter mit Asset-Symbol, solange kein Bild vorliegt. */
 export default function ProjectImage({
   url,
   alt,

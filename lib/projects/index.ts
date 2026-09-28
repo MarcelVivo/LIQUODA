@@ -71,6 +71,11 @@ function toLocalizedList(value: { de: string[]; en?: string[] }): Project['descr
 }
 
 function toProject(row: ProjectRow, docs: DocumentRow[]): Project {
+  // Bereits angelegte Beispiele ohne Upload nutzen die mitgelieferten Bilder.
+  // Nur das Bild ergänzen: Projekt-ID und alle Projektdaten stammen weiterhin aus der DB.
+  const example = exampleProjects.find((p) =>
+    p.slug === row.slug && p.title.de === row.title.de && p.issuerName === row.issuer_name
+  );
   return {
     id: row.id,
     slug: row.slug,
@@ -91,7 +96,7 @@ function toProject(row: ProjectRow, docs: DocumentRow[]): Project {
     collateralNote: row.collateral_note ?? null,
     tokenContractAddress: row.token_contract_address ?? null,
     tokenSymbol: row.token_symbol ?? null,
-    coverImagePath: row.cover_image_path ?? null,
+    coverImagePath: row.cover_image_path ?? example?.coverImagePath ?? null,
     galleryPaths: row.gallery_paths ?? [],
     issuerAvatarPath: row.issuer_avatar_path ?? null,
     issuerSlug: row.issuer_slug ?? null,

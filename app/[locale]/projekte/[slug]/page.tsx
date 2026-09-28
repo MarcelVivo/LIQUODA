@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
             )}
           </span>
         </p>
-        <div className="mt-8 aspect-[21/9] w-full overflow-hidden rounded-2xl shadow-card">
+        <div className="mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl shadow-card sm:aspect-[2/1]">
           <ProjectImage url={imageUrl(project.coverImagePath)} alt={project.title[locale]} assetType={project.assetType} priority />
         </div>
         {project.galleryPaths.length > 0 && (

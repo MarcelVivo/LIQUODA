@@ -20,7 +20,8 @@ const q = (v) => "'" + String(v).replace(/'/g, "''") + "'";
 const j = (v) => q(JSON.stringify(v)) + '::jsonb';
 
 let out = `-- LIQUODA – Beispieldaten für den Marktplatz
--- Erzeugt aus lib/projects/example-data.ts (npm run seed:generate). Idempotent: bestehende Einträge werden übersprungen.
+-- Erzeugt aus lib/projects/example-data.ts (npm run seed:generate). Idempotent: bestehende Einträge bleiben erhalten;
+-- nur fehlende Titelbilder der zugehörigen Demo-Emittenten werden ergänzt.
 -- Ausführen: supabase db push --include-seed   (oder Inhalt im SQL-Editor ausführen)
 --
 -- Für jedes Projekt wird ein Demo-Emittent in auth.users angelegt (bestätigt, zufälliges
@@ -56,7 +57,7 @@ exampleProjects.forEach((p, i) => {
     insert into public.projects (
       slug, emittent_id, title, summary, description, purpose, location, risks,
       asset_type, target_amount_chf, min_investment_chf, raised_amount_chf, deadline, status, token_model,
-      collateral_type, collateral_note
+      collateral_type, collateral_note, cover_image_path
     ) values (
       ${q(p.slug)}, v_user, ${j(p.title)}, ${j(p.summary)},
       ${j({ de: p.description.map((d) => d.de), en: p.description.map((d) => d.en) })},
@@ -64,7 +65,7 @@ exampleProjects.forEach((p, i) => {
       ${j({ de: p.risks.map((r) => r.de), en: p.risks.map((r) => r.en) })},
       ${q(p.assetType)}, ${p.targetAmountChf}, ${p.minInvestmentChf}, ${p.raisedAmountChf},
       ${q(p.deadline)}, ${q(p.status)}, ${q(p.tokenModel)},
-      ${q(p.collateralType || 'none')}, ${p.collateralNote ? q(p.collateralNote) : 'null'}
+      ${q(p.collateralType || 'none')}, ${p.collateralNote ? q(p.collateralNote) : 'null'}, ${p.coverImagePath ? q(p.coverImagePath) : 'null'}
     );
     insert into public.documents (project_id, type, title, version, created_at)
     select id, d.type::public.document_type, d.title, d.version, d.created_at
@@ -73,6 +74,10 @@ ${p.documents.map((d) => `        (${q(d.type)}, ${j(d.title)}, ${d.version}, ${
       ) as d(type, title, version, created_at)
      where slug = ${q(p.slug)};
   end if;
+
+  update public.projects
+     set cover_image_path = ${p.coverImagePath ? q(p.coverImagePath) : 'null'}
+   where slug = ${q(p.slug)} and emittent_id = v_user and cover_image_path is null;
 `;
 });
 out += `end $$;\n`;
