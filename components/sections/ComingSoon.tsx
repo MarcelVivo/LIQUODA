@@ -53,7 +53,8 @@ const copy = {
     errorEmail: 'Ungültige E-Mail-Adresse',
     impressumTitle: 'Impressum',
     impressumContent: [
-      'Marcel Spahr',
+      'Marcel Spahr Digital',
+      'Inhaber: Marcel Spahr',
       'Schwarzenburgstrasse 65',
       '3008 Bern',
       'info@liquoda.com',
@@ -61,7 +62,7 @@ const copy = {
     ],
     datenschutzTitle: 'Datenschutzerklärung',
     datenschutzContent:
-      'LIQUODA, betrieben von Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, erhebt bei der Pre-Registrierung folgende Daten: Vorname, Nachname und E-Mail-Adresse. Diese Daten werden ausschliesslich verwendet, um dich über den Launch der Plattform zu informieren und dich bei Bedarf zu kontaktieren. Deine Daten werden nicht an Dritte weitergegeben und nicht für Werbezwecke genutzt. Du hast jederzeit das Recht auf Auskunft, Berichtigung oder Löschung deiner Daten. Kontakt: info@liquoda.com.',
+      'LIQUODA, betrieben von Marcel Spahr Digital, Schwarzenburgstrasse 65, 3008 Bern, erhebt bei der Pre-Registrierung folgende Daten: Vorname, Nachname und E-Mail-Adresse. Diese Daten werden ausschliesslich verwendet, um dich über den Launch der Plattform zu informieren und dich bei Bedarf zu kontaktieren. Deine Daten werden nicht an Dritte weitergegeben und nicht für Werbezwecke genutzt. Du hast jederzeit das Recht auf Auskunft, Berichtigung oder Löschung deiner Daten. Kontakt: info@liquoda.com.',
   },
   en: {
     banner: 'LIQUODA launches soon. Be among the first to tokenize or invest in real assets.',
@@ -94,7 +95,8 @@ const copy = {
     errorEmail: 'Invalid email address',
     impressumTitle: 'Legal Notice',
     impressumContent: [
-      'Marcel Spahr',
+      'Marcel Spahr Digital',
+      'Owner: Marcel Spahr',
       'Schwarzenburgstrasse 65',
       '3008 Bern',
       'info@liquoda.com',
@@ -102,7 +104,7 @@ const copy = {
     ],
     datenschutzTitle: 'Privacy Policy',
     datenschutzContent:
-      'LIQUODA, operated by Marcel Spahr, Schwarzenburgstrasse 65, 3008 Bern, collects the following data during pre-registration: first name, last name, and email address. This data is used exclusively to inform you about the platform launch and to contact you if necessary. Your data will not be shared with third parties or used for advertising purposes. You have the right to access, correct, or delete your data at any time. Contact: info@liquoda.com.',
+      'LIQUODA, operated by Marcel Spahr Digital, Schwarzenburgstrasse 65, 3008 Bern, collects the following data during pre-registration: first name, last name, and email address. This data is used exclusively to inform you about the platform launch and to contact you if necessary. Your data will not be shared with third parties or used for advertising purposes. You have the right to access, correct, or delete your data at any time. Contact: info@liquoda.com.',
   },
 };
 
